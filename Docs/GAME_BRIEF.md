@@ -1,6 +1,6 @@
 # MythicRoguelite — Game Brief
 
-**Status:** Draft v0.3 — initial documentation pass; environment style locked (`ART_BIBLE.md` §0); telegraph colour, prototype scope and asset folders resolved (`ART_BIBLE.md` §0.9)
+**Status:** Draft v0.4 — initial documentation pass; environment style locked (`ART_BIBLE.md` §0); telegraph, prototype scope, subject, footprint and asset folders resolved (`ART_BIBLE.md` §0.9)
 **Baseline:** repo `main` @ `a061e7e` (Paladin player + recoloured Paladin enemy verified in `PrototypeArena`)
 **Owner:** Creative Director (Nishant) · **Maintained by:** Game Director
 
@@ -27,6 +27,9 @@
 - **Combat telegraph colour (Q15):** bright cyan-teal, with a clear shape, readable fill and animated windup progression. Colour is never the only danger signal.
 - **First environment prototype (Q16):** one compact, handcrafted temple courtyard — worn stone floor and open combat space, a short staircase or raised platform, four varied substantial pillars, one monumental entrance arch, one central or rear altar/statue focal point — evaluated from the real elevated three-quarter gameplay camera.
 - **Environment asset folders (Q17):** `Art/Blender/` for sources; `Assets/Environment/{Models, Materials, Textures, Prefabs}` for Unity assets.
+- **Telegraph specification (Q18):** fill `#27DCD1` at approximately 22–28 % opacity, edge `#9BFFF6`, a defined attack shape, a fill that progressively reveals the danger area through the windup, rising intensity near the strike. Tested on environment materials and in greyscale. A visual-only demonstration in a separate environment art-test scene is authorised; the combat telegraph scripts stay unchanged until it has been reviewed (`ART_BIBLE.md` §4.3.1).
+- **Prototype subject (Q19):** abstract mythological architecture (celestial geometry, weathered reliefs, symbolic patterns). No specific deity or culture; the real mythology stays open (Q1).
+- **Prototype footprint (Q20):** reuse the existing `PrototypeArena` footprint and camera settings, keeping an approximately 20 m-diameter central combat area free of pillars, stairs and obstructive props, with landmarks around it. The gameplay scene is not resized.
 
 **[OPEN]** Working title is the project name `MythicRoguelite`; a shipping title has not been chosen.
 
@@ -68,7 +71,7 @@ These restate the confirmed pillars as testable goals; they add no new creative 
 | Player attack | range 1.8 m, ±58° arc, cooldown 0.35 s, 25 dmg, 4.5 knockback, hold-to-repeat | `PlayerCombat` |
 | Enemy (single melee "training dummy") | approach 3.2 m/s, attack range 2.15 m, ±58° arc, **windup 0.78 s**, recovery 0.4 s, cooldown 1.9 s, 12 dmg, 150 HP, windup armour on | `TrainingDummy` |
 | Telegraph (current) | Enemy tint shifts to orange + attack FX during windup. Prototype behaviour; unchanged. | `TrainingDummy`, `CharacterTintFeedback`, `CombatFx` |
-| Telegraph (decided target) | **[LOCKED]** Bright cyan-teal with clear shape, readable fill and animated windup; colour is never the only signal. **Not yet implemented**; changing combat scripts requires a separate authorised task. | `ART_BIBLE.md` §4.3 |
+| Telegraph (decided target) | **[LOCKED]** Bright cyan-teal (fill `#27DCD1` ≈22–28 %, edge `#9BFFF6`) with a clear shape, progressive reveal and rising strike intensity; colour is never the only signal. **Not yet implemented**: only a visual-only demo in a separate scene is authorised; combat scripts stay unchanged until it is reviewed. | `ART_BIBLE.md` §4.3.1 |
 | Encounter | One enemy in a walled arena; win/lose; `R` restarts in place | `ArenaEncounter` |
 | Input | Unity Input System; WASD, Space dash, LMB/Enter attack | `PrototypeInput`, `InputSystem_Actions.inputactions` |
 | Characters | Mixamo "Paladin J Nordstrom" (player) and a recoloured copy (enemy); 21 Mixamo clips; no dedicated dash clip (roll used as stand-in) | `Assets/Characters/Player/README.md` |
@@ -85,7 +88,7 @@ These restate the confirmed pillars as testable goals; they add no new creative 
 
 **[OPEN]** Number of biomes/regions, enemy count, run length, vertical-slice definition, and platform targets are undecided.
 
-**[OBSERVED]** Existing content is a greybox: `PrototypeArena` (40×40 m floor, 3 m walls, four 1.4×1.4×3 m pillars, one enemy) and `CharacterRigTest`. `SampleScene` is the Unity template scene and the only scene currently enabled in Build Settings.
+**[OBSERVED]** Existing content is a greybox: `PrototypeArena` (40×40 m floor; 3 m walls whose inner faces are at ±19.5 m, a 39×39 m interior; four 1.4×1.4×3 m pillars at (±8, ±8); one enemy) and `CharacterRigTest`. `SampleScene` is the Unity template scene and the only scene currently enabled in Build Settings.
 
 ## 8. Team and responsibilities (summary)
 
@@ -117,4 +120,4 @@ The full list with context for the creative director is also reported alongside 
 | Q8 | Source control for large binaries (Git LFS or not); whether `Art/` is tracked | Repo health |
 | Q9 | Placeholder asset licensing review (Mixamo character/animations) | Shippability of current prototype assets |
 
-*Further open items live in `ART_BIBLE.md` §12 and `TECHNICAL_OVERVIEW.md` §10. `ART_BIBLE.md` Q15 (telegraph colour), Q16 (environment prototype scope) and Q17 (asset folders) are **resolved**. New open items: Q18 (telegraph specification details and implementation authorisation), Q19 (subject/ornament of the prototype's altar/statue/arch) and Q20 (prototype dimensions and clear combat space).*
+*Further open items live in `ART_BIBLE.md` §12 and `TECHNICAL_OVERVIEW.md` §10. `ART_BIBLE.md` Q15 (telegraph colour), Q16 (environment prototype scope), Q17 (asset folders), Q18 (telegraph specification), Q19 (prototype subject) and Q20 (prototype footprint and clear combat zone) are **resolved**. The one new open item is Q21 (residual telegraph details: strike-intensity values, reveal direction, attack shapes, non-colour cues, fate of the orange tint). The Environment Artist handoff is `ART_BIBLE.md` §11.3.*

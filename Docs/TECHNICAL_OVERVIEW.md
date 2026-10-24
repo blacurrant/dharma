@@ -1,6 +1,6 @@
 # MythicRoguelite — Technical Overview
 
-**Status:** Draft v0.3 — links the locked environment style; records the resolved asset-folder structure
+**Status:** Draft v0.4 — links the locked environment style; records the resolved asset folders, prototype footprint and telegraph specification
 **Baseline:** repo `main` @ `a061e7e` · **Maintained by:** Game Director · **Primary users:** Unity Engineer, Environment Artist
 
 > **Tags.** **[OBSERVED]** read directly from the project/tools in this pass · **[EXISTING]** convention already written in the repo (`Art/README.md`, `Assets/Characters/Player/README.md`) · **[PROPOSED]** suggested convention awaiting sign-off by the two roles named · **[OPEN]** undecided.
@@ -86,7 +86,7 @@ Documented in `Assets/Characters/Player/README.md`: Mixamo Humanoid, `Animator.a
 
 ### 3.6 Known technical notes **[OBSERVED]**
 - Camera is orthographic (`size 11`, offset `(12,18,−12)`); projection decision is **[OPEN]**.
-- **Telegraph:** currently an orange tint on the enemy during windup (`CharacterTintFeedback`, `TrainingDummy`). The decided target is bright cyan-teal with clear shape, readable fill and animated windup (`ART_BIBLE.md` §4.3, **[LOCKED]**). **Combat scripts are not authorised to change yet**; the implementation is a separate task (`ART_BIBLE.md` Q18 / T17).
+- **Telegraph:** *current prototype behaviour* is an orange tint on the enemy during windup (`CharacterTintFeedback`, `TrainingDummy`). The *approved target style* **[LOCKED]** is bright cyan-teal: fill `#27DCD1` at ≈22–28 %, edge `#9BFFF6`, defined shape, progressive reveal, rising strike intensity (`ART_BIBLE.md` §4.3.1). A **visual-only demonstration in a separate environment art-test scene is authorised** (T20). **Combat telegraph scripts are not authorised to change** until that prototype has been reviewed (T17).
 - One directional light, soft shadows, SSAO enabled in `PC_Renderer`; nothing baked.
 - Only `Default`, `TransparentFX`, `Ignore Raycast`, `Water`, `UI` layers are named; no gameplay layers (floor, blocker, hazard, enemy, etc.) are defined yet.
 - Screenshots in `Assets/Temp/` are checked in and imported as assets; consider moving them out of `Assets/` (§10).
@@ -157,7 +157,7 @@ Both export folders are empty today (only `.gitkeep`).
 6. **Both:** gameplay-camera check against ART_BIBLE §8.3 before the piece is considered done.
 
 ### 5.2a Prototype-first gate **[LOCKED]**
-Before a large asset library is produced, **one environment art prototype is built and reviewed** (`ART_BIBLE.md` §11.1). Until the Creative Director signs it off, exports to `Assets/Environment/` are limited to what the prototype needs. Screenshots used for the review must come from the **actual gameplay camera** with the player, an enemy and a telegraph in frame; close-up renders alone are insufficient (§8). The prototype is where the conventions in §4.5/§5.3/§5.5 are tested and then frozen. Its scope is **[LOCKED]** in `ART_BIBLE.md` §11.1: one compact handcrafted temple courtyard (floor and open combat space, short stair or raised platform, four varied pillars, one monumental entrance arch, one altar/statue focal point). Its subject matter (Q19) and dimensions (Q20) are open; no modelling starts until they are answered and a task is assigned.
+Before a large asset library is produced, **one environment art prototype is built and reviewed** (`ART_BIBLE.md` §11.1). Until the Creative Director signs it off, exports to `Assets/Environment/` are limited to what the prototype needs. Screenshots used for the review must come from the **actual gameplay camera** with the player, an enemy and a telegraph in frame; close-up renders alone are insufficient (§8). The prototype is where the conventions in §4.5/§5.3/§5.5 are tested and then frozen. Its scope is **[LOCKED]** in `ART_BIBLE.md` §11.1: one compact handcrafted temple courtyard (floor and open combat space, short stair or raised platform, four varied pillars, one monumental entrance arch, one altar/statue focal point). Subject (Q19: abstract mythological architecture, no specific deity or culture) and footprint (Q20: reuse the `PrototypeArena` footprint and camera, ≈20 m-diameter clear combat zone) are **[LOCKED]** in `ART_BIBLE.md` §11.1. No modelling starts until a modelling task is assigned; the Environment Artist handoff is `ART_BIBLE.md` §11.3.
 
 ### 5.3 Validation checklist **[PROPOSED]**
 Correct scale in metres (compare to human-unit reference) · collision proxy provided or requested · transforms applied · pivot per standard · no n-gons/loose geometry · materials named · textures present and referenced relatively · no overwrite of an existing export without approval · gameplay-camera review render in `Renders/`.
@@ -186,6 +186,10 @@ Axis conversion, unit scale, and "apply transform" options must be validated by 
 | Gameplay distances | dash ≈3.1 m · player reach 1.8 m · enemy reach 2.15 m · move speed 8 m/s |
 | Human-unit height | **Not yet measured** — Unity Engineer to measure the Paladin and record it here |
 | Light | one warm directional (1.15), gradient ambient, no fog, soft shadows |
+| `PrototypeArena` footprint (verified) | Floor ±20 m on X/Z, top at y = 0; walls 3 m high × 1 m thick centred at ±20 m → **inner faces ±19.5 m (39 × 39 m interior)**; greybox pillars 1.4 × 1.4 × 3 m at (±8, ±8), nearest corners ≈10.3 m from centre; player spawn (0, 0.02, 0), enemy spawn (0, 0, 8) |
+| Camera (serialized in `PrototypeArena`) | `IsoCameraFollow`: offset (12, 18, −12), orthographic size 11, follow speed 14; ≈39 × 22 m on screen at 16:9; the camera sits on the +X/−Z side |
+| Clear combat zone (Q20, `ART_BIBLE.md` §11.1) | ≈20 m diameter centred on the origin, free of pillars, stairs and obstructive props; ≈20 × 14.6 m on screen. Landmark ring 9.5 m deep on the axes |
+| Telegraph colours (Q18, `ART_BIBLE.md` §4.3.1) | Fill `#27DCD1` ≈22–28 %, edge `#9BFFF6`; reserved for hostile telegraphs |
 
 ## 7. Division of responsibilities
 
@@ -251,8 +255,9 @@ Roles, not agents: no teammates with these exact names exist on this install yet
 | T12 | Lighting strategy (baked/real-time/mixed), post-processing stack, probes | Creative Director + Unity Engineer |
 | T13 | Texel density, texture sizes, compression, polygon budgets | Unity Engineer + Environment Artist |
 | T14 | Process for handling the live-Blender-session vs saved-file mismatch (§4.1) | Game Director |
-| T15 | **RESOLVED (v0.3).** Prototype scope: compact handcrafted temple courtyard (`ART_BIBLE.md` §11.1). Open details: subject/ornament (Q19) and dimensions (Q20) | — |
+| T15 | **RESOLVED (v0.3, completed v0.4).** Prototype scope: compact handcrafted temple courtyard (`ART_BIBLE.md` §11.1). Subject (Q19) and footprint (Q20) resolved in v0.4 | — |
 | T16 | **RESOLVED (v0.3).** Telegraph colour is bright cyan-teal, reserved for hostile telegraphs (`ART_BIBLE.md` §4.3); environment materials, lights and emissive accents avoid that family | — |
-| T17 | Authorising and scoping the combat-script/VFX change that implements the cyan-teal telegraph (shared with `ART_BIBLE.md` Q18); until then combat scripts stay unchanged | Creative Director + Game Designer + Unity Engineer |
+| T17 | **NARROWED (v0.4).** The visual-only telegraph demonstration is authorised (T20). Still open: authorising the combat-script/VFX change that implements the cyan-teal telegraph, which waits for the review of the visual prototype and Creative Director approval (shared with `ART_BIBLE.md` Q18/Q21). Combat scripts stay unchanged | Creative Director + Game Designer + Unity Engineer |
 | T18 | Whether `Assets/Environment/` needs extra subfolders (collision assets, decals, scene-specific prefabs); proposal and reason from the Unity Engineer | Unity Engineer |
-| T19 | Prototype courtyard dimensions and clear combat space (shared with `ART_BIBLE.md` Q20) | Game Designer + Creative Director |
+| T19 | **RESOLVED (v0.4).** Prototype footprint: reuse `PrototypeArena` (floor ±20 m, wall inner faces ±19.5 m) and its camera settings; ≈20 m-diameter central zone free of obstructive props (`ART_BIBLE.md` §6.2, §11.1) | — |
+| T20 | Create the separate **environment art-test scene**: reproduce the `PrototypeArena` footprint and camera settings **without modifying `PrototypeArena` or any gameplay script**, and host the visual-only telegraph demonstration. Proposed name/location: `Assets/Scenes/EnvironmentArtTest.unity` (**[PROPOSED]**, not created). The Unity Engineer proposes the demonstration method (for example an animated mesh/decal with a demo-only driver); any new script is demo-only and not wired into gameplay | Unity Engineer |
