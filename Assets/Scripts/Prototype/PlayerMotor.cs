@@ -29,7 +29,12 @@ public class PlayerMotor : MonoBehaviour
     float _dashReadyAt;
     float _knockbackUntil;
     float _flashUntil;
+    Vector3 _bodyHomePosition;
+    Quaternion _bodyHomeRotation = Quaternion.identity;
+    Color _homeColor = Color.white;
 
+    public int DashCount { get; private set; }
+    public float DashCooldownDuration => dashCooldown;
     public Vector3 Velocity { get; private set; }
     public Vector3 Facing => _facing;
     public bool IsDashing => _dashTimeRemaining > 0f;
@@ -49,6 +54,9 @@ public class PlayerMotor : MonoBehaviour
                 _baseColor = _visualMaterial.GetColor("_BaseColor");
             else if (_visualMaterial.HasProperty("_Color"))
                 _baseColor = _visualMaterial.color;
+            _homeColor = _baseColor;
+            _bodyHomePosition = _visualRenderer.transform.localPosition;
+            _bodyHomeRotation = _visualRenderer.transform.localRotation;
         }
         ResolveCamera();
     }
@@ -58,13 +66,60 @@ public class PlayerMotor : MonoBehaviour
         ResolveActions();
         _playerMap?.Enable();
         if (_health != null)
+        {
             _health.Damaged += OnDamaged;
+            _health.Died += OnDied;
+        }
     }
 
     void OnDisable()
     {
         if (_health != null)
+        {
             _health.Damaged -= OnDamaged;
+            _health.Died -= OnDied;
+        }
+    }
+
+    /// <summary>Moves the player without the CharacterController fighting the change, and clears transient state.</summary>
+    public void TeleportTo(Vector3 position, Quaternion rotation)
+    {
+        if (_controller != null)
+            _controller.enabled = false;
+        transform.SetPositionAndRotation(position, rotation);
+        if (_controller != null)
+            _controller.enabled = true;
+
+        Vector3 forward = rotation * Vector3.forward;
+        forward.y = 0f;
+        _facing = forward.sqrMagnitude > 0.0001f ? forward.normalized : Vector3.forward;
+        _dashTimeRemaining = 0f;
+        _dashReadyAt = 0f;
+        _knockbackVelocity = Vector3.zero;
+        _knockbackUntil = 0f;
+        _flashUntil = 0f;
+        Velocity = Vector3.zero;
+
+        _baseColor = _homeColor;
+        if (_visualRenderer != null)
+        {
+            _visualRenderer.transform.localPosition = _bodyHomePosition;
+            _visualRenderer.transform.localRotation = _bodyHomeRotation;
+        }
+    }
+
+    void OnDied()
+    {
+        _dashTimeRemaining = 0f;
+        _knockbackVelocity = Vector3.zero;
+        _baseColor = _homeColor * 0.4f;
+        _baseColor.a = _homeColor.a;
+        if (_visualRenderer != null)
+        {
+            // Placeholder death: capsule falls over and lies on the floor.
+            _visualRenderer.transform.localRotation = Quaternion.Euler(0f, 0f, 85f);
+            _visualRenderer.transform.localPosition = new Vector3(_bodyHomePosition.x, 0.5f, _bodyHomePosition.z);
+        }
     }
 
     void OnDestroy()
@@ -179,6 +234,7 @@ public class PlayerMotor : MonoBehaviour
         _dashDirection.Normalize();
         _dashTimeRemaining = dashDuration;
         _dashReadyAt = Time.time + dashCooldown;
+        DashCount++;
         _knockbackVelocity = Vector3.zero;
         _knockbackUntil = 0f;
     }

@@ -19,14 +19,22 @@ public class Health : MonoBehaviour
         _current = maxHealth;
     }
 
-    public void TakeDamage(float amount)
+    /// <returns>true if health was actually reduced.</returns>
+    public bool TakeDamage(float amount)
     {
         if (IsDead || amount <= 0f)
-            return;
+            return false;
 
         _current = Mathf.Max(0f, _current - amount);
         Damaged?.Invoke(amount, _current);
         if (IsDead)
             Died?.Invoke();
+        return true;
+    }
+
+    /// <summary>Restores full health (used by encounter restart). Raises no events.</summary>
+    public void Revive()
+    {
+        _current = maxHealth;
     }
 }
