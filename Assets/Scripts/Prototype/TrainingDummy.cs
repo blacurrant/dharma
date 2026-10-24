@@ -9,7 +9,8 @@ public class TrainingDummy : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] float approachSpeed = 3.2f;
-    [SerializeField] float preferredRange = 1.65f;
+    [Tooltip("Held distance band is preferredRange +/- rangeSlack; keep it inside the player's reach so a stationary player can trade blows.")]
+    [SerializeField] float preferredRange = 1.5f;
     [SerializeField] float rangeSlack = 0.22f;
 
     [Header("Attack")]

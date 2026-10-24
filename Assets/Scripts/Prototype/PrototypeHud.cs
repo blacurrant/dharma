@@ -36,6 +36,9 @@ public class PrototypeHud : MonoBehaviour
     GUIStyle _numberText;
     GUIStyle _bannerText;
     GUIStyle _hintText;
+    float _guiScale = 1f;
+    float _viewWidth;
+    float _viewHeight;
 
     public void Bind(Health player, PlayerMotor motor, Health dummy)
     {
@@ -120,6 +123,9 @@ public class PrototypeHud : MonoBehaviour
         }
     }
 
+    // IMGUI tints are not gamma-corrected in a Linear project, which washes colours out; convert so they read as authored.
+    static Color Tint(Color c) => QualitySettings.activeColorSpace == ColorSpace.Linear ? c.linear : c;
+
     static float Ratio(Health h) => h == null || h.MaxHealth <= 0f ? 0f : Mathf.Clamp01(h.CurrentHealth / h.MaxHealth);
 
     static float TrailTowards(float ghost, float target)
@@ -144,6 +150,11 @@ public class PrototypeHud : MonoBehaviour
     void OnGUI()
     {
         EnsureStyles();
+        // Lay out in a virtual 600-unit-tall space so the HUD stays proportionate at any Game view size.
+        _guiScale = Mathf.Clamp(Screen.height / 600f, 0.7f, 2f);
+        _viewWidth = Screen.width / _guiScale;
+        _viewHeight = Screen.height / _guiScale;
+        GUI.matrix = Matrix4x4.Scale(new Vector3(_guiScale, _guiScale, 1f));
         DrawScreenFlash();
         DrawPanel();
         DrawFloatingNumbers();
@@ -155,8 +166,8 @@ public class PrototypeHud : MonoBehaviour
         float t = (Time.time - _screenFlashStartedAt) / ScreenFlashDuration;
         if (t < 0f || t >= 1f)
             return;
-        GUI.color = new Color(1f, 0.05f, 0.02f, 0.3f * (1f - t));
-        GUI.DrawTexture(new Rect(0f, 0f, Screen.width, Screen.height), Texture2D.whiteTexture);
+        GUI.color = Tint(new Color(1f, 0.05f, 0.02f, 0.28f * (1f - t)));
+        GUI.DrawTexture(new Rect(0f, 0f, _viewWidth, _viewHeight), Texture2D.whiteTexture);
         GUI.color = Color.white;
     }
 
@@ -278,7 +289,7 @@ public class PrototypeHud : MonoBehaviour
             GUI.color = new Color(1f, 1f, 1f, 0.55f);
             GUI.DrawTexture(new Rect(inner.x, inner.y, inner.width * Mathf.Clamp01(ghost), inner.height), Texture2D.whiteTexture);
         }
-        GUI.color = fillColor;
+        GUI.color = Tint(fillColor);
         GUI.DrawTexture(new Rect(inner.x, inner.y, inner.width * Mathf.Clamp01(fill), inner.height), Texture2D.whiteTexture);
         DrawShadowedLabel(rect, label, _barText, Color.white);
     }
@@ -287,7 +298,7 @@ public class PrototypeHud : MonoBehaviour
     {
         GUI.color = new Color(0f, 0f, 0f, color.a * 0.85f);
         GUI.Label(new Rect(rect.x + 1.5f, rect.y + 1.5f, rect.width, rect.height), text, style);
-        GUI.color = color;
+        GUI.color = Tint(color);
         GUI.Label(rect, text, style);
         GUI.color = Color.white;
     }
@@ -309,7 +320,7 @@ public class PrototypeHud : MonoBehaviour
                 continue;
             Color c = n.color;
             c.a = 1f - Mathf.Clamp01((age - 0.45f) / 0.55f);
-            DrawShadowedLabel(new Rect(screen.x - 60f, Screen.height - screen.y - 20f, 120f, 40f), n.text, _numberText, c);
+            DrawShadowedLabel(new Rect(screen.x / _guiScale - 60f, (Screen.height - screen.y) / _guiScale - 20f, 120f, 40f), n.text, _numberText, c);
         }
     }
 
@@ -321,9 +332,9 @@ public class PrototypeHud : MonoBehaviour
         Color tint = cleared ? new Color(0.45f, 1f, 0.55f) : new Color(1f, 0.35f, 0.3f);
         float a = Mathf.Clamp01(encounter.ElapsedSinceStateChange / 0.4f);
         GUI.color = new Color(0f, 0f, 0f, 0.45f * a);
-        GUI.DrawTexture(new Rect(0f, Screen.height * 0.38f, Screen.width, 130f), Texture2D.whiteTexture);
+        GUI.DrawTexture(new Rect(0f, _viewHeight * 0.74f, _viewWidth, 130f), Texture2D.whiteTexture);
         tint.a = a;
-        DrawShadowedLabel(new Rect(0f, Screen.height * 0.38f, Screen.width, 85f), cleared ? "ENCOUNTER CLEAR" : "YOU DIED", _bannerText, tint);
-        DrawShadowedLabel(new Rect(0f, Screen.height * 0.38f + 80f, Screen.width, 40f), "Press R to restart", _numberText, new Color(1f, 1f, 1f, a));
+        DrawShadowedLabel(new Rect(0f, _viewHeight * 0.74f, _viewWidth, 85f), cleared ? "ENCOUNTER CLEAR" : "YOU DIED", _bannerText, tint);
+        DrawShadowedLabel(new Rect(0f, _viewHeight * 0.74f + 80f, _viewWidth, 40f), "Press R to restart", _numberText, new Color(1f, 1f, 1f, a));
     }
 }

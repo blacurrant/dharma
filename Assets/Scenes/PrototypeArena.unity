@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrainingDummy
   approachSpeed: 3.2
-  preferredRange: 1.65
+  preferredRange: 1.5
   rangeSlack: 0.22
   attackRange: 2.15
   attackHalfAngle: 58
