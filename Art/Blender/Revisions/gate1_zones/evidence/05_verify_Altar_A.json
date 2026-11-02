@@ -1,0 +1,198 @@
+{
+ "asset": "ENV_Temple_Altar_A",
+ "t0": "01:47:50",
+ "A_reopen": {
+  "zone_md5": "feb8d4d1a395a21e467eed57c8a54bd4",
+  "faces": 79542,
+  "slots": [
+   "MI_Temple_Altar_A"
+  ],
+  "material_index_hist": {
+   "0": 79542
+  },
+  "zone_counts": {
+   "StoneWarm": 60208,
+   "Bronze": 5024,
+   "Gold": 2032,
+   "CrimsonCloth": 11860,
+   "EmberAmber": 418
+  }
+ },
+ "B_restored": {
+  "zone_md5": "feb8d4d1a395a21e467eed57c8a54bd4",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold",
+   "SRC_Temple_CrimsonCloth",
+   "SRC_Temple_EmberAmber"
+  ],
+  "material_index_hist": {
+   "0": 60208,
+   "1": 5024,
+   "2": 2032,
+   "3": 11860,
+   "4": 418
+  },
+  "zone_counts": {
+   "StoneWarm": 60208,
+   "Bronze": 5024,
+   "Gold": 2032,
+   "CrimsonCloth": 11860,
+   "EmberAmber": 418
+  }
+ },
+ "C1_zone_raster": {
+  "res": 2048,
+  "texels_by_zone": {
+   "StoneWarm": 2058486,
+   "Bronze": 108882,
+   "Gold": 140383,
+   "CrimsonCloth": 89188,
+   "EmberAmber": 13560
+  },
+  "texels_empty_or_edge": 1783805,
+  "covered_fraction": 0.5747
+ },
+ "C2_bake": {
+  "res": 2048,
+  "seconds": 76.1,
+  "files": {
+   "BaseColor": "bake_out_b/Textures/ENV_Temple_Altar_A_BaseColor.png",
+   "Normal": "bake_out_b/Textures/ENV_Temple_Altar_A_Normal.png",
+   "Mask": "bake_out_b/Textures/ENV_Temple_Altar_A_Mask.png",
+   "Emission": "bake_out_b/Textures/ENV_Temple_Altar_A_Emission.png"
+  },
+  "zone_md5_after_bake": "feb8d4d1a395a21e467eed57c8a54bd4",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold",
+   "SRC_Temple_CrimsonCloth",
+   "SRC_Temple_EmberAmber"
+  ]
+ },
+ "D_after_swap": {
+  "zone_md5": "feb8d4d1a395a21e467eed57c8a54bd4",
+  "slots": [
+   "MI_Temple_Altar_A"
+  ],
+  "material_index_hist": {
+   "0": 79542
+  },
+  "zone_counts": {
+   "StoneWarm": 60208,
+   "Bronze": 5024,
+   "Gold": 2032,
+   "CrimsonCloth": 11860,
+   "EmberAmber": 418
+  }
+ },
+ "E_reopen": {
+  "file": "verify_b/ENV_Temple_Altar_A_verify.blend",
+  "zone_md5": "feb8d4d1a395a21e467eed57c8a54bd4",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Altar_A"
+  ],
+  "material_index_hist": {
+   "0": 79542
+  },
+  "zone_counts": {
+   "StoneWarm": 60208,
+   "Bronze": 5024,
+   "Gold": 2032,
+   "CrimsonCloth": 11860,
+   "EmberAmber": 418
+  }
+ },
+ "F_fbx_gate1": {
+  "bytes": 8177900,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Altar_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Altar_A_Emission.png",
+    true
+   ],
+   [
+    "ENV_Temple_Altar_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Altar_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Altar_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -2.2135,
+   -0.0036,
+   -1.6043
+  ],
+  "vertex_max": [
+   2.2072,
+   5.1102,
+   1.7042
+  ],
+  "polys": 79542
+ },
+ "F_fbx_shipped": {
+  "bytes": 8177500,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Altar_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Altar_A_Emission.png",
+    true
+   ],
+   [
+    "ENV_Temple_Altar_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Altar_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Altar_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -2.2135,
+   -0.0036,
+   -1.6043
+  ],
+  "vertex_max": [
+   2.2072,
+   5.1102,
+   1.7042
+  ],
+  "polys": 79542
+ },
+ "F_checks": {
+  "polys_equal": true,
+  "vertex_extents_equal": true,
+  "up_axis_equal": true,
+  "unit_scale_equal": true,
+  "materials_equal": true,
+  "textures_equal": true,
+  "identity_transform_gate1": true,
+  "zone_id_in_fbx_bytes": false
+ },
+ "seconds_total": 79.0
+}

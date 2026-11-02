@@ -1,0 +1,29 @@
+00:00.545  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+00:06.509  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_A_north_BEFORE.png'
+RENDERED WallTall_A_north_BEFORE
+00:09.724  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_A_north_AFTER.png'
+RENDERED WallTall_A_north_AFTER
+00:12.526  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_B_north_BEFORE.png'
+RENDERED WallTall_B_north_BEFORE
+00:15.239  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_B_north_AFTER.png'
+RENDERED WallTall_B_north_AFTER
+00:17.618  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_A_west_BEFORE.png'
+RENDERED WallTall_A_west_BEFORE
+00:20.046  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_A_west_AFTER.png'
+RENDERED WallTall_A_west_AFTER
+00:22.641  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_B_west_BEFORE.png'
+RENDERED WallTall_B_west_BEFORE
+00:25.260  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_B_west_AFTER.png'
+RENDERED WallTall_B_west_AFTER
+00:27.983  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_ALL_north_BEFORE.png'
+RENDERED WallTall_ALL_north_BEFORE
+00:30.806  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_ALL_north_AFTER.png'
+RENDERED WallTall_ALL_north_AFTER
+00:33.170  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_ALL_west_BEFORE.png'
+RENDERED WallTall_ALL_west_BEFORE
+00:35.853  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/WallTall_ALL_west_AFTER.png'
+RENDERED WallTall_ALL_west_AFTER
+BA_DONE walls
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

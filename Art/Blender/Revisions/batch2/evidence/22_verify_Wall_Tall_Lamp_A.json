@@ -1,0 +1,243 @@
+{
+ "asset": "ENV_Temple_Wall_Tall_Lamp_A",
+ "started": "18:43:59",
+ "A_reopen": {
+  "zone_md5": "b66b5abcce6ebc8a92d4985bef0df69b",
+  "faces": 11912,
+  "tris": 11912,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_EmberAmber"
+  ],
+  "material_index_hist": {
+   "0": 7196,
+   "1": 300,
+   "2": 2240,
+   "3": 2176
+  },
+  "zone_counts": {
+   "StoneWarm": 7196,
+   "StoneCharcoal": 300,
+   "Bronze": 2240,
+   "EmberAmber": 2176
+  }
+ },
+ "B_restored": {
+  "zone_md5": "b66b5abcce6ebc8a92d4985bef0df69b",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_EmberAmber"
+  ],
+  "material_index_hist": {
+   "0": 7196,
+   "1": 300,
+   "2": 2240,
+   "3": 2176
+  },
+  "zone_counts": {
+   "StoneWarm": 7196,
+   "StoneCharcoal": 300,
+   "Bronze": 2240,
+   "EmberAmber": 2176
+  }
+ },
+ "C1_zone_raster": {
+  "res": 2048,
+  "texels_by_zone": {
+   "StoneWarm": 2209448,
+   "StoneCharcoal": 309807,
+   "Bronze": 53617,
+   "EmberAmber": 60124
+  },
+  "texels_empty_or_edge": 1561308,
+  "covered_fraction": 0.6278
+ },
+ "C2_bake": {
+  "res": 2048,
+  "seconds": 107.8,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Wall_Tall_Lamp_A_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Wall_Tall_Lamp_A_Normal.png",
+   "Mask": "Textures/ENV_Temple_Wall_Tall_Lamp_A_Mask.png",
+   "Emission": "Textures/ENV_Temple_Wall_Tall_Lamp_A_Emission.png"
+  },
+  "zone_md5_after_bake": "b66b5abcce6ebc8a92d4985bef0df69b",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_EmberAmber"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 2209448,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.3017,
+   "smoothness_mean": 0.219,
+   "basecolor_mean_srgb_hex": "#564C3C",
+   "emission_max_channel_mean": 0.0,
+   "emission_max_channel_max": 0.0
+  },
+  "StoneCharcoal": {
+   "texels": 309807,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.4649,
+   "smoothness_mean": 0.2672,
+   "basecolor_mean_srgb_hex": "#201D1A",
+   "emission_max_channel_mean": 0.0,
+   "emission_max_channel_max": 0.0
+  },
+  "Bronze": {
+   "texels": 53617,
+   "metallic_mean": 0.5657,
+   "occlusion_mean": 0.0723,
+   "smoothness_mean": 0.3704,
+   "basecolor_mean_srgb_hex": "#71542E",
+   "emission_max_channel_mean": 0.0,
+   "emission_max_channel_max": 0.0
+  },
+  "EmberAmber": {
+   "texels": 60124,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.0284,
+   "smoothness_mean": 0.302,
+   "basecolor_mean_srgb_hex": "#0E0603",
+   "emission_max_channel_mean": 0.5859,
+   "emission_max_channel_max": 0.8627
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 4194304,
+   "sat_max": 1.0
+  },
+  "Emission": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 4194304,
+   "sat_max": 0.969
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "b66b5abcce6ebc8a92d4985bef0df69b",
+  "slots": [
+   "MI_Temple_Wall_Tall_Lamp_A"
+  ],
+  "material_index_hist": {
+   "0": 11912
+  },
+  "zone_counts": {
+   "StoneWarm": 7196,
+   "StoneCharcoal": 300,
+   "Bronze": 2240,
+   "EmberAmber": 2176
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Wall_Tall_Lamp_A_verify.blend",
+  "zone_md5": "b66b5abcce6ebc8a92d4985bef0df69b",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Wall_Tall_Lamp_A"
+  ],
+  "material_index_hist": {
+   "0": 11912
+  },
+  "zone_counts": {
+   "StoneWarm": 7196,
+   "StoneCharcoal": 300,
+   "Bronze": 2240,
+   "EmberAmber": 2176
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Wall_Tall_Lamp_A.fbx",
+  "bytes": 1213628,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Wall_Tall_Lamp_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Wall_Tall_Lamp_A_Emission.png",
+    true
+   ],
+   [
+    "ENV_Temple_Wall_Tall_Lamp_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Wall_Tall_Lamp_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Wall_Tall_Lamp_A"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -2.0,
+   -0.4,
+   -0.6331
+  ],
+  "vertex_max": [
+   2.0003,
+   4.9924,
+   0.6365
+  ],
+  "polys": 11912
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 11912,
+  "mesh_tris": 11912,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 8e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Wall_Tall_Lamp_A"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Wall_Tall_Lamp_A_BaseColor.png",
+   "ENV_Temple_Wall_Tall_Lamp_A_Emission.png",
+   "ENV_Temple_Wall_Tall_Lamp_A_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -2.0,
+    -0.6365,
+    -0.4
+   ],
+   "max": [
+    2.0003,
+    0.6331,
+    4.9924
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "b66b5abcce6ebc8a92d4985bef0df69b",
+  "material": "MI_Temple_Wall_Tall_Lamp_A"
+ },
+ "seconds_total": 112.5
+}

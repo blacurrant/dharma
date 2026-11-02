@@ -1,0 +1,101 @@
+{
+ "plan_S00_base.png": {
+  "tileCV_in": 0.0287,
+  "tileCV_out": 0.0259,
+  "corr_lag2m": 0.182,
+  "corr_lag4m": 0.223,
+  "corr_lag6m": 0.158,
+  "corr_lag8m": 0.301,
+  "corr_lag10m": 0.164
+ },
+ "plan_S01_macroValueDamped.png": {
+  "tileCV_in": 0.0202,
+  "tileCV_out": 0.0612,
+  "corr_lag2m": 0.185,
+  "corr_lag4m": 0.218,
+  "corr_lag6m": 0.125,
+  "corr_lag8m": 0.327,
+  "corr_lag10m": 0.153
+ },
+ "plan_S02_plusTint.png": {
+  "tileCV_in": 0.0203,
+  "tileCV_out": 0.061,
+  "corr_lag2m": 0.176,
+  "corr_lag4m": 0.212,
+  "corr_lag6m": 0.123,
+  "corr_lag8m": 0.315,
+  "corr_lag10m": 0.14
+ },
+ "plan_S03_plusCracks.png": {
+  "tileCV_in": 0.0202,
+  "tileCV_out": 0.0591,
+  "corr_lag2m": 0.075,
+  "corr_lag4m": 0.038,
+  "corr_lag6m": 0.095,
+  "corr_lag8m": 0.607,
+  "corr_lag10m": 0.046
+ },
+ "plan_S04_plusWear.png": {
+  "tileCV_in": 0.02,
+  "tileCV_out": 0.0566,
+  "corr_lag2m": 0.079,
+  "corr_lag4m": 0.259,
+  "corr_lag6m": 0.088,
+  "corr_lag8m": 0.688,
+  "corr_lag10m": 0.024
+ },
+ "plan_S05_plusChipped.png": {
+  "tileCV_in": 0.0196,
+  "tileCV_out": 0.0543,
+  "corr_lag2m": 0.209,
+  "corr_lag4m": 0.368,
+  "corr_lag6m": 0.219,
+  "corr_lag8m": 0.718,
+  "corr_lag10m": 0.158
+ },
+ "plan_S06_plusMossJoints.png": {
+  "tileCV_in": 0.0196,
+  "tileCV_out": 0.054,
+  "corr_lag2m": 0.216,
+  "corr_lag4m": 0.374,
+  "corr_lag6m": 0.225,
+  "corr_lag8m": 0.72,
+  "corr_lag10m": 0.164
+ },
+ "plan_S08_plusSalt.png": {
+  "tileCV_in": 0.0195,
+  "tileCV_out": 0.0524,
+  "corr_lag2m": 0.242,
+  "corr_lag4m": 0.393,
+  "corr_lag6m": 0.251,
+  "corr_lag8m": 0.724,
+  "corr_lag10m": 0.19
+ },
+ "plan_S10_plusSoot.png": {
+  "tileCV_in": 0.0195,
+  "tileCV_out": 0.0523,
+  "corr_lag2m": 0.242,
+  "corr_lag4m": 0.393,
+  "corr_lag6m": 0.251,
+  "corr_lag8m": 0.724,
+  "corr_lag10m": 0.19
+ },
+ "plan_S11_cellFlipCracksWear.png": {
+  "tileCV_in": 0.0192,
+  "tileCV_out": 0.0533,
+  "corr_lag2m": 0.223,
+  "corr_lag4m": 0.25,
+  "corr_lag6m": 0.186,
+  "corr_lag8m": 0.287,
+  "corr_lag10m": 0.197
+ },
+ "plan_S12_plusBrazierLights.png": {
+  "tileCV_in": 0.0191,
+  "tileCV_out": 0.0546,
+  "corr_lag2m": 0.223,
+  "corr_lag4m": 0.25,
+  "corr_lag6m": 0.186,
+  "corr_lag8m": 0.287,
+  "corr_lag10m": 0.197
+ }
+}

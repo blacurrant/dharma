@@ -1,0 +1,156 @@
+import os
+import sys
+import subprocess
+import time
+import json
+from PIL import Image
+
+def run_cmd(cmd):
+    return subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+capture_cs = """
+var cam = UnityEngine.Camera.main;
+var pl = UnityEngine.GameObject.Find("Player");
+var en = UnityEngine.GameObject.Find("ArenaEnemy");
+var iso = cam.GetComponent<IsoCameraFollow>();
+
+var outDir = "/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation/Captures/art_pass";
+var sharedDir = "/Users/landerstudio/OpenBot/Shared/Captures";
+System.IO.Directory.CreateDirectory(outDir);
+System.IO.Directory.CreateDirectory(sharedDir);
+
+var P = new System.Collections.Generic.Dictionary<string, UnityEngine.Vector2> {
+    { "UE_centre", new UnityEngine.Vector2(0, 0) },
+    { "UE_north", new UnityEngine.Vector2(-8, 16) },
+    { "UE_dais", new UnityEngine.Vector2(-8, 8) },
+    { "UE_west", new UnityEngine.Vector2(-16, -2) }
+};
+
+System.Collections.IEnumerator Routine() {
+    yield return null;
+    yield return null;
+    if (cam.pixelWidth != 1920 || cam.pixelHeight != 1080) {
+        UnityEngine.Debug.LogError("ABORT: Game view is " + cam.pixelWidth + "x" + cam.pixelHeight);
+        yield break;
+    }
+    
+    foreach (var f in UnityEngine.Object.FindObjectsByType<ArtTestCameraFocus>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None)) {
+        f.enabled = false;
+    }
+    var td = en.GetComponent<TrainingDummy>();
+    if (td != null) td.enabled = false;
+    
+    var hud = UnityEngine.Object.FindAnyObjectByType<PrototypeHud>();
+    var fld = typeof(PrototypeHud).GetField("_damageCueUntil", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+    
+    var ec = en.GetComponent<UnityEngine.CharacterController>();
+    ec.enabled = false;
+    en.transform.position = new UnityEngine.Vector3(0, 0, -60);
+    ec.enabled = true;
+    
+    // Capture the 4 gameplay poses
+    foreach (var kv in P) {
+        var name = kv.Key;
+        var pos = kv.Value;
+        var cc = pl.GetComponent<UnityEngine.CharacterController>();
+        cc.enabled = false;
+        pl.transform.position = new UnityEngine.Vector3(pos.x, 0.02f, pos.y);
+        cc.enabled = true;
+        
+        iso.Snap();
+        for (int i = 0; i < 14; i++) yield return null;
+        for (int i = 0; i < 300 && UnityEngine.Time.time <= (float)fld.GetValue(hud) + 0.3f; i++) yield return null;
+        
+        yield return new UnityEngine.WaitForEndOfFrame();
+        var tex = UnityEngine.ScreenCapture.CaptureScreenshotAsTexture();
+        var bytes = tex.EncodeToPNG();
+        System.IO.File.WriteAllBytes(outDir + "/" + name + ".png", bytes);
+        System.IO.File.WriteAllBytes(sharedDir + "/" + name + ".png", bytes);
+        UnityEngine.Object.Destroy(tex);
+        UnityEngine.Debug.Log("CAPTURED " + name);
+    }
+    
+    // Capture the elevated three-quarter overview
+    iso.enabled = false;
+    cam.orthographic = true;
+    cam.orthographicSize = 25.0f;
+    cam.transform.position = new UnityEngine.Vector3(12.0f, 28.0f, -12.0f);
+    cam.transform.rotation = UnityEngine.Quaternion.Euler(42.0f, 315.0f, 0.0f);
+    
+    for (int i = 0; i < 14; i++) yield return null;
+    yield return new UnityEngine.WaitForEndOfFrame();
+    var ovTex = UnityEngine.ScreenCapture.CaptureScreenshotAsTexture();
+    var ovBytes = ovTex.EncodeToPNG();
+    System.IO.File.WriteAllBytes(outDir + "/UE_ancient_ground_overview.png", ovBytes);
+    System.IO.File.WriteAllBytes(sharedDir + "/UE_ancient_ground_overview.png", ovBytes);
+    UnityEngine.Object.Destroy(ovTex);
+    UnityEngine.Debug.Log("CAPTURED UE_ancient_ground_overview");
+    
+    // Restore camera
+    iso.enabled = true;
+    cam.orthographicSize = 7.5f;
+}
+
+var host = VFRunner.Create();
+host.StartCoroutine(Routine());
+return "capture suite started";
+"""
+
+def main():
+    print("Focusing editor...")
+    run_cmd(["/Users/landerstudio/.unity/bin/unity", "command", "editor", "focus", "--project-path", "/Users/landerstudio/MythicRoguelite", "--result-only"])
+    
+    print("Starting playmode...")
+    run_cmd(["/Users/landerstudio/.unity/bin/unity", "command", "editor.playmode", "start", "--project-path", "/Users/landerstudio/MythicRoguelite", "--result-only"])
+    time.sleep(14)
+    
+    print("Evaluating capture suite...")
+    res = subprocess.run([
+        "/Users/landerstudio/.unity/bin/unity", "command", "script", "eval",
+        capture_cs,
+        "--project-path", "/Users/landerstudio/MythicRoguelite",
+        "--timeout", "120",
+        "--result-only"
+    ], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    print("Eval result:", res.stdout)
+    
+    # Wait for all 5 files to be written
+    outDir = "/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation/Captures/art_pass"
+    files = ["UE_centre.png", "UE_north.png", "UE_dais.png", "UE_west.png", "UE_ancient_ground_overview.png"]
+    
+    for i in range(30):
+        all_exist = all(os.path.exists(os.path.join(outDir, f)) and os.path.getsize(os.path.join(outDir, f)) > 100000 for f in files)
+        if all_exist:
+            # Check modification time is fresh (within last 60 seconds)
+            all_fresh = all(time.time() - os.path.getmtime(os.path.join(outDir, f)) < 60 for f in files)
+            if all_fresh:
+                print("All 5 captures written and fresh!")
+                break
+        time.sleep(2)
+        
+    print("Stopping playmode...")
+    run_cmd(["/Users/landerstudio/.unity/bin/unity", "command", "editor.playmode", "stop", "--project-path", "/Users/landerstudio/MythicRoguelite", "--result-only"])
+    
+    # Measure cyan percentage on all files
+    print("\\n=== Cyan-Teal Verification (excluding HUD) ===")
+    for f in files:
+        path = os.path.join(outDir, f)
+        img = Image.open(path).convert("RGB")
+        w, h = img.size
+        pixels = img.load()
+        cyan_count = 0
+        total_env_pixels = 0
+        for y in range(h):
+            for x in range(w):
+                # Ignore HUD region (top-left)
+                if x < 650 and y < 160:
+                    continue
+                total_env_pixels += 1
+                r, g, b = pixels[x, y]
+                if g > 50 and b > 50 and (g - r > 30) and (b - r > 30):
+                    cyan_count += 1
+        pct = 100.0 * cyan_count / total_env_pixels
+        print(f"{f}: {pct:.4f}% ({cyan_count}/{total_env_pixels})")
+
+if __name__ == "__main__":
+    main()

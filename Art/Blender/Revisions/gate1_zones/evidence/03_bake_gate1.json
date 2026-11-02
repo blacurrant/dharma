@@ -1,0 +1,28 @@
+{
+ "ENV_Temple_Brazier_A": {
+  "res": 1024,
+  "slots_before": [
+   "MI_Temple_Brazier_A"
+  ],
+  "slots_rebuilt_from_zone_id": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_EmberAmber"
+  ],
+  "zone_md5_before": "d6c2592607adcdb8d375a53199b842d4",
+  "zone_md5_after_bake": "d6c2592607adcdb8d375a53199b842d4",
+  "zone_md5_after_material_swap": "d6c2592607adcdb8d375a53199b842d4",
+  "zone_counts": {
+   "0": 1296,
+   "2": 3488,
+   "5": 1298
+  },
+  "files": {
+   "BaseColor": "bake_out/Textures/ENV_Temple_Brazier_A_BaseColor.png",
+   "Normal": "bake_out/Textures/ENV_Temple_Brazier_A_Normal.png",
+   "Mask": "bake_out/Textures/ENV_Temple_Brazier_A_Mask.png",
+   "Emission": "bake_out/Textures/ENV_Temple_Brazier_A_Emission.png"
+  },
+  "seconds": 21.8
+ }
+}

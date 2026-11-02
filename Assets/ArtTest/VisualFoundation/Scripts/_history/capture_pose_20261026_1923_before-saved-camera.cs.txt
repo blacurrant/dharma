@@ -1,0 +1,14 @@
+// Template used by capture_pose.sh (kept as .cs.txt so Unity does not compile it). __POSE__ and __OUT__ are substituted.
+var cam=UnityEngine.Camera.main; var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy"); var iso=cam.GetComponent<IsoCameraFollow>(); string pose="__POSE__"; string outp="__OUT__";
+var P=new System.Collections.Generic.Dictionary<string,UnityEngine.Vector2>{{"centre",new UnityEngine.Vector2(0,0)},{"north",new UnityEngine.Vector2(-8,16)},{"west",new UnityEngine.Vector2(-16,-2)},{"dais",new UnityEngine.Vector2(-8,8)},{"arch",new UnityEngine.Vector2(4,15)},{"edge",new UnityEngine.Vector2(13,-13)}};
+System.Collections.IEnumerator Routine(){ yield return null; yield return null;
+  if(cam.pixelWidth!=1920||cam.pixelHeight!=1080){ UnityEngine.Debug.LogError("CAPTURE ABORT: Game view is "+cam.pixelWidth+"x"+cam.pixelHeight+" (set the Game view to Full HD 1920x1080)"); yield break; }
+  foreach(var f in UnityEngine.Object.FindObjectsByType<ArtTestCameraFocus>()) f.enabled=false;            // plain follow, focus helper OFF
+  var t=en.GetComponent<TrainingDummy>(); if(t!=null) t.enabled=false;                                       // enemy parked: no telegraph, no hit
+  cam.orthographicSize=8.5f; var so=new UnityEditor.SerializedObject(iso); so.FindProperty("offset").vector3Value=new UnityEngine.Vector3(12,15.28f,-12); so.ApplyModifiedPropertiesWithoutUndo();   // A2 (42 deg, ortho 8.5)
+  var hud=UnityEngine.Object.FindAnyObjectByType<PrototypeHud>(); var fld=typeof(PrototypeHud).GetField("_damageCueUntil",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+  var p=P[pose]; var cc=pl.GetComponent<UnityEngine.CharacterController>(); cc.enabled=false; pl.transform.position=new UnityEngine.Vector3(p.x,0.02f,p.y); cc.enabled=true;
+  var ec=en.GetComponent<UnityEngine.CharacterController>(); ec.enabled=false; en.transform.position=new UnityEngine.Vector3(0,0,-60); ec.enabled=true; iso.Snap();
+  for(int i=0;i<14;i++) yield return null; for(int i=0;i<600&&UnityEngine.Time.time<=(float)fld.GetValue(hud)+0.3f;i++) yield return null;   // no HIT text in the HUD
+  yield return new UnityEngine.WaitForEndOfFrame(); var tex=UnityEngine.ScreenCapture.CaptureScreenshotAsTexture(); System.IO.File.WriteAllBytes(outp,tex.EncodeToPNG()); UnityEngine.Object.Destroy(tex); UnityEngine.Debug.Log("CAPTURED "+outp); }
+var host=VFRunner.Create(); host.StartCoroutine(Routine()); return "started";

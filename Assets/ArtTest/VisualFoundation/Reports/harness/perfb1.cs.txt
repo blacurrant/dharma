@@ -1,0 +1,15 @@
+var r=VFRunner.Create(); string od="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation";
+void FacadeShadows(bool on){ foreach(var t in UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsInactive.Include)) if(t.name.StartsWith("VF_Proxy_Bay_")) t.shadowCastingMode= on?UnityEngine.Rendering.ShadowCastingMode.On:UnityEngine.Rendering.ShadowCastingMode.Off; }
+System.Collections.IEnumerator Routine(){
+  var sb=new System.Text.StringBuilder("state,rep,frames,avg_ms,p95_ms,max_ms,avg_fps,cpu_frame_ms_ftm,gpu_frame_ms_ftm,draw_calls,setpass,tris,shadow_casters,targetFrameRate,vsync,cam\n");
+  r.SetConfig(9f,18f); UnityEngine.Application.targetFrameRate=-1; UnityEngine.QualitySettings.vSyncCount=0; UnityEngine.Time.captureFramerate=0;
+  if(UnityEngine.Camera.main.pixelWidth!=1920){ r.status="stack done ABORT size"; r.done=true; yield break; }
+  var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy"); en.GetComponent<TrainingDummy>().enabled=false;
+  foreach(var rep in new[]{1,2,3,4}) foreach(var st in new[]{"before","graybox_shadowON","graybox_shadowOFF"}){
+    VF4Builder.SetBatch(st!="before"); FacadeShadows(st=="graybox_shadowON"); for(int i=0;i<90;i++) yield return null;
+    var dts=new System.Collections.Generic.List<float>(); var cpu=new System.Collections.Generic.List<double>(); var gpu=new System.Collections.Generic.List<double>(); var ft=new UnityEngine.FrameTiming[1];
+    for(int i=0;i<200;i++){ yield return null; dts.Add(UnityEngine.Time.unscaledDeltaTime*1000f); UnityEngine.FrameTimingManager.CaptureFrameTimings(); if(UnityEngine.FrameTimingManager.GetLatestTimings(1,ft)>0){ cpu.Add(ft[0].cpuFrameTime); gpu.Add(ft[0].gpuFrameTime);} }
+    dts.Sort(); float avg=0; foreach(var d in dts) avg+=d; avg/=dts.Count; double ca=0,ga=0; foreach(var c in cpu) ca+=c; foreach(var g in gpu) ga+=g; if(cpu.Count>0){ca/=cpu.Count;ga/=gpu.Count;}
+    sb.AppendLine(st+","+rep+","+dts.Count+","+avg.ToString("F2")+","+dts[(int)(dts.Count*0.95f)].ToString("F2")+","+dts[dts.Count-1].ToString("F2")+","+(1000f/avg).ToString("F1")+","+ca.ToString("F2")+","+ga.ToString("F2")+","+UnityEditor.UnityStats.drawCalls+","+UnityEditor.UnityStats.setPassCalls+","+UnityEditor.UnityStats.triangles+","+UnityEditor.UnityStats.shadowCasters+","+UnityEngine.Application.targetFrameRate+","+UnityEngine.QualitySettings.vSyncCount+",B 1920x1080"); }
+  System.IO.File.WriteAllText(od+"/Reports/b1_perf_raw.csv",sb.ToString()); VF4Builder.SetBatch(true); FacadeShadows(true); r.status="stack done"; r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

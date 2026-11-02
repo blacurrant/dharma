@@ -1,0 +1,257 @@
+{
+ "ENV_Temple_Floor_A": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_A_Mask.png"
+  },
+  "material": "MI_Temple_Floor_A",
+  "baked": false,
+  "seconds": 0.0
+ },
+ "ENV_Temple_Rubble_A": {
+  "res": 512,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Rubble_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Rubble_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Rubble_A_Mask.png"
+  },
+  "material": "MI_Temple_Rubble_A",
+  "baked": true,
+  "seconds": 11.0
+ },
+ "ENV_Temple_Altar_A": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Altar_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Altar_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Altar_A_Mask.png",
+   "Emission": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Altar_A_Emission.png"
+  },
+  "material": "MI_Temple_Altar_A",
+  "baked": true,
+  "seconds": 65.8
+ },
+ "ENV_Temple_Arch_A_PierL": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_PierL_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_PierL_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_PierL_Mask.png"
+  },
+  "material": "MI_Temple_Arch_A_PierL",
+  "baked": true,
+  "seconds": 118.6
+ },
+ "ENV_Temple_Arch_A_PierR": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_PierR_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_PierR_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_PierR_Mask.png"
+  },
+  "material": "MI_Temple_Arch_A_PierR",
+  "baked": true,
+  "seconds": 100.8
+ },
+ "ENV_Temple_Arch_A_Span": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_Span_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_Span_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Arch_A_Span_Mask.png"
+  },
+  "material": "MI_Temple_Arch_A_Span",
+  "baked": true,
+  "seconds": 90.4
+ },
+ "ENV_Temple_Banner_A": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Banner_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Banner_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Banner_A_Mask.png"
+  },
+  "material": "MI_Temple_Banner_A",
+  "baked": true,
+  "seconds": 18.5
+ },
+ "ENV_Temple_Brazier_A": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Brazier_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Brazier_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Brazier_A_Mask.png",
+   "Emission": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Brazier_A_Emission.png"
+  },
+  "material": "MI_Temple_Brazier_A",
+  "baked": true,
+  "seconds": 19.3
+ },
+ "ENV_Temple_ColumnDrum_A": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_ColumnDrum_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_ColumnDrum_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_ColumnDrum_A_Mask.png"
+  },
+  "material": "MI_Temple_ColumnDrum_A",
+  "baked": true,
+  "seconds": 26.8
+ },
+ "ENV_Temple_FloorBorder_Corner_A": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_FloorBorder_Corner_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_FloorBorder_Corner_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_FloorBorder_Corner_A_Mask.png"
+  },
+  "material": "MI_Temple_FloorBorder_Corner_A",
+  "baked": false,
+  "seconds": 0.0
+ },
+ "ENV_Temple_FloorBorder_Straight_A": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_FloorBorder_Straight_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_FloorBorder_Straight_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_FloorBorder_Straight_A_Mask.png"
+  },
+  "material": "MI_Temple_FloorBorder_Straight_A",
+  "baked": false,
+  "seconds": 0.0
+ },
+ "ENV_Temple_Floor_B": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_B_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_B_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_B_Mask.png"
+  },
+  "material": "MI_Temple_Floor_B",
+  "baked": false,
+  "seconds": 0.0
+ },
+ "ENV_Temple_Floor_C": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_C_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_C_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_C_Mask.png"
+  },
+  "material": "MI_Temple_Floor_C",
+  "baked": false,
+  "seconds": 0.0
+ },
+ "ENV_Temple_Floor_D": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_D_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_D_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Floor_D_Mask.png"
+  },
+  "material": "MI_Temple_Floor_D",
+  "baked": false,
+  "seconds": 0.0
+ },
+ "ENV_Temple_Pillar_A": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_A_Mask.png"
+  },
+  "material": "MI_Temple_Pillar_A",
+  "baked": true,
+  "seconds": 74.4
+ },
+ "ENV_Temple_Pillar_B": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_B_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_B_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_B_Mask.png"
+  },
+  "material": "MI_Temple_Pillar_B",
+  "baked": true,
+  "seconds": 81.4
+ },
+ "ENV_Temple_Pillar_C": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_C_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_C_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_C_Mask.png"
+  },
+  "material": "MI_Temple_Pillar_C",
+  "baked": true,
+  "seconds": 74.9
+ },
+ "ENV_Temple_Pillar_D": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_D_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_D_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Pillar_D_Mask.png"
+  },
+  "material": "MI_Temple_Pillar_D",
+  "baked": true,
+  "seconds": 69.2
+ },
+ "ENV_Temple_Platform_A": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Platform_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Platform_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Platform_A_Mask.png"
+  },
+  "material": "MI_Temple_Platform_A",
+  "baked": true,
+  "seconds": 74.6
+ },
+ "ENV_Temple_Rubble_B": {
+  "res": 1024,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Rubble_B_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Rubble_B_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Rubble_B_Mask.png"
+  },
+  "material": "MI_Temple_Rubble_B",
+  "baked": true,
+  "seconds": 29.6
+ },
+ "ENV_Temple_Stairs_A": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Stairs_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Stairs_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Stairs_A_Mask.png"
+  },
+  "material": "MI_Temple_Stairs_A",
+  "baked": true,
+  "seconds": 95.1
+ },
+ "ENV_Temple_Wall_A": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Wall_A_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Wall_A_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Wall_A_Mask.png"
+  },
+  "material": "MI_Temple_Wall_A",
+  "baked": true,
+  "seconds": 95.5
+ },
+ "ENV_Temple_Wall_B": {
+  "res": 2048,
+  "files": {
+   "BaseColor": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Wall_B_BaseColor.png",
+   "Normal": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Wall_B_Normal.png",
+   "Mask": "Art/Exports/Environment/Staging/Textures/ENV_Temple_Wall_B_Mask.png"
+  },
+  "material": "MI_Temple_Wall_B",
+  "baked": true,
+  "seconds": 95.7
+ }
+}

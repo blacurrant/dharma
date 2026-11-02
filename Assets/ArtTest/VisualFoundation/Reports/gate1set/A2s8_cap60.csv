@@ -1,0 +1,14 @@
+config,fps_mode,sequence,label,frames,avg_fps,min_fps,max_dt_ms,min_margin_player_ring_px,min_margin_fixed_ring_px,char_pct_min,char_pct_max,player_min_edge_px,max_player_offset_px,not_all_in_frame_frames,telegraph_frames,telegraph_all_in_frame
+A2s8,cap60,dodge,dodge,85,54.5,20.4,49.0,84,-114,2.10,9.80,437,12,0,42,42
+A2s8,cap60,dodge,ALL,85,54.5,20.4,49.0,84,-114,2.10,9.80,437,12,0,42,42
+A2s8,cap60,run,W(up),113,56.0,10.5,95.5,70,-272,8.73,9.83,415,19,0,0,0
+A2s8,cap60,run,ALL,846,51.6,2.6,378.0,61,-286,8.73,9.83,415,35,5,0,0
+A2s8,cap60,run,WD,117,58.1,20.2,49.5,76,-166,8.74,9.83,422,27,0,0,0
+A2s8,cap60,run,D(right),84,38.0,2.6,378.0,84,-286,8.74,9.83,438,35,0,0,0
+A2s8,cap60,run,SD,109,53.8,25.1,39.9,68,-168,8.74,9.83,447,31,0,0,0
+A2s8,cap60,run,S(down),111,55.2,9.2,108.5,61,-274,8.74,9.83,447,27,0,0,0
+A2s8,cap60,run,SA,106,52.4,9.1,110.3,68,-168,8.74,9.83,447,32,0,0,0
+A2s8,cap60,run,A(left),88,42.5,3.4,293.0,84,-255,8.74,9.83,438,34,0,0,0
+A2s8,cap60,run,WA,118,58.1,24.0,41.6,76,-166,8.74,9.83,422,27,5,0,0
+A2s8,cap60,attack,attack,103,45.4,3.2,315.5,77,-126,8.74,9.82,423,26,0,0,0
+A2s8,cap60,attack,ALL,103,45.4,3.2,315.5,77,-126,8.74,9.82,423,26,0,0,0

@@ -1,0 +1,182 @@
+{
+ "focal_axis": {
+  "from_": [
+   0,
+   0
+  ],
+  "to": [
+   -14.083,
+   14.083
+  ],
+  "altar_radius_m": 19.92,
+  "unit": [
+   -0.707,
+   0.707
+  ],
+  "note": "Altar currently at the NW corner (r ~19.9 m); whether a central structure replaces/adds to it is Nishant's decision - this list does not assume it."
+ },
+ "camera_note": "Gameplay camera sits toward +x,-z of the player and looks toward -x,+z, so the altar axis runs UP the screen. Tall pieces are kept off the +x/-z side; heights measured from the kit meshes: Brazier_A 1.34 m, ColumnDrum_A 1.10 m, Rubble_A 0.44 m, Rubble_B 0.30 m; only the wall-mounted Banner_A (2.52 m) is taller.",
+ "parts_used": "existing kit parts only (Brazier_A, Banner_A, ColumnDrum_A, Rubble_A, Rubble_B); no new meshes",
+ "placements": [
+  {
+   "part": "ENV_Temple_Brazier_A",
+   "label": "approach brazier L",
+   "unity_x": -6.86,
+   "unity_z": 10.82,
+   "yaw_front_to_plusZ_deg": 0,
+   "reason": "Lit pair 3 m before the stairs frames the approach to the altar and pulls the eye along the axis. Warm light only, stays outside the clear circle.",
+   "radius_from_centre_m": 12.81,
+   "lateral_from_focal_axis_m": -2.8,
+   "along_axis_m": 12.5,
+   "nearest_existing": "Stairs_A",
+   "nearest_existing_dist_m": 4.11,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 8.68,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  },
+  {
+   "part": "ENV_Temple_Brazier_A",
+   "label": "approach brazier R",
+   "unity_x": -10.82,
+   "unity_z": 6.86,
+   "yaw_front_to_plusZ_deg": 0,
+   "reason": "Pair partner (5.6 m gap). Symmetry here is deliberate: it is the formal entrance to the focal zone; everything else stays asymmetric.",
+   "radius_from_centre_m": 12.81,
+   "lateral_from_focal_axis_m": 2.8,
+   "along_axis_m": 12.5,
+   "nearest_existing": "Stairs_A",
+   "nearest_existing_dist_m": 4.11,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 8.68,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  },
+  {
+   "part": "ENV_Temple_Banner_A",
+   "label": "banner W wall by dais",
+   "unity_x": -19.4,
+   "unity_z": 11.0,
+   "yaw_front_to_plusZ_deg": 90,
+   "reason": "Crimson (the only crimson in the kit) concentrated at the focal corner = colour hierarchy. Wall-mounted: no collision, no combat footprint.",
+   "radius_from_centre_m": 22.3,
+   "lateral_from_focal_axis_m": 5.94,
+   "along_axis_m": 21.5,
+   "nearest_existing": "Wall_B",
+   "nearest_existing_dist_m": 1.17,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 0.1,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  },
+  {
+   "part": "ENV_Temple_Banner_A",
+   "label": "banner N wall by dais",
+   "unity_x": -11.0,
+   "unity_z": 19.4,
+   "yaw_front_to_plusZ_deg": 180,
+   "reason": "Second banner flanks the dais from the other wall; same yaw convention as the existing wall banners.",
+   "radius_from_centre_m": 22.3,
+   "lateral_from_focal_axis_m": -5.94,
+   "along_axis_m": 21.5,
+   "nearest_existing": "Wall_A",
+   "nearest_existing_dist_m": 1.17,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 0.1,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  },
+  {
+   "part": "ENV_Temple_ColumnDrum_A",
+   "label": "fallen drum, flank",
+   "unity_x": -12.0,
+   "unity_z": 5.5,
+   "yaw_front_to_plusZ_deg": 70,
+   "reason": "Low ruin silhouette on the flank; its diagonal leads toward the altar without blocking the sight line (1.1 m tall, measured).",
+   "radius_from_centre_m": 13.2,
+   "lateral_from_focal_axis_m": 4.6,
+   "along_axis_m": 12.37,
+   "nearest_existing": "Pillar_A",
+   "nearest_existing_dist_m": 3.35,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 7.5,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  },
+  {
+   "part": "ENV_Temple_Rubble_A",
+   "label": "rubble, approach flank",
+   "unity_x": -5.5,
+   "unity_z": 12.2,
+   "yaw_front_to_plusZ_deg": 40,
+   "reason": "Breaks the clean floor beside the approach; low and small, no collision problem.",
+   "radius_from_centre_m": 13.38,
+   "lateral_from_focal_axis_m": -4.74,
+   "along_axis_m": 12.52,
+   "nearest_existing": "Pillar_B",
+   "nearest_existing_dist_m": 2.51,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 7.3,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  },
+  {
+   "part": "ENV_Temple_Rubble_B",
+   "label": "rubble, far flank",
+   "unity_x": -17.0,
+   "unity_z": 3.0,
+   "yaw_front_to_plusZ_deg": 100,
+   "reason": "Pushes debris toward the wall edge, away from the combat circle and the approach lane.",
+   "radius_from_centre_m": 17.26,
+   "lateral_from_focal_axis_m": 9.9,
+   "along_axis_m": 14.14,
+   "nearest_existing": "Pillar_A",
+   "nearest_existing_dist_m": 2.24,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 2.5,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  },
+  {
+   "part": "ENV_Temple_Rubble_B",
+   "label": "rubble, east corner",
+   "unity_x": 15.5,
+   "unity_z": 16.5,
+   "yaw_front_to_plusZ_deg": 160,
+   "reason": "Weights the far (screen-top) corner so the frame is not empty away from the altar; outside any lane.",
+   "radius_from_centre_m": 22.64,
+   "lateral_from_focal_axis_m": -22.63,
+   "along_axis_m": 0.71,
+   "nearest_existing": "Rubble_A",
+   "nearest_existing_dist_m": 2.75,
+   "clear_of_combat_circle_r10": true,
+   "gap_to_inner_wall_m": 3.0,
+   "checks": {
+    "r_ge_11": true,
+    "nearest_ge_1_5": true,
+    "inside_walls": true
+   }
+  }
+ ]
+}

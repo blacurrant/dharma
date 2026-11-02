@@ -1,0 +1,17 @@
+00:00.352  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/02_bake_gate1.py:30: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/02_bake_gate1.py:53: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+BAKED ENV_Temple_Brazier_A ['MI_Temple_Brazier_A'] -> ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_EmberAmber'] -> ['MI_Temple_Brazier_A'] zone_md5 stable: True 21.8s
+Info: Saved as "TempleEnvironmentKit_gate1_bake_test.blend"
+BAKE_GATE1_DONE ['ENV_Temple_Brazier_A']
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

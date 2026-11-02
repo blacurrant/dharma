@@ -1,0 +1,24 @@
+var r=VFRunner.Create(); r.outDir="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation"; r.lightDir="Captures/env_i2"; r.lightCsv="Reports/i2_env_"+__TAG__+".csv";
+var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy"); var iso=UnityEngine.Camera.main.GetComponent<IsoCameraFollow>(); string od=r.outDir; 
+var layersRoot=UnityEngine.GameObject.Find("VF_Layers").transform;
+string[] stageNames=__STAGES__; string[][] stageLayers=__LAYERS__;
+void SetLayers(string[] on){ foreach(UnityEngine.Transform c in layersRoot) c.gameObject.SetActive(System.Array.IndexOf(on,c.name)>=0); }
+System.Collections.IEnumerator Plan(string label){
+  var hid=new System.Collections.Generic.List<UnityEngine.Renderer>();
+  foreach(var rr in UnityEngine.Object.FindObjectsByType<UnityEngine.Renderer>()){ if(rr.enabled && (rr.transform.IsChildOf(pl.transform)||rr.transform.IsChildOf(en.transform)||rr.name.Contains("Telegraph")||rr.transform.root.name.Contains("Telegraph")||rr.transform.root.name.Contains("VFRunner"))){ rr.enabled=false; hid.Add(rr);} }
+  var go=new UnityEngine.GameObject("PlanCam"); var pc=go.AddComponent<UnityEngine.Camera>(); pc.orthographic=true; pc.orthographicSize=20f; pc.transform.position=new UnityEngine.Vector3(0,60,0); pc.transform.rotation=UnityEngine.Quaternion.Euler(90,0,0); pc.nearClipPlane=0.1f; pc.farClipPlane=100f; pc.clearFlags=UnityEngine.CameraClearFlags.SolidColor; pc.backgroundColor=UnityEngine.Color.black; pc.cullingMask=~0;
+  var rt=new UnityEngine.RenderTexture(2048,2048,24,UnityEngine.RenderTextureFormat.ARGB32); pc.targetTexture=rt; yield return null; pc.Render(); var old=UnityEngine.RenderTexture.active; UnityEngine.RenderTexture.active=rt; var t=new UnityEngine.Texture2D(2048,2048,UnityEngine.TextureFormat.RGB24,false); t.ReadPixels(new UnityEngine.Rect(0,0,2048,2048),0,0); t.Apply(); UnityEngine.RenderTexture.active=old;
+  System.IO.File.WriteAllBytes(od+"/Captures/env_i2/plan_"+label+".png",t.EncodeToPNG()); UnityEngine.Object.Destroy(t); pc.targetTexture=null; rt.Release(); UnityEngine.Object.Destroy(rt); UnityEngine.Object.Destroy(go); foreach(var rr in hid) if(rr) rr.enabled=true; }
+System.Collections.IEnumerator Routine(){
+  UnityEngine.Time.captureFramerate=60; System.IO.Directory.CreateDirectory(od+"/Captures/env_i2"); System.IO.File.Delete(od+"/"+r.lightCsv); var stats=new System.Text.StringBuilder("stage,draw_calls,set_pass,triangles,shadow_casters\n");
+  r.SetConfig(9f,18f); for(int i=0;i<10;i++) yield return null;
+  for(int s=0;s<stageNames.Length;s++){
+    SetLayers(stageLayers[s]); string lab=stageNames[s]; for(int i=0;i<4;i++) yield return null;
+    yield return Plan(lab);
+    r.Measure(lab+"_combat",0.45f); while(!r.done) yield return null;
+    for(int i=0;i<3;i++) yield return null; stats.AppendLine(lab+","+UnityEditor.UnityStats.drawCalls+","+UnityEditor.UnityStats.setPassCalls+","+UnityEditor.UnityStats.triangles+","+UnityEditor.UnityStats.shadowCasters);
+    en.GetComponent<TrainingDummy>().enabled=false; var epos=new UnityEngine.Vector3(0,0,-60);
+    foreach(var v in new[]{("dais",-8f,8f),("wall",-16f,-4f),("corner",13f,-13f)}){ var cc=pl.GetComponent<UnityEngine.CharacterController>(); cc.enabled=false; pl.transform.position=new UnityEngine.Vector3(v.Item2,0.02f,v.Item3); cc.enabled=true; var ec=en.GetComponent<UnityEngine.CharacterController>(); ec.enabled=false; en.transform.position=epos; ec.enabled=true; iso.Snap(); for(int i=0;i<12;i++) yield return null; yield return new UnityEngine.WaitForEndOfFrame(); var t=UnityEngine.ScreenCapture.CaptureScreenshotAsTexture(); System.IO.File.WriteAllBytes(od+"/Captures/env_i2/"+lab+"_"+v.Item1+".png",t.EncodeToPNG()); UnityEngine.Object.Destroy(t); }
+  }
+  System.IO.File.WriteAllText(od+"/Reports/i2_env_stats_"+__TAG__+".csv",stats.ToString()); UnityEngine.Time.captureFramerate=0; r.status="stack done"; r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

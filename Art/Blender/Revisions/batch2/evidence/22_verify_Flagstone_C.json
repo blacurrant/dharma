@@ -1,0 +1,173 @@
+{
+ "asset": "ENV_Temple_Flagstone_C",
+ "started": "19:00:22",
+ "A_reopen": {
+  "zone_md5": "c44737261a20b0ad997a7fef8b6c81d8",
+  "faces": 1596,
+  "tris": 1596,
+  "slots": [
+   "SRC_Temple_StoneWarm"
+  ],
+  "material_index_hist": {
+   "0": 1596
+  },
+  "zone_counts": {
+   "StoneWarm": 1596
+  }
+ },
+ "B_restored": {
+  "zone_md5": "c44737261a20b0ad997a7fef8b6c81d8",
+  "slots": [
+   "SRC_Temple_StoneWarm"
+  ],
+  "material_index_hist": {
+   "0": 1596
+  },
+  "zone_counts": {
+   "StoneWarm": 1596
+  }
+ },
+ "C1_zone_raster": {
+  "res": 512,
+  "texels_by_zone": {
+   "StoneWarm": 237294
+  },
+  "texels_empty_or_edge": 24850,
+  "covered_fraction": 0.9052
+ },
+ "C2_bake": {
+  "res": 512,
+  "seconds": 24.7,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Flagstone_C_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Flagstone_C_Normal.png",
+   "Mask": "Textures/ENV_Temple_Flagstone_C_Mask.png"
+  },
+  "zone_md5_after_bake": "c44737261a20b0ad997a7fef8b6c81d8",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 237294,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.3774,
+   "smoothness_mean": 0.2627,
+   "basecolor_mean_srgb_hex": "#6E634F"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 262144,
+   "sat_max": 0.429
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "c44737261a20b0ad997a7fef8b6c81d8",
+  "slots": [
+   "MI_Temple_Flagstone_C"
+  ],
+  "material_index_hist": {
+   "0": 1596
+  },
+  "zone_counts": {
+   "StoneWarm": 1596
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Flagstone_C_verify.blend",
+  "zone_md5": "c44737261a20b0ad997a7fef8b6c81d8",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Flagstone_C"
+  ],
+  "material_index_hist": {
+   "0": 1596
+  },
+  "zone_counts": {
+   "StoneWarm": 1596
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Flagstone_C.fbx",
+  "bytes": 139052,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Flagstone_C_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Flagstone_C_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Flagstone_C"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Flagstone_C"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -1.5192,
+   -0.0318,
+   -1.5039
+  ],
+  "vertex_max": [
+   1.538,
+   0.0576,
+   1.5277
+  ],
+  "polys": 1596
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 1596,
+  "mesh_tris": 1596,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 5e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Flagstone_C"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Flagstone_C_BaseColor.png",
+   "ENV_Temple_Flagstone_C_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -1.5192,
+    -1.5277,
+    -0.0318
+   ],
+   "max": [
+    1.538,
+    1.5039,
+    0.0576
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "c44737261a20b0ad997a7fef8b6c81d8",
+  "material": "MI_Temple_Flagstone_C"
+ },
+ "seconds_total": 28.3
+}

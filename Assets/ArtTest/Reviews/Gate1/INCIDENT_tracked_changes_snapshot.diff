@@ -1,0 +1,43 @@
+diff --git a/Assets/Characters/Enemy/Materials/Paladin_Enemy_MAT.mat b/Assets/Characters/Enemy/Materials/Paladin_Enemy_MAT.mat
+index 4cab0cd..f772a76 100644
+--- a/Assets/Characters/Enemy/Materials/Paladin_Enemy_MAT.mat
++++ b/Assets/Characters/Enemy/Materials/Paladin_Enemy_MAT.mat
+@@ -125,7 +125,7 @@ Material:
+     - _ZWrite: 1
+     m_Colors:
+     - _BaseColor: {r: 0.58, g: 0.52, b: 0.52, a: 1}
+-    - _Color: {r: 1, g: 0.96, b: 0.96, a: 1}
++    - _Color: {r: 0.58, g: 0.52, b: 0.52, a: 1}
+     - _EmissionColor: {r: 1.5, g: 0.8, b: 0.55, a: 1}
+     - _SpecColor: {r: 0.1, g: 0.09, b: 0.09, a: 1}
+   m_BuildTextureStacks: []
+diff --git a/Assets/Characters/Player/Materials/Paladin_MAT.mat b/Assets/Characters/Player/Materials/Paladin_MAT.mat
+index f8cef6f..f0f0ed5 100644
+--- a/Assets/Characters/Player/Materials/Paladin_MAT.mat
++++ b/Assets/Characters/Player/Materials/Paladin_MAT.mat
+@@ -12,6 +12,7 @@ Material:
+   m_Parent: {fileID: 0}
+   m_ModifiedSerializedProperties: 0
+   m_ValidKeywords:
++  - _METALLICSPECGLOSSMAP
+   - _NORMALMAP
+   - _SPECGLOSSMAP
+   - _SPECULAR_SETUP
+diff --git a/ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json b/ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json
+index a5925f1..73c5b2d 100644
+--- a/ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json
++++ b/ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json
+@@ -9,7 +9,7 @@
+     "m_AllowBrowserClients": false,
+     "m_MethodReloadRepushOnConnect": true,
+     "m_RunInBackgroundInPlayMode": false,
+-    "m_RunInBackgroundOverridden": false,
++    "m_RunInBackgroundOverridden": true,
+     "m_RunInBackgroundOriginal": false,
+-    "m_RunInBackgroundCommandOverride": false
++    "m_RunInBackgroundCommandOverride": true
+ }
+\ No newline at end of file
+bf4d841e4fbf9f95b932aa79243e41828bec30c81a0a3f971cf44b12af5ce007  Assets/Characters/Enemy/Materials/Paladin_Enemy_MAT.mat
+232943e17f59169ade0076c0da3ebf18ccac5c3e22d36d148c0b71a94c018c48  Assets/Characters/Player/Materials/Paladin_MAT.mat
+89e4f278ff47c1591b75bef9de82009f65afb7001a533e7e862e92ef69c91707  ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json

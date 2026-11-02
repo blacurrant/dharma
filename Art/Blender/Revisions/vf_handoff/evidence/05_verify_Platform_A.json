@@ -1,0 +1,157 @@
+{
+ "asset": "ENV_Temple_Platform_A",
+ "t0": "14:03:12",
+ "A_reopen": {
+  "zone_md5": "2499ff0adbd247425fd4abb0075b74c0",
+  "faces": 25908,
+  "slots": [
+   "MI_Temple_Platform_A"
+  ],
+  "material_index_hist": {
+   "0": 25908
+  },
+  "zone_counts": {
+   "StoneWarm": 25908
+  }
+ },
+ "B_restored": {
+  "zone_md5": "2499ff0adbd247425fd4abb0075b74c0",
+  "slots": [
+   "SRC_Temple_StoneWarm"
+  ],
+  "material_index_hist": {
+   "0": 25908
+  },
+  "zone_counts": {
+   "StoneWarm": 25908
+  }
+ },
+ "C1_zone_raster": {
+  "res": 2048,
+  "texels_by_zone": {
+   "StoneWarm": 2857291
+  },
+  "texels_empty_or_edge": 1337013,
+  "covered_fraction": 0.6812
+ },
+ "C2_bake": {
+  "res": 2048,
+  "seconds": 81.8,
+  "files": {
+   "BaseColor": "bake_out_b/Textures/ENV_Temple_Platform_A_BaseColor.png",
+   "Normal": "bake_out_b/Textures/ENV_Temple_Platform_A_Normal.png",
+   "Mask": "bake_out_b/Textures/ENV_Temple_Platform_A_Mask.png"
+  },
+  "zone_md5_after_bake": "2499ff0adbd247425fd4abb0075b74c0",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "D_after_swap": {
+  "zone_md5": "2499ff0adbd247425fd4abb0075b74c0",
+  "slots": [
+   "MI_Temple_Platform_A"
+  ],
+  "material_index_hist": {
+   "0": 25908
+  },
+  "zone_counts": {
+   "StoneWarm": 25908
+  }
+ },
+ "E_reopen": {
+  "file": "verify_b/ENV_Temple_Platform_A_verify.blend",
+  "zone_md5": "2499ff0adbd247425fd4abb0075b74c0",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Platform_A"
+  ],
+  "material_index_hist": {
+   "0": 25908
+  },
+  "zone_counts": {
+   "StoneWarm": 25908
+  }
+ },
+ "F_fbx_gate1": {
+  "bytes": 2937308,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Platform_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Platform_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Platform_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Platform_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -1.9934,
+   -0.0001,
+   -2.9951
+  ],
+  "vertex_max": [
+   1.9967,
+   0.8071,
+   2.9961
+  ],
+  "polys": 25908
+ },
+ "F_fbx_shipped": {
+  "bytes": 2937020,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Platform_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Platform_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Platform_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Platform_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -1.9934,
+   -0.0001,
+   -2.9951
+  ],
+  "vertex_max": [
+   1.9967,
+   0.8071,
+   2.9961
+  ],
+  "polys": 25908
+ },
+ "F_checks": {
+  "polys_equal": true,
+  "vertex_extents_equal": true,
+  "up_axis_equal": true,
+  "unit_scale_equal": true,
+  "materials_equal": true,
+  "textures_equal": true,
+  "identity_transform_gate1": true,
+  "zone_id_in_fbx_bytes": false
+ },
+ "seconds_total": 85.3
+}

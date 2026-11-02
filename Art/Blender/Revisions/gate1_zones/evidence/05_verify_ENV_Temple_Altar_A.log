@@ -1,0 +1,30 @@
+00:00.329  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+A {'zone_md5': 'feb8d4d1a395a21e467eed57c8a54bd4', 'faces': 79542, 'slots': ['MI_Temple_Altar_A'], 'material_index_hist': {0: 79542}, 'zone_counts': {'StoneWarm': 60208, 'Bronze': 5024, 'Gold': 2032, 'CrimsonCloth': 11860, 'EmberAmber': 418}}
+B {'zone_md5': 'feb8d4d1a395a21e467eed57c8a54bd4', 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_Gold', 'SRC_Temple_CrimsonCloth', 'SRC_Temple_EmberAmber'], 'material_index_hist': {0: 60208, 1: 5024, 2: 2032, 3: 11860, 4: 418}, 'zone_counts': {'StoneWarm': 60208, 'Bronze': 5024, 'Gold': 2032, 'CrimsonCloth': 11860, 'EmberAmber': 418}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/04_verify_assets.py:68: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/04_verify_assets.py:75: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_zone_probe_b'); pm.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+C1 {'res': 2048, 'texels_by_zone': {'StoneWarm': 2058486, 'Bronze': 108882, 'Gold': 140383, 'CrimsonCloth': 89188, 'EmberAmber': 13560}, 'texels_empty_or_edge': 1783805, 'covered_fraction': 0.5747}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C2 {'res': 2048, 'seconds': 76.1, 'files': {'BaseColor': 'bake_out_b/Textures/ENV_Temple_Altar_A_BaseColor.png', 'Normal': 'bake_out_b/Textures/ENV_Temple_Altar_A_Normal.png', 'Mask': 'bake_out_b/Textures/ENV_Temple_Altar_A_Mask.png', 'Emission': 'bake_out_b/Textures/ENV_Temple_Altar_A_Emission.png'}, 'zone_md5_after_bake': 'feb8d4d1a395a21e467eed57c8a54bd4', 'slots_during_bake': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_Gold', 'SRC_Temple_CrimsonCloth', 'SRC_Temple_EmberAmber']}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/04_verify_assets.py:137: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+D {'zone_md5': 'feb8d4d1a395a21e467eed57c8a54bd4', 'slots': ['MI_Temple_Altar_A'], 'material_index_hist': {0: 79542}, 'zone_counts': {'StoneWarm': 60208, 'Bronze': 5024, 'Gold': 2032, 'CrimsonCloth': 11860, 'EmberAmber': 418}}
+01:18.366  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify_b/ENV_Temple_Altar_A_verify.blend"
+Info: Saved as "ENV_Temple_Altar_A_verify.blend"
+E {'file': 'verify_b/ENV_Temple_Altar_A_verify.blend', 'zone_md5': 'feb8d4d1a395a21e467eed57c8a54bd4', 'same_as_original': True, 'slots': ['MI_Temple_Altar_A'], 'material_index_hist': {0: 79542}, 'zone_counts': {'StoneWarm': 60208, 'Bronze': 5024, 'Gold': 2032, 'CrimsonCloth': 11860, 'EmberAmber': 418}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/bake_out_b/Models/ENV_Temple_Altar_A.fbx'
+export finished in 0.4665 sec.
+F {'polys_equal': True, 'vertex_extents_equal': True, 'up_axis_equal': True, 'unit_scale_equal': True, 'materials_equal': True, 'textures_equal': True, 'identity_transform_gate1': True, 'zone_id_in_fbx_bytes': False}
+VERIFY_B_DONE ENV_Temple_Altar_A
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

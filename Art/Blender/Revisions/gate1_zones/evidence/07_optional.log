@@ -1,0 +1,24 @@
+00:00.257  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+OPT1 ENV_Temple_Altar_A {'faces': 79542, 'duplicate_key_groups': 728, 'faces_in_duplicate_groups': 9849, 'rebuild_index_aligned_exactly': False, 'per_index_zone_agreement': None, 'groups_with_conflicting_zones_saved': 0, 'groups_with_conflicting_zones_rebuild_checked': 0}
+OPT1 ENV_Temple_Arch_A_PierR {'faces': 26304, 'duplicate_key_groups': 1, 'faces_in_duplicate_groups': 2, 'rebuild_index_aligned_exactly': True, 'per_index_zone_agreement': 26304, 'groups_with_conflicting_zones_saved': 0, 'groups_with_conflicting_zones_rebuild_checked': 0}
+OPT1 ENV_Temple_Arch_A_Span {'faces': 122416, 'duplicate_key_groups': 12, 'faces_in_duplicate_groups': 24, 'rebuild_index_aligned_exactly': False, 'per_index_zone_agreement': None, 'groups_with_conflicting_zones_saved': 0, 'groups_with_conflicting_zones_rebuild_checked': 0}
+OPT1 ENV_Temple_FloorBorder_Corner_A {'faces': 8522, 'duplicate_key_groups': 4, 'faces_in_duplicate_groups': 8, 'rebuild_index_aligned_exactly': True, 'per_index_zone_agreement': 8522, 'groups_with_conflicting_zones_saved': 0, 'groups_with_conflicting_zones_rebuild_checked': 0}
+OPT1 ENV_Temple_Pillar_A {'faces': 38050, 'duplicate_key_groups': 4, 'faces_in_duplicate_groups': 8, 'rebuild_index_aligned_exactly': False, 'per_index_zone_agreement': None, 'groups_with_conflicting_zones_saved': 0, 'groups_with_conflicting_zones_rebuild_checked': 0}
+OPT1 ENV_Temple_Platform_A {'faces': 25908, 'duplicate_key_groups': 5, 'faces_in_duplicate_groups': 10, 'rebuild_index_aligned_exactly': True, 'per_index_zone_agreement': 25908, 'groups_with_conflicting_zones_saved': 0, 'groups_with_conflicting_zones_rebuild_checked': 0}
+OPT1 ENV_Temple_Stairs_A {'faces': 11488, 'duplicate_key_groups': 1, 'faces_in_duplicate_groups': 2, 'rebuild_index_aligned_exactly': True, 'per_index_zone_agreement': 11488, 'groups_with_conflicting_zones_saved': 0, 'groups_with_conflicting_zones_rebuild_checked': 0}
+00:03.566  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Arch_A_PierL/ENV_Temple_Arch_A_PierL_verify.blend"
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/06_optional_checks.py:65: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_p'); pm.use_nodes = True; nt = pm.node_tree; nt.nodes.clear()
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+OPT2 {'faces': 26656, 'mismatched_margin10': 120, 'explained_by_other_face_covering_texel': 93, 'unexplained_by_cover': 27, 'unexplained_where_margin0_texel_is_empty_or_own_zone': 27, 'margin0_mismatch_total': 891, 'margin0_mismatch_where_texel_empty': 798}
+00:08.676  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Brazier_A/ENV_Temple_Brazier_A_verify.blend"
+Info: Baking map saved to internal image, save it externally or pack it
+OPT3 BaseColor {'texels_gt_0_1': 21, 'max': 0.3098, 'outliers_by_zone_region': {'outside_or_edge': 13, 'Bronze': 8}}
+OPT3 Normal {'texels_gt_0_1': 0, 'max': 0.0235, 'outliers_by_zone_region': {}}
+OPT3 Mask {'texels_gt_0_1': 81, 'max': 0.2471, 'outliers_by_zone_region': {'outside_or_edge': 4, 'Bronze': 77}}
+OPT3 Emission {'texels_gt_0_1': 0, 'max': 0.0039, 'outliers_by_zone_region': {}}
+OPTIONAL_DONE
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

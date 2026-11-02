@@ -1,0 +1,207 @@
+{
+ "asset": "ENV_Temple_Shrine_Backdrop_A",
+ "started": "18:45:53",
+ "A_reopen": {
+  "zone_md5": "23af79ac3c0b6eb0a62f2a5d9ef0602f",
+  "faces": 27262,
+  "tris": 27262,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 21734,
+   "1": 624,
+   "2": 4904
+  },
+  "zone_counts": {
+   "StoneWarm": 21734,
+   "StoneCharcoal": 624,
+   "Bronze": 4904
+  }
+ },
+ "B_restored": {
+  "zone_md5": "23af79ac3c0b6eb0a62f2a5d9ef0602f",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 21734,
+   "1": 624,
+   "2": 4904
+  },
+  "zone_counts": {
+   "StoneWarm": 21734,
+   "StoneCharcoal": 624,
+   "Bronze": 4904
+  }
+ },
+ "C1_zone_raster": {
+  "res": 2048,
+  "texels_by_zone": {
+   "StoneWarm": 2492137,
+   "StoneCharcoal": 105073,
+   "Bronze": 329152
+  },
+  "texels_empty_or_edge": 1267942,
+  "covered_fraction": 0.6977
+ },
+ "C2_bake": {
+  "res": 2048,
+  "seconds": 147.8,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Shrine_Backdrop_A_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Shrine_Backdrop_A_Normal.png",
+   "Mask": "Textures/ENV_Temple_Shrine_Backdrop_A_Mask.png"
+  },
+  "zone_md5_after_bake": "23af79ac3c0b6eb0a62f2a5d9ef0602f",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 2492137,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.349,
+   "smoothness_mean": 0.2251,
+   "basecolor_mean_srgb_hex": "#695D4A"
+  },
+  "StoneCharcoal": {
+   "texels": 105073,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.2003,
+   "smoothness_mean": 0.2011,
+   "basecolor_mean_srgb_hex": "#1C1A17"
+  },
+  "Bronze": {
+   "texels": 329152,
+   "metallic_mean": 0.7055,
+   "occlusion_mean": 0.3814,
+   "smoothness_mean": 0.4319,
+   "basecolor_mean_srgb_hex": "#79582F"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 4194304,
+   "sat_max": 0.669
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "23af79ac3c0b6eb0a62f2a5d9ef0602f",
+  "slots": [
+   "MI_Temple_Shrine_Backdrop_A"
+  ],
+  "material_index_hist": {
+   "0": 27262
+  },
+  "zone_counts": {
+   "StoneWarm": 21734,
+   "StoneCharcoal": 624,
+   "Bronze": 4904
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Shrine_Backdrop_A_verify.blend",
+  "zone_md5": "23af79ac3c0b6eb0a62f2a5d9ef0602f",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Shrine_Backdrop_A"
+  ],
+  "material_index_hist": {
+   "0": 27262
+  },
+  "zone_counts": {
+   "StoneWarm": 21734,
+   "StoneCharcoal": 624,
+   "Bronze": 4904
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Shrine_Backdrop_A.fbx",
+  "bytes": 2935356,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Shrine_Backdrop_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Shrine_Backdrop_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Shrine_Backdrop_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Shrine_Backdrop_A"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -6.1717,
+   -0.0223,
+   -5.0933
+  ],
+  "vertex_max": [
+   6.1925,
+   9.5128,
+   1.4578
+  ],
+  "polys": 27262
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 27262,
+  "mesh_tris": 27262,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 5e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Shrine_Backdrop_A"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Shrine_Backdrop_A_BaseColor.png",
+   "ENV_Temple_Shrine_Backdrop_A_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -6.1717,
+    -1.4578,
+    -0.0223
+   ],
+   "max": [
+    6.1925,
+    5.0933,
+    9.5128
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "23af79ac3c0b6eb0a62f2a5d9ef0602f",
+  "material": "MI_Temple_Shrine_Backdrop_A"
+ },
+ "seconds_total": 158.5
+}

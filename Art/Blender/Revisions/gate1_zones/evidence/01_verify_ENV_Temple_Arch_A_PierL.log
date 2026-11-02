@@ -1,0 +1,33 @@
+00:00.406  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/01_verify_zones.py:125: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  ztmp = bpy.data.materials.new('_zone_probe'); ztmp.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/01_verify_zones.py:157: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = bpy.data.materials.new(mname); fm.use_nodes = True
+01:31.466  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Arch_A_PierL/ENV_Temple_Arch_A_PierL_verify.blend"
+A reopen {'file': '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend', 'zone_md5': '8de9b5e3e5ec60f9f52d05ef4224405b', 'slots': ['MI_Temple_Arch_A_PierL'], 'material_index_hist': {0: 26656}, 'attributes': ['UVMap', 'blocktone', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 25760, 1: 512, 2: 324, 3: 60}}
+B restored {'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_StoneCharcoal', 'SRC_Temple_Bronze', 'SRC_Temple_Gold'], 'material_index_hist': {0: 25760, 1: 512, 2: 324, 3: 60}, 'attributes': ['UVMap', 'blocktone', 'material_index', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 25760, 1: 512, 2: 324, 3: 60}}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C per-zone {"StoneWarm": {"faces": 25760, "albedo_srgb_mean": [0.649, 0.615, 0.555], "metallic_mean": 0.0, "roughness_mean": 0.791, "ao_mean": 0.4}, "StoneCharcoal": {"faces": 512, "albedo_srgb_mean": [0.411, 0.391, 0.372], "metallic_mean": 0.0, "roughness_mean": 0.789, "ao_mean": 0.28}, "Bronze": {"faces": 324, "albedo_srgb_mean": [0.789, 0.704, 0.56], "metallic_mean": 0.482, "roughness_mean": 0.583, "ao_mean": 0.223}, "Gold": {"faces": 60, "albedo_srgb_mean": [0.807, 0.744, 0.581], "metallic_mean": 0.983, "roughness_mean": 0.599, "ao_mean": 0.037}}
+Info: Baking map saved to internal image, save it externally or pack it
+C zone-through-shader {'max_abs_err': 0.6, 'faces_within_0_02': 26536, 'faces': 26656}
+D after swap {'slots': ['MI_gate1_verify_Arch_A_PierL'], 'material_index_hist': {0: 26656}, 'attributes': ['UVMap', 'blocktone', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 25760, 1: 512, 2: 324, 3: 60}, 'zone_md5': '8de9b5e3e5ec60f9f52d05ef4224405b'}
+Info: Saved as "ENV_Temple_Arch_A_PierL_verify.blend"
+E reopen {'file': '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Arch_A_PierL/ENV_Temple_Arch_A_PierL_verify.blend', 'zone_md5': '8de9b5e3e5ec60f9f52d05ef4224405b', 'same_as_original': True, 'slots': ['MI_gate1_verify_Arch_A_PierL'], 'material_index_hist': {0: 26656}, 'attributes': ['UVMap', 'blocktone', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 25760, 1: 512, 2: 324, 3: 60}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Arch_A_PierL/ENV_Temple_Arch_A_PierL_intended.fbx'
+export finished in 0.2069 sec.
+F fbx intended {'bytes': 3144380, 'has_LayerElementColor': False, 'geometries': [{'polys': 26656, 'layer_elements': ['LayerElementBinormal', 'LayerElementMaterial', 'LayerElementNormal', 'LayerElementTangent', 'LayerElementUV']}], 'materials': ['MI_gate1_verify_Arch_A_PierL'], 'user_properties': [], 'zone_attribute_in_fbx': False}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Arch_A_PierL/ENV_Temple_Arch_A_PierL_optin_zonecolor.fbx'
+export finished in 0.1372 sec.
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+VERIFY_DONE ENV_Temple_Arch_A_PierL
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

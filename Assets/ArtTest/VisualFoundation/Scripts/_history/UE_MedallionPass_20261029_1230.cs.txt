@@ -1,0 +1,195 @@
+import os
+import sys
+import subprocess
+import json
+
+script_cs = """
+var log = new System.Text.StringBuilder();
+
+// 1. CENTRAL MEDALLION
+var oldMedallion = UnityEngine.GameObject.Find("ENV_Temple_Central_Medallion");
+if (oldMedallion != null) UnityEngine.Object.DestroyImmediate(oldMedallion);
+
+var medallionFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/Medallion/Models/ENV_Temple_Central_Medallion.fbx");
+var medallionMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/Medallion/M_Temple_Central_Medallion.mat");
+
+if (medallionFbx != null) {
+    var med = (UnityEngine.GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(medallionFbx);
+    med.name = "ENV_Temple_Central_Medallion";
+    // Place at center (0, 0.045, 0) so the medallion sits flush with the ground substrate
+    med.transform.position = new UnityEngine.Vector3(0.0f, 0.045f, 0.0f);
+    med.transform.rotation = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+    med.transform.localScale = UnityEngine.Vector3.one;
+    
+    // Assign material
+    var mrs = med.GetComponentsInChildren<UnityEngine.MeshRenderer>();
+    foreach(var mr in mrs) {
+        if (medallionMat != null) mr.sharedMaterial = medallionMat;
+    }
+    // Remove any colliders on the central medallion so physics rolling/combat is 100% fluid
+    var cols = med.GetComponentsInChildren<UnityEngine.Collider>();
+    foreach(var c in cols) UnityEngine.Object.DestroyImmediate(c);
+    
+    log.AppendLine("Central Medallion placed at center flush with ground, no colliders.");
+} else {
+    log.AppendLine("ERROR: Medallion FBX not found!");
+}
+
+// 2. KILL THE CHECKERBOARD FLOOR
+// Disable the procedural macro-overlay quads causing the 45-degree alternating checkerboard
+var l01 = UnityEngine.GameObject.Find("L01_MacroValue_Damped");
+if (l01 != null) { l01.SetActive(false); log.AppendLine("Disabled L01_MacroValue_Damped"); }
+
+var l02 = UnityEngine.GameObject.Find("L02_MacroTint");
+if (l02 != null) { l02.SetActive(false); log.AppendLine("Disabled L02_MacroTint"); }
+
+var l06 = UnityEngine.GameObject.Find("L06_MossJoints");
+if (l06 != null) { l06.SetActive(false); log.AppendLine("Disabled L06_MossJoints"); }
+
+// Also check any other macro quads
+var l01b = UnityEngine.GameObject.Find("L01b_MacroValue_NoDamp_ShaderRadial");
+if (l01b != null) l01b.SetActive(false);
+var l01c = UnityEngine.GameObject.Find("L01c_MacroValue_NoDamp_NoWeight");
+if (l01c != null) l01c.SetActive(false);
+
+log.AppendLine("Checkerboard overlay quads disabled.");
+
+// 3. REMOVE OIL-SLICK PUDDLES
+var puddles = UnityEngine.GameObject.Find("VF_UE_RainPuddles");
+if (puddles != null) {
+    UnityEngine.Object.DestroyImmediate(puddles);
+    log.AppendLine("Destroyed VF_UE_RainPuddles.");
+}
+
+// 4. TRUE WEST WALL BREACH
+// Open a true 6-8 m physical breach from z = -4.0 to z = +4.0
+// Deactivate solid wall segments
+var wallW_m2 = UnityEngine.GameObject.Find("LAY_Wall_B_006");
+if (wallW_m2 != null) { wallW_m2.SetActive(false); log.AppendLine("Deactivated LAY_Wall_B_006"); }
+
+var wallTallW_m2 = UnityEngine.GameObject.Find("VF_B1_B1_WallTall_A_W-02");
+if (wallTallW_m2 != null) { wallTallW_m2.SetActive(false); log.AppendLine("Deactivated VF_B1_B1_WallTall_A_W-02"); }
+
+var lampBayW_p2 = UnityEngine.GameObject.Find("VF_EA_LampBay_W+02");
+if (lampBayW_p2 != null) { lampBayW_p2.SetActive(false); log.AppendLine("Deactivated VF_EA_LampBay_W+02"); }
+
+var drapeW_m2 = UnityEngine.GameObject.Find("VF_EA_Drape_C_W-02");
+if (drapeW_m2 != null) { drapeW_m2.SetActive(false); log.AppendLine("Deactivated VF_EA_Drape_C_W-02"); }
+
+var bannerW_m3 = UnityEngine.GameObject.Find("LAY_Banner_A_001");
+if (bannerW_m3 != null) { bannerW_m3.SetActive(false); log.AppendLine("Deactivated LAY_Banner_A_001"); }
+
+// Lower / hide inner floor border rim straight pieces right at the breach gap
+var rim34 = UnityEngine.GameObject.Find("LAY_FloorBorder_Straight_A_034");
+if (rim34 != null) rim34.SetActive(false);
+var rim38 = UnityEngine.GameObject.Find("LAY_FloorBorder_Straight_A_038");
+if (rim38 != null) rim38.SetActive(false);
+
+// Update / reinforce the collapsed breach opening & tumbling rubble
+var ruinsRoot = UnityEngine.GameObject.Find("VF_UE_Ruins");
+var breachW = UnityEngine.GameObject.Find("UE_Breach_W_wall");
+if (breachW != null) {
+    breachW.transform.position = new UnityEngine.Vector3(-19.6f, 0.20f, -0.5f);
+    breachW.transform.rotation = UnityEngine.Quaternion.Euler(0f, 90f, 0f);
+    breachW.SetActive(true);
+}
+
+// Re-orient main avalanche boulder slightly back and outward into the opened gap
+var mainBoulder = UnityEngine.GameObject.Find("UE_Avalanche_Boulder_Main");
+if (mainBoulder != null) {
+    mainBoulder.transform.position = new UnityEngine.Vector3(-20.4f, 0.40f, 1.2f);
+    mainBoulder.transform.rotation = UnityEngine.Quaternion.Euler(15f, 115f, -6f);
+    mainBoulder.transform.localScale = new UnityEngine.Vector3(1.2f, 1.2f, 1.2f);
+}
+
+// Tumbling rubble blocks spilling inward through the open gap
+var rubbleAFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/Environment/Models/ENV_Temple_Rubble_A.fbx");
+var rubbleBFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/Environment/Models/ENV_Temple_Rubble_B.fbx");
+var rubbleAMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/Environment/Materials/MI_Temple_Rubble_A.mat");
+var rubbleBMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/Environment/Materials/MI_Temple_Rubble_B.mat");
+
+var avalancheRoot = UnityEngine.GameObject.Find("VF_UE_AvalancheBreach");
+if (avalancheRoot != null) {
+    // Add additional tumbling blocks inside the breach opening
+    var go1 = new UnityEngine.GameObject("UE_Debris_Tumble_1");
+    go1.transform.SetParent(avalancheRoot.transform);
+    go1.transform.position = new UnityEngine.Vector3(-18.5f, 0.05f, -1.8f);
+    go1.transform.rotation = UnityEngine.Quaternion.Euler(18f, 240f, -10f);
+    go1.transform.localScale = new UnityEngine.Vector3(1.1f, 1.1f, 1.1f);
+    var mf1 = go1.AddComponent<UnityEngine.MeshFilter>();
+    var mr1 = go1.AddComponent<UnityEngine.MeshRenderer>();
+    if (rubbleAFbx != null) mf1.sharedMesh = rubbleAFbx.GetComponentInChildren<UnityEngine.MeshFilter>()?.sharedMesh;
+    if (rubbleAMat != null) mr1.sharedMaterial = rubbleAMat;
+    
+    var go2 = new UnityEngine.GameObject("UE_Debris_Tumble_2");
+    go2.transform.SetParent(avalancheRoot.transform);
+    go2.transform.position = new UnityEngine.Vector3(-17.8f, 0.05f, -0.2f);
+    go2.transform.rotation = UnityEngine.Quaternion.Euler(-12f, 160f, 22f);
+    go2.transform.localScale = new UnityEngine.Vector3(1.0f, 1.0f, 1.0f);
+    var mf2 = go2.AddComponent<UnityEngine.MeshFilter>();
+    var mr2 = go2.AddComponent<UnityEngine.MeshRenderer>();
+    if (rubbleBFbx != null) mf2.sharedMesh = rubbleBFbx.GetComponentInChildren<UnityEngine.MeshFilter>()?.sharedMesh;
+    if (rubbleBMat != null) mr2.sharedMaterial = rubbleBMat;
+}
+log.AppendLine("True west wall breach opened across 8m span with tumbling rubble.");
+
+// 5. ROOT CLAWS & OVERGROWTH
+var rootPillarFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/Overgrowth/ENV_Temple_Root_Claw_Pillar.fbx");
+var rootCornerFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/Overgrowth/ENV_Temple_Root_Claw_Corner.fbx");
+var rootWoodMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/Overgrowth/M_Temple_Overgrowth_Wood.mat");
+
+var overgrowthRoot = UnityEngine.GameObject.Find("VF_UE_Overgrowth");
+if (overgrowthRoot == null) overgrowthRoot = new UnityEngine.GameObject("VF_UE_Overgrowth");
+
+System.Action<string, UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector3> PlaceRootClaw = (name, fbx, pos, rot, scale) => {
+    var old = UnityEngine.GameObject.Find(name);
+    if (old != null) UnityEngine.Object.DestroyImmediate(old);
+    if (fbx == null) return;
+    var go = new UnityEngine.GameObject(name);
+    go.transform.SetParent(overgrowthRoot.transform);
+    go.transform.position = pos;
+    go.transform.rotation = UnityEngine.Quaternion.Euler(rot);
+    go.transform.localScale = scale;
+    var mf = go.AddComponent<UnityEngine.MeshFilter>();
+    var mr = go.AddComponent<UnityEngine.MeshRenderer>();
+    var smf = fbx.GetComponentInChildren<UnityEngine.MeshFilter>();
+    if (smf != null) mf.sharedMesh = smf.sharedMesh;
+    if (rootWoodMat != null) mr.sharedMaterial = rootWoodMat;
+};
+
+// Hugging the 4 main arena pillars
+// Pillar A (-15.0, 0, 4.0)
+PlaceRootClaw("UE_Claw_Pillar_A", rootPillarFbx, new UnityEngine.Vector3(-15.0f, 0.0f, 4.0f), new UnityEngine.Vector3(0f, 20f, 0f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+// Pillar B (-4.5, 0, 14.5)
+PlaceRootClaw("UE_Claw_Pillar_B", rootPillarFbx, new UnityEngine.Vector3(-4.5f, 0.0f, 14.5f), new UnityEngine.Vector3(0f, 190f, 0f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+// Pillar C (8.5, 0, 14.0)
+PlaceRootClaw("UE_Claw_Pillar_C", rootPillarFbx, new UnityEngine.Vector3(8.5f, 0.0f, 14.0f), new UnityEngine.Vector3(0f, 170f, 0f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+// Pillar D (-2.0, 0, -12.5)
+PlaceRootClaw("UE_Claw_Pillar_D", rootPillarFbx, new UnityEngine.Vector3(-2.0f, 0.0f, -12.5f), new UnityEngine.Vector3(0f, 210f, 0f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+
+// Hugging wall corners
+PlaceRootClaw("UE_Claw_corner_NE", rootCornerFbx, new UnityEngine.Vector3(18.5f, 0.0f, 18.5f), new UnityEngine.Vector3(0f, 180f, 0f), new UnityEngine.Vector3(1.2f, 1.2f, 1.2f));
+
+log.AppendLine("Root claws placed hugging arena pillars and corners.");
+
+// Save active scene
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+log.AppendLine("Scene saved.");
+
+return log.ToString();
+"""
+
+cmd = [
+    "/Users/landerstudio/.unity/bin/unity",
+    "command", "script", "eval",
+    script_cs,
+    "--project-path", "/Users/landerstudio/MythicRoguelite",
+    "--timeout", "120",
+    "--result-only"
+]
+print("Running medallion & floor & breach pass in Unity...")
+res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+print("Returncode:", res.returncode)
+print("Output:", res.stdout)
+if res.stderr:
+    print("Stderr:", res.stderr)

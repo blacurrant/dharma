@@ -1,0 +1,31 @@
+00:00.509  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/TempleEnvironmentKit_batch2.blend"
+A {'zone_md5': '33b0cf93776acc421269d810969416cc', 'faces': 8200, 'tris': 8200, 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze'], 'material_index_hist': {0: 6684, 1: 1516}, 'zone_counts': {'StoneWarm': 6684, 'Bronze': 1516}}
+B {'zone_md5': '33b0cf93776acc421269d810969416cc', 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze'], 'material_index_hist': {0: 6684, 1: 1516}, 'zone_counts': {'StoneWarm': 6684, 'Bronze': 1516}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/scripts/22_verify_bake.py:106: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/scripts/22_verify_bake.py:113: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_zone_probe_b'); pm.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+C1 {'res': 1024, 'texels_by_zone': {'StoneWarm': 705467, 'Bronze': 53160}, 'texels_empty_or_edge': 289949, 'covered_fraction': 0.7235}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C2 {"res": 1024, "seconds": 37.5, "files": {"BaseColor": "Textures/ENV_Temple_Column_Tall_A_BaseColor.png", "Normal": "Textures/ENV_Temple_Column_Tall_A_Normal.png", "Mask": "Textures/ENV_Temple_Column_T {"StoneWarm": {"texels": 705467, "metallic_mean": 0.0, "occlusion_mean": 0.4275, "smoothness_mean": 0.2454, "basecolor_mean_srgb_hex": "#5E5342"}, "Bronze": {"texels": 53160, "metallic_mean": 0.75, "occlusion_mean": 0.2877, "smoothness_mean": 0.4547, "basecolor_mean_srgb_hex": "#7F5B31"}} {'BaseColor': {'cyan_teal_texels_145_215_sat_gt_0_06': 0, 'texels': 1048576, 'sat_max': 0.656}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/scripts/22_verify_bake.py:57: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+D {'zone_md5': '33b0cf93776acc421269d810969416cc', 'slots': ['MI_Temple_Column_Tall_A'], 'material_index_hist': {0: 8200}, 'zone_counts': {'StoneWarm': 6684, 'Bronze': 1516}}
+00:40.765  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/verify/ENV_Temple_Column_Tall_A_verify.blend"
+Info: Saved as "ENV_Temple_Column_Tall_A_verify.blend"
+E {'file': 'verify/ENV_Temple_Column_Tall_A_verify.blend', 'zone_md5': '33b0cf93776acc421269d810969416cc', 'same_as_original': True, 'slots': ['MI_Temple_Column_Tall_A'], 'material_index_hist': {0: 8200}, 'zone_counts': {'StoneWarm': 6684, 'Bronze': 1516}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/Models/ENV_Temple_Column_Tall_A.fbx'
+export finished in 0.0444 sec.
+F {'polys_equal_saved_mesh_tris': True, 'fbx_polys': 8200, 'mesh_tris': 8200, 'axis_map_Blender_xyz_to_FBX_x_z_negy': True, 'unit_scale_ratio_fbx_over_blender': 1.0, 'max_extent_error_fbx_units': 3e-05, 'extents_equal_saved_mesh': True, 'up_axis_equal_shipped': True, 'unit_scale_equal_shipped': True, 'shipped_ref': {'UpAxis': 1, 'UnitScaleFactor': 100.0}, 'materials': ['MI_Temple_Column_Tall_A'], 'textures_resolve': True, 'texture_files': ['ENV_Temple_Column_Tall_A_BaseColor.png', 'ENV_Temple_Column_Tall_A_Normal.png'], 'identity_transform': True, 'zone_id_in_fbx_bytes': False, 'mesh_bounds_blender': {'min': [-0.7996, -0.7967, 0.0], 'max': [0.7984, 0.7998, 6.7837]}}
+00:41.066  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/TempleEnvironmentKit_batch2.blend"
+Info: Saved as "TempleEnvironmentKit_batch2.blend"
+VERIFY_DONE ENV_Temple_Column_Tall_A
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

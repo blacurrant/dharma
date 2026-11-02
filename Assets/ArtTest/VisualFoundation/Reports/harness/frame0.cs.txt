@@ -1,0 +1,16 @@
+var r=VFRunner.Create(); var cam=UnityEngine.Camera.main; var pl=UnityEngine.GameObject.Find("Player"); var iso=cam.GetComponent<IsoCameraFollow>(); var sb=new System.Text.StringBuilder();
+float Off(){ var p=cam.WorldToScreenPoint(pl.transform.position+UnityEngine.Vector3.up*1f); return UnityEngine.Vector2.Distance(new UnityEngine.Vector2(p.x,p.y),new UnityEngine.Vector2(cam.pixelWidth/2f,cam.pixelHeight/2f)); }
+void Cfg(float size,float offY,bool reaim){ var so=new UnityEditor.SerializedObject(iso); so.FindProperty("orthographicSize").floatValue=size; so.FindProperty("offset").vector3Value=new UnityEngine.Vector3(12f,offY,-12f); so.ApplyModifiedProperties(); cam.orthographicSize=size; cam.aspect=16f/9f; if(reaim) cam.transform.rotation=UnityEngine.Quaternion.LookRotation(-new UnityEngine.Vector3(12f,offY,-12f).normalized); iso.Target=pl.transform; iso.Snap(); }
+System.Collections.IEnumerator Routine(){
+  UnityEngine.Time.captureFramerate=60; yield return null; yield return null;
+  foreach(var mode in new[]{false,true}){
+    Cfg(9f,18f,true); for(int i=0;i<5;i++) yield return null;           // settle on config B
+    Cfg(8f,15.28f,mode);                                                   // change to config A (pitch changes)
+    var o=new System.Collections.Generic.List<string>(); o.Add("same-frame "+Off().ToString("F0")); for(int i=1;i<=3;i++){ yield return null; o.Add("frame+"+i+" "+Off().ToString("F0")); }
+    sb.AppendLine((mode?"WITH explicit re-aim (corrected runner)":"WITHOUT re-aim (iteration-2 first run)")+": player offset px "+string.Join(" | ",o));
+    Cfg(9f,18f,true); for(int i=0;i<5;i++) yield return null;
+    Cfg(8.5f,15.28f,mode); var o2=new System.Collections.Generic.List<string>(); o2.Add("same-frame "+Off().ToString("F0")); yield return null; o2.Add("frame+1 "+Off().ToString("F0"));
+    sb.AppendLine("   control (B to A2, same pitch change) "+string.Join(" | ",o2));
+  }
+  UnityEngine.Time.captureFramerate=0; r.status=sb.ToString(); r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

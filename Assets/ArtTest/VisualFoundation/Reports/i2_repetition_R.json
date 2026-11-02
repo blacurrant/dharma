@@ -1,0 +1,29 @@
+{
+ "plan_R0_full.png": {
+  "tileCV_in": 0.074,
+  "tileCV_out": 0.0522,
+  "corr_lag2m": 0.242,
+  "corr_lag4m": 0.392,
+  "corr_lag6m": 0.251,
+  "corr_lag8m": 0.724,
+  "corr_lag10m": 0.188
+ },
+ "plan_R1_plusCracks2.png": {
+  "tileCV_in": 0.0194,
+  "tileCV_out": 0.0535,
+  "corr_lag2m": 0.202,
+  "corr_lag4m": 0.293,
+  "corr_lag6m": 0.191,
+  "corr_lag8m": 0.61,
+  "corr_lag10m": 0.187
+ },
+ "plan_R2_plusCracks2Wear2.png": {
+  "tileCV_in": 0.0195,
+  "tileCV_out": 0.0522,
+  "corr_lag2m": 0.183,
+  "corr_lag4m": 0.267,
+  "corr_lag6m": 0.191,
+  "corr_lag8m": 0.587,
+  "corr_lag10m": 0.164
+ }
+}

@@ -1,0 +1,13 @@
+surface,alpha_fill,part,pixels_lifted,mean_luma_lift,p10_luma_lift,max_luma_lift
+lit_floor,0.26,fill+area,12759,0.133,0.027,0.593
+lit_floor,0.26,edge+front,6266,0.188,0.006,0.748
+lit_floor,0.40,fill+area,12952,0.158,0.017,0.567
+lit_floor,0.40,edge+front,5721,0.206,0.007,0.723
+lit_floor,0.45,fill+area,12472,0.172,0.024,0.618
+lit_floor,0.45,edge+front,4920,0.228,0.006,0.715
+shadowed_floor,0.26,fill+area,10479,0.204,0.061,0.529
+shadowed_floor,0.26,edge+front,3826,0.282,0.006,0.728
+shadowed_floor,0.40,fill+area,10343,0.250,0.086,0.448
+shadowed_floor,0.40,edge+front,3988,0.281,0.006,0.726
+shadowed_floor,0.45,fill+area,10179,0.264,0.091,0.469
+shadowed_floor,0.45,edge+front,3209,0.340,0.006,0.727

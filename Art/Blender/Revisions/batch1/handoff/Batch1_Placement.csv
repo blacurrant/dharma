@@ -1,0 +1,33 @@
+instance,group,mesh,part,unity_x,unity_y,unity_z,yaw_front_to_plusZ,yaw_front_to_minusZ,scale,role
+B1_WallTall_A_N-22,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-22.0,0.0,21.33,0.0,180.0,1.0,north tall bay (corner)
+B1_WallTall_B_N-18,BATCH1_Walls,ENV_Temple_Wall_Tall_B,ENV_Temple_Wall_Tall_B,-18.0,0.0,21.33,0.0,180.0,1.0,north tall bay
+B1_WallTall_A_N-14,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-14.0,0.0,21.33,0.0,180.0,1.0,north tall bay
+B1_WallTall_A_N-10,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-10.0,0.0,21.33,0.0,180.0,1.0,north tall bay
+B1_WallTall_B_N-06,BATCH1_Walls,ENV_Temple_Wall_Tall_B,ENV_Temple_Wall_Tall_B,-6.0,0.0,21.33,0.0,180.0,1.0,north tall bay
+B1_WallTall_B_N+14,BATCH1_Walls,ENV_Temple_Wall_Tall_B,ENV_Temple_Wall_Tall_B,14.0,0.0,21.33,0.0,180.0,1.0,north tall bay
+B1_WallTall_A_N+18,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,18.0,0.0,21.33,0.0,180.0,1.0,north tall bay
+B1_WallTall_B_W-18,BATCH1_Walls,ENV_Temple_Wall_Tall_B,ENV_Temple_Wall_Tall_B,-21.33,0.0,-18.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_A_W-14,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-21.33,0.0,-14.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_A_W-10,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-21.33,0.0,-10.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_B_W-06,BATCH1_Walls,ENV_Temple_Wall_Tall_B,ENV_Temple_Wall_Tall_B,-21.33,0.0,-6.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_A_W-02,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-21.33,0.0,-2.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_B_W+02,BATCH1_Walls,ENV_Temple_Wall_Tall_B,ENV_Temple_Wall_Tall_B,-21.33,0.0,2.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_A_W+06,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-21.33,0.0,6.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_A_W+10,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-21.33,0.0,10.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_B_W+14,BATCH1_Walls,ENV_Temple_Wall_Tall_B,ENV_Temple_Wall_Tall_B,-21.33,0.0,14.0,270.0,90.0,1.0,west tall bay
+B1_WallTall_A_W+18,BATCH1_Walls,ENV_Temple_Wall_Tall_A,ENV_Temple_Wall_Tall_A,-21.33,0.0,18.0,270.0,90.0,1.0,west tall bay
+B1_Pylon_1,BATCH1_Pylons,ENV_Temple_Lantern_Pylon_A,ENV_Temple_Lantern_Pylon_A,-7.861,0.0,12.669,0.0,180.0,1.0,stairs flank (south-east side)
+B1_Pylon_2,BATCH1_Pylons,ENV_Temple_Lantern_Pylon_A,ENV_Temple_Lantern_Pylon_A,-12.669,0.0,7.861,0.0,180.0,1.0,stairs flank (north-west side)
+B1_Pylon_3,BATCH1_Pylons,ENV_Temple_Lantern_Pylon_A,ENV_Temple_Lantern_Pylon_A,-3.4,0.0,18.2,0.0,180.0,1.0,"arch flank, outside the existing arch braziers (west)"
+B1_Pylon_4,BATCH1_Pylons,ENV_Temple_Lantern_Pylon_A,ENV_Temple_Lantern_Pylon_A,11.4,0.0,18.2,0.0,180.0,1.0,"arch flank, outside the existing arch braziers (east)"
+B1_Pylon_5,BATCH1_Pylons,ENV_Temple_Lantern_Pylon_A,ENV_Temple_Lantern_Pylon_A,-17.7,0.0,-9.0,0.0,180.0,1.0,west wall pair (south)
+B1_Pylon_6,BATCH1_Pylons,ENV_Temple_Lantern_Pylon_A,ENV_Temple_Lantern_Pylon_A,-17.7,0.0,0.6,0.0,180.0,1.0,west wall pair (north)
+B1_Ruin_1,BATCH1_Ruins,ENV_Temple_Ruin_Cluster_A,ENV_Temple_Ruin_Cluster_A,-13.75,0.0,-6.0,0.0,180.0,1.0,"west; tall end toward -x,+z (away from the gameplay camera)"
+B1_Ruin_2,BATCH1_Ruins,ENV_Temple_Ruin_Cluster_B,ENV_Temple_Ruin_Cluster_B,-9.25,0.0,-14.25,340.0,160.0,1.0,"south-west; tall end toward -x,+z (away from the gameplay camera)"
+B1_Ruin_3,BATCH1_Ruins,ENV_Temple_Ruin_Cluster_A,ENV_Temple_Ruin_Cluster_A,-14.75,0.0,-11.75,25.0,205.0,1.0,"west-south-west; tall end toward -x,+z (away from the gameplay camera)"
+B1_Backdrop_Mass_A_directive_28_55m,BATCH1_Backdrop_directive_28_55m,ENV_Temple_Backdrop_Mass_A,ENV_Temple_Backdrop_Mass_A,-12.0,0.0,58.97,0.0,180.0,1.0,directive_28_55m: nearest face 28 m beyond the tall bays (north)
+B1_Backdrop_Mass_B_directive_28_55m,BATCH1_Backdrop_directive_28_55m,ENV_Temple_Backdrop_Mass_B,ENV_Temple_Backdrop_Mass_B,18.0,0.0,71.03,0.0,180.0,1.0,directive_28_55m: nearest face 40 m beyond the tall bays (north)
+B1_Backdrop_Mass_C_directive_28_55m,BATCH1_Backdrop_directive_28_55m,ENV_Temple_Backdrop_Mass_C,ENV_Temple_Backdrop_Mass_C,-62.97,0.0,-8.0,270.0,90.0,1.0,directive_28_55m: nearest face 34 m beyond the tall bays (west)
+B1_Backdrop_Mass_A_recommended_visible_band,BATCH1_Backdrop_recommended_visible_band,ENV_Temple_Backdrop_Mass_A,ENV_Temple_Backdrop_Mass_A,-12.0,0.0,35.97,0.0,180.0,1.0,recommended_visible_band: nearest face 5 m beyond the tall bays (north)
+B1_Backdrop_Mass_B_recommended_visible_band,BATCH1_Backdrop_recommended_visible_band,ENV_Temple_Backdrop_Mass_B,ENV_Temple_Backdrop_Mass_B,18.0,0.0,36.03,0.0,180.0,1.0,recommended_visible_band: nearest face 5 m beyond the tall bays (north)
+B1_Backdrop_Mass_C_recommended_visible_band,BATCH1_Backdrop_recommended_visible_band,ENV_Temple_Backdrop_Mass_C,ENV_Temple_Backdrop_Mass_C,-33.97,0.0,-8.0,270.0,90.0,1.0,recommended_visible_band: nearest face 5 m beyond the tall bays (west)

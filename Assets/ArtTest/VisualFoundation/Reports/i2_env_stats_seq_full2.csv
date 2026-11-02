@@ -1,0 +1,16 @@
+stage,draw_calls,set_pass,triangles,shadow_casters
+S00_base,1391,75,5266458,815
+S01_macroValueDamped,1392,77,5266460,815
+S01b_macroNoDampRadial,1392,77,5266460,815
+S01c_macroNoDampFlat,1392,77,5266460,815
+S02_plusTint,1393,77,5266462,815
+S03_plusCracks,1394,78,5266464,815
+S04_plusWear,1395,78,5266466,815
+S05_plusChipped,1396,78,5266468,815
+S06_plusMossJoints,1397,78,5266470,815
+S07_plusWallRain,1402,78,5266480,815
+S08_plusSalt,1403,78,5266482,815
+S09_plusWallMossBase,1408,78,5266492,815
+S10_plusSoot,1412,78,5266500,815
+S11_cellFlipCracksWear,1412,78,5266500,815
+S12_plusBrazierLights,1412,78,5266500,815

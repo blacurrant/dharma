@@ -1,0 +1,318 @@
+import os
+import sys
+import subprocess
+import json
+
+# Script body for eval (executed inside method body)
+script_cs = """
+var log = new System.Text.StringBuilder();
+
+// 1. Find or create root holders
+var ruinsRoot = UnityEngine.GameObject.Find("VF_UE_Ruins");
+if (ruinsRoot == null) ruinsRoot = new UnityEngine.GameObject("VF_UE_Ruins");
+
+var groundRoot = UnityEngine.GameObject.Find("VF_UE_GroundTransition");
+if (groundRoot == null) groundRoot = new UnityEngine.GameObject("VF_UE_GroundTransition");
+
+var vegRoot = UnityEngine.GameObject.Find("VF_UE_Vegetation");
+if (vegRoot == null) vegRoot = new UnityEngine.GameObject("VF_UE_Vegetation");
+
+// --- 1. AUTHENTIC WEST WALL AVALANCHE BREACH ---
+var awkward = UnityEngine.GameObject.Find("DS_Rock_OC_Wbreach");
+if (awkward != null) {
+    log.AppendLine("Destroyed awkward rock: " + awkward.name);
+    UnityEngine.Object.DestroyImmediate(awkward);
+}
+var oldRuinBehindW = UnityEngine.GameObject.Find("UE_Ruin_behind_W");
+if (oldRuinBehindW != null) {
+    oldRuinBehindW.SetActive(false);
+    log.AppendLine("Deactivated old UE_Ruin_behind_W");
+}
+
+// Ensure UE_Breach_W_wall uses ENV_Temple_Wall_Low_Broken_B
+var breachW = UnityEngine.GameObject.Find("UE_Breach_W_wall");
+if (breachW == null) {
+    breachW = new UnityEngine.GameObject("UE_Breach_W_wall");
+    breachW.transform.SetParent(ruinsRoot.transform);
+}
+breachW.transform.position = new UnityEngine.Vector3(-19.5f, 0.40f, 2.0f);
+breachW.transform.rotation = UnityEngine.Quaternion.Euler(0, 90f, 0);
+breachW.transform.localScale = UnityEngine.Vector3.one;
+var wallBrokenBFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/Art2/Models/ENV_Temple_Wall_Low_Broken_B.fbx");
+var wallBrokenBMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/Art2/Materials/MI_Temple_Wall_Low_Broken_B.mat");
+if (wallBrokenBFbx != null) {
+    var mf = breachW.GetComponent<UnityEngine.MeshFilter>() ?? breachW.AddComponent<UnityEngine.MeshFilter>();
+    var mr = breachW.GetComponent<UnityEngine.MeshRenderer>() ?? breachW.AddComponent<UnityEngine.MeshRenderer>();
+    var sourceMf = wallBrokenBFbx.GetComponentInChildren<UnityEngine.MeshFilter>();
+    if (sourceMf != null) mf.sharedMesh = sourceMf.sharedMesh;
+    if (wallBrokenBMat != null) mr.sharedMaterial = wallBrokenBMat;
+}
+
+// Destroy existing avalanche debris if re-running
+var oldAvalanche = UnityEngine.GameObject.Find("VF_UE_AvalancheBreach");
+if (oldAvalanche != null) UnityEngine.Object.DestroyImmediate(oldAvalanche);
+
+var avalancheRoot = new UnityEngine.GameObject("VF_UE_AvalancheBreach");
+avalancheRoot.transform.SetParent(ruinsRoot.transform);
+
+// Embed the mountain boulder Rock_D into the breach opening from outside
+var rockDPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Rocks/Rock_D.prefab");
+if (rockDPrefab != null) {
+    // Main smashed boulder
+    var boulder1 = (UnityEngine.GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(rockDPrefab);
+    boulder1.name = "UE_Avalanche_Boulder_Main";
+    boulder1.transform.SetParent(avalancheRoot.transform);
+    boulder1.transform.position = new UnityEngine.Vector3(-19.2f, 0.45f, 2.1f);
+    boulder1.transform.rotation = UnityEngine.Quaternion.Euler(14f, 105f, -8f);
+    boulder1.transform.localScale = new UnityEngine.Vector3(1.15f, 1.15f, 1.15f);
+    
+    // Secondary exterior backing boulder pushing from the outside mountain slope
+    var boulder2 = (UnityEngine.GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(rockDPrefab);
+    boulder2.name = "UE_Avalanche_Boulder_Backing";
+    boulder2.transform.SetParent(avalancheRoot.transform);
+    boulder2.transform.position = new UnityEngine.Vector3(-23.4f, 1.10f, 1.4f);
+    boulder2.transform.rotation = UnityEngine.Quaternion.Euler(5f, 45f, 12f);
+    boulder2.transform.localScale = new UnityEngine.Vector3(1.3f, 1.3f, 1.3f);
+}
+
+// Avalanche / debris cone spilling inward: tumbled masonry blocks & smaller rocks
+var rubbleAFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/Environment/Models/ENV_Temple_Rubble_A.fbx");
+var rubbleBFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/Environment/Models/ENV_Temple_Rubble_B.fbx");
+var drumFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/Environment/Models/ENV_Temple_ColumnDrum_A.fbx");
+var rubbleAMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/Environment/Materials/MI_Temple_Rubble_A.mat");
+var rubbleBMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/Environment/Materials/MI_Temple_Rubble_B.mat");
+var drumMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/Environment/Materials/MI_Temple_ColumnDrum_A.mat");
+var rockA01Prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Rocks/Rock_A_01.prefab");
+var rockC01Prefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Rocks/Rock_C_01.prefab");
+
+System.Action<string, UnityEngine.GameObject, UnityEngine.Material, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector3> AddDebris = (name, fbx, mat, pos, rot, scale) => {
+    var go = new UnityEngine.GameObject(name);
+    go.transform.SetParent(avalancheRoot.transform);
+    go.transform.position = pos;
+    go.transform.rotation = UnityEngine.Quaternion.Euler(rot);
+    go.transform.localScale = scale;
+    if (fbx != null) {
+        var mf = go.AddComponent<UnityEngine.MeshFilter>();
+        var mr = go.AddComponent<UnityEngine.MeshRenderer>();
+        var smf = fbx.GetComponentInChildren<UnityEngine.MeshFilter>();
+        if (smf != null) mf.sharedMesh = smf.sharedMesh;
+        if (mat != null) mr.sharedMaterial = mat;
+    }
+};
+
+// Rubble blocks banked against the boulder and wall
+AddDebris("UE_Debris_Rubble_A1", rubbleAFbx, rubbleAMat, new UnityEngine.Vector3(-17.6f, 0.05f, 3.2f), new UnityEngine.Vector3(8f, 210f, 14f), new UnityEngine.Vector3(1.2f, 1.2f, 1.2f));
+AddDebris("UE_Debris_Rubble_B1", rubbleBFbx, rubbleBMat, new UnityEngine.Vector3(-17.1f, 0.05f, 1.1f), new UnityEngine.Vector3(-5f, 85f, -10f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+AddDebris("UE_Debris_Rubble_A2", rubbleAFbx, rubbleAMat, new UnityEngine.Vector3(-16.4f, 0.05f, 2.5f), new UnityEngine.Vector3(12f, 320f, 6f), new UnityEngine.Vector3(0.95f, 0.95f, 0.95f));
+AddDebris("UE_Debris_Rubble_B2", rubbleBFbx, rubbleBMat, new UnityEngine.Vector3(-18.1f, 0.10f, 0.4f), new UnityEngine.Vector3(0f, 150f, 18f), new UnityEngine.Vector3(1.0f, 1.0f, 1.0f));
+
+// Fallen column drum tumbled from the wall/lintel
+AddDebris("UE_Debris_ColumnDrum_1", drumFbx, drumMat, new UnityEngine.Vector3(-16.8f, 0.15f, 4.1f), new UnityEngine.Vector3(72f, 40f, -25f), new UnityEngine.Vector3(1.0f, 1.0f, 1.0f));
+
+// Smaller rock fragments nestled into the debris cone
+if (rockC01Prefab != null) {
+    var r1 = (UnityEngine.GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(rockC01Prefab);
+    r1.name = "UE_Debris_Rock_C1";
+    r1.transform.SetParent(avalancheRoot.transform);
+    r1.transform.position = new UnityEngine.Vector3(-16.2f, 0.05f, 1.8f);
+    r1.transform.rotation = UnityEngine.Quaternion.Euler(10f, 75f, 5f);
+    r1.transform.localScale = new UnityEngine.Vector3(0.7f, 0.7f, 0.7f);
+}
+if (rockA01Prefab != null) {
+    var r2 = (UnityEngine.GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(rockA01Prefab);
+    r2.name = "UE_Debris_Rock_A1";
+    r2.transform.SetParent(avalancheRoot.transform);
+    r2.transform.position = new UnityEngine.Vector3(-17.8f, 0.08f, -0.8f);
+    r2.transform.rotation = UnityEngine.Quaternion.Euler(0f, 130f, 15f);
+    r2.transform.localScale = new UnityEngine.Vector3(0.8f, 0.8f, 0.8f);
+}
+log.AppendLine("Avalanche breach & debris cone built at west wall.");
+
+// --- 2. MASSIVE SAND & DIRT PERIMETER DRIFTS ---
+var oldDrifts = UnityEngine.GameObject.Find("VF_UE_PerimeterDrifts");
+if (oldDrifts != null) UnityEngine.Object.DestroyImmediate(oldDrifts);
+var driftsRoot = new UnityEngine.GameObject("VF_UE_PerimeterDrifts");
+driftsRoot.transform.SetParent(groundRoot.transform);
+
+var dirtAFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/FoliageKit/ENV_Temple_Ground_DirtPatch_A.fbx");
+var dirtBFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/FoliageKit/ENV_Temple_Ground_DirtPatch_B.fbx");
+var mortarCFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/FoliageKit/ENV_Temple_Ground_CrackedMortar_C.fbx");
+var groundTransMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/FoliageKit/M_Temple_GroundTransition.mat");
+
+System.Action<string, UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector3> AddDrift = (name, fbx, pos, rot, scale) => {
+    var go = new UnityEngine.GameObject(name);
+    go.transform.SetParent(driftsRoot.transform);
+    go.transform.position = pos;
+    go.transform.rotation = UnityEngine.Quaternion.Euler(rot);
+    go.transform.localScale = scale;
+    if (fbx != null) {
+        var mf = go.AddComponent<UnityEngine.MeshFilter>();
+        var mr = go.AddComponent<UnityEngine.MeshRenderer>();
+        var smf = fbx.GetComponentInChildren<UnityEngine.MeshFilter>();
+        if (smf != null) mf.sharedMesh = smf.sharedMesh;
+        if (groundTransMat != null) mr.sharedMaterial = groundTransMat;
+    }
+};
+
+// Deep drifts banked under the west wall avalanche cone
+AddDrift("UE_Drift_W_Avalanche_1", dirtAFbx, new UnityEngine.Vector3(-17.2f, 0.01f, 2.2f), new UnityEngine.Vector3(0f, 90f, 0f), new UnityEngine.Vector3(2.5f, 1.4f, 2.5f));
+AddDrift("UE_Drift_W_Avalanche_2", mortarCFbx, new UnityEngine.Vector3(-16.0f, 0.01f, 1.5f), new UnityEngine.Vector3(0f, 45f, 0f), new UnityEngine.Vector3(2.2f, 1.2f, 2.2f));
+
+// SW corner deep windblown drifts
+AddDrift("UE_Drift_SW_Corner_1", dirtAFbx, new UnityEngine.Vector3(-17.2f, 0.01f, -17.2f), new UnityEngine.Vector3(0f, 45f, 0f), new UnityEngine.Vector3(3.0f, 1.5f, 3.0f));
+AddDrift("UE_Drift_SW_Corner_2", dirtBFbx, new UnityEngine.Vector3(-18.5f, 0.01f, -15.5f), new UnityEngine.Vector3(0f, 70f, 0f), new UnityEngine.Vector3(2.6f, 1.3f, 2.6f));
+AddDrift("UE_Drift_SW_Corner_3", mortarCFbx, new UnityEngine.Vector3(-15.5f, 0.01f, -18.2f), new UnityEngine.Vector3(0f, 20f, 0f), new UnityEngine.Vector3(2.4f, 1.2f, 2.4f));
+
+// SE corner deep windblown drifts
+AddDrift("UE_Drift_SE_Corner_1", dirtAFbx, new UnityEngine.Vector3(17.5f, 0.01f, -17.5f), new UnityEngine.Vector3(0f, 315f, 0f), new UnityEngine.Vector3(3.2f, 1.5f, 3.2f));
+AddDrift("UE_Drift_SE_Corner_2", dirtBFbx, new UnityEngine.Vector3(18.5f, 0.01f, -14.5f), new UnityEngine.Vector3(0f, 290f, 0f), new UnityEngine.Vector3(2.5f, 1.3f, 2.5f));
+
+// Around right archway base (x=4, z=20)
+AddDrift("UE_Drift_Arch_Base_L", dirtBFbx, new UnityEngine.Vector3(2.5f, 0.01f, 19.5f), new UnityEngine.Vector3(0f, 0f, 0f), new UnityEngine.Vector3(2.4f, 1.3f, 2.4f));
+AddDrift("UE_Drift_Arch_Base_R", dirtAFbx, new UnityEngine.Vector3(5.8f, 0.01f, 19.5f), new UnityEngine.Vector3(0f, 180f, 0f), new UnityEngine.Vector3(2.4f, 1.3f, 2.4f));
+AddDrift("UE_Drift_Arch_Mortar", mortarCFbx, new UnityEngine.Vector3(4.0f, 0.01f, 18.2f), new UnityEngine.Vector3(0f, 90f, 0f), new UnityEngine.Vector3(2.2f, 1.1f, 2.2f));
+
+// Around main courtyard pillars to naturally soften base seams
+AddDrift("UE_Drift_Pillar_A", dirtBFbx, new UnityEngine.Vector3(-15.0f, 0.01f, 4.0f), new UnityEngine.Vector3(0f, 110f, 0f), new UnityEngine.Vector3(2.0f, 1.2f, 2.0f));
+AddDrift("UE_Drift_Pillar_B", dirtAFbx, new UnityEngine.Vector3(-4.5f, 0.01f, 14.5f), new UnityEngine.Vector3(0f, 20f, 0f), new UnityEngine.Vector3(2.2f, 1.2f, 2.2f));
+AddDrift("UE_Drift_Pillar_C", dirtBFbx, new UnityEngine.Vector3(8.5f, 0.01f, 14.0f), new UnityEngine.Vector3(0f, 160f, 0f), new UnityEngine.Vector3(2.2f, 1.2f, 2.2f));
+AddDrift("UE_Drift_Pillar_D", dirtAFbx, new UnityEngine.Vector3(-2.0f, 0.01f, -12.5f), new UnityEngine.Vector3(0f, 220f, 0f), new UnityEngine.Vector3(2.2f, 1.2f, 2.2f));
+
+// Perimeter wall continuous sand banks along North, South, East, West wall bases
+AddDrift("UE_Drift_North_Wall_1", dirtAFbx, new UnityEngine.Vector3(-12.5f, 0.01f, 19.0f), new UnityEngine.Vector3(0f, 0f, 0f), new UnityEngine.Vector3(2.6f, 1.3f, 2.6f));
+AddDrift("UE_Drift_North_Wall_2", dirtBFbx, new UnityEngine.Vector3(12.0f, 0.01f, 19.0f), new UnityEngine.Vector3(0f, 180f, 0f), new UnityEngine.Vector3(2.6f, 1.3f, 2.6f));
+AddDrift("UE_Drift_South_Wall_1", dirtAFbx, new UnityEngine.Vector3(-3.0f, 0.01f, -18.8f), new UnityEngine.Vector3(0f, 180f, 0f), new UnityEngine.Vector3(2.8f, 1.4f, 2.8f));
+AddDrift("UE_Drift_South_Wall_2", dirtBFbx, new UnityEngine.Vector3(3.5f, 0.01f, -18.8f), new UnityEngine.Vector3(0f, 0f, 0f), new UnityEngine.Vector3(2.8f, 1.4f, 2.8f));
+AddDrift("UE_Drift_East_Wall_1", dirtAFbx, new UnityEngine.Vector3(19.0f, 0.01f, -2.0f), new UnityEngine.Vector3(0f, 270f, 0f), new UnityEngine.Vector3(2.8f, 1.3f, 2.8f));
+AddDrift("UE_Drift_East_Wall_2", dirtBFbx, new UnityEngine.Vector3(19.0f, 0.01f, 12.0f), new UnityEngine.Vector3(0f, 270f, 0f), new UnityEngine.Vector3(2.6f, 1.3f, 2.6f));
+log.AppendLine("Massive perimeter sand/dirt drifts placed.");
+
+// --- 3. CLEAN COMBAT ARENA ---
+// Ensure no loose small column drums, raised block debris, or stray props inside r < 10m
+int removedCount = 0;
+foreach (var mr in UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsInactive.Exclude, UnityEngine.FindObjectsSortMode.None)) {
+    if (!mr.gameObject.activeInHierarchy || !mr.enabled) continue;
+    var pos = mr.transform.position;
+    float r = UnityEngine.Mathf.Sqrt(pos.x * pos.x + pos.z * pos.z);
+    if (r < 10.0f) {
+        var n = mr.gameObject.name;
+        if (n.Contains("Player") || n.Contains("Enemy") || n.Contains("Paladin") || 
+            n.Contains("Floor") || n.Contains("Underlay") || n.Contains("quad") || 
+            n.Contains("VF_OuterGround") || n.Contains("ContactShadow") || n.Contains("Puddle")) {
+            continue;
+        }
+        log.AppendLine("Removed stray prop inside r < 10m: " + n + " at pos=" + pos);
+        UnityEngine.Object.DestroyImmediate(mr.gameObject);
+        removedCount++;
+    }
+}
+log.AppendLine("Combat arena check: removed " + removedCount + " props inside r < 10m.");
+
+// --- 4. SHALLOW SKY-REFLECTING RAIN PUDDLES ---
+var oldPuddles = UnityEngine.GameObject.Find("VF_UE_RainPuddles");
+if (oldPuddles != null) UnityEngine.Object.DestroyImmediate(oldPuddles);
+var puddlesRoot = new UnityEngine.GameObject("VF_UE_RainPuddles");
+puddlesRoot.transform.position = UnityEngine.Vector3.zero;
+
+var puddleMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/Materials/M_UE_RainPuddle.mat");
+
+System.Func<string, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector2, UnityEngine.GameObject> CreatePuddleQuad = (name, pos, rot, size) => {
+    var go = UnityEngine.GameObject.CreatePrimitive(UnityEngine.PrimitiveType.Quad);
+    go.name = name;
+    go.transform.SetParent(puddlesRoot.transform);
+    go.transform.position = pos;
+    go.transform.rotation = UnityEngine.Quaternion.Euler(rot);
+    go.transform.localScale = new UnityEngine.Vector3(size.x, size.y, 1.0f);
+    var col = go.GetComponent<UnityEngine.Collider>();
+    if (col != null) UnityEngine.Object.DestroyImmediate(col);
+    var mr = go.GetComponent<UnityEngine.MeshRenderer>();
+    if (puddleMat != null) mr.sharedMaterial = puddleMat;
+    return go;
+};
+
+// Place 3 small flat organic puddle planes at Y = 0.012m in natural low spots
+CreatePuddleQuad("UE_Puddle_1_SW", new UnityEngine.Vector3(-6.2f, 0.012f, -3.8f), new UnityEngine.Vector3(90f, 25f, 0f), new UnityEngine.Vector2(2.6f, 1.8f));
+CreatePuddleQuad("UE_Puddle_2_East", new UnityEngine.Vector3(5.5f, 0.012f, -2.4f), new UnityEngine.Vector3(90f, 65f, 0f), new UnityEngine.Vector2(2.2f, 1.5f));
+CreatePuddleQuad("UE_Puddle_3_NW", new UnityEngine.Vector3(-7.8f, 0.012f, 5.8f), new UnityEngine.Vector3(90f, -35f, 0f), new UnityEngine.Vector2(2.8f, 2.0f));
+log.AppendLine("Placed 3 flat sky-reflecting rain puddle planes at Y = 0.012m.");
+
+// --- 5. PERIMETER FOLIAGE DRESSING ---
+var oldDressFoliage = UnityEngine.GameObject.Find("VF_UE_AvalancheFoliage");
+if (oldDressFoliage != null) UnityEngine.Object.DestroyImmediate(oldDressFoliage);
+var dressFoliageRoot = new UnityEngine.GameObject("VF_UE_AvalancheFoliage");
+dressFoliageRoot.transform.SetParent(vegRoot.transform);
+
+var fernAPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Details/Fern_A.prefab");
+var fernBPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Details/Fern_B.prefab");
+var bushAPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Details/Bush_A.prefab");
+var bushBPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Details/Bush_B.prefab");
+var creeperFbx = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/ArtTest/VisualFoundation/FoliageKit/ENV_Temple_Foliage_Creeper_Wall.fbx");
+var creeperMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/FoliageKit/M_Temple_Foliage.mat");
+
+System.Action<string, UnityEngine.GameObject, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector3> AddFoliagePrefab = (name, prefab, pos, rot, scale) => {
+    if (prefab == null) return;
+    var go = (UnityEngine.GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(prefab);
+    go.name = name;
+    go.transform.SetParent(dressFoliageRoot.transform);
+    go.transform.position = pos;
+    go.transform.rotation = UnityEngine.Quaternion.Euler(rot);
+    go.transform.localScale = scale;
+};
+
+System.Action<string, UnityEngine.Vector3, UnityEngine.Vector3, UnityEngine.Vector3> AddCreeper = (name, pos, rot, scale) => {
+    var go = new UnityEngine.GameObject(name);
+    go.transform.SetParent(dressFoliageRoot.transform);
+    go.transform.position = pos;
+    go.transform.rotation = UnityEngine.Quaternion.Euler(rot);
+    go.transform.localScale = scale;
+    if (creeperFbx != null) {
+        var mf = go.AddComponent<UnityEngine.MeshFilter>();
+        var mr = go.AddComponent<UnityEngine.MeshRenderer>();
+        var smf = creeperFbx.GetComponentInChildren<UnityEngine.MeshFilter>();
+        if (smf != null) mf.sharedMesh = smf.sharedMesh;
+        if (creeperMat != null) mr.sharedMaterial = creeperMat;
+    }
+};
+
+// Dress west avalanche rubble, broken wall tops, and breach edges
+AddFoliagePrefab("UE_Dress_Fern_Avalanche1", fernAPrefab, new UnityEngine.Vector3(-17.2f, 0.05f, 3.6f), new UnityEngine.Vector3(0f, 40f, 0f), new UnityEngine.Vector3(1.2f, 1.2f, 1.2f));
+AddFoliagePrefab("UE_Dress_Fern_Avalanche2", fernBPrefab, new UnityEngine.Vector3(-16.7f, 0.05f, 0.8f), new UnityEngine.Vector3(0f, 110f, 0f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+AddFoliagePrefab("UE_Dress_Bush_Avalanche1", bushAPrefab, new UnityEngine.Vector3(-18.2f, 0.10f, 3.8f), new UnityEngine.Vector3(0f, 190f, 0f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+AddFoliagePrefab("UE_Dress_Bush_Avalanche2", bushBPrefab, new UnityEngine.Vector3(-18.5f, 0.10f, 0.2f), new UnityEngine.Vector3(0f, 30f, 0f), new UnityEngine.Vector3(1.0f, 1.0f, 1.0f));
+
+// Climbing ivy (creeper) on the broken wall edges & boulder flanks
+AddCreeper("UE_Dress_Creeper_Wall_N", new UnityEngine.Vector3(-19.3f, 0.5f, 3.9f), new UnityEngine.Vector3(0f, 90f, 0f), new UnityEngine.Vector3(1.0f, 1.0f, 1.0f));
+AddCreeper("UE_Dress_Creeper_Wall_S", new UnityEngine.Vector3(-19.3f, 0.5f, 0.1f), new UnityEngine.Vector3(0f, 90f, 0f), new UnityEngine.Vector3(1.0f, 1.0f, 1.0f));
+AddCreeper("UE_Dress_Creeper_Arch", new UnityEngine.Vector3(3.8f, 0.8f, 19.8f), new UnityEngine.Vector3(0f, 180f, 0f), new UnityEngine.Vector3(1.0f, 1.2f, 1.0f));
+
+// Dense background tree silhouettes behind west wall
+var pineAPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Trees/Pines/Pine_A/Pine_A.prefab");
+var pineBPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Trees/Pines/Pine_B/Pine_B.prefab");
+var cypressPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TerrainDemoScene_URP/Prefabs/Trees/Cypress/Cypress_Forest_Desktop.prefab");
+
+AddFoliagePrefab("UE_Tree_Pine_W_1", pineAPrefab, new UnityEngine.Vector3(-27.0f, 0.45f, 5.0f), new UnityEngine.Vector3(0f, 35f, 0f), new UnityEngine.Vector3(1.1f, 1.1f, 1.1f));
+AddFoliagePrefab("UE_Tree_Pine_W_2", pineBPrefab, new UnityEngine.Vector3(-28.5f, 0.45f, -2.0f), new UnityEngine.Vector3(0f, 75f, 0f), new UnityEngine.Vector3(1.2f, 1.2f, 1.2f));
+AddFoliagePrefab("UE_Tree_Cypress_W_3", cypressPrefab, new UnityEngine.Vector3(-26.0f, 0.30f, -8.0f), new UnityEngine.Vector3(0f, 15f, 0f), new UnityEngine.Vector3(1.3f, 1.3f, 1.3f));
+log.AppendLine("Perimeter foliage and background tree silhouettes placed.");
+
+// Save the active scene
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+log.AppendLine("Scene saved successfully.");
+
+return log.ToString();
+"""
+
+cmd = [
+    "/Users/landerstudio/.unity/bin/unity",
+    "command", "script", "eval",
+    script_cs,
+    "--project-path", "/Users/landerstudio/MythicRoguelite",
+    "--timeout", "120",
+    "--result-only"
+]
+print("Running scene overhaul in Unity...")
+res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+print("Returncode:", res.returncode)
+print("Output:", res.stdout)
+if res.stderr:
+    print("Stderr:", res.stderr)

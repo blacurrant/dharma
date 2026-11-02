@@ -1,0 +1,73 @@
+{
+  "kit": "Temple_Central_Medallion",
+  "asset": "ENV_Temple_Central_Medallion.fbx",
+  "source_blend": "Art/Blender/Revisions/medallion/TempleEnvironmentKit_medallion.blend",
+  "concept": "courtyard_balanced.jpg (CD locked)",
+  "units": "metres, Blender +Z up, FBX baked Y-up -Z forward",
+  "q18": {
+    "q18_pct": 0.0,
+    "mean_rgb": [
+      73.8,
+      64.9,
+      50.2
+    ],
+    "mean_sat": 0.32015514373779297
+  },
+  "geometry": {
+    "tris": 2592,
+    "verts": 1298,
+    "diameter_m": 7.7832,
+    "thickness_m": 0.108,
+    "lip_z_m": 0.01,
+    "bbox_min": [
+      -3.8988,
+      -3.8971,
+      -0.09
+    ],
+    "bbox_max": [
+      3.8845,
+      3.9022,
+      0.018
+    ],
+    "dims_m": [
+      7.7832,
+      7.7993,
+      0.108
+    ]
+  },
+  "fbx": {
+    "size_bytes": 181436,
+    "sha256": "2598c863392f75e2ffe8401a4804788479a93f1aee37906b8b03582cf685540e",
+    "materials": [
+      "M_Temple_Central_Medallion"
+    ]
+  },
+  "textures": {
+    "ENV_Temple_Central_Medallion_BaseColor.png": {
+      "size_bytes": 3134064,
+      "sha256": "f8f7672c31f32ea8a986a5e5ec017b338792126308e34d180505a896a442d3b7",
+      "w": 2048,
+      "h": 2048
+    },
+    "ENV_Temple_Central_Medallion_Normal.png": {
+      "size_bytes": 6488614,
+      "sha256": "d2275ccd57d8a72a51ffb92914435ea8e6eaa4ad048ed97e6eb3aa18817b1514",
+      "w": 2048,
+      "h": 2048
+    },
+    "ENV_Temple_Central_Medallion_Mask.png": {
+      "size_bytes": 2301835,
+      "sha256": "b3f023eb69556582f673064811cc0c8deb26eac4bb333e30ae22d3ab9a6ba106",
+      "w": 2048,
+      "h": 2048
+    }
+  },
+  "previews": [
+    "medallion_close.png",
+    "medallion_game42.png",
+    "medallion_rim.png",
+    "medallion_top.png"
+  ],
+  "unity_scenes_edited": false,
+  "master_blend_touched": false
+}

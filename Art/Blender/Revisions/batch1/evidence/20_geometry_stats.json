@@ -1,0 +1,236 @@
+{
+ "ENV_Temple_Wall_Tall_A": {
+  "tris": 4880,
+  "area3d_m2": 147.39,
+  "uv_fill": 0.783,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 149.3,
+  "target": 120,
+  "bbox_min": [
+   -2.0,
+   -0.632,
+   -0.4
+  ],
+  "bbox_max": [
+   2.0,
+   0.636,
+   4.994
+  ],
+  "dims_m": [
+   4.0,
+   1.267,
+   5.394
+  ],
+  "faces": 4880,
+  "zones": {
+   "StoneWarm": 4592,
+   "StoneCharcoal": 232,
+   "Bronze": 56
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Wall_Tall_B": {
+  "tris": 6320,
+  "area3d_m2": 177.68,
+  "uv_fill": 0.758,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 133.7,
+  "target": 120,
+  "bbox_min": [
+   -2.0,
+   -0.631,
+   -0.4
+  ],
+  "bbox_max": [
+   2.0,
+   0.631,
+   5.992
+  ],
+  "dims_m": [
+   4.0,
+   1.263,
+   6.392
+  ],
+  "faces": 6320,
+  "zones": {
+   "StoneWarm": 5980,
+   "StoneCharcoal": 284,
+   "Bronze": 56
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Lantern_Pylon_A": {
+  "tris": 10462,
+  "area3d_m2": 23.75,
+  "uv_fill": 0.75,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 182.0,
+  "target": 200,
+  "bbox_min": [
+   -0.522,
+   -0.523,
+   0.0
+  ],
+  "bbox_max": [
+   0.526,
+   0.524,
+   2.97
+  ],
+  "dims_m": [
+   1.049,
+   1.047,
+   2.97
+  ],
+  "faces": 10462,
+  "zones": {
+   "StoneWarm": 7872,
+   "Bronze": 1800,
+   "EmberAmber": 790
+  },
+  "seconds": 0.1
+ },
+ "ENV_Temple_Ruin_Cluster_A": {
+  "tris": 13069,
+  "area3d_m2": 40.36,
+  "uv_fill": 0.714,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 136.2,
+  "target": 110,
+  "bbox_min": [
+   -1.858,
+   -3.017,
+   -0.019
+  ],
+  "bbox_max": [
+   3.31,
+   1.853,
+   3.191
+  ],
+  "dims_m": [
+   5.168,
+   4.87,
+   3.21
+  ],
+  "faces": 13069,
+  "zones": {
+   "StoneWarm": 13069
+  },
+  "seconds": 0.1
+ },
+ "ENV_Temple_Ruin_Cluster_B": {
+  "tris": 10579,
+  "area3d_m2": 32.7,
+  "uv_fill": 0.718,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 151.7,
+  "target": 110,
+  "bbox_min": [
+   -1.89,
+   -1.725,
+   -0.04
+  ],
+  "bbox_max": [
+   2.728,
+   1.923,
+   2.869
+  ],
+  "dims_m": [
+   4.618,
+   3.647,
+   2.909
+  ],
+  "faces": 10579,
+  "zones": {
+   "StoneWarm": 10221,
+   "Bronze": 358
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Backdrop_Mass_A": {
+  "tris": 1984,
+  "area3d_m2": 3090.3,
+  "uv_fill": 0.824,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 16.7,
+  "target": 10,
+  "bbox_min": [
+   -19.511,
+   -9.006,
+   0.0
+  ],
+  "bbox_max": [
+   14.003,
+   9.47,
+   17.389
+  ],
+  "dims_m": [
+   33.514,
+   18.475,
+   17.389
+  ],
+  "faces": 1984,
+  "zones": {
+   "StoneWarm": 1880,
+   "StoneCharcoal": 104
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Backdrop_Mass_B": {
+  "tris": 2918,
+  "area3d_m2": 3720.73,
+  "uv_fill": 0.735,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 14.4,
+  "target": 10,
+  "bbox_min": [
+   -27.99,
+   -9.057,
+   -0.001
+  ],
+  "bbox_max": [
+   26.275,
+   6.295,
+   15.587
+  ],
+  "dims_m": [
+   54.265,
+   15.352,
+   15.588
+  ],
+  "faces": 2918,
+  "zones": {
+   "StoneWarm": 2562,
+   "StoneCharcoal": 356
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Backdrop_Mass_C": {
+  "tris": 2064,
+  "area3d_m2": 3181.75,
+  "uv_fill": 0.838,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 16.6,
+  "target": 10,
+  "bbox_min": [
+   -12.539,
+   -7.024,
+   0.0
+  ],
+  "bbox_max": [
+   19.462,
+   6.296,
+   25.061
+  ],
+  "dims_m": [
+   32.001,
+   13.32,
+   25.061
+  ],
+  "faces": 2064,
+  "zones": {
+   "StoneWarm": 1872,
+   "StoneCharcoal": 192
+  },
+  "seconds": 0.0
+ }
+}

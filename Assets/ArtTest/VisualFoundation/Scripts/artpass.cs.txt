@@ -1,0 +1,18 @@
+// art pass harness (kept as .cs.txt)
+var TAG="__TAG__"; var r=VFRunner.Create(); r.outDir="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation"; string od=r.outDir; var cam=UnityEngine.Camera.main; var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy"); var iso=cam.GetComponent<IsoCameraFollow>();
+r.lightDir="Captures/art_pass/m_"+TAG; r.lightCsv="Reports/ap_metrics_"+TAG+".csv"; r.saveEvidence=true; r.evidenceDir="Captures/art_pass/evidence_"+TAG;
+System.Collections.IEnumerator WaitNoHit(){ var hud=UnityEngine.Object.FindAnyObjectByType<PrototypeHud>(); var f=typeof(PrototypeHud).GetField("_damageCueUntil",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance); for(int i=0;i<600;i++){ if(UnityEngine.Time.time>(float)f.GetValue(hud)+0.3f) break; yield return null; } }
+System.Collections.IEnumerator Snap(string name){ yield return WaitNoHit(); yield return new UnityEngine.WaitForEndOfFrame(); var t=UnityEngine.ScreenCapture.CaptureScreenshotAsTexture(); System.IO.File.WriteAllBytes(od+"/Captures/art_pass/UE_"+TAG+"_"+name+".png",t.EncodeToPNG()); UnityEngine.Object.Destroy(t); }
+System.Collections.IEnumerator Routine(){ yield return null; yield return null;
+  if(cam.pixelWidth!=1920||cam.pixelHeight!=1080){ r.status="stack done ABORT size"; r.done=true; yield break; }
+  foreach(var f in UnityEngine.Object.FindObjectsByType<ArtTestCameraFocus>()) f.enabled=false; en.GetComponent<TrainingDummy>().enabled=false; while(UnityEditor.ShaderUtil.anythingCompiling) yield return null;
+  UnityEngine.Time.captureFramerate=60; System.IO.Directory.CreateDirectory(od+"/Captures/art_pass"); System.IO.File.Delete(od+"/"+r.lightCsv);
+  r.SetConfig(__ORTHO__f,__OFFY__f);
+  __SETUP__
+  for(int i=0;i<10;i++) yield return null;
+  // duel at the arena centre: measure then capture the frame it leaves behind
+  r.holdCenter=UnityEngine.Vector3.zero; for(int i=0;i<10;i++) yield return null; r.Measure(TAG+"_centre",0.45f); while(!r.done) yield return null; for(int i=0;i<4;i++) yield return null; yield return Snap("duel_centre");
+  foreach(var v in new[]{("dais",-8f,8f),("west",-16f,-2f),("north",-8f,16f),("edge",13f,-13f)}){ var cc=pl.GetComponent<UnityEngine.CharacterController>(); cc.enabled=false; pl.transform.position=new UnityEngine.Vector3(v.Item2,0.02f,v.Item3); cc.enabled=true; var ec=en.GetComponent<UnityEngine.CharacterController>(); ec.enabled=false; en.transform.position=new UnityEngine.Vector3(v.Item2+1.8f,0.02f,v.Item3+1.8f); ec.enabled=true; en.transform.rotation=UnityEngine.Quaternion.LookRotation(new UnityEngine.Vector3(-1,0,-1)); iso.Snap(); for(int i=0;i<14;i++) yield return null; yield return Snap(v.Item1);
+    r.holdCenter=new UnityEngine.Vector3(v.Item2,0f,v.Item3); for(int i=0;i<10;i++) yield return null; r.Measure(TAG+"_"+v.Item1,0.45f); while(!r.done) yield return null; }
+  UnityEngine.Time.captureFramerate=0; r.status="stack done"; r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

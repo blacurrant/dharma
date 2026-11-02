@@ -1,0 +1,31 @@
+00:00.801  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+A {'zone_md5': '2569672113502ed71e7e468fee36b6a9', 'faces': 10579, 'tris': 10579, 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze'], 'material_index_hist': {0: 10221, 1: 358}, 'zone_counts': {'StoneWarm': 10221, 'Bronze': 358}}
+B {'zone_md5': '2569672113502ed71e7e468fee36b6a9', 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze'], 'material_index_hist': {0: 10221, 1: 358}, 'zone_counts': {'StoneWarm': 10221, 'Bronze': 358}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:106: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:113: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_zone_probe_b'); pm.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+C1 {'res': 1024, 'texels_by_zone': {'StoneWarm': 712127, 'Bronze': 40199}, 'texels_empty_or_edge': 296250, 'covered_fraction': 0.7175}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C2 {"res": 1024, "seconds": 52.8, "files": {"BaseColor": "Textures/ENV_Temple_Ruin_Cluster_B_BaseColor.png", "Normal": "Textures/ENV_Temple_Ruin_Cluster_B_Normal.png", "Mask": "Textures/ENV_Temple_Ruin_C {"StoneWarm": {"texels": 712127, "metallic_mean": 0.0, "occlusion_mean": 0.6936, "smoothness_mean": 0.269, "basecolor_mean_srgb_hex": "#594F3E"}, "Bronze": {"texels": 40199, "metallic_mean": 0.6619, "occlusion_mean": 0.1801, "smoothness_mean": 0.4386, "basecolor_mean_srgb_hex": "#7F5E34"}} {'BaseColor': {'cyan_teal_texels_145_215_sat_gt_0_06': 0, 'texels': 1048576, 'sat_max': 0.648}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:57: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+D {'zone_md5': '2569672113502ed71e7e468fee36b6a9', 'slots': ['MI_Temple_Ruin_Cluster_B'], 'material_index_hist': {0: 10579}, 'zone_counts': {'StoneWarm': 10221, 'Bronze': 358}}
+00:57.570  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/verify/ENV_Temple_Ruin_Cluster_B_verify.blend"
+Info: Saved as "ENV_Temple_Ruin_Cluster_B_verify.blend"
+E {'file': 'verify/ENV_Temple_Ruin_Cluster_B_verify.blend', 'zone_md5': '2569672113502ed71e7e468fee36b6a9', 'same_as_original': True, 'slots': ['MI_Temple_Ruin_Cluster_B'], 'material_index_hist': {0: 10579}, 'zone_counts': {'StoneWarm': 10221, 'Bronze': 358}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/Models/ENV_Temple_Ruin_Cluster_B.fbx'
+export finished in 0.0796 sec.
+F {'polys_equal_saved_mesh_tris': True, 'fbx_polys': 10579, 'mesh_tris': 10579, 'axis_map_Blender_xyz_to_FBX_x_z_negy': True, 'unit_scale_ratio_fbx_over_blender': 1.0, 'max_extent_error_fbx_units': 5e-05, 'extents_equal_saved_mesh': True, 'up_axis_equal_shipped': True, 'unit_scale_equal_shipped': True, 'shipped_ref': {'UpAxis': 1, 'UnitScaleFactor': 100.0}, 'materials': ['MI_Temple_Ruin_Cluster_B'], 'textures_resolve': True, 'texture_files': ['ENV_Temple_Ruin_Cluster_B_BaseColor.png', 'ENV_Temple_Ruin_Cluster_B_Normal.png'], 'identity_transform': True, 'zone_id_in_fbx_bytes': False, 'mesh_bounds_blender': {'min': [-1.89, -1.7246, -0.0399], 'max': [2.7279, 1.9229, 2.8687]}}
+00:57.952  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+Info: Saved as "TempleEnvironmentKit_batch1.blend"
+VERIFY_DONE ENV_Temple_Ruin_Cluster_B
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

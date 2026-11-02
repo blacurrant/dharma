@@ -1,0 +1,3 @@
+player union SMR bounds size: (1.398, 2.023, 1.416) (y=2.023)
+enemy union SMR bounds size: (1.517, 2.210, 1.554) (y=2.210)
+player CC height=2

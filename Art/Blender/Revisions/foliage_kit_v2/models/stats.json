@@ -1,0 +1,107 @@
+{
+  "ENV_Temple_Foliage_Clump_A": {
+    "tris": 1780,
+    "verts": 1725,
+    "bbox_min": [
+      -0.857,
+      -0.702,
+      -0.049
+    ],
+    "bbox_max": [
+      0.868,
+      0.737,
+      0.83
+    ],
+    "fbx": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/foliage_kit_v2/models/ENV_Temple_Foliage_Clump_A.fbx"
+  },
+  "ENV_Temple_Foliage_Clump_B": {
+    "tris": 1472,
+    "verts": 1371,
+    "bbox_min": [
+      -1.134,
+      -0.697,
+      -0.078
+    ],
+    "bbox_max": [
+      1.146,
+      0.679,
+      0.472
+    ],
+    "fbx": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/foliage_kit_v2/models/ENV_Temple_Foliage_Clump_B.fbx"
+  },
+  "ENV_Temple_Foliage_Creeper_Wall": {
+    "tris": 1248,
+    "verts": 1164,
+    "bbox_min": [
+      -0.715,
+      -0.032,
+      -0.008
+    ],
+    "bbox_max": [
+      0.773,
+      0.072,
+      2.244
+    ],
+    "fbx": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/foliage_kit_v2/models/ENV_Temple_Foliage_Creeper_Wall.fbx"
+  },
+  "ENV_Temple_Foliage_Creeper_Column": {
+    "tris": 1296,
+    "verts": 1208,
+    "bbox_min": [
+      -0.477,
+      0.3,
+      0.092
+    ],
+    "bbox_max": [
+      0.442,
+      0.593,
+      1.807
+    ],
+    "fbx": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/foliage_kit_v2/models/ENV_Temple_Foliage_Creeper_Column.fbx"
+  },
+  "ENV_Temple_Ground_DirtPatch_A": {
+    "tris": 424,
+    "verts": 253,
+    "bbox_min": [
+      -1.1,
+      -0.8,
+      0.001
+    ],
+    "bbox_max": [
+      1.1,
+      0.8,
+      0.075
+    ],
+    "fbx": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/foliage_kit_v2/models/ENV_Temple_Ground_DirtPatch_A.fbx"
+  },
+  "ENV_Temple_Ground_DirtPatch_B": {
+    "tris": 192,
+    "verts": 119,
+    "bbox_min": [
+      -1.2,
+      -0.3,
+      0.001
+    ],
+    "bbox_max": [
+      1.2,
+      0.3,
+      0.04
+    ],
+    "fbx": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/foliage_kit_v2/models/ENV_Temple_Ground_DirtPatch_B.fbx"
+  },
+  "ENV_Temple_Ground_CrackedMortar_C": {
+    "tris": 30,
+    "verts": 26,
+    "bbox_min": [
+      -0.65,
+      -0.55,
+      0.002
+    ],
+    "bbox_max": [
+      0.65,
+      0.55,
+      0.032
+    ],
+    "fbx": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/foliage_kit_v2/models/ENV_Temple_Ground_CrackedMortar_C.fbx"
+  }
+}

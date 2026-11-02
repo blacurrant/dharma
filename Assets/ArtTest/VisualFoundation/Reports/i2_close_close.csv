@@ -1,0 +1,6 @@
+stage,draw_calls,set_pass,triangles,shadow_casters
+C0_base,464,64,1105345,247
+C1_floorStack,469,66,2556926,281
+C2_plusRain,473,64,2556890,281
+C3_plusSalt,474,64,2556892,281
+C4_plusMossBase,480,64,2556904,281

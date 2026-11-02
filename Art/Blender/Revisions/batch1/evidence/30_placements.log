@@ -1,0 +1,17 @@
+PLACEMENT_DONE 32 rows; wall offset 21.33
+B1_Pylon_1 Lantern_Pylon_A -7.861 12.669 0.0 {'r_from_centre': 14.91, 'clear': False, 'blocker': 'Stairs_A', 'blocker_dist': 3.54}
+B1_Pylon_2 Lantern_Pylon_A -12.669 7.861 0.0 {'r_from_centre': 14.91, 'clear': False, 'blocker': 'Stairs_A', 'blocker_dist': 3.54}
+B1_Pylon_3 Lantern_Pylon_A -3.4 18.2 0.0 {'r_from_centre': 18.51, 'clear': True, 'blocker': None, 'blocker_dist': None}
+B1_Pylon_4 Lantern_Pylon_A 11.4 18.2 0.0 {'r_from_centre': 21.48, 'clear': True, 'blocker': None, 'blocker_dist': None}
+B1_Pylon_5 Lantern_Pylon_A -17.7 -9.0 0.0 {'r_from_centre': 19.86, 'clear': True, 'blocker': None, 'blocker_dist': None}
+B1_Pylon_6 Lantern_Pylon_A -17.7 0.6 0.0 {'r_from_centre': 17.71, 'clear': True, 'blocker': None, 'blocker_dist': None}
+B1_Ruin_1 Ruin_Cluster_A -13.75 -6.0 0.0 {'r_from_centre': 15.0, 'clear': True}
+B1_Ruin_2 Ruin_Cluster_B -9.25 -14.25 340.0 {'r_from_centre': 16.99, 'clear': True}
+B1_Ruin_3 Ruin_Cluster_A -14.75 -11.75 25.0 {'r_from_centre': 18.86, 'clear': True}
+B1_Backdrop_Mass_A_directive_28_55m Backdrop_Mass_A -12.0 58.97 0.0 {'nearest_face_beyond_tall_bay_m': 28.0}
+B1_Backdrop_Mass_B_directive_28_55m Backdrop_Mass_B 18.0 71.03 0.0 {'nearest_face_beyond_tall_bay_m': 40.0}
+B1_Backdrop_Mass_C_directive_28_55m Backdrop_Mass_C -62.97 -8.0 270.0 {'nearest_face_beyond_tall_bay_m': 34.0}
+B1_Backdrop_Mass_A_recommended_visible_band Backdrop_Mass_A -12.0 35.97 0.0 {'nearest_face_beyond_tall_bay_m': 5.0}
+B1_Backdrop_Mass_B_recommended_visible_band Backdrop_Mass_B 18.0 36.03 0.0 {'nearest_face_beyond_tall_bay_m': 5.0}
+B1_Backdrop_Mass_C_recommended_visible_band Backdrop_Mass_C -33.97 -8.0 270.0 {'nearest_face_beyond_tall_bay_m': 5.0}
+wall rows 17

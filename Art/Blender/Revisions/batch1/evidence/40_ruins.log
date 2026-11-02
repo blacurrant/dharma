@@ -1,0 +1,17 @@
+00:00.289  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+00:03.036  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Ruin_A_BEFORE.png'
+RENDERED Ruin_A_BEFORE
+00:04.828  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Ruin_A_AFTER.png'
+RENDERED Ruin_A_AFTER
+00:06.548  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Ruin_B_BEFORE.png'
+RENDERED Ruin_B_BEFORE
+00:08.372  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Ruin_B_AFTER.png'
+RENDERED Ruin_B_AFTER
+00:10.041  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Ruin_ALL_BEFORE.png'
+RENDERED Ruin_ALL_BEFORE
+00:11.894  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Ruin_ALL_AFTER.png'
+RENDERED Ruin_ALL_AFTER
+BA_DONE ruins
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

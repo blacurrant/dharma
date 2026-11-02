@@ -1,0 +1,419 @@
+{
+ "parts": [
+  {
+   "part": "Wall_Tall_A",
+   "tris": 4880,
+   "budget": 8000,
+   "within_budget": true,
+   "zone_md5": "d0c4a70676757131fc6d27b39a181755",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 4592,
+    "StoneCharcoal": 232,
+    "Bronze": 56
+   },
+   "zone_texels": {
+    "StoneWarm": 2983039,
+    "StoneCharcoal": 256738,
+    "Bronze": 45640
+   },
+   "tex_res": 2048,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0,
+    "StoneCharcoal": 0.0,
+    "Bronze": 0.5786
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 4194304,
+     "sat_max": 0.645
+    }
+   },
+   "fbx_polys": 4880,
+   "fbx_bytes": 531548,
+   "extents_error_fbx_units": 5e-05,
+   "mesh_bounds_blender": {
+    "min": [
+     -2.0,
+     -0.6317,
+     -0.4
+    ],
+    "max": [
+     2.0,
+     0.6357,
+     4.9935
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Wall_Tall_A_BaseColor.png",
+    "ENV_Temple_Wall_Tall_A_Normal.png"
+   ],
+   "instances_in_placement": 10
+  },
+  {
+   "part": "Wall_Tall_B",
+   "tris": 6320,
+   "budget": 8000,
+   "within_budget": true,
+   "zone_md5": "104c0d747f253b3447d99ec1986d77f4",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 5980,
+    "StoneCharcoal": 284,
+    "Bronze": 56
+   },
+   "zone_texels": {
+    "StoneWarm": 2897956,
+    "StoneCharcoal": 242125,
+    "Bronze": 36940
+   },
+   "tex_res": 2048,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0,
+    "StoneCharcoal": 0.0,
+    "Bronze": 0.5754
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 4194304,
+     "sat_max": 0.667
+    }
+   },
+   "fbx_polys": 6320,
+   "fbx_bytes": 709420,
+   "extents_error_fbx_units": 5e-05,
+   "mesh_bounds_blender": {
+    "min": [
+     -2.0001,
+     -0.6314,
+     -0.4
+    ],
+    "max": [
+     2.0,
+     0.6312,
+     5.9921
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Wall_Tall_B_BaseColor.png",
+    "ENV_Temple_Wall_Tall_B_Normal.png"
+   ],
+   "instances_in_placement": 7
+  },
+  {
+   "part": "Lantern_Pylon_A",
+   "tris": 10462,
+   "budget": 12000,
+   "within_budget": true,
+   "zone_md5": "c782a1c6873c3d6f35160566ba22402e",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 7872,
+    "Bronze": 1800,
+    "EmberAmber": 790
+   },
+   "zone_texels": {
+    "StoneWarm": 605637,
+    "Bronze": 118831,
+    "EmberAmber": 60967
+   },
+   "tex_res": 1024,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0,
+    "Bronze": 0.6513,
+    "EmberAmber": 0.0
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 1048576,
+     "sat_max": 1.0
+    },
+    "Emission": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 1048576,
+     "sat_max": 1.0
+    }
+   },
+   "fbx_polys": 10462,
+   "fbx_bytes": 1021372,
+   "extents_error_fbx_units": 0.00014,
+   "mesh_bounds_blender": {
+    "min": [
+     -0.5223,
+     -0.523,
+     0.0
+    ],
+    "max": [
+     0.5264,
+     0.5244,
+     2.9701
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Lantern_Pylon_A_BaseColor.png",
+    "ENV_Temple_Lantern_Pylon_A_Emission.png",
+    "ENV_Temple_Lantern_Pylon_A_Normal.png"
+   ],
+   "instances_in_placement": 6
+  },
+  {
+   "part": "Ruin_Cluster_A",
+   "tris": 13069,
+   "budget": 15000,
+   "within_budget": true,
+   "zone_md5": "e25eb910ba9be6e3369c90459dd363f2",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 13069
+   },
+   "zone_texels": {
+    "StoneWarm": 748324
+   },
+   "tex_res": 1024,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 1048576,
+     "sat_max": 0.4
+    }
+   },
+   "fbx_polys": 13069,
+   "fbx_bytes": 1425964,
+   "extents_error_fbx_units": 5e-05,
+   "mesh_bounds_blender": {
+    "min": [
+     -1.8577,
+     -3.0171,
+     -0.0186
+    ],
+    "max": [
+     3.3102,
+     1.8533,
+     3.1909
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Ruin_Cluster_A_BaseColor.png",
+    "ENV_Temple_Ruin_Cluster_A_Normal.png"
+   ],
+   "instances_in_placement": 2
+  },
+  {
+   "part": "Ruin_Cluster_B",
+   "tris": 10579,
+   "budget": 15000,
+   "within_budget": true,
+   "zone_md5": "2569672113502ed71e7e468fee36b6a9",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 10221,
+    "Bronze": 358
+   },
+   "zone_texels": {
+    "StoneWarm": 712127,
+    "Bronze": 40199
+   },
+   "tex_res": 1024,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0,
+    "Bronze": 0.6619
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 1048576,
+     "sat_max": 0.648
+    }
+   },
+   "fbx_polys": 10579,
+   "fbx_bytes": 1163484,
+   "extents_error_fbx_units": 5e-05,
+   "mesh_bounds_blender": {
+    "min": [
+     -1.89,
+     -1.7246,
+     -0.0399
+    ],
+    "max": [
+     2.7279,
+     1.9229,
+     2.8687
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Ruin_Cluster_B_BaseColor.png",
+    "ENV_Temple_Ruin_Cluster_B_Normal.png"
+   ],
+   "instances_in_placement": 1
+  },
+  {
+   "part": "Backdrop_Mass_A",
+   "tris": 1984,
+   "budget": 4000,
+   "within_budget": true,
+   "zone_md5": "84eaab1cbbb8dd7dcf98b77a06177a52",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 1880,
+    "StoneCharcoal": 104
+   },
+   "zone_texels": {
+    "StoneWarm": 847755,
+    "StoneCharcoal": 16295
+   },
+   "tex_res": 1024,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0,
+    "StoneCharcoal": 0.0
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 1048576,
+     "sat_max": 0.5
+    }
+   },
+   "fbx_polys": 1984,
+   "fbx_bytes": 187004,
+   "extents_error_fbx_units": 3e-05,
+   "mesh_bounds_blender": {
+    "min": [
+     -19.5113,
+     -9.0056,
+     0.0
+    ],
+    "max": [
+     14.003,
+     9.4695,
+     17.3892
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Backdrop_Mass_A_BaseColor.png",
+    "ENV_Temple_Backdrop_Mass_A_Normal.png"
+   ],
+   "instances_in_placement": 1
+  },
+  {
+   "part": "Backdrop_Mass_B",
+   "tris": 2918,
+   "budget": 4000,
+   "within_budget": true,
+   "zone_md5": "a067511b126f2ff0c618a8478f06aae3",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 2562,
+    "StoneCharcoal": 356
+   },
+   "zone_texels": {
+    "StoneWarm": 693154,
+    "StoneCharcoal": 78122
+   },
+   "tex_res": 1024,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0,
+    "StoneCharcoal": 0.0
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 1048576,
+     "sat_max": 0.5
+    }
+   },
+   "fbx_polys": 2918,
+   "fbx_bytes": 285516,
+   "extents_error_fbx_units": 2e-05,
+   "mesh_bounds_blender": {
+    "min": [
+     -27.9897,
+     -9.0573,
+     -0.0012
+    ],
+    "max": [
+     26.2751,
+     6.2949,
+     15.5865
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Backdrop_Mass_B_BaseColor.png",
+    "ENV_Temple_Backdrop_Mass_B_Normal.png"
+   ],
+   "instances_in_placement": 1
+  },
+  {
+   "part": "Backdrop_Mass_C",
+   "tris": 2064,
+   "budget": 4000,
+   "within_budget": true,
+   "zone_md5": "f2cb31eec2a64f0829f0d8e3acbfbb76",
+   "zone_md5_identical_at_6_points": true,
+   "zone_faces": {
+    "StoneWarm": 1872,
+    "StoneCharcoal": 192
+   },
+   "zone_texels": {
+    "StoneWarm": 803494,
+    "StoneCharcoal": 74263
+   },
+   "tex_res": 1024,
+   "metallic_mean_by_zone": {
+    "StoneWarm": 0.0,
+    "StoneCharcoal": 0.0
+   },
+   "cyan_texels": {
+    "BaseColor": {
+     "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+     "texels": 1048576,
+     "sat_max": 0.5
+    }
+   },
+   "fbx_polys": 2064,
+   "fbx_bytes": 194188,
+   "extents_error_fbx_units": 7e-05,
+   "mesh_bounds_blender": {
+    "min": [
+     -12.5387,
+     -7.0237,
+     0.0
+    ],
+    "max": [
+     19.4618,
+     6.2962,
+     25.0609
+    ]
+   },
+   "identity_transform": true,
+   "textures_resolve": true,
+   "fbx_texture_links": [
+    "ENV_Temple_Backdrop_Mass_C_BaseColor.png",
+    "ENV_Temple_Backdrop_Mass_C_Normal.png"
+   ],
+   "instances_in_placement": 1
+  }
+ ],
+ "total_unique_tris": 52276,
+ "total_scene_tris_all_instances": 199495,
+ "note": "scene total = sum over rows of tris x instances (backdrops counted once each at the recommended placement); budget 500000"
+}

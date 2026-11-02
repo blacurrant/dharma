@@ -1,0 +1,15 @@
+var r=VFRunner.Create(); r.outDir="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation"; r.lightDir="Captures/char_i3b"; r.lightCsv="Reports/i3_char_v2.csv";
+var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy");
+UnityEngine.Material LM(string n){ return UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/Materials/"+n+".mat"); }
+void Assign(UnityEngine.GameObject g, UnityEngine.Material m){ var tf=g.GetComponent<CharacterTintFeedback>(); foreach(var sr in g.GetComponentsInChildren<UnityEngine.SkinnedMeshRenderer>(true)){ if(m!=null) sr.sharedMaterial=m; }
+  var t=typeof(CharacterTintFeedback); var bf=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance; var rs=(System.Array)t.GetField("renderers",System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.Instance|bf).GetValue(tf); var bc=new UnityEngine.Color[rs.Length]; for(int i=0;i<rs.Length;i++) bc[i]=((UnityEngine.Renderer)rs.GetValue(i)).sharedMaterial.GetColor("_BaseColor"); t.GetField("_baseColors",bf).SetValue(tf,bc); t.GetMethod("Apply",bf).Invoke(tf,new object[]{UnityEngine.Color.white,true}); }
+var orig=new System.Collections.Generic.Dictionary<string,UnityEngine.Material>(); foreach(var g in new[]{pl,en}) orig[g.name]=g.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>(true).sharedMaterial;
+System.Collections.IEnumerator Routine(){
+  UnityEngine.Time.captureFramerate=60; System.IO.Directory.CreateDirectory(r.outDir+"/Captures/char_i3b"); System.IO.File.Delete(r.outDir+"/"+r.lightCsv);
+  var vars=new[]{"orig","lift12","lift14","rimC","rimA","rimB","combo12C","combo12A","combo14C"};
+  foreach(var cfg in new[]{("B",9f,18f),("A",8f,15.28f)}){ r.SetConfig(cfg.Item2,cfg.Item3); for(int i=0;i<10;i++) yield return null;
+    foreach(var v in vars){
+      if(v=="orig"){ Assign(pl,orig["Player"]); Assign(en,orig["ArenaEnemy"]); } else { Assign(pl,LM("VF3_Player_"+v)); Assign(en,LM("VF3_Enemy_"+v)); }
+      for(int i=0;i<10;i++) yield return null; while(UnityEditor.ShaderUtil.anythingCompiling) yield return null; for(int i=0;i<20;i++) yield return null; r.Measure(v+"_"+cfg.Item1,0.45f); while(!r.done) yield return null; } }
+  Assign(pl,orig["Player"]); Assign(en,orig["ArenaEnemy"]); UnityEngine.Time.captureFramerate=0; r.status="stack done"; r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

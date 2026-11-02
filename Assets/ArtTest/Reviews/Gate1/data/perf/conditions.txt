@@ -1,0 +1,1 @@
+res(Screen)=1689x1027 vsync=0 shadowRes=2048 api=Metal gpu=Apple M5

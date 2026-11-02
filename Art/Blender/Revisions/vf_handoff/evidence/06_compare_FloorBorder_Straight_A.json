@@ -1,0 +1,913 @@
+{
+ "asset": "ENV_Temple_FloorBorder_Straight_A",
+ "sanity_mask_nonColor_mean_ge_sRGB_mean": true,
+ "res": 1024,
+ "faces": 7544,
+ "maps": [
+  "BaseColor",
+  "Normal",
+  "Mask"
+ ],
+ "per_zone_regions": {
+  "StoneWarm": {
+   "texels": 573909,
+   "faces": 6816,
+   "BaseColor": {
+    "mean_abs_diff": 0.0001,
+    "frac_texels_gt_0_1": 1e-05
+   },
+   "Normal": {
+    "mean_abs_diff": 0.00071,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Mask": {
+    "mean_abs_diff": 0.0004,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "shipped_albedo_R_over_GplusB_p5_p50_p95": [
+    0.617,
+    0.623,
+    0.65
+   ],
+   "shipped_metallic_mean": 0.0,
+   "rebake_metallic_mean": 0.0,
+   "shipped_roughness_mean": 0.7691,
+   "rebake_roughness_mean": 0.7691
+  },
+  "Bronze": {
+   "texels": 12041,
+   "faces": 652,
+   "BaseColor": {
+    "mean_abs_diff": 0.00226,
+    "frac_texels_gt_0_1": 0.00025
+   },
+   "Normal": {
+    "mean_abs_diff": 0.00029,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Mask": {
+    "mean_abs_diff": 0.00223,
+    "frac_texels_gt_0_1": 0.0005
+   },
+   "shipped_albedo_R_over_GplusB_p5_p50_p95": [
+    0.819,
+    0.835,
+    0.924
+   ],
+   "shipped_metallic_mean": 0.8002,
+   "rebake_metallic_mean": 0.8002,
+   "shipped_roughness_mean": 0.4245,
+   "rebake_roughness_mean": 0.4245
+  },
+  "Gold": {
+   "texels": 2738,
+   "faces": 76,
+   "BaseColor": {
+    "mean_abs_diff": 0.00339,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Normal": {
+    "mean_abs_diff": 0.00021,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Mask": {
+    "mean_abs_diff": 1e-05,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "shipped_albedo_R_over_GplusB_p5_p50_p95": [
+    0.742,
+    0.833,
+    0.92
+   ],
+   "shipped_metallic_mean": 1.0,
+   "rebake_metallic_mean": 1.0,
+   "shipped_roughness_mean": 0.4955,
+   "rebake_roughness_mean": 0.4955
+  }
+ },
+ "raster_unclassified_texels": 459888,
+ "global_diff": {
+  "BaseColor": {
+   "mean_abs_diff": 0.000139,
+   "p99": 0.0039,
+   "max": 0.1294,
+   "texels_gt_0_1": 7,
+   "frac_gt_0_1": 7e-06,
+   "outliers_by_zone_region": {
+    "outside_or_edge": 1,
+    "StoneWarm": 3,
+    "Bronze": 3
+   },
+   "top_outliers": [
+    {
+     "x": 997,
+     "y": 599,
+     "diff": 0.1294,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.4745,
+      0.4235,
+      0.3412,
+      1.0
+     ],
+     "rebake": [
+      0.6039,
+      0.498,
+      0.349,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 3194,
+       "zone": "StoneWarm"
+      },
+      {
+       "face": 4591,
+       "zone": "StoneWarm"
+      },
+      {
+       "face": 5957,
+       "zone": "StoneWarm"
+      },
+      {
+       "face": 6315,
+       "zone": "StoneWarm"
+      },
+      {
+       "face": 6992,
+       "zone": "StoneWarm"
+      },
+      {
+       "face": 7106,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 12
+    },
+    {
+     "x": 997,
+     "y": 610,
+     "diff": 0.1216,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.6118,
+      0.5059,
+      0.3529,
+      1.0
+     ],
+     "rebake": [
+      0.4902,
+      0.4392,
+      0.3529,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 3194,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 5
+    },
+    {
+     "x": 100,
+     "y": 846,
+     "diff": 0.1059,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.5882,
+      0.4667,
+      0.2902,
+      1.0
+     ],
+     "rebake": [
+      0.4824,
+      0.4078,
+      0.2902,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 0
+    },
+    {
+     "x": 1008,
+     "y": 202,
+     "diff": 0.1059,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.6588,
+      0.5059,
+      0.2941,
+      1.0
+     ],
+     "rebake": [
+      0.5529,
+      0.4471,
+      0.302,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 7539,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    },
+    {
+     "x": 1008,
+     "y": 192,
+     "diff": 0.102,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.6588,
+      0.5059,
+      0.2941,
+      1.0
+     ],
+     "rebake": [
+      0.5569,
+      0.4549,
+      0.3059,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 7539,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    },
+    {
+     "x": 996,
+     "y": 559,
+     "diff": 0.102,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.4392,
+      0.3922,
+      0.3137,
+      1.0
+     ],
+     "rebake": [
+      0.5412,
+      0.4627,
+      0.3451,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 6235,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 5
+    },
+    {
+     "x": 1008,
+     "y": 204,
+     "diff": 0.102,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.6549,
+      0.5059,
+      0.2902,
+      1.0
+     ],
+     "rebake": [
+      0.5529,
+      0.451,
+      0.302,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 7539,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    },
+    {
+     "x": 1008,
+     "y": 193,
+     "diff": 0.098,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.6549,
+      0.502,
+      0.2902,
+      1.0
+     ],
+     "rebake": [
+      0.5569,
+      0.4549,
+      0.3059,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 7539,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    }
+   ]
+  },
+  "Normal": {
+   "mean_abs_diff": 0.000453,
+   "p99": 0.0039,
+   "max": 0.0078,
+   "texels_gt_0_1": 0,
+   "frac_gt_0_1": 0.0,
+   "outliers_by_zone_region": {},
+   "top_outliers": [
+    {
+     "x": 118,
+     "y": 22,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.502,
+      0.5569,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.4941,
+      0.5529,
+      0.9961,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 5436,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 87,
+     "y": 523,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.4941,
+      0.451,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.502,
+      0.451,
+      0.9961,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 4543,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 838,
+     "y": 532,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.502,
+      0.5882,
+      0.9922,
+      1.0
+     ],
+     "rebake": [
+      0.4941,
+      0.5882,
+      0.9922,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 2668,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 808,
+     "y": 503,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.502,
+      0.5216,
+      1.0,
+      1.0
+     ],
+     "rebake": [
+      0.4941,
+      0.5216,
+      1.0,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 4378,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 178,
+     "y": 98,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.5451,
+      0.4941,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.5451,
+      0.502,
+      0.9961,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 4177,
+       "zone": "StoneWarm"
+      },
+      {
+       "face": 5488,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 4
+    },
+    {
+     "x": 2,
+     "y": 196,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.4941,
+      0.5137,
+      1.0,
+      1.0
+     ],
+     "rebake": [
+      0.502,
+      0.5137,
+      1.0,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 6375,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    },
+    {
+     "x": 114,
+     "y": 737,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.451,
+      0.502,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.451,
+      0.4941,
+      0.9961,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 2016,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 804,
+     "y": 258,
+     "diff": 0.0078,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.4,
+      0.4941,
+      0.9882,
+      1.0
+     ],
+     "rebake": [
+      0.4,
+      0.502,
+      0.9882,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 4935,
+       "zone": "StoneWarm"
+      }
+     ],
+     "faces_bbox_covering_texel": 3
+    }
+   ]
+  },
+  "Mask": {
+   "mean_abs_diff": 0.00034,
+   "p99": 0.0078,
+   "max": 0.3725,
+   "texels_gt_0_1": 6,
+   "frac_gt_0_1": 6e-06,
+   "outliers_by_zone_region": {
+    "Bronze": 6
+   },
+   "top_outliers": [
+    {
+     "x": 1005,
+     "y": 442,
+     "diff": 0.3725,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.451,
+      0.8745,
+      0.0,
+      0.498
+     ],
+     "rebake": [
+      0.8235,
+      0.8745,
+      0.0,
+      0.6588
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 1900,
+       "zone": "Bronze"
+      },
+      {
+       "face": 4288,
+       "zone": "Bronze"
+      },
+      {
+       "face": 5457,
+       "zone": "Bronze"
+      },
+      {
+       "face": 5893,
+       "zone": "Bronze"
+      },
+      {
+       "face": 6250,
+       "zone": "Bronze"
+      },
+      {
+       "face": 7211,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    },
+    {
+     "x": 539,
+     "y": 916,
+     "diff": 0.1255,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.8745,
+      1.0,
+      0.0,
+      0.5765
+     ],
+     "rebake": [
+      1.0,
+      1.0,
+      0.0,
+      0.5961
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 5706,
+       "zone": "Bronze"
+      },
+      {
+       "face": 7270,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 4
+    },
+    {
+     "x": 1005,
+     "y": 318,
+     "diff": 0.1255,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.8745,
+      0.7804,
+      0.0,
+      0.7373
+     ],
+     "rebake": [
+      1.0,
+      0.7804,
+      0.0,
+      0.7373
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 6380,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 3
+    },
+    {
+     "x": 544,
+     "y": 632,
+     "diff": 0.1255,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.8745,
+      1.0,
+      0.0,
+      0.5725
+     ],
+     "rebake": [
+      1.0,
+      1.0,
+      0.0,
+      0.5882
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 2056,
+       "zone": "Bronze"
+      },
+      {
+       "face": 6586,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 1006,
+     "y": 543,
+     "diff": 0.1255,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.8745,
+      0.7804,
+      0.0,
+      0.7647
+     ],
+     "rebake": [
+      1.0,
+      0.7804,
+      0.0,
+      0.7647
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 4025,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 5
+    },
+    {
+     "x": 538,
+     "y": 829,
+     "diff": 0.102,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.7176,
+      0.9373,
+      0.0,
+      0.4627
+     ],
+     "rebake": [
+      0.8196,
+      0.9373,
+      0.0,
+      0.4745
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 2628,
+       "zone": "Bronze"
+      },
+      {
+       "face": 6421,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 3
+    },
+    {
+     "x": 537,
+     "y": 665,
+     "diff": 0.098,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.6706,
+      0.7804,
+      0.0,
+      0.5176
+     ],
+     "rebake": [
+      0.7686,
+      0.7804,
+      0.0,
+      0.5176
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 5799,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    },
+    {
+     "x": 544,
+     "y": 852,
+     "diff": 0.098,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.851,
+      0.9686,
+      0.0,
+      0.5882
+     ],
+     "rebake": [
+      0.949,
+      0.9686,
+      0.0,
+      0.5882
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 2769,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 3
+    }
+   ]
+  }
+ },
+ "classification_from_shipped_textures": {
+  "crimson_threshold": 2.5,
+  "faces_assessed": 4779,
+  "faces_excluded_lt_9px2": 2765,
+  "agreement": 1.0,
+  "agreement_by_expected_class": {
+   "stone": 1.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "stone": {
+    "stone": 4392
+   },
+   "metal": {
+    "metal": 387
+   }
+  }
+ },
+ "classification_from_rebake_textures": {
+  "crimson_threshold": 2.5,
+  "faces_assessed": 4779,
+  "faces_excluded_lt_9px2": 2765,
+  "agreement": 1.0,
+  "agreement_by_expected_class": {
+   "stone": 1.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "stone": {
+    "stone": 4392
+   },
+   "metal": {
+    "metal": 387
+   }
+  }
+ },
+ "POSTHOC_classification_from_shipped_textures_crimson_1_4": {
+  "crimson_threshold": 1.4,
+  "faces_assessed": 4779,
+  "faces_excluded_lt_9px2": 2765,
+  "agreement": 1.0,
+  "agreement_by_expected_class": {
+   "stone": 1.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "stone": {
+    "stone": 4392
+   },
+   "metal": {
+    "metal": 387
+   }
+  }
+ },
+ "POSTHOC_classification_from_rebake_textures_crimson_1_4": {
+  "crimson_threshold": 1.4,
+  "faces_assessed": 4779,
+  "faces_excluded_lt_9px2": 2765,
+  "agreement": 1.0,
+  "agreement_by_expected_class": {
+   "stone": 1.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "stone": {
+    "stone": 4392
+   },
+   "metal": {
+    "metal": 387
+   }
+  }
+ },
+ "texel_level_classification_shipped_apriori_2_5": {
+  "texels_assessed": 588688,
+  "agreement": 1.0,
+  "by_zone": {
+   "StoneWarm": {
+    "texels": 573909,
+    "agree": 1.0
+   },
+   "Bronze": {
+    "texels": 12041,
+    "agree": 1.0
+   },
+   "Gold": {
+    "texels": 2738,
+    "agree": 1.0
+   }
+  }
+ },
+ "POSTHOC_texel_level_classification_shipped_crimson_1_4": {
+  "texels_assessed": 588688,
+  "agreement": 1.0,
+  "by_zone": {
+   "StoneWarm": {
+    "texels": 573909,
+    "agree": 1.0
+   },
+   "Bronze": {
+    "texels": 12041,
+    "agree": 1.0
+   },
+   "Gold": {
+    "texels": 2738,
+    "agree": 1.0
+   }
+  }
+ },
+ "POSTHOC_texel_level_classification_rebake_crimson_1_4": {
+  "texels_assessed": 588688,
+  "agreement": 1.0,
+  "by_zone": {
+   "StoneWarm": {
+    "texels": 573909,
+    "agree": 1.0
+   },
+   "Bronze": {
+    "texels": 12041,
+    "agree": 1.0
+   },
+   "Gold": {
+    "texels": 2738,
+    "agree": 1.0
+   }
+  }
+ },
+ "face_disagreement_breakdown_POSTHOC": {
+  "disagreeing_faces": 0,
+  "median_uv_area_px2_disagreeing": null,
+  "median_uv_area_px2_all_assessed": 26.05,
+  "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0,
+  "centroid_texel_raster_empty_or_edge": 0,
+  "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0,
+  "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0
+ }
+}

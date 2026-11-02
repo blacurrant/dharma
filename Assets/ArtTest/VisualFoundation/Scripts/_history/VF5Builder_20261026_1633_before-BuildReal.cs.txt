@@ -1,0 +1,97 @@
+// Visual Foundation Batch 1, real models: copy (never move) the Environment Artist's FBX + textures into Assets/ArtTest/VisualFoundation/Batch1/,
+// import like the kit, build URP Lit material instances (Base/Normal/Mask/Emission assigned by name), and place per Batch1_Placement.json.
+// Art-test scene only; every instance sits under VF_Batch1 (toggle with VF4Builder.SetBatch).
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+public static class VF5Builder
+{
+    const string Src = "Art/Blender/Revisions/batch1/handoff";
+    const string Dst = "Assets/ArtTest/VisualFoundation/Batch1";
+    static readonly string[] Parts = { "Wall_Tall_A", "Wall_Tall_B", "Lantern_Pylon_A", "Ruin_Cluster_A", "Ruin_Cluster_B", "Backdrop_Mass_A", "Backdrop_Mass_B", "Backdrop_Mass_C" };
+    [System.Serializable] class Row { public string instance, group, mesh, part, role; public float unity_x, unity_y, unity_z, yaw_front_to_plusZ, yaw_front_to_minusZ, scale; }
+    [System.Serializable] class Table { public Row[] instances; }
+
+    static string Sha(string p) { using (var s = SHA256.Create()) using (var f = File.OpenRead(p)) return string.Concat(s.ComputeHash(f).Select(b => b.ToString("x2"))); }
+
+    public static string CopyAndImport()
+    {
+        var sb = new StringBuilder(); Directory.CreateDirectory(Dst + "/Models"); Directory.CreateDirectory(Dst + "/Textures"); Directory.CreateDirectory(Dst + "/Materials");
+        var sums = File.ReadAllLines(Src + "/SHA256SUMS.txt").Select(l => l.Split(new[] { "  ", " *" }, System.StringSplitOptions.RemoveEmptyEntries)).Where(a => a.Length == 2).ToDictionary(a => a[1].Trim(), a => a[0]);
+        int copied = 0, bad = 0;
+        foreach (var kind in new[] { "Models", "Textures" })
+            foreach (var f in Directory.GetFiles(Src + "/" + kind))
+            {
+                string name = Path.GetFileName(f), dst = Dst + "/" + kind + "/" + name;
+                if (!File.Exists(dst)) { File.Copy(f, dst); copied++; }
+                string key = kind + "/" + name; string have = Sha(dst);
+                if (sums.TryGetValue(key, out var exp)) { if (exp != have) { bad++; sb.AppendLine("SHA MISMATCH " + key); } } else sb.AppendLine("no checksum line for " + key);
+            }
+        sb.AppendLine("copied " + copied + " new files; sha mismatches " + bad);
+        AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+        return sb.ToString();
+    }
+
+    public static string ConfigureTextures()
+    {
+        var sb = new StringBuilder();
+        foreach (var f in Directory.GetFiles(Dst + "/Textures", "*.png"))
+        {
+            string p = f.Replace('\\', '/'); var ti = (TextureImporter)AssetImporter.GetAtPath(p); if (ti == null) continue; string n = Path.GetFileNameWithoutExtension(p);
+            bool normal = n.EndsWith("_Normal"), mask = n.EndsWith("_Mask"), emis = n.EndsWith("_Emission");
+            ti.textureType = normal ? TextureImporterType.NormalMap : TextureImporterType.Default; ti.sRGBTexture = !(normal || mask); ti.alphaIsTransparency = false; ti.mipmapEnabled = true;
+            ti.filterMode = FilterMode.Bilinear; ti.anisoLevel = 4; ti.maxTextureSize = 2048; ti.textureCompression = TextureImporterCompression.Compressed; ti.wrapMode = TextureWrapMode.Repeat; // same as the kit textures
+            ti.SaveAndReimport(); var t = AssetDatabase.LoadAssetAtPath<Texture2D>(p); sb.AppendLine(n + ": " + t.width + "x" + t.height + " " + t.format + " sRGB=" + ti.sRGBTexture + (normal ? " normalmap" : ""));
+        }
+        return sb.ToString();
+    }
+
+    static Texture2D Tex(string part, string suffix) => AssetDatabase.LoadAssetAtPath<Texture2D>(Dst + "/Textures/ENV_Temple_" + part + "_" + suffix + ".png");
+
+    // Same setup as ArtTestCourtyardBuilder.ConfigureMaterial (kit): Base, Normal, the packed Mask in both metallic/occlusion slots, Emission on the pylon only.
+    public static string BuildMaterials()
+    {
+        var sb = new StringBuilder(); var shader = Shader.Find("Universal Render Pipeline/Lit");
+        foreach (var part in Parts)
+        {
+            string fbx = Dst + "/Models/ENV_Temple_" + part + ".fbx"; var model = AssetDatabase.LoadAssetAtPath<GameObject>(fbx); var imp = (ModelImporter)AssetImporter.GetAtPath(fbx);
+            string matName = "MI_Temple_" + part; string mp = Dst + "/Materials/" + matName + ".mat"; var m = AssetDatabase.LoadAssetAtPath<Material>(mp);
+            if (m == null) { m = new Material(shader) { name = matName }; AssetDatabase.CreateAsset(m, mp); }
+            m.shader = shader; m.SetTexture("_BaseMap", Tex(part, "BaseColor")); m.SetColor("_BaseColor", Color.white);
+            var n = Tex(part, "Normal"); m.SetTexture("_BumpMap", n); m.SetFloat("_BumpScale", 1f); if (n != null) m.EnableKeyword("_NORMALMAP");
+            var mask = Tex(part, "Mask"); m.SetTexture("_MetallicGlossMap", mask); m.SetTexture("_OcclusionMap", mask); m.SetFloat("_Metallic", 1f); m.SetFloat("_Smoothness", 1f); m.SetFloat("_SmoothnessTextureChannel", 0f); m.SetFloat("_OcclusionStrength", 1f); m.SetFloat("_WorkflowMode", 1f);
+            if (mask != null) { m.EnableKeyword("_METALLICSPECGLOSSMAP"); m.EnableKeyword("_OCCLUSIONMAP"); }
+            var em = Tex(part, "Emission");
+            if (em != null) { m.SetTexture("_EmissionMap", em); m.SetColor("_EmissionColor", Color.white * 1.5f); m.EnableKeyword("_EMISSION"); m.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive; }
+            else { m.SetColor("_EmissionColor", Color.black); m.DisableKeyword("_EMISSION"); }
+            m.SetFloat("_Surface", 0f); m.SetFloat("_Cull", 2f); m.enableInstancing = true; EditorUtility.SetDirty(m);
+            // remap every material slot the FBX carries to this instance (FBX does not link Mask/Emission, so everything is assigned by name here)
+            var srcMats = model.GetComponentsInChildren<Renderer>().SelectMany(r => r.sharedMaterials).Where(x => x != null).Select(x => x.name).Distinct().ToList();
+            foreach (var sn in srcMats) imp.AddRemap(new AssetImporter.SourceAssetIdentifier(typeof(Material), sn), m);
+            imp.SaveAndReimport();
+            sb.AppendLine(part + ": material " + matName + " base=" + (Tex(part, "BaseColor") != null) + " normal=" + (n != null) + " mask=" + (mask != null) + " emission=" + (em != null) + " | FBX material slots remapped: " + string.Join(",", srcMats));
+        }
+        AssetDatabase.SaveAssets(); return sb.ToString();
+    }
+
+    public static string Inspect()
+    {
+        var sb = new StringBuilder();
+        foreach (var part in Parts.Concat(new[] { "Wall_B", "Stairs_A" }))
+        {
+            string fbx = part.StartsWith("Wall_B") || part.StartsWith("Stairs") ? "Assets/ArtTest/Environment/Models/ENV_Temple_" + part + ".fbx" : Dst + "/Models/ENV_Temple_" + part + ".fbx";
+            var go = AssetDatabase.LoadAssetAtPath<GameObject>(fbx); var imp = (ModelImporter)AssetImporter.GetAtPath(fbx);
+            var rs = go.GetComponentsInChildren<MeshRenderer>(); Bounds b = default; bool f = false; int tris = 0;
+            foreach (var r in rs) { var mf = r.GetComponent<MeshFilter>(); tris += mf.sharedMesh.triangles.Length / 3; var lb = mf.sharedMesh.bounds; if (!f) { b = lb; f = true; } else b.Encapsulate(lb); }
+            sb.AppendLine(part + ": root '" + go.name + "' children=" + go.transform.childCount + " renderers=" + rs.Length + " tris=" + tris + " meshBounds(min)=" + b.min.ToString("F2") + " (max)=" + b.max.ToString("F2") + " materials=" + string.Join("|", rs.SelectMany(r => r.sharedMaterials).Select(m => m == null ? "null" : m.name + ":" + m.shader.name)) + " scale(useFileScale/globalScale)=" + imp.useFileScale + "/" + imp.globalScale + " rootScale=" + go.transform.localScale + " rootRot=" + go.transform.localEulerAngles);
+        }
+        return sb.ToString();
+    }
+}

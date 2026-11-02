@@ -1,0 +1,669 @@
+{
+ "ENV_Temple_Floor_A": {
+  "asset": "ENV_Temple_Floor_A",
+  "category": "Floor",
+  "tris": 1824,
+  "area3d_m2": 8.34,
+  "uv_fill": 0.571,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 267.9,
+  "target": 220,
+  "dims_m": [
+   1.98,
+   1.976,
+   0.302
+  ],
+  "bbox_min": [
+   -0.989,
+   -0.989,
+   0.0
+  ],
+  "bbox_max": [
+   0.991,
+   0.987,
+   0.302
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Floor_B": {
+  "asset": "ENV_Temple_Floor_B",
+  "category": "Floor",
+  "tris": 1272,
+  "area3d_m2": 6.27,
+  "uv_fill": 0.405,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 260.1,
+  "target": 220,
+  "dims_m": [
+   1.981,
+   1.985,
+   0.302
+  ],
+  "bbox_min": [
+   -0.992,
+   -0.992,
+   -0.0
+  ],
+  "bbox_max": [
+   0.99,
+   0.993,
+   0.301
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Floor_C": {
+  "asset": "ENV_Temple_Floor_C",
+  "category": "Floor",
+  "tris": 1760,
+  "area3d_m2": 7.39,
+  "uv_fill": 0.496,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 265.3,
+  "target": 220,
+  "dims_m": [
+   1.98,
+   1.981,
+   0.305
+  ],
+  "bbox_min": [
+   -0.989,
+   -0.99,
+   0.0
+  ],
+  "bbox_max": [
+   0.991,
+   0.991,
+   0.305
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Floor_D": {
+  "asset": "ENV_Temple_Floor_D",
+  "category": "Floor",
+  "tris": 1632,
+  "area3d_m2": 8.38,
+  "uv_fill": 0.615,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 277.5,
+  "target": 220,
+  "dims_m": [
+   1.978,
+   1.979,
+   0.304
+  ],
+  "bbox_min": [
+   -0.99,
+   -0.988,
+   0.0
+  ],
+  "bbox_max": [
+   0.988,
+   0.991,
+   0.304
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_FloorBorder_Straight_A": {
+  "asset": "ENV_Temple_FloorBorder_Straight_A",
+  "category": "Floor",
+  "tris": 7544,
+  "area3d_m2": 8.69,
+  "uv_fill": 0.561,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 260.2,
+  "target": 280,
+  "dims_m": [
+   1.983,
+   1.98,
+   0.33
+  ],
+  "bbox_min": [
+   -0.99,
+   -0.991,
+   0.0
+  ],
+  "bbox_max": [
+   0.992,
+   0.989,
+   0.33
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold"
+  ]
+ },
+ "ENV_Temple_FloorBorder_Corner_A": {
+  "asset": "ENV_Temple_FloorBorder_Corner_A",
+  "category": "Floor",
+  "tris": 8522,
+  "area3d_m2": 9.38,
+  "uv_fill": 0.472,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 459.2,
+  "target": 280,
+  "dims_m": [
+   1.981,
+   1.983,
+   0.348
+  ],
+  "bbox_min": [
+   -0.991,
+   -0.992,
+   0.0
+  ],
+  "bbox_max": [
+   0.99,
+   0.991,
+   0.348
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold"
+  ]
+ },
+ "ENV_Temple_Stairs_A": {
+  "asset": "ENV_Temple_Stairs_A",
+  "category": "Stair",
+  "tris": 11488,
+  "area3d_m2": 31.54,
+  "uv_fill": 0.716,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 308.5,
+  "target": 240,
+  "dims_m": [
+   3.984,
+   1.987,
+   0.957
+  ],
+  "bbox_min": [
+   -1.992,
+   -0.993,
+   -0.0
+  ],
+  "bbox_max": [
+   1.992,
+   0.993,
+   0.957
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Platform_A": {
+  "asset": "ENV_Temple_Platform_A",
+  "category": "Stair",
+  "tris": 25908,
+  "area3d_m2": 135.55,
+  "uv_fill": 0.681,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 145.2,
+  "target": 200,
+  "dims_m": [
+   3.99,
+   5.991,
+   0.807
+  ],
+  "bbox_min": [
+   -1.993,
+   -2.996,
+   -0.0
+  ],
+  "bbox_max": [
+   1.997,
+   2.995,
+   0.807
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Pillar_A": {
+  "asset": "ENV_Temple_Pillar_A",
+  "category": "Pillar",
+  "tris": 38050,
+  "area3d_m2": 55.8,
+  "uv_fill": 0.626,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 216.9,
+  "target": 300,
+  "dims_m": [
+   1.956,
+   1.956,
+   6.387
+  ],
+  "bbox_min": [
+   -0.98,
+   -0.978,
+   -0.001
+  ],
+  "bbox_max": [
+   0.977,
+   0.978,
+   6.386
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Gold"
+  ]
+ },
+ "ENV_Temple_Pillar_B": {
+  "asset": "ENV_Temple_Pillar_B",
+  "category": "Pillar",
+  "tris": 41166,
+  "area3d_m2": 72.39,
+  "uv_fill": 0.681,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 198.6,
+  "target": 300,
+  "dims_m": [
+   1.952,
+   1.955,
+   6.335
+  ],
+  "bbox_min": [
+   -0.979,
+   -0.977,
+   0.0
+  ],
+  "bbox_max": [
+   0.974,
+   0.978,
+   6.335
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ]
+ },
+ "ENV_Temple_Pillar_C": {
+  "asset": "ENV_Temple_Pillar_C",
+  "category": "Pillar",
+  "tris": 26528,
+  "area3d_m2": 50.9,
+  "uv_fill": 0.668,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 234.6,
+  "target": 300,
+  "dims_m": [
+   2.441,
+   2.447,
+   6.34
+  ],
+  "bbox_min": [
+   -1.221,
+   -1.221,
+   0.0
+  ],
+  "bbox_max": [
+   1.22,
+   1.226,
+   6.34
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ]
+ },
+ "ENV_Temple_Pillar_D": {
+  "asset": "ENV_Temple_Pillar_D",
+  "category": "Pillar",
+  "tris": 19910,
+  "area3d_m2": 29.17,
+  "uv_fill": 0.602,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 294.2,
+  "target": 300,
+  "dims_m": [
+   1.905,
+   1.903,
+   3.73
+  ],
+  "bbox_min": [
+   -0.953,
+   -0.951,
+   0.0
+  ],
+  "bbox_max": [
+   0.953,
+   0.952,
+   3.73
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Arch_A_PierL": {
+  "asset": "ENV_Temple_Arch_A",
+  "category": "Arch",
+  "tris": 26656,
+  "area3d_m2": 92.25,
+  "uv_fill": 0.796,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 190.2,
+  "target": 220,
+  "dims_m": [
+   2.049,
+   2.304,
+   4.702
+  ],
+  "bbox_min": [
+   -4.145,
+   -1.153,
+   -0.0
+  ],
+  "bbox_max": [
+   -2.095,
+   1.152,
+   4.702
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold"
+  ]
+ },
+ "ENV_Temple_Arch_A_PierR": {
+  "asset": "ENV_Temple_Arch_A",
+  "category": "Arch",
+  "tris": 26304,
+  "area3d_m2": 90.16,
+  "uv_fill": 0.831,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 196.6,
+  "target": 220,
+  "dims_m": [
+   2.045,
+   2.297,
+   4.704
+  ],
+  "bbox_min": [
+   2.1,
+   -1.148,
+   -0.003
+  ],
+  "bbox_max": [
+   4.144,
+   1.149,
+   4.701
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold"
+  ]
+ },
+ "ENV_Temple_Arch_A_Span": {
+  "asset": "ENV_Temple_Arch_A",
+  "category": "Arch",
+  "tris": 122416,
+  "area3d_m2": 340.68,
+  "uv_fill": 0.683,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 91.7,
+  "target": 220,
+  "dims_m": [
+   8.508,
+   2.313,
+   4.126
+  ],
+  "bbox_min": [
+   -4.255,
+   -1.158,
+   4.702
+  ],
+  "bbox_max": [
+   4.253,
+   1.155,
+   8.827
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Gold"
+  ]
+ },
+ "ENV_Temple_Altar_A": {
+  "asset": "ENV_Temple_Altar_A",
+  "category": "Focal",
+  "tris": 79542,
+  "area3d_m2": 97.78,
+  "uv_fill": 0.575,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 157.0,
+  "target": 280,
+  "dims_m": [
+   4.421,
+   3.309,
+   5.114
+  ],
+  "bbox_min": [
+   -2.214,
+   -1.704,
+   -0.004
+  ],
+  "bbox_max": [
+   2.207,
+   1.604,
+   5.11
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold",
+   "SRC_Temple_CrimsonCloth",
+   "SRC_Temple_EmberAmber"
+  ]
+ },
+ "ENV_Temple_Brazier_A": {
+  "asset": "ENV_Temple_Brazier_A",
+  "category": "Prop",
+  "tris": 6082,
+  "area3d_m2": 5.68,
+  "uv_fill": 0.535,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 314.1,
+  "target": 300,
+  "dims_m": [
+   1.052,
+   1.047,
+   1.339
+  ],
+  "bbox_min": [
+   -0.525,
+   -0.527,
+   0.0
+  ],
+  "bbox_max": [
+   0.527,
+   0.521,
+   1.339
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_EmberAmber"
+  ]
+ },
+ "ENV_Temple_Rubble_A": {
+  "asset": "ENV_Temple_Rubble_A",
+  "category": "Prop",
+  "tris": 2535,
+  "area3d_m2": 1.96,
+  "uv_fill": 0.555,
+  "tex_res": 512,
+  "texel_density_px_per_m": 272.4,
+  "target": 300,
+  "dims_m": [
+   1.682,
+   1.354,
+   0.442
+  ],
+  "bbox_min": [
+   -0.667,
+   -0.351,
+   -0.005
+  ],
+  "bbox_max": [
+   1.015,
+   1.002,
+   0.437
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Rubble_B": {
+  "asset": "ENV_Temple_Rubble_B",
+  "category": "Prop",
+  "tris": 2815,
+  "area3d_m2": 2.11,
+  "uv_fill": 0.516,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 506.3,
+  "target": 300,
+  "dims_m": [
+   1.756,
+   1.628,
+   0.302
+  ],
+  "bbox_min": [
+   -0.898,
+   -0.842,
+   -0.0
+  ],
+  "bbox_max": [
+   0.858,
+   0.786,
+   0.302
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_ColumnDrum_A": {
+  "asset": "ENV_Temple_ColumnDrum_A",
+  "category": "Prop",
+  "tris": 5328,
+  "area3d_m2": 6.16,
+  "uv_fill": 0.828,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 375.7,
+  "target": 300,
+  "dims_m": [
+   1.485,
+   1.375,
+   1.101
+  ],
+  "bbox_min": [
+   -0.747,
+   -0.701,
+   -0.004
+  ],
+  "bbox_max": [
+   0.738,
+   0.674,
+   1.097
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Banner_A": {
+  "asset": "ENV_Temple_Banner_A",
+  "category": "Prop",
+  "tris": 5774,
+  "area3d_m2": 6.07,
+  "uv_fill": 0.97,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 409.5,
+  "target": 300,
+  "dims_m": [
+   1.621,
+   0.12,
+   2.515
+  ],
+  "bbox_min": [
+   -0.78,
+   -0.064,
+   0.0
+  ],
+  "bbox_max": [
+   0.84,
+   0.056,
+   2.515
+  ],
+  "materials": [
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold",
+   "SRC_Temple_CrimsonCloth"
+  ]
+ },
+ "ENV_Temple_Wall_A": {
+  "asset": "ENV_Temple_Wall_A",
+  "category": "Wall",
+  "tris": 22880,
+  "area3d_m2": 89.34,
+  "uv_fill": 0.794,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 193.0,
+  "target": 240,
+  "dims_m": [
+   4.002,
+   1.139,
+   3.001
+  ],
+  "bbox_min": [
+   -2.0,
+   -0.573,
+   0.002
+  ],
+  "bbox_max": [
+   2.002,
+   0.566,
+   3.003
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm"
+  ]
+ },
+ "ENV_Temple_Wall_B": {
+  "asset": "ENV_Temple_Wall_B",
+  "category": "Wall",
+  "tris": 29592,
+  "area3d_m2": 98.79,
+  "uv_fill": 0.742,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 177.5,
+  "target": 240,
+  "dims_m": [
+   4.001,
+   1.264,
+   3.0
+  ],
+  "bbox_min": [
+   -2.001,
+   -0.693,
+   -0.0
+  ],
+  "bbox_max": [
+   2.0,
+   0.571,
+   3.0
+  ],
+  "materials": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold"
+  ]
+ }
+}

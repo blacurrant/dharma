@@ -10,3 +10,8 @@
 *.sln
 *.slnx
 .DS_Store
+
+# Large binary caches & renders
+*.npy
+*.mp4
+Captures/

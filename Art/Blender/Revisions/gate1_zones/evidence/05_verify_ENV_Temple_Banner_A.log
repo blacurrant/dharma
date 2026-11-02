@@ -1,0 +1,29 @@
+00:00.820  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+A {'zone_md5': 'b71abc1f1a221d916f27bc04e87d9e6e', 'faces': 5774, 'slots': ['MI_Temple_Banner_A'], 'material_index_hist': {0: 5774}, 'zone_counts': {'Bronze': 916, 'Gold': 652, 'CrimsonCloth': 4206}}
+B {'zone_md5': 'b71abc1f1a221d916f27bc04e87d9e6e', 'slots': ['SRC_Temple_Bronze', 'SRC_Temple_Gold', 'SRC_Temple_CrimsonCloth'], 'material_index_hist': {0: 916, 1: 652, 2: 4206}, 'zone_counts': {'Bronze': 916, 'Gold': 652, 'CrimsonCloth': 4206}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/04_verify_assets.py:68: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/04_verify_assets.py:75: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_zone_probe_b'); pm.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+C1 {'res': 1024, 'texels_by_zone': {'Bronze': 54826, 'Gold': 43916, 'CrimsonCloth': 917715}, 'texels_empty_or_edge': 32119, 'covered_fraction': 0.9694}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C2 {'res': 1024, 'seconds': 24.0, 'files': {'BaseColor': 'bake_out_b/Textures/ENV_Temple_Banner_A_BaseColor.png', 'Normal': 'bake_out_b/Textures/ENV_Temple_Banner_A_Normal.png', 'Mask': 'bake_out_b/Textures/ENV_Temple_Banner_A_Mask.png'}, 'zone_md5_after_bake': 'b71abc1f1a221d916f27bc04e87d9e6e', 'slots_during_bake': ['SRC_Temple_Bronze', 'SRC_Temple_Gold', 'SRC_Temple_CrimsonCloth']}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/04_verify_assets.py:137: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+D {'zone_md5': 'b71abc1f1a221d916f27bc04e87d9e6e', 'slots': ['MI_Temple_Banner_A'], 'material_index_hist': {0: 5774}, 'zone_counts': {'Bronze': 916, 'Gold': 652, 'CrimsonCloth': 4206}}
+00:28.458  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify_b/ENV_Temple_Banner_A_verify.blend"
+Info: Saved as "ENV_Temple_Banner_A_verify.blend"
+E {'file': 'verify_b/ENV_Temple_Banner_A_verify.blend', 'zone_md5': 'b71abc1f1a221d916f27bc04e87d9e6e', 'same_as_original': True, 'slots': ['MI_Temple_Banner_A'], 'material_index_hist': {0: 5774}, 'zone_counts': {'Bronze': 916, 'Gold': 652, 'CrimsonCloth': 4206}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/bake_out_b/Models/ENV_Temple_Banner_A.fbx'
+export finished in 0.0243 sec.
+F {'polys_equal': True, 'vertex_extents_equal': True, 'up_axis_equal': True, 'unit_scale_equal': True, 'materials_equal': True, 'textures_equal': True, 'identity_transform_gate1': True, 'zone_id_in_fbx_bytes': False}
+VERIFY_B_DONE ENV_Temple_Banner_A
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

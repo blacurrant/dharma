@@ -1,0 +1,12 @@
+case,min_gap_to_target_collider_m,contact_point@frame,end_position,frames_speed<0.4_after_contact,reverse_first_to_last_m
+Ruin_1 capsule dir1,0.53,(-14.67,-3.92)@f28,(-14.67,-3.92),76/76,3.87
+Ruin_1 box dir1,0.53,(-12.50,-3.97)@f21,(-12.50,-3.97),83/83,3.87
+Ruin_1 box dir8,0.53,(-11.36,-8.53)@f23,(-11.36,-8.53),81/81,3.87
+Ruin_2 box dir1,0.48,(-10.69,-12.87)@f63,(-11.54,-17.35),0/41,3.86
+Ruin_2 box dir2,0.46,(-7.02,-15.48)@f68,(-10.88,-18.99),0/36,3.87
+Ruin_3 box dir2,0.49,(-14.22,-9.91)@f68,(-14.22,-9.91),36/36,3.06
+Ruin_3 box dir5,0.46,(-11.48,-11.17)@f80,(-13.25,-8.77),0/24,3.86
+# pylon 4 after the +1 m move (first-to-last reverse frame):
+pylon4 rerun0,0.45,(11.66,18.89)@f55,(11.77,19.00),49/49,3.70
+pylon4 glancing rerun0,0.97,(13.43,17.07)@f45,(18.97,18.99),5/59,3.87
+pylon4 glancing- rerun0,0.45,(11.67,18.90)@f42,(11.77,19.00),62/62,3.70

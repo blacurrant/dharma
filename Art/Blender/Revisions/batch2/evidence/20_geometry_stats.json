@@ -1,0 +1,293 @@
+{
+ "ENV_Temple_Wall_Tall_Lamp_A": {
+  "tris": 11912,
+  "area3d_m2": 190.36,
+  "uv_fill": 0.628,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 117.6,
+  "target": 120,
+  "bbox_min": [
+   -2.0,
+   -0.636,
+   -0.4
+  ],
+  "bbox_max": [
+   2.0,
+   0.633,
+   4.992
+  ],
+  "dims_m": [
+   4.0,
+   1.27,
+   5.392
+  ],
+  "faces": 11912,
+  "zones": {
+   "StoneWarm": 7196,
+   "StoneCharcoal": 300,
+   "Bronze": 2240,
+   "EmberAmber": 2176
+  },
+  "seconds": 0.1
+ },
+ "ENV_Temple_Shrine_Backdrop_A": {
+  "tris": 27262,
+  "area3d_m2": 1217.41,
+  "uv_fill": 0.697,
+  "tex_res": 2048,
+  "texel_density_px_per_m": 49.0,
+  "target": 70,
+  "bbox_min": [
+   -6.172,
+   -1.458,
+   -0.022
+  ],
+  "bbox_max": [
+   6.193,
+   5.093,
+   9.513
+  ],
+  "dims_m": [
+   12.364,
+   6.551,
+   9.535
+  ],
+  "faces": 27262,
+  "zones": {
+   "StoneWarm": 21734,
+   "StoneCharcoal": 624,
+   "Bronze": 4904
+  },
+  "seconds": 0.1
+ },
+ "ENV_Temple_Column_Tall_A": {
+  "tris": 8200,
+  "area3d_m2": 42.91,
+  "uv_fill": 0.725,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 133.1,
+  "target": 130,
+  "bbox_min": [
+   -0.8,
+   -0.797,
+   0.0
+  ],
+  "bbox_max": [
+   0.798,
+   0.8,
+   6.784
+  ],
+  "dims_m": [
+   1.598,
+   1.597,
+   6.784
+  ],
+  "faces": 8200,
+  "zones": {
+   "StoneWarm": 6684,
+   "Bronze": 1516
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Flagstone_A": {
+  "tris": 1264,
+  "area3d_m2": 2.59,
+  "uv_fill": 0.73,
+  "tex_res": 256,
+  "texel_density_px_per_m": 136.0,
+  "target": 120,
+  "bbox_min": [
+   -0.572,
+   -1.038,
+   -0.033
+  ],
+  "bbox_max": [
+   0.582,
+   1.004,
+   0.064
+  ],
+  "dims_m": [
+   1.155,
+   2.042,
+   0.097
+  ],
+  "faces": 1264,
+  "zones": {
+   "StoneWarm": 1264
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Flagstone_B": {
+  "tris": 1818,
+  "area3d_m2": 6.58,
+  "uv_fill": 0.57,
+  "tex_res": 512,
+  "texel_density_px_per_m": 150.6,
+  "target": 100,
+  "bbox_min": [
+   -1.025,
+   -1.533,
+   -0.033
+  ],
+  "bbox_max": [
+   1.009,
+   1.501,
+   0.06
+  ],
+  "dims_m": [
+   2.034,
+   3.035,
+   0.093
+  ],
+  "faces": 1818,
+  "zones": {
+   "StoneWarm": 1818
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Flagstone_C": {
+  "tris": 1596,
+  "area3d_m2": 9.64,
+  "uv_fill": 0.904,
+  "tex_res": 512,
+  "texel_density_px_per_m": 156.8,
+  "target": 90,
+  "bbox_min": [
+   -1.519,
+   -1.528,
+   -0.032
+  ],
+  "bbox_max": [
+   1.538,
+   1.504,
+   0.058
+  ],
+  "dims_m": [
+   3.057,
+   3.032,
+   0.089
+  ],
+  "faces": 1596,
+  "zones": {
+   "StoneWarm": 1596
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Flagstone_D": {
+  "tris": 1617,
+  "area3d_m2": 2.63,
+  "uv_fill": 0.319,
+  "tex_res": 512,
+  "texel_density_px_per_m": 178.3,
+  "target": 120,
+  "bbox_min": [
+   -0.763,
+   -0.771,
+   -0.032
+  ],
+  "bbox_max": [
+   0.739,
+   0.762,
+   0.068
+  ],
+  "dims_m": [
+   1.502,
+   1.533,
+   0.1
+  ],
+  "faces": 1617,
+  "zones": {
+   "StoneWarm": 1617
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Kerb_A": {
+  "tris": 5272,
+  "area3d_m2": 7.49,
+  "uv_fill": 0.934,
+  "tex_res": 512,
+  "texel_density_px_per_m": 180.7,
+  "target": 120,
+  "bbox_min": [
+   -1.493,
+   -0.213,
+   -0.063
+  ],
+  "bbox_max": [
+   1.495,
+   0.213,
+   0.083
+  ],
+  "dims_m": [
+   2.988,
+   0.426,
+   0.146
+  ],
+  "faces": 5272,
+  "zones": {
+   "StoneWarm": 2816,
+   "StoneCharcoal": 2456
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Wall_Low_Broken_A": {
+  "tris": 2216,
+  "area3d_m2": 53.69,
+  "uv_fill": 0.843,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 128.3,
+  "target": 120,
+  "bbox_min": [
+   -2.0,
+   -1.378,
+   -0.4
+  ],
+  "bbox_max": [
+   2.0,
+   0.603,
+   1.894
+  ],
+  "dims_m": [
+   4.0,
+   1.981,
+   2.294
+  ],
+  "faces": 2216,
+  "zones": {
+   "StoneWarm": 1956,
+   "StoneCharcoal": 232,
+   "Bronze": 28
+  },
+  "seconds": 0.0
+ },
+ "ENV_Temple_Wall_Low_Broken_B": {
+  "tris": 2116,
+  "area3d_m2": 52.73,
+  "uv_fill": 0.843,
+  "tex_res": 1024,
+  "texel_density_px_per_m": 129.5,
+  "target": 120,
+  "bbox_min": [
+   -2.0,
+   -1.391,
+   -0.4
+  ],
+  "bbox_max": [
+   2.0,
+   0.602,
+   1.641
+  ],
+  "dims_m": [
+   4.0,
+   1.993,
+   2.041
+  ],
+  "faces": 2116,
+  "zones": {
+   "StoneWarm": 1828,
+   "StoneCharcoal": 260,
+   "Bronze": 28
+  },
+  "seconds": 0.0
+ }
+}

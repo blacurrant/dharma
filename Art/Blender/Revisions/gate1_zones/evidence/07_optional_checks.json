@@ -1,0 +1,1039 @@
+{
+ "one_nonunique_key_parts": {
+  "parts": [
+   "ENV_Temple_Altar_A",
+   "ENV_Temple_Arch_A_PierR",
+   "ENV_Temple_Arch_A_Span",
+   "ENV_Temple_FloorBorder_Corner_A",
+   "ENV_Temple_Pillar_A",
+   "ENV_Temple_Platform_A",
+   "ENV_Temple_Stairs_A"
+  ],
+  "results": {
+   "ENV_Temple_Altar_A": {
+    "faces": 79542,
+    "duplicate_key_groups": 728,
+    "faces_in_duplicate_groups": 9849,
+    "rebuild_index_aligned_exactly": false,
+    "per_index_zone_agreement": null,
+    "groups_with_conflicting_zones_saved": 0,
+    "groups_with_conflicting_zones_rebuild_checked": 0
+   },
+   "ENV_Temple_Arch_A_PierR": {
+    "faces": 26304,
+    "duplicate_key_groups": 1,
+    "faces_in_duplicate_groups": 2,
+    "rebuild_index_aligned_exactly": true,
+    "per_index_zone_agreement": 26304,
+    "groups_with_conflicting_zones_saved": 0,
+    "groups_with_conflicting_zones_rebuild_checked": 0
+   },
+   "ENV_Temple_Arch_A_Span": {
+    "faces": 122416,
+    "duplicate_key_groups": 12,
+    "faces_in_duplicate_groups": 24,
+    "rebuild_index_aligned_exactly": false,
+    "per_index_zone_agreement": null,
+    "groups_with_conflicting_zones_saved": 0,
+    "groups_with_conflicting_zones_rebuild_checked": 0
+   },
+   "ENV_Temple_FloorBorder_Corner_A": {
+    "faces": 8522,
+    "duplicate_key_groups": 4,
+    "faces_in_duplicate_groups": 8,
+    "rebuild_index_aligned_exactly": true,
+    "per_index_zone_agreement": 8522,
+    "groups_with_conflicting_zones_saved": 0,
+    "groups_with_conflicting_zones_rebuild_checked": 0
+   },
+   "ENV_Temple_Pillar_A": {
+    "faces": 38050,
+    "duplicate_key_groups": 4,
+    "faces_in_duplicate_groups": 8,
+    "rebuild_index_aligned_exactly": false,
+    "per_index_zone_agreement": null,
+    "groups_with_conflicting_zones_saved": 0,
+    "groups_with_conflicting_zones_rebuild_checked": 0
+   },
+   "ENV_Temple_Platform_A": {
+    "faces": 25908,
+    "duplicate_key_groups": 5,
+    "faces_in_duplicate_groups": 10,
+    "rebuild_index_aligned_exactly": true,
+    "per_index_zone_agreement": 25908,
+    "groups_with_conflicting_zones_saved": 0,
+    "groups_with_conflicting_zones_rebuild_checked": 0
+   },
+   "ENV_Temple_Stairs_A": {
+    "faces": 11488,
+    "duplicate_key_groups": 1,
+    "faces_in_duplicate_groups": 2,
+    "rebuild_index_aligned_exactly": true,
+    "per_index_zone_agreement": 11488,
+    "groups_with_conflicting_zones_saved": 0,
+    "groups_with_conflicting_zones_rebuild_checked": 0
+   }
+  },
+  "note": "index-aligned compare removes key-matching ambiguity; relies on the rebuild being index-identical (verified with 0 vertex delta + equal loop->vertex arrays)"
+ },
+ "two_PierL_probe_mismatch": {
+  "faces": 26656,
+  "mismatched_margin10": 120,
+  "explained_by_other_face_covering_texel": 93,
+  "unexplained_by_cover": 27,
+  "unexplained_where_margin0_texel_is_empty_or_own_zone": 27,
+  "margin0_mismatch_total": 891,
+  "margin0_mismatch_where_texel_empty": 798,
+  "unexplained_faces": [
+   {
+    "face": 654,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1222,
+     424
+    ],
+    "uv_area_px2": 1.749,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 1518,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1224,
+     426
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 1572,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1256,
+     435
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 1575,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1259,
+     437
+    ],
+    "uv_area_px2": 0.685,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm"
+    ]
+   },
+   {
+    "face": 1584,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1268,
+     433
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm"
+    ]
+   },
+   {
+    "face": 1590,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1267,
+     426
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 2269,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1311,
+     433
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 2811,
+    "zone": "Bronze",
+    "uv_px": [
+     1041,
+     425
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 3300,
+    "zone": "Bronze",
+    "uv_px": [
+     1134,
+     436
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 3314,
+    "zone": "Bronze",
+    "uv_px": [
+     1147,
+     436
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 3328,
+    "zone": "Bronze",
+    "uv_px": [
+     1522,
+     398
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 3337,
+    "zone": "Bronze",
+    "uv_px": [
+     939,
+     1747
+    ],
+    "uv_area_px2": 1.02,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 4484,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1212,
+     433
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 4550,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1256,
+     426
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 4556,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1255,
+     433
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 4568,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1267,
+     435
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 5235,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1320,
+     433
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "StoneCharcoal",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 5277,
+    "zone": "StoneWarm",
+    "uv_px": [
+     1299,
+     426
+    ],
+    "uv_area_px2": 0.686,
+    "probe_margin10": "empty",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "StoneWarm",
+     "Bronze"
+    ]
+   },
+   {
+    "face": 5847,
+    "zone": "Bronze",
+    "uv_px": [
+     1600,
+     427
+    ],
+    "uv_area_px2": 1.02,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 5853,
+    "zone": "Bronze",
+    "uv_px": [
+     989,
+     437
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 5883,
+    "zone": "Bronze",
+    "uv_px": [
+     1002,
+     437
+    ],
+    "uv_area_px2": 0.849,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 5886,
+    "zone": "Bronze",
+    "uv_px": [
+     1109,
+     436
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 5916,
+    "zone": "Bronze",
+    "uv_px": [
+     1121,
+     436
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 6493,
+    "zone": "Bronze",
+    "uv_px": [
+     1054,
+     425
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 6523,
+    "zone": "Bronze",
+    "uv_px": [
+     1067,
+     425
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 6547,
+    "zone": "Bronze",
+    "uv_px": [
+     1522,
+     398
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   },
+   {
+    "face": 6553,
+    "zone": "Bronze",
+    "uv_px": [
+     1097,
+     425
+    ],
+    "uv_area_px2": 0.848,
+    "probe_margin10": "StoneWarm",
+    "probe_margin0": "empty",
+    "zones_of_bbox_covering_faces": [
+     "Bronze"
+    ]
+   }
+  ]
+ },
+ "three_brazier_outliers": {
+  "BaseColor": {
+   "texels_gt_0_1": 21,
+   "of": 1048576,
+   "outliers_by_zone_region": {
+    "outside_or_edge": 13,
+    "Bronze": 8
+   },
+   "mean_abs_diff": 0.000119,
+   "max": 0.3098,
+   "top_outliers": [
+    {
+     "x": 986,
+     "y": 748,
+     "diff": 0.3098,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.0824,
+      0.0745,
+      0.0549,
+      1.0
+     ],
+     "rebake": [
+      0.3922,
+      0.2902,
+      0.1647,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [],
+     "n_bbox_covering_faces": 0
+    },
+    {
+     "x": 8,
+     "y": 433,
+     "diff": 0.2902,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.2392,
+      0.1686,
+      0.0902,
+      1.0
+     ],
+     "rebake": [
+      0.5294,
+      0.3725,
+      0.1961,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [],
+     "n_bbox_covering_faces": 0
+    },
+    {
+     "x": 340,
+     "y": 638,
+     "diff": 0.1961,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.6118,
+      0.4706,
+      0.2784,
+      1.0
+     ],
+     "rebake": [
+      0.4157,
+      0.349,
+      0.2471,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [],
+     "n_bbox_covering_faces": 0
+    },
+    {
+     "x": 344,
+     "y": 394,
+     "diff": 0.1569,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.1333,
+      0.098,
+      0.0706,
+      1.0
+     ],
+     "rebake": [
+      0.2902,
+      0.251,
+      0.1961,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [],
+     "n_bbox_covering_faces": 0
+    },
+    {
+     "x": 50,
+     "y": 934,
+     "diff": 0.1569,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.1569,
+      0.1216,
+      0.0902,
+      1.0
+     ],
+     "rebake": [
+      0.3137,
+      0.2706,
+      0.2078,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [],
+     "n_bbox_covering_faces": 0
+    },
+    {
+     "x": 50,
+     "y": 917,
+     "diff": 0.1529,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.3098,
+      0.2667,
+      0.2039,
+      1.0
+     ],
+     "rebake": [
+      0.1569,
+      0.1216,
+      0.0902,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [],
+     "n_bbox_covering_faces": 0
+    }
+   ]
+  },
+  "Normal": {
+   "texels_gt_0_1": 0,
+   "of": 1048576,
+   "outliers_by_zone_region": {},
+   "mean_abs_diff": 0.000648,
+   "max": 0.0235,
+   "top_outliers": [
+    {
+     "x": 337,
+     "y": 401,
+     "diff": 0.0235,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.4078,
+      0.3765,
+      0.9765,
+      1.0
+     ],
+     "rebake": [
+      0.4314,
+      0.3608,
+      0.9765,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "StoneWarm"
+     ],
+     "n_bbox_covering_faces": 3
+    },
+    {
+     "x": 338,
+     "y": 398,
+     "diff": 0.0196,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.5647,
+      0.4,
+      0.9843,
+      1.0
+     ],
+     "rebake": [
+      0.5647,
+      0.4196,
+      0.9882,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "StoneWarm"
+     ],
+     "n_bbox_covering_faces": 6
+    },
+    {
+     "x": 338,
+     "y": 405,
+     "diff": 0.0196,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.5922,
+      0.4941,
+      0.9922,
+      1.0
+     ],
+     "rebake": [
+      0.5725,
+      0.5059,
+      0.9961,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "StoneWarm"
+     ],
+     "n_bbox_covering_faces": 3
+    },
+    {
+     "x": 338,
+     "y": 401,
+     "diff": 0.0157,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.5412,
+      0.4627,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.5412,
+      0.4784,
+      0.9961,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "StoneWarm"
+     ],
+     "n_bbox_covering_faces": 3
+    },
+    {
+     "x": 644,
+     "y": 622,
+     "diff": 0.0157,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.3882,
+      0.502,
+      0.9882,
+      1.0
+     ],
+     "rebake": [
+      0.3922,
+      0.4863,
+      0.9882,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "StoneWarm"
+     ],
+     "n_bbox_covering_faces": 3
+    },
+    {
+     "x": 583,
+     "y": 673,
+     "diff": 0.0157,
+     "raster_zone": "StoneWarm",
+     "shipped": [
+      0.4941,
+      0.5608,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.5098,
+      0.5569,
+      0.9961,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "StoneWarm"
+     ],
+     "n_bbox_covering_faces": 5
+    }
+   ]
+  },
+  "Mask": {
+   "texels_gt_0_1": 81,
+   "of": 1048576,
+   "outliers_by_zone_region": {
+    "outside_or_edge": 4,
+    "Bronze": 77
+   },
+   "mean_abs_diff": 0.000503,
+   "max": 0.2471,
+   "top_outliers": [
+    {
+     "x": 141,
+     "y": 719,
+     "diff": 0.2471,
+     "raster_zone": "Bronze",
+     "shipped": [
+      1.0,
+      0.9373,
+      0.0,
+      0.5882
+     ],
+     "rebake": [
+      0.7529,
+      0.9373,
+      0.0,
+      0.5569
+     ],
+     "zones_of_bbox_covering_faces": [
+      "Bronze"
+     ],
+     "n_bbox_covering_faces": 7
+    },
+    {
+     "x": 848,
+     "y": 749,
+     "diff": 0.2471,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.7529,
+      1.0,
+      0.0,
+      0.5412
+     ],
+     "rebake": [
+      1.0,
+      1.0,
+      0.0,
+      0.5922
+     ],
+     "zones_of_bbox_covering_faces": [
+      "Bronze"
+     ],
+     "n_bbox_covering_faces": 4
+    },
+    {
+     "x": 926,
+     "y": 971,
+     "diff": 0.1725,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.6745,
+      0.7804,
+      0.0,
+      0.4941
+     ],
+     "rebake": [
+      0.8471,
+      0.7804,
+      0.0,
+      0.5098
+     ],
+     "zones_of_bbox_covering_faces": [
+      "Bronze"
+     ],
+     "n_bbox_covering_faces": 2
+    },
+    {
+     "x": 848,
+     "y": 750,
+     "diff": 0.1725,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.8196,
+      1.0,
+      0.0,
+      0.5569
+     ],
+     "rebake": [
+      0.9922,
+      1.0,
+      0.0,
+      0.5922
+     ],
+     "zones_of_bbox_covering_faces": [
+      "Bronze"
+     ],
+     "n_bbox_covering_faces": 1
+    },
+    {
+     "x": 864,
+     "y": 847,
+     "diff": 0.1569,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.7922,
+      0.9373,
+      0.0,
+      0.502
+     ],
+     "rebake": [
+      0.949,
+      0.9373,
+      0.0,
+      0.549
+     ],
+     "zones_of_bbox_covering_faces": [
+      "Bronze"
+     ],
+     "n_bbox_covering_faces": 7
+    },
+    {
+     "x": 310,
+     "y": 78,
+     "diff": 0.149,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.851,
+      1.0,
+      0.0,
+      0.6
+     ],
+     "rebake": [
+      1.0,
+      1.0,
+      0.0,
+      0.6157
+     ],
+     "zones_of_bbox_covering_faces": [
+      "Bronze"
+     ],
+     "n_bbox_covering_faces": 3
+    }
+   ]
+  },
+  "Emission": {
+   "texels_gt_0_1": 0,
+   "of": 1048576,
+   "outliers_by_zone_region": {},
+   "mean_abs_diff": 2e-06,
+   "max": 0.0039,
+   "top_outliers": [
+    {
+     "x": 279,
+     "y": 954,
+     "diff": 0.0039,
+     "raster_zone": "EmberAmber",
+     "shipped": [
+      0.5373,
+      0.1882,
+      0.0235,
+      1.0
+     ],
+     "rebake": [
+      0.5373,
+      0.1843,
+      0.0235,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "EmberAmber"
+     ],
+     "n_bbox_covering_faces": 2
+    },
+    {
+     "x": 573,
+     "y": 441,
+     "diff": 0.0039,
+     "raster_zone": "EmberAmber",
+     "shipped": [
+      0.5373,
+      0.1843,
+      0.0235,
+      1.0
+     ],
+     "rebake": [
+      0.5373,
+      0.1882,
+      0.0235,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "EmberAmber"
+     ],
+     "n_bbox_covering_faces": 3
+    },
+    {
+     "x": 370,
+     "y": 424,
+     "diff": 0.0039,
+     "raster_zone": "EmberAmber",
+     "shipped": [
+      0.8627,
+      0.4431,
+      0.0941,
+      1.0
+     ],
+     "rebake": [
+      0.8627,
+      0.4431,
+      0.0902,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "EmberAmber"
+     ],
+     "n_bbox_covering_faces": 2
+    },
+    {
+     "x": 510,
+     "y": 394,
+     "diff": 0.0039,
+     "raster_zone": "EmberAmber",
+     "shipped": [
+      0.6824,
+      0.2784,
+      0.0431,
+      1.0
+     ],
+     "rebake": [
+      0.6824,
+      0.2784,
+      0.0471,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "EmberAmber"
+     ],
+     "n_bbox_covering_faces": 2
+    },
+    {
+     "x": 384,
+     "y": 483,
+     "diff": 0.0039,
+     "raster_zone": "EmberAmber",
+     "shipped": [
+      0.6824,
+      0.2784,
+      0.0431,
+      1.0
+     ],
+     "rebake": [
+      0.6824,
+      0.2784,
+      0.0471,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "EmberAmber"
+     ],
+     "n_bbox_covering_faces": 5
+    },
+    {
+     "x": 502,
+     "y": 318,
+     "diff": 0.0039,
+     "raster_zone": "EmberAmber",
+     "shipped": [
+      0.6824,
+      0.2784,
+      0.0471,
+      1.0
+     ],
+     "rebake": [
+      0.6824,
+      0.2784,
+      0.0431,
+      1.0
+     ],
+     "zones_of_bbox_covering_faces": [
+      "EmberAmber"
+     ],
+     "n_bbox_covering_faces": 3
+    }
+   ]
+  }
+ }
+}

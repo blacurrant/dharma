@@ -1,0 +1,503 @@
+{
+ "coordinate_note": "Batch-1 placement table (pure python). Reads the Unity-side placement JSON (read-only) and writes handoff/Batch1_Placement.{json,csv}.\nSame row format as Stage 7 (instance, group, mesh, part, unity_x, unity_y, unity_z, yaw_front_to_plusZ, yaw_front_to_minusZ, scale) + a 'role' string.\nAuthoring map: Blender (x, y, z) = Unity (x, z, y_up); Unity yaw (clockwise from above, 0 = +Z) = -rotation_z(Blender).  Local FRONT = Blender +Y.\nWall bays: front (+Y) points OUTWARD, the niche face is -Y = toward the arena (same as Wall_A/B).\nRun: python3 scripts/30_placements.py",
+ "count": 32,
+ "arena": {
+  "floor_half_extent_m": 20.0,
+  "wall_inner_face_m": 19.5,
+  "clear_zone_radius_m": 10.0,
+  "parapet_outer_face_from_axis_m": 0.573,
+  "parapet_height_m": 3.0
+ },
+ "wall_bay_origin_offset_m": 21.33,
+ "notes": [
+  "Wall bay origin offset from the wall axis = 21.33 m = 20.0 + parapet outer face 0.573 + air gap 0.12 + bay front 0.632 (all measured). North bays at z=+21.33, west bays at x=-21.33; the corner bay (x=-22, north orientation) closes the NW corner; a ~0.7 m slit remains between it and the last west bay (z=18..20).",
+  "Arch gap: north bays omitted at x = -2, 2, 6, 10 (parapet gap x=2,6 plus the two arch-adjacent bays at x=-2 and x=10, which the BVH surface-intersection test showed intersect the arch piers). Clear gap in the north tall-bay row: x=-4..12 (16 m), arch itself x about -0.25..8.25. If Nishant/GD meant 8 m EACH side, also drop x=-6 and x=14."
+ ],
+ "planning_checks": {
+  "B1_Pylon_1": {
+   "r_from_centre": 14.91,
+   "clear": false,
+   "blocker": "Stairs_A",
+   "blocker_dist": 3.54
+  },
+  "B1_Pylon_2": {
+   "r_from_centre": 14.91,
+   "clear": false,
+   "blocker": "Stairs_A",
+   "blocker_dist": 3.54
+  },
+  "B1_Pylon_3": {
+   "r_from_centre": 18.51,
+   "clear": true,
+   "blocker": null,
+   "blocker_dist": null
+  },
+  "B1_Pylon_4": {
+   "r_from_centre": 21.48,
+   "clear": true,
+   "blocker": null,
+   "blocker_dist": null
+  },
+  "B1_Pylon_5": {
+   "r_from_centre": 19.86,
+   "clear": true,
+   "blocker": null,
+   "blocker_dist": null
+  },
+  "B1_Pylon_6": {
+   "r_from_centre": 17.71,
+   "clear": true,
+   "blocker": null,
+   "blocker_dist": null
+  },
+  "B1_Ruin_1": {
+   "r_from_centre": 15.0,
+   "clear": true
+  },
+  "B1_Ruin_2": {
+   "r_from_centre": 16.99,
+   "clear": true
+  },
+  "B1_Ruin_3": {
+   "r_from_centre": 18.86,
+   "clear": true
+  },
+  "B1_Backdrop_Mass_A_directive_28_55m": {
+   "nearest_face_beyond_tall_bay_m": 28.0
+  },
+  "B1_Backdrop_Mass_B_directive_28_55m": {
+   "nearest_face_beyond_tall_bay_m": 40.0
+  },
+  "B1_Backdrop_Mass_C_directive_28_55m": {
+   "nearest_face_beyond_tall_bay_m": 34.0
+  },
+  "B1_Backdrop_Mass_A_recommended_visible_band": {
+   "nearest_face_beyond_tall_bay_m": 5.0
+  },
+  "B1_Backdrop_Mass_B_recommended_visible_band": {
+   "nearest_face_beyond_tall_bay_m": 5.0
+  },
+  "B1_Backdrop_Mass_C_recommended_visible_band": {
+   "nearest_face_beyond_tall_bay_m": 5.0
+  }
+ },
+ "source_of_existing_layout": "Assets/ArtTest/Environment/TempleCourtyard_Placement.json",
+ "instances": [
+  {
+   "instance": "B1_WallTall_A_N-22",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -22.0,
+   "unity_y": 0.0,
+   "unity_z": 21.33,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "north tall bay (corner)"
+  },
+  {
+   "instance": "B1_WallTall_B_N-18",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_B",
+   "part": "ENV_Temple_Wall_Tall_B",
+   "unity_x": -18.0,
+   "unity_y": 0.0,
+   "unity_z": 21.33,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "north tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_N-14",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -14.0,
+   "unity_y": 0.0,
+   "unity_z": 21.33,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "north tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_N-10",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -10.0,
+   "unity_y": 0.0,
+   "unity_z": 21.33,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "north tall bay"
+  },
+  {
+   "instance": "B1_WallTall_B_N-06",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_B",
+   "part": "ENV_Temple_Wall_Tall_B",
+   "unity_x": -6.0,
+   "unity_y": 0.0,
+   "unity_z": 21.33,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "north tall bay"
+  },
+  {
+   "instance": "B1_WallTall_B_N+14",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_B",
+   "part": "ENV_Temple_Wall_Tall_B",
+   "unity_x": 14.0,
+   "unity_y": 0.0,
+   "unity_z": 21.33,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "north tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_N+18",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": 18.0,
+   "unity_y": 0.0,
+   "unity_z": 21.33,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "north tall bay"
+  },
+  {
+   "instance": "B1_WallTall_B_W-18",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_B",
+   "part": "ENV_Temple_Wall_Tall_B",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": -18.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_W-14",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": -14.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_W-10",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": -10.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_B_W-06",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_B",
+   "part": "ENV_Temple_Wall_Tall_B",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": -6.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_W-02",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": -2.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_B_W+02",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_B",
+   "part": "ENV_Temple_Wall_Tall_B",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": 2.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_W+06",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": 6.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_W+10",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": 10.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_B_W+14",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_B",
+   "part": "ENV_Temple_Wall_Tall_B",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": 14.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_WallTall_A_W+18",
+   "group": "BATCH1_Walls",
+   "mesh": "ENV_Temple_Wall_Tall_A",
+   "part": "ENV_Temple_Wall_Tall_A",
+   "unity_x": -21.33,
+   "unity_y": 0.0,
+   "unity_z": 18.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "west tall bay"
+  },
+  {
+   "instance": "B1_Pylon_1",
+   "group": "BATCH1_Pylons",
+   "mesh": "ENV_Temple_Lantern_Pylon_A",
+   "part": "ENV_Temple_Lantern_Pylon_A",
+   "unity_x": -7.861,
+   "unity_y": 0.0,
+   "unity_z": 12.669,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "stairs flank (south-east side)"
+  },
+  {
+   "instance": "B1_Pylon_2",
+   "group": "BATCH1_Pylons",
+   "mesh": "ENV_Temple_Lantern_Pylon_A",
+   "part": "ENV_Temple_Lantern_Pylon_A",
+   "unity_x": -12.669,
+   "unity_y": 0.0,
+   "unity_z": 7.861,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "stairs flank (north-west side)"
+  },
+  {
+   "instance": "B1_Pylon_3",
+   "group": "BATCH1_Pylons",
+   "mesh": "ENV_Temple_Lantern_Pylon_A",
+   "part": "ENV_Temple_Lantern_Pylon_A",
+   "unity_x": -3.4,
+   "unity_y": 0.0,
+   "unity_z": 18.2,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "arch flank, outside the existing arch braziers (west)"
+  },
+  {
+   "instance": "B1_Pylon_4",
+   "group": "BATCH1_Pylons",
+   "mesh": "ENV_Temple_Lantern_Pylon_A",
+   "part": "ENV_Temple_Lantern_Pylon_A",
+   "unity_x": 11.4,
+   "unity_y": 0.0,
+   "unity_z": 18.2,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "arch flank, outside the existing arch braziers (east)"
+  },
+  {
+   "instance": "B1_Pylon_5",
+   "group": "BATCH1_Pylons",
+   "mesh": "ENV_Temple_Lantern_Pylon_A",
+   "part": "ENV_Temple_Lantern_Pylon_A",
+   "unity_x": -17.7,
+   "unity_y": 0.0,
+   "unity_z": -9.0,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "west wall pair (south)"
+  },
+  {
+   "instance": "B1_Pylon_6",
+   "group": "BATCH1_Pylons",
+   "mesh": "ENV_Temple_Lantern_Pylon_A",
+   "part": "ENV_Temple_Lantern_Pylon_A",
+   "unity_x": -17.7,
+   "unity_y": 0.0,
+   "unity_z": 0.6,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "west wall pair (north)"
+  },
+  {
+   "instance": "B1_Ruin_1",
+   "group": "BATCH1_Ruins",
+   "mesh": "ENV_Temple_Ruin_Cluster_A",
+   "part": "ENV_Temple_Ruin_Cluster_A",
+   "unity_x": -13.75,
+   "unity_y": 0.0,
+   "unity_z": -6.0,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "west; tall end toward -x,+z (away from the gameplay camera)"
+  },
+  {
+   "instance": "B1_Ruin_2",
+   "group": "BATCH1_Ruins",
+   "mesh": "ENV_Temple_Ruin_Cluster_B",
+   "part": "ENV_Temple_Ruin_Cluster_B",
+   "unity_x": -9.25,
+   "unity_y": 0.0,
+   "unity_z": -14.25,
+   "yaw_front_to_plusZ": 340.0,
+   "yaw_front_to_minusZ": 160.0,
+   "scale": 1.0,
+   "role": "south-west; tall end toward -x,+z (away from the gameplay camera)"
+  },
+  {
+   "instance": "B1_Ruin_3",
+   "group": "BATCH1_Ruins",
+   "mesh": "ENV_Temple_Ruin_Cluster_A",
+   "part": "ENV_Temple_Ruin_Cluster_A",
+   "unity_x": -14.75,
+   "unity_y": 0.0,
+   "unity_z": -11.75,
+   "yaw_front_to_plusZ": 25.0,
+   "yaw_front_to_minusZ": 205.0,
+   "scale": 1.0,
+   "role": "west-south-west; tall end toward -x,+z (away from the gameplay camera)"
+  },
+  {
+   "instance": "B1_Backdrop_Mass_A_directive_28_55m",
+   "group": "BATCH1_Backdrop_directive_28_55m",
+   "mesh": "ENV_Temple_Backdrop_Mass_A",
+   "part": "ENV_Temple_Backdrop_Mass_A",
+   "unity_x": -12.0,
+   "unity_y": 0.0,
+   "unity_z": 58.97,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "directive_28_55m: nearest face 28 m beyond the tall bays (north)"
+  },
+  {
+   "instance": "B1_Backdrop_Mass_B_directive_28_55m",
+   "group": "BATCH1_Backdrop_directive_28_55m",
+   "mesh": "ENV_Temple_Backdrop_Mass_B",
+   "part": "ENV_Temple_Backdrop_Mass_B",
+   "unity_x": 18.0,
+   "unity_y": 0.0,
+   "unity_z": 71.03,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "directive_28_55m: nearest face 40 m beyond the tall bays (north)"
+  },
+  {
+   "instance": "B1_Backdrop_Mass_C_directive_28_55m",
+   "group": "BATCH1_Backdrop_directive_28_55m",
+   "mesh": "ENV_Temple_Backdrop_Mass_C",
+   "part": "ENV_Temple_Backdrop_Mass_C",
+   "unity_x": -62.97,
+   "unity_y": 0.0,
+   "unity_z": -8.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "directive_28_55m: nearest face 34 m beyond the tall bays (west)"
+  },
+  {
+   "instance": "B1_Backdrop_Mass_A_recommended_visible_band",
+   "group": "BATCH1_Backdrop_recommended_visible_band",
+   "mesh": "ENV_Temple_Backdrop_Mass_A",
+   "part": "ENV_Temple_Backdrop_Mass_A",
+   "unity_x": -12.0,
+   "unity_y": 0.0,
+   "unity_z": 35.97,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "recommended_visible_band: nearest face 5 m beyond the tall bays (north)"
+  },
+  {
+   "instance": "B1_Backdrop_Mass_B_recommended_visible_band",
+   "group": "BATCH1_Backdrop_recommended_visible_band",
+   "mesh": "ENV_Temple_Backdrop_Mass_B",
+   "part": "ENV_Temple_Backdrop_Mass_B",
+   "unity_x": 18.0,
+   "unity_y": 0.0,
+   "unity_z": 36.03,
+   "yaw_front_to_plusZ": 0.0,
+   "yaw_front_to_minusZ": 180.0,
+   "scale": 1.0,
+   "role": "recommended_visible_band: nearest face 5 m beyond the tall bays (north)"
+  },
+  {
+   "instance": "B1_Backdrop_Mass_C_recommended_visible_band",
+   "group": "BATCH1_Backdrop_recommended_visible_band",
+   "mesh": "ENV_Temple_Backdrop_Mass_C",
+   "part": "ENV_Temple_Backdrop_Mass_C",
+   "unity_x": -33.97,
+   "unity_y": 0.0,
+   "unity_z": -8.0,
+   "yaw_front_to_plusZ": 270.0,
+   "yaw_front_to_minusZ": 90.0,
+   "scale": 1.0,
+   "role": "recommended_visible_band: nearest face 5 m beyond the tall bays (west)"
+  }
+ ]
+}

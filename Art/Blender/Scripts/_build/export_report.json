@@ -1,0 +1,151 @@
+{
+ "ENV_Temple_Altar_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Altar_A.fbx",
+  "bytes": 8177500,
+  "parts": [
+   "ENV_Temple_Altar_A"
+  ]
+ },
+ "ENV_Temple_Arch_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Arch_A.fbx",
+  "bytes": 20793820,
+  "parts": [
+   "ENV_Temple_Arch_A_PierL",
+   "ENV_Temple_Arch_A_PierR",
+   "ENV_Temple_Arch_A_Span"
+  ]
+ },
+ "ENV_Temple_Banner_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Banner_A.fbx",
+  "bytes": 557548,
+  "parts": [
+   "ENV_Temple_Banner_A"
+  ]
+ },
+ "ENV_Temple_Brazier_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Brazier_A.fbx",
+  "bytes": 606188,
+  "parts": [
+   "ENV_Temple_Brazier_A"
+  ]
+ },
+ "ENV_Temple_ColumnDrum_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_ColumnDrum_A.fbx",
+  "bytes": 587452,
+  "parts": [
+   "ENV_Temple_ColumnDrum_A"
+  ]
+ },
+ "ENV_Temple_FloorBorder_Corner_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_FloorBorder_Corner_A.fbx",
+  "bytes": 920108,
+  "parts": [
+   "ENV_Temple_FloorBorder_Corner_A"
+  ]
+ },
+ "ENV_Temple_FloorBorder_Straight_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_FloorBorder_Straight_A.fbx",
+  "bytes": 822956,
+  "parts": [
+   "ENV_Temple_FloorBorder_Straight_A"
+  ]
+ },
+ "ENV_Temple_Floor_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_A.fbx",
+  "bytes": 175596,
+  "parts": [
+   "ENV_Temple_Floor_A"
+  ]
+ },
+ "ENV_Temple_Floor_B": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_B.fbx",
+  "bytes": 127740,
+  "parts": [
+   "ENV_Temple_Floor_B"
+  ]
+ },
+ "ENV_Temple_Floor_C": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_C.fbx",
+  "bytes": 173004,
+  "parts": [
+   "ENV_Temple_Floor_C"
+  ]
+ },
+ "ENV_Temple_Floor_D": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_D.fbx",
+  "bytes": 152300,
+  "parts": [
+   "ENV_Temple_Floor_D"
+  ]
+ },
+ "ENV_Temple_Pillar_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_A.fbx",
+  "bytes": 4257900,
+  "parts": [
+   "ENV_Temple_Pillar_A"
+  ]
+ },
+ "ENV_Temple_Pillar_B": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_B.fbx",
+  "bytes": 4776028,
+  "parts": [
+   "ENV_Temple_Pillar_B"
+  ]
+ },
+ "ENV_Temple_Pillar_C": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_C.fbx",
+  "bytes": 2836876,
+  "parts": [
+   "ENV_Temple_Pillar_C"
+  ]
+ },
+ "ENV_Temple_Pillar_D": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_D.fbx",
+  "bytes": 2251500,
+  "parts": [
+   "ENV_Temple_Pillar_D"
+  ]
+ },
+ "ENV_Temple_Platform_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Platform_A.fbx",
+  "bytes": 2937020,
+  "parts": [
+   "ENV_Temple_Platform_A"
+  ]
+ },
+ "ENV_Temple_Rubble_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Rubble_A.fbx",
+  "bytes": 267132,
+  "parts": [
+   "ENV_Temple_Rubble_A"
+  ]
+ },
+ "ENV_Temple_Rubble_B": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Rubble_B.fbx",
+  "bytes": 295532,
+  "parts": [
+   "ENV_Temple_Rubble_B"
+  ]
+ },
+ "ENV_Temple_Stairs_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Stairs_A.fbx",
+  "bytes": 1282060,
+  "parts": [
+   "ENV_Temple_Stairs_A"
+  ]
+ },
+ "ENV_Temple_Wall_A": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Wall_A.fbx",
+  "bytes": 2789180,
+  "parts": [
+   "ENV_Temple_Wall_A"
+  ]
+ },
+ "ENV_Temple_Wall_B": {
+  "path": "Art/Exports/Environment/Staging/Models/ENV_Temple_Wall_B.fbx",
+  "bytes": 3582748,
+  "parts": [
+   "ENV_Temple_Wall_B"
+  ]
+ }
+}

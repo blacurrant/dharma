@@ -1,0 +1,9 @@
+00:00.626  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch2/TempleEnvironmentKit_batch2.blend"
+BUILT ENV_Temple_Wall_Tall_Lamp_A {"tris": 12848, "area3d_m2": 190.67, "uv_fill": 0.628, "tex_res": 2048, "texel_density_px_per_m": 117.5, "target": 120, "bbox_min": [-2.0, -0.636, -0.4], "bbox_max": [2.0, 0.633, 4.992], "dims_m": [4.0, 1.27, 5.392], "faces": 12848, "zones": {"StoneWarm": 8068, "StoneCharcoal": 356, "Bronze": 2240, "EmberAmber": 2184}, "seconds": 0.1}
+BUILT ENV_Temple_Shrine_Backdrop_A {"tris": 75128, "area3d_m2": 1246.21, "uv_fill": 0.697, "tex_res": 2048, "texel_density_px_per_m": 48.5, "target": 70, "bbox_min": [-6.187, -1.46, -0.022], "bbox_max": [6.204, 5.096, 9.513], "dims_m": [12.391, 6.556, 9.535], "faces": 75128, "zones": {"StoneWarm": 58332, "StoneCharcoal": 1436, "Bronze": 15360}, "seconds": 0.3}
+BUILT ENV_Temple_Column_Tall_A {"tris": 9556, "area3d_m2": 42.98, "uv_fill": 0.725, "tex_res": 1024, "texel_density_px_per_m": 133.0, "target": 130, "bbox_min": [-0.803, -0.799, -0.001], "bbox_max": [0.803, 0.801, 6.784], "dims_m": [1.606, 1.6, 6.785], "faces": 9556, "zones": {"StoneWarm": 7924, "Bronze": 1632}, "seconds": 0.0}
+Info: Saved as "TempleEnvironmentKit_batch2.blend"
+BUILD_DONE ['Wall_Tall_Lamp_A', 'Shrine_Backdrop_A', 'Column_Tall_A']
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

@@ -1,0 +1,152 @@
+{
+ "probe_PierL": {
+  "faces": 26656,
+  "mismatched": 120,
+  "mismatched_uv_area_px_max": 23.403,
+  "mismatched_uv_area_px_median": 1.44,
+  "all_faces_uv_area_px_median": 18.346,
+  "mismatched_faces_whose_baked_value_is_a_zone_of_another_face_covering_that_texel": 99,
+  "mismatched_zones": [
+   0,
+   2,
+   3
+  ]
+ },
+ "optin_colour_roundtrip": {
+  "ENV_Temple_Brazier_A_LINEAR": {
+   "distinct_values_after_import": [
+    [
+     0.0,
+     1296
+    ],
+    [
+     0.13300000131130219,
+     3488
+    ],
+    [
+     1.0,
+     1298
+    ]
+   ],
+   "decode_if_direct": {
+    "0": 4784,
+    "5": 1298
+   },
+   "decode_if_srgb_to_linear": {
+    "0": 1296,
+    "2": 3488,
+    "5": 1298
+   },
+   "source": {
+    "0": 1296,
+    "2": 3488,
+    "5": 1298
+   }
+  },
+  "ENV_Temple_Brazier_A_SRGB": {
+   "distinct_values_after_import": [
+    [
+     0.0,
+     1296
+    ],
+    [
+     0.4020000100135803,
+     3488
+    ],
+    [
+     1.0,
+     1298
+    ]
+   ],
+   "decode_if_direct": {
+    "0": 1296,
+    "2": 3488,
+    "5": 1298
+   },
+   "decode_if_srgb_to_linear": {
+    "0": 1296,
+    "2": 3488,
+    "5": 1298
+   },
+   "source": {
+    "0": 1296,
+    "2": 3488,
+    "5": 1298
+   }
+  },
+  "ENV_Temple_Arch_A_PierL_LINEAR": {
+   "distinct_values_after_import": [
+    [
+     0.0,
+     25760
+    ],
+    [
+     0.032999999821186066,
+     512
+    ],
+    [
+     0.13300000131130219,
+     324
+    ],
+    [
+     0.3190000057220459,
+     60
+    ]
+   ],
+   "decode_if_direct": {
+    "0": 26272,
+    "1": 324,
+    "2": 60
+   },
+   "decode_if_srgb_to_linear": {
+    "0": 25760,
+    "1": 512,
+    "2": 324,
+    "3": 60
+   },
+   "source": {
+    "0": 25760,
+    "1": 512,
+    "2": 324,
+    "3": 60
+   }
+  },
+  "ENV_Temple_Arch_A_PierL_SRGB": {
+   "distinct_values_after_import": [
+    [
+     0.0,
+     25760
+    ],
+    [
+     0.20200000703334808,
+     512
+    ],
+    [
+     0.4020000100135803,
+     324
+    ],
+    [
+     0.597000002861023,
+     60
+    ]
+   ],
+   "decode_if_direct": {
+    "0": 25760,
+    "1": 512,
+    "2": 324,
+    "3": 60
+   },
+   "decode_if_srgb_to_linear": {
+    "0": 25760,
+    "2": 512,
+    "3": 384
+   },
+   "source": {
+    "0": 25760,
+    "1": 512,
+    "2": 324,
+    "3": 60
+   }
+  }
+ }
+}

@@ -1,0 +1,297 @@
+{
+  "kit": "OvergrowthKit_v3",
+  "source_blend": "Art/Blender/Revisions/overgrowth_kit_v3/TempleEnvironmentKit_overgrowth_v3.blend",
+  "units": "metres, Blender +Z up, FBX baked Y-up -Z forward",
+  "q18": {
+    "wood": {
+      "q18_pct": 0.0,
+      "mean_rgb": [
+        65.9,
+        53.8,
+        38.4
+      ],
+      "mean_sat": 0.41713395714759827
+    },
+    "foliage": {
+      "q18_pct": 0.0,
+      "mean_rgb": [
+        81.2,
+        82.6,
+        48.2
+      ],
+      "mean_sat": 0.42500030994415283
+    },
+    "ground": {
+      "q18_pct": 0.0,
+      "mean_rgb": [
+        79.5,
+        72.3,
+        53.9
+      ],
+      "mean_sat": 0.33704984188079834
+    }
+  },
+  "models": {
+    "ENV_Temple_EarthBed_A.fbx": {
+      "size_bytes": 46300,
+      "sha256": "233ead25810ae01b4fcfa99f9205463b55cd29b8a1d37d5feeb37c3a7988f469",
+      "tris": 608,
+      "verts": 582,
+      "dims_m": [
+        2.337,
+        2.494,
+        0.167
+      ],
+      "bbox_min": [
+        -1.158,
+        -1.216,
+        0.093
+      ],
+      "bbox_max": [
+        1.179,
+        1.278,
+        0.26
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood",
+        "M_Temple_Overgrowth_Foliage",
+        "M_Temple_Overgrowth_Ground"
+      ]
+    },
+    "ENV_Temple_EarthBed_B.fbx": {
+      "size_bytes": 47900,
+      "sha256": "0250245cb9e99fa5ffec2fd5680ff4d014b3642dc6072a060039a10ccc7bd9e4",
+      "tris": 642,
+      "verts": 653,
+      "dims_m": [
+        3.596,
+        1.901,
+        0.204
+      ],
+      "bbox_min": [
+        -1.737,
+        -1.092,
+        0.067
+      ],
+      "bbox_max": [
+        1.859,
+        0.809,
+        0.271
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood",
+        "M_Temple_Overgrowth_Foliage",
+        "M_Temple_Overgrowth_Ground"
+      ]
+    },
+    "ENV_Temple_Root_Claw_Corner.fbx": {
+      "size_bytes": 74332,
+      "sha256": "d235397d05a5c2e9a54f57057c3b8639e0c617ef83f9df1e3dc3c8ad24742d9a",
+      "tris": 2120,
+      "verts": 1152,
+      "dims_m": [
+        2.183,
+        1.927,
+        2.993
+      ],
+      "bbox_min": [
+        0.031,
+        0.035,
+        -0.104
+      ],
+      "bbox_max": [
+        2.214,
+        1.962,
+        2.889
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood"
+      ]
+    },
+    "ENV_Temple_Root_Claw_Pillar.fbx": {
+      "size_bytes": 100860,
+      "sha256": "9efa1e35f8d6336858aa1e752a987e52a2d673fba0aaaf954e967c905ddd9750",
+      "tris": 3004,
+      "verts": 1638,
+      "dims_m": [
+        2.24,
+        2.255,
+        3.566
+      ],
+      "bbox_min": [
+        -1.081,
+        -1.104,
+        -0.155
+      ],
+      "bbox_max": [
+        1.158,
+        1.152,
+        3.411
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood"
+      ]
+    },
+    "ENV_Temple_Tree_Canopy_A.fbx": {
+      "size_bytes": 139868,
+      "sha256": "06ee1abb3c4a3bd2812c059c48ba12a4c90274531bc8b506ed63815b0772ab1a",
+      "tris": 4082,
+      "verts": 3146,
+      "dims_m": [
+        6.573,
+        4.439,
+        10.341
+      ],
+      "bbox_min": [
+        -3.206,
+        -0.664,
+        -0.054
+      ],
+      "bbox_max": [
+        3.367,
+        3.775,
+        10.287
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood",
+        "M_Temple_Overgrowth_Foliage"
+      ]
+    },
+    "ENV_Temple_Tree_Canopy_B.fbx": {
+      "size_bytes": 157484,
+      "sha256": "55d9a1eda6bcedda7a3ae675fa47c735d2dc4a00d17ad7a50108b2b581942374",
+      "tris": 4734,
+      "verts": 3650,
+      "dims_m": [
+        7.441,
+        4.814,
+        8.125
+      ],
+      "bbox_min": [
+        -3.669,
+        -0.602,
+        -0.069
+      ],
+      "bbox_max": [
+        3.772,
+        4.212,
+        8.056
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood",
+        "M_Temple_Overgrowth_Foliage"
+      ]
+    },
+    "ENV_Temple_Vine_Curtain_A.fbx": {
+      "size_bytes": 239900,
+      "sha256": "5f9a5deb175daa8688296828debf55491a21bd889886c4ce3740fecec86441c3",
+      "tris": 7198,
+      "verts": 7122,
+      "dims_m": [
+        2.904,
+        0.729,
+        3.137
+      ],
+      "bbox_min": [
+        -1.464,
+        -0.255,
+        -3.066
+      ],
+      "bbox_max": [
+        1.441,
+        0.474,
+        0.071
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood",
+        "M_Temple_Overgrowth_Foliage"
+      ]
+    },
+    "ENV_Temple_Vine_Curtain_B.fbx": {
+      "size_bytes": 130972,
+      "sha256": "9cbae91d982f6661979aa974e9843eff84896c88a00ea73670cece0760390b13",
+      "tris": 3574,
+      "verts": 3378,
+      "dims_m": [
+        1.784,
+        0.709,
+        3.77
+      ],
+      "bbox_min": [
+        -0.909,
+        -0.235,
+        -3.699
+      ],
+      "bbox_max": [
+        0.875,
+        0.474,
+        0.071
+      ],
+      "materials": [
+        "M_Temple_Overgrowth_Wood",
+        "M_Temple_Overgrowth_Foliage"
+      ]
+    }
+  },
+  "textures": {
+    "ENV_Temple_Overgrowth_Foliage_BaseColor.png": {
+      "size_bytes": 4917847,
+      "sha256": "4a534f1d5a7e713fe2715afb866858f583766d5dcf22d76758da313bed97947b"
+    },
+    "ENV_Temple_Overgrowth_Foliage_Mask.png": {
+      "size_bytes": 97739,
+      "sha256": "06c09f3f7d7c40fba6fce6d4386610e799f7806730bf93829193cdeec6fe71bb"
+    },
+    "ENV_Temple_Overgrowth_Foliage_Normal.png": {
+      "size_bytes": 1947274,
+      "sha256": "b657f12e524fb1c60740cb80d98eb49afd567d8e058ff4d62da9bf8a3788d987"
+    },
+    "ENV_Temple_Overgrowth_Ground_BaseColor.png": {
+      "size_bytes": 3046750,
+      "sha256": "80e1a9fad74c837cff11c31ddc33e28614bb7e92f8cf6641e206f3c611951c12"
+    },
+    "ENV_Temple_Overgrowth_Ground_Mask.png": {
+      "size_bytes": 2392059,
+      "sha256": "bca9e49e2ef50199904d3df50a5dbdf3ddcab3527eeec98a9ea4b6aa0502ed75"
+    },
+    "ENV_Temple_Overgrowth_Ground_Normal.png": {
+      "size_bytes": 8241574,
+      "sha256": "c80e8d8efc3415dba6c6610af414dbb9ac0021ee525bc8a326beefe85a2732b2"
+    },
+    "ENV_Temple_Overgrowth_Wood_BaseColor.png": {
+      "size_bytes": 3479276,
+      "sha256": "7cb43eca2efba934d884bde46b9cdfaf8824bb887eaa3634eb66b6da4cc38a24"
+    },
+    "ENV_Temple_Overgrowth_Wood_Mask.png": {
+      "size_bytes": 3189771,
+      "sha256": "fd905cdebd52bdc82fd5fc6dda2b3485303916520707463a8fa32b6bb08402d4"
+    },
+    "ENV_Temple_Overgrowth_Wood_Normal.png": {
+      "size_bytes": 7992791,
+      "sha256": "5ce82d75eb6528d1bc99e9a99042a88cac30bc2e31e3745657542e17b995ec05"
+    }
+  },
+  "previews": {
+    "earth_close.png": {
+      "size_bytes": 2245163
+    },
+    "kit_overview_game42.png": {
+      "size_bytes": 2058048
+    },
+    "roots_close.png": {
+      "size_bytes": 2147004
+    },
+    "tree_A_side.png": {
+      "size_bytes": 2099858
+    },
+    "trees_close.png": {
+      "size_bytes": 2309853
+    },
+    "vine_A_profile.png": {
+      "size_bytes": 2126577
+    },
+    "vines_close.png": {
+      "size_bytes": 2162447
+    }
+  }
+}

@@ -1,0 +1,31 @@
+var r=VFRunner.Create(); r.outDir="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation"; var cam=UnityEngine.Camera.main; var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy"); var sb=new System.Text.StringBuilder();
+UnityEngine.Rendering.Universal.UniversalAdditionalLightData UD(UnityEngine.Light x){ var d=x.gameObject.GetComponent<UnityEngine.Rendering.Universal.UniversalAdditionalLightData>(); if(d==null) d=x.gameObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalLightData>(); return d; }
+float Lum(UnityEngine.Color32 c){ return (0.2126f*c.r+0.7152f*c.g+0.0722f*c.b)/255f; }
+System.Collections.IEnumerator Grab(System.Action<UnityEngine.Color32[]> cb){ yield return new UnityEngine.WaitForEndOfFrame(); var t=UnityEngine.ScreenCapture.CaptureScreenshotAsTexture(); cb(t.GetPixels32()); UnityEngine.Object.Destroy(t); }
+float PatchLum(UnityEngine.Color32[] px, UnityEngine.Vector3 world, int rad){ var s=cam.WorldToScreenPoint(world); int cx=(int)s.x, cy=(int)s.y; double sum=0; int n=0; for(int y=cy-rad;y<=cy+rad;y+=2) for(int x=cx-rad;x<=cx+rad;x+=2){ if(x<0||y<0||x>=1920||y>=1080) continue; sum+=Lum(px[y*1920+x]); n++; } return n>0?(float)(sum/n):-1; }
+System.Collections.IEnumerator Routine(){
+  UnityEngine.Time.captureFramerate=60; r.SetConfig(9f,18f); en.GetComponent<TrainingDummy>().enabled=false; for(int i=0;i<10;i++) yield return null;
+  // read-only facts
+  var asset=UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline as UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset;
+  sb.AppendLine("URP asset supportsLightLayers(m_SupportsLightLayers)="+ (new UnityEditor.SerializedObject(asset).FindProperty("m_SupportsLightLayers").boolValue) +" renderingLayerCount="+UnityEngine.RenderingLayerMask.GetRenderingLayerCount());
+  var floorMasks=new System.Collections.Generic.HashSet<uint>(); foreach(UnityEngine.Transform t in UnityEngine.GameObject.Find("LAY_Floor").transform) foreach(var rr in t.GetComponentsInChildren<UnityEngine.Renderer>()) floorMasks.Add(rr.renderingLayerMask); sb.AppendLine("floor renderer renderingLayerMask values: "+string.Join(",",floorMasks));
+  var charMasks=new System.Collections.Generic.HashSet<uint>(); foreach(var g in new[]{pl,en}) foreach(var rr in g.GetComponentsInChildren<UnityEngine.SkinnedMeshRenderer>(true)) charMasks.Add(rr.renderingLayerMask); sb.AppendLine("character renderer renderingLayerMask values: "+string.Join(",",charMasks));
+  var wallMasks=new System.Collections.Generic.HashSet<uint>(); foreach(var rr in UnityEngine.GameObject.Find("LAY_Walls").GetComponentsInChildren<UnityEngine.Renderer>()) wallMasks.Add(rr.renderingLayerMask); sb.AppendLine("wall renderer masks: "+string.Join(",",wallMasks));
+  var dl=UnityEngine.GameObject.Find("Directional Light").GetComponent<UnityEngine.Light>(); sb.AppendLine("key light additionalData.renderingLayers="+UD(dl).renderingLayers.value+" Light.renderingLayerMask="+dl.renderingLayerMask);
+  // stage: player at origin, hold
+  var cc=pl.GetComponent<UnityEngine.CharacterController>(); cc.enabled=false; pl.transform.position=new UnityEngine.Vector3(0,0.02f,0); cc.enabled=true; var ec=en.GetComponent<UnityEngine.CharacterController>(); ec.enabled=false; en.transform.position=new UnityEngine.Vector3(0,0,-60); ec.enabled=true; cam.GetComponent<IsoCameraFollow>().Snap(); for(int i=0;i<10;i++) yield return null;
+  var floorSpot=new UnityEngine.Vector3(5f,0f,-4f); var plHead=pl.transform.position+UnityEngine.Vector3.up*1.2f; var plFloorNear=pl.transform.position+new UnityEngine.Vector3(-1.4f,0,-1.4f);
+  UnityEngine.Color32[] px=null; UnityEngine.GameObject L=null;
+  System.Collections.IEnumerator Case(string name, System.Action<UnityEngine.Light> setup){
+    if(L!=null) UnityEngine.Object.Destroy(L); L=null; if(setup!=null){ L=new UnityEngine.GameObject("TestSpot"); L.transform.position=new UnityEngine.Vector3(2.5f,5f,-2.5f); L.transform.rotation=UnityEngine.Quaternion.LookRotation(plHead-L.transform.position); var l=L.AddComponent<UnityEngine.Light>(); l.type=UnityEngine.LightType.Spot; l.spotAngle=70; l.innerSpotAngle=40; l.range=12; l.intensity=60; l.color=UnityEngine.Color.white; l.shadows=UnityEngine.LightShadows.None; setup(l); }
+    for(int i=0;i<4;i++) yield return null; yield return Grab(p=>px=p); sb.AppendLine(name.PadRight(70)+" floor patch near player="+PatchLum(px,plFloorNear,25).ToString("F3")+"  player torso="+PatchLum(px,pl.transform.position+UnityEngine.Vector3.up*1.1f,8).ToString("F3")+"  far floor (control)="+PatchLum(px,floorSpot,25).ToString("F3")); }
+  uint[] pm=null; var prs=pl.GetComponentsInChildren<UnityEngine.SkinnedMeshRenderer>(true); pm=new uint[prs.Length]; for(int i=0;i<prs.Length;i++) pm[i]=prs[i].renderingLayerMask;
+  yield return Case("C0 no test light",null);
+  yield return Case("C1 URP light data layers = Default(1), char mask unchanged",l=>{ UD(l).renderingLayers=1; });
+  yield return Case("C2 ITERATION-2 METHOD: only Light.renderingLayerMask=2 (+char bit1)",l=>{ foreach(var rr in prs) rr.renderingLayerMask=pm[0]|2u; l.renderingLayerMask=2; });
+  yield return Case("C3 URP light data layers = 2 (bit1), chars bit0|bit1, floor bit0",l=>{ foreach(var rr in prs) rr.renderingLayerMask=pm[0]|2u; UD(l).renderingLayers=2u; });
+  yield return Case("C4 URP light data layers = 2, chars bit0|bit1, floor bit0, NEGATIVE: chars bit0 only",l=>{ foreach(var rr in prs) rr.renderingLayerMask=pm[0]; UD(l).renderingLayers=2u; });
+  yield return Case("C5 URP light data layers = 8 (nobody has it)",l=>{ foreach(var rr in prs) rr.renderingLayerMask=pm[0]|2u; UD(l).renderingLayers=8u; });
+  for(int i=0;i<prs.Length;i++) prs[i].renderingLayerMask=pm[i]; if(L!=null) UnityEngine.Object.Destroy(L);
+  UnityEngine.Time.captureFramerate=0; r.status=sb.ToString(); r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

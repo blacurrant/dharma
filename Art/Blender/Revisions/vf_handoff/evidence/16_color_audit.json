@@ -1,0 +1,461 @@
+{
+ "VF_Floor_MacroValue_2048": {
+  "shape": [
+   2048,
+   2048,
+   1
+  ],
+  "color_space": "LINEAR data (sRGB OFF)",
+  "kind": "grey data, single-channel PNG (no colour)",
+  "png_channels": 1,
+  "saturation_max": 0.0
+ },
+ "VF_Floor_MacroValue_NoDamp_2048": {
+  "shape": [
+   2048,
+   2048,
+   1
+  ],
+  "color_space": "LINEAR data (sRGB OFF)",
+  "kind": "grey data, single-channel PNG (no colour)",
+  "png_channels": 1,
+  "saturation_max": 0.0
+ },
+ "VF_Floor_MacroTint_1024": {
+  "shape": [
+   1024,
+   1024,
+   3
+  ],
+  "color_space": "LINEAR data (sRGB OFF)",
+  "kind": "RGB data (neutral 128); applied as multiplier 2*t",
+  "multiplier_min": [
+   0.933,
+   0.957,
+   0.894
+  ],
+  "multiplier_max": [
+   1.106,
+   1.027,
+   1.106
+  ],
+  "warmest_multiplier": [
+   1.106,
+   1.02,
+   0.894
+  ],
+  "warmest_multiplier_hue_sat(of the raw data colour)": [
+   35.6,
+   0.191
+  ],
+  "coolest_multiplier": [
+   0.933,
+   0.965,
+   1.106
+  ],
+  "coolest_multiplier_hue_sat(of the raw data colour)": [
+   229.1,
+   0.156
+  ],
+  "raw_data_hue_range_all_texels_deg": [
+   0.0,
+   300.0
+  ],
+  "raw_data_saturation_max": 0.191,
+  "raw_data_texels_in_145_215_with_sat_gt_0_06": 0,
+  "applied_to_neutral_stone_#8A857D": {
+   "warmest": {
+    "hex": "#918677",
+    "hue": 36.1,
+    "sat": 0.179
+   },
+   "coolest": {
+    "hex": "#868383",
+    "hue": 357.1,
+    "sat": 0.022
+   },
+   "all_texels_k1.0": {
+    "hue_range": [
+     3.0,
+     357.5
+    ],
+    "sat_max": 0.179,
+    "texels_in_145_215_with_sat_gt_0_06": 0,
+    "hue_range_p1_p99_where_sat_gt_0_06": [
+     27.9,
+     38.5
+    ]
+   }
+  }
+ },
+ "VF_Floor_Cracks_2048": {
+  "shape": [
+   2048,
+   2048,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 763736,
+  "texels_a_gt_0_5": 262844,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.2,
+   "p95": 0.235,
+   "max": 0.263
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.188,
+   "p95": 0.235,
+   "max": 0.25
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   30.0,
+   40.0,
+   50.0
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   30.0,
+   60.0
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 9292,
+  "texels_visible_sat_gt_0_06": 763736,
+  "mean_rgb_bytes_a_gt_0_5": "#171613",
+  "alpha_weighted_mean_hex": "#1F1D1A",
+  "darkest_visible_p5_hex": "#0E0D0B"
+ },
+ "VF_Floor_Wear_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 283894,
+  "texels_a_gt_0_5": 28966,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.154,
+   "p95": 0.265,
+   "max": 0.348
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.154,
+   "p95": 0.292,
+   "max": 0.348
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   40.0,
+   44.4,
+   45.0
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   36.0,
+   48.0
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 0,
+  "texels_visible_sat_gt_0_06": 283894,
+  "mean_rgb_bytes_a_gt_0_5": "#A59E8B",
+  "alpha_weighted_mean_hex": "#8E8877",
+  "darkest_visible_p5_hex": "#221F19"
+ },
+ "VF_Floor_ChippedEdges_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 90766,
+  "texels_a_gt_0_5": 68733,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.333,
+   "p95": 0.348,
+   "max": 0.375
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.348,
+   "p95": 0.348,
+   "max": 0.375
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   40.0,
+   45.0,
+   46.7
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   40.0,
+   49.1
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 0,
+  "texels_visible_sat_gt_0_06": 90766,
+  "mean_rgb_bytes_a_gt_0_5": "#2B2821",
+  "alpha_weighted_mean_hex": "#302E25",
+  "darkest_visible_p5_hex": "#17150F"
+ },
+ "VF_Wall_RainStreaks_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 91403,
+  "texels_a_gt_0_5": 164,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.333,
+   "p95": 0.357,
+   "max": 0.36
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.321,
+   "p95": 0.321,
+   "max": 0.321
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   36.0,
+   40.0,
+   45.0
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   36.0,
+   45.0
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 0,
+  "texels_visible_sat_gt_0_06": 91403,
+  "mean_rgb_bytes_a_gt_0_5": "#1C1913",
+  "alpha_weighted_mean_hex": "#1B1812",
+  "darkest_visible_p5_hex": "#181510"
+ },
+ "VF_Weather_Salt_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 142794,
+  "texels_a_gt_0_5": 2849,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.161,
+   "p95": 0.189,
+   "max": 0.189
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.131,
+   "p95": 0.136,
+   "max": 0.141
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   46.2,
+   46.7,
+   46.7
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   46.2,
+   48.5
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 0,
+  "texels_visible_sat_gt_0_06": 142794,
+  "mean_rgb_bytes_a_gt_0_5": "#CAC4AF",
+  "alpha_weighted_mean_hex": "#B3AD99",
+  "darkest_visible_p5_hex": "#8F8974"
+ },
+ "VF_Weather_Moss_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 163998,
+  "texels_a_gt_0_5": 47248,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.359,
+   "p95": 0.388,
+   "max": 0.403
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.358,
+   "p95": 0.388,
+   "max": 0.403
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   72.7,
+   75.5,
+   78.5
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   72.7,
+   78.5
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 46631,
+  "texels_visible_sat_gt_0_06": 163998,
+  "mean_rgb_bytes_a_gt_0_5": "#4B5235",
+  "alpha_weighted_mean_hex": "#4B5235",
+  "darkest_visible_p5_hex": "#3D442A"
+ },
+ "VF_Weather_MossWallBase_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 92434,
+  "texels_a_gt_0_5": 17257,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.357,
+   "p95": 0.388,
+   "max": 0.403
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.354,
+   "p95": 0.388,
+   "max": 0.403
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   72.7,
+   75.0,
+   78.5
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   72.7,
+   78.5
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 24228,
+  "texels_visible_sat_gt_0_06": 92434,
+  "mean_rgb_bytes_a_gt_0_5": "#4C5336",
+  "alpha_weighted_mean_hex": "#4C5335",
+  "darkest_visible_p5_hex": "#3C4429"
+ },
+ "VF_Weather_MossFloorJoints_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 83368,
+  "texels_a_gt_0_5": 12589,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.358,
+   "p95": 0.388,
+   "max": 0.403
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.361,
+   "p95": 0.388,
+   "max": 0.403
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   72.7,
+   75.5,
+   78.5
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   72.7,
+   78.5
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 23247,
+  "texels_visible_sat_gt_0_06": 83368,
+  "mean_rgb_bytes_a_gt_0_5": "#4A5134",
+  "alpha_weighted_mean_hex": "#4A5234",
+  "darkest_visible_p5_hex": "#3C442A"
+ },
+ "VF_Weather_SootFloorRing_1024": {
+  "shape": [
+   1024,
+   1024,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 506494,
+  "texels_a_gt_0_5": 23606,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.231,
+   "p95": 0.231,
+   "max": 0.231
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.231,
+   "p95": 0.231,
+   "max": 0.231
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   40.0,
+   40.0,
+   40.0
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   40.0,
+   40.0
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 0,
+  "texels_visible_sat_gt_0_06": 506494,
+  "mean_rgb_bytes_a_gt_0_5": "#0D0C0A",
+  "alpha_weighted_mean_hex": "#0D0C0A",
+  "darkest_visible_p5_hex": "#0D0C0A"
+ },
+ "VF_Weather_SootWallPlume_512x1024": {
+  "shape": [
+   1024,
+   512,
+   4
+  ],
+  "color_space": "sRGB colour + straight alpha",
+  "kind": "colour + straight alpha",
+  "texels_visible_a_gt_0_02": 209579,
+  "texels_a_gt_0_5": 33209,
+  "cyan_texels_visible": 0,
+  "cyan_texels_all_incl_alpha0": 0,
+  "saturation_visible": {
+   "p50": 0.286,
+   "p95": 0.286,
+   "max": 0.286
+  },
+  "saturation_a_gt_0_5": {
+   "p50": 0.286,
+   "p95": 0.286,
+   "max": 0.286
+  },
+  "hue_deg_visible_sat_gt_0_06_p1_p50_p99": [
+   30.0,
+   30.0,
+   30.0
+  ],
+  "hue_deg_visible_sat_gt_0_06_min_max": [
+   30.0,
+   30.0
+  ],
+  "texels_visible_sat_gt_0_06_outside_30_77": 0,
+  "texels_visible_sat_gt_0_06": 209579,
+  "mean_rgb_bytes_a_gt_0_5": "#0E0C0A",
+  "alpha_weighted_mean_hex": "#0E0C0A",
+  "darkest_visible_p5_hex": "#0E0C0A"
+ }
+}

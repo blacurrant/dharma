@@ -1,0 +1,11 @@
+config,label,player_px,enemy_px,spacing_px,spacing_m,capture_size | view info
+A,1_idle,119,136,364,6.35,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+A,3_dash,58,88,89,1.97,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+A,4_attack,110,147,104,1.62,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+A,5_telegraph,105,128,108,1.67,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+A,6_dodge,100,135,136,2.48,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+B,1_idle,104,86,333,6.35,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+B,3_dash,51,53,86,1.97,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+B,4_attack,100,125,93,1.62,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+B,5_telegraph,88,110,97,1.67,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080
+B,6_dodge,91,114,126,2.48,1920x1080 | gameViewTarget=(1920.00, 1080.00) cam.pixel=1920x1080 Screen=1920x1080 onGUI=1920x1080 guiScale(HUD)=1.80 display.rendering=1920x1080

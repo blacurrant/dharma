@@ -1,0 +1,270 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Text;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+
+/// Visual Foundation art-test harness (runtime only, created by script in Play Mode, never saved into the scene).
+/// Real keyboard input -> unmodified gameplay scripts. Game-view captures use ScreenCapture (HUD included).
+public class VFRunner : MonoBehaviour
+{
+    public static VFRunner I; const int W = 1920, H = 1080;
+    public string outDir = "/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation";
+    public bool done; public string status = "idle";
+    // HUD rects in px, top-left origin, from PrototypeHud (guiScale = H/600 = 1.8): bars (14,14)-(344,~184)*1.8, hint to x=484, y~211
+    static readonly Rect HudBars = new Rect(25f, 25f, 594f, 306f);
+    static readonly Rect HudAll = new Rect(25f, 25f, 846f, 355f);
+
+    Camera cam; IsoCameraFollow iso; Transform player, enemyT; TrainingDummy enemy; Health pH; Keyboard kb; ArenaEncounter enc; ArtTestCyanTelegraphPreview preview;
+    SkinnedMeshRenderer[] pR, eR; bool rec; string cfg; PlayerMotor motor;
+    string phase = ""; readonly StringBuilder pfLog = new StringBuilder(); int frameIdx; float lastHp = 1e6f; Vector3 lastPos;
+    public string stripDir = "Captures/strips_i2", lightDir = "Captures/light_i2", lightCsv = "Reports/i2_light.csv"; public string guiScreen = "";
+    void OnGUI() { if (Event.current.type == EventType.Repaint) guiScreen = Screen.width + "x" + Screen.height + " guiScale(HUD)=" + Mathf.Clamp(Screen.height / 600f, 0.7f, 2f).ToString("F2"); }
+    public string ViewInfo()
+    {
+        string gv = "n/a";
+#if UNITY_EDITOR
+        var t = typeof(UnityEditor.Editor).Assembly.GetType("UnityEditor.GameView"); var m = t != null ? t.GetMethod("GetSizeOfMainGameView", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic) : null; if (m != null) gv = m.Invoke(null, null).ToString();
+#endif
+        return "gameViewTarget=" + gv + " cam.pixel=" + cam.pixelWidth + "x" + cam.pixelHeight + " Screen=" + Screen.width + "x" + Screen.height + " onGUI=" + guiScreen + " display.rendering=" + Display.main.renderingWidth + "x" + Display.main.renderingHeight;
+    }
+
+    class Agg { public int n, tele; public float minRingVisAll = 100, minRingVisBars = 100, maxTeleHudAll = 0, maxTeleHudBars = 0, minWallVis = 100, minMargin = 1e9f, minSpacingPx = 1e9f, maxSpacingPx = 0, minPEnemyIn = 1; public int outFrame; }
+    readonly Dictionary<string, Agg> agg = new Dictionary<string, Agg>();
+    readonly StringBuilder rows = new StringBuilder();
+
+    public static VFRunner Create() { var go = new GameObject("VFRunner"); I = go.AddComponent<VFRunner>(); I.Resolve(); return I; }
+
+    public static void ForceInput()
+    {   // runtime-only clone of the Input System settings: ignore app/Game-view focus so injected keyboard events always reach the game (no asset or ProjectSettings change)
+        var cur = InputSystem.settings; var cl = ScriptableObject.CreateInstance<InputSettings>(); JsonUtility.FromJsonOverwrite(JsonUtility.ToJson(cur), cl);
+        cl.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus; cl.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView; InputSystem.settings = cl; InputSystem.EnableDevice(Keyboard.current);
+    }
+    void Resolve()
+    {
+        ForceInput();
+        cam = Camera.main; iso = cam.GetComponent<IsoCameraFollow>(); player = GameObject.Find("Player").transform; enemyT = GameObject.Find("ArenaEnemy").transform;
+        enemy = enemyT.GetComponent<TrainingDummy>(); pH = player.GetComponent<Health>(); enc = FindFirstObjectByType<ArenaEncounter>(); preview = FindFirstObjectByType<ArtTestCyanTelegraphPreview>(); kb = Keyboard.current;
+        pR = player.GetComponentsInChildren<SkinnedMeshRenderer>(); eR = enemyT.GetComponentsInChildren<SkinnedMeshRenderer>();
+        typeof(Health).GetField("maxHealth", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(pH, 1e6f);
+        pH.Revive(); motor = player.GetComponent<PlayerMotor>();
+    }
+    public string SetConfig(float size, float offY)
+    {
+#if UNITY_EDITOR
+        var so = new UnityEditor.SerializedObject(iso); so.FindProperty("orthographicSize").floatValue = size; so.FindProperty("offset").vector3Value = new Vector3(12f, offY, -12f); so.ApplyModifiedProperties();
+#endif
+        cam.orthographicSize = size; cam.aspect = 16f / 9f; cam.transform.rotation = Quaternion.LookRotation(-new Vector3(12f, offY, -12f).normalized); iso.Target = player; var f = FindFirstObjectByType<ArtTestCameraFocus>(); if (f != null) f.enabled = false; iso.Snap();
+        return "size " + size + " pitch " + (Mathf.Atan2(offY, 16.9706f) * Mathf.Rad2Deg).ToString("F2");
+    }
+
+    // ---------- input / world
+    void Keys(params Key[] k) { InputSystem.QueueStateEvent(kb, new KeyboardState(k)); }
+    Vector3 CamF() { var f = cam.transform.forward; f.y = 0; return f.normalized; }
+    Vector3 CamR() { var r = cam.transform.right; r.y = 0; return r.normalized; }
+    Key[] Steer(Vector3 d, bool atk = false, bool dash = false)
+    {
+        var l = new List<Key>(); float x = Vector3.Dot(d, CamR()), y = Vector3.Dot(d, CamF());
+        if (y > 0.38f) l.Add(Key.W); if (y < -0.38f) l.Add(Key.S); if (x > 0.38f) l.Add(Key.D); if (x < -0.38f) l.Add(Key.A);
+        if (atk) l.Add(Key.Enter); if (dash) l.Add(Key.Space); return l.ToArray();
+    }
+    void Place(Transform t, Vector3 p, Quaternion? r = null)
+    {
+        var cc = t.GetComponent<CharacterController>(); cc.enabled = false; t.position = new Vector3(p.x, t == player ? 0.02f : 0f, p.z); if (r.HasValue) t.rotation = r.Value; cc.enabled = true;
+    }
+    IEnumerator Wait(float s) { float t = Time.time + s; while (Time.time < t) yield return null; }
+
+    // ---------- projection helpers
+    Vector2 Px(Vector3 w) { var v = cam.WorldToViewportPoint(w); return new Vector2(v.x * W, (1f - v.y) * H); }
+    static bool In(Vector2 p) { return p.x >= 0 && p.x <= W && p.y >= 0 && p.y <= H; }
+    static float Edge(Vector2 p) { return Mathf.Min(Mathf.Min(p.x, W - p.x), Mathf.Min(p.y, H - p.y)); }
+
+    void LateUpdate()
+    {
+        if (!rec || cam == null) return;
+        string key = cfg; if (!agg.TryGetValue(key, out var a)) { a = new Agg(); agg[key] = a; }
+        a.n++;
+        Vector3 pf = new Vector3(player.position.x, 0, player.position.z);
+        int visAll = 0, visBars = 0; float minEdge = 1e9f; string minSide = "";
+        for (int i = 0; i < 180; i++) { float t = i * 2f * Mathf.PI / 180f; var p = Px(pf + new Vector3(Mathf.Cos(t), 0, Mathf.Sin(t)) * 10f); { float ee0 = Edge(p); if (ee0 < minEdge) { minEdge = ee0; float l0 = p.x, r0 = W - p.x, t0 = p.y, b0 = H - p.y; float mn = Mathf.Min(Mathf.Min(l0, r0), Mathf.Min(t0, b0)); minSide = mn == l0 ? "left" : mn == r0 ? "right" : mn == t0 ? "top" : "bottom"; } } bool ok = In(p); if (ok && !HudAll.Contains(p)) visAll++; if (ok && !HudBars.Contains(p)) visBars++; }
+        a.minRingVisAll = Mathf.Min(a.minRingVisAll, visAll / 1.8f); a.minRingVisBars = Mathf.Min(a.minRingVisBars, visBars / 1.8f); a.minMargin = Mathf.Min(a.minMargin, minEdge);
+        if (enemy.IsTelegraphing)
+        {
+            a.tele++; int hA = 0, hB = 0, tot = 0; Vector3 ef = enemyT.forward; float R = enemy.AttackRange;
+            for (int r = 1; r <= 6; r++) for (int s = -6; s <= 6; s++) { var d = Quaternion.Euler(0, s * 58f / 6f, 0) * ef; var p = Px(enemyT.position + d * (R * r / 6f)); tot++; if (HudAll.Contains(p)) hA++; if (HudBars.Contains(p)) hB++; }
+            a.maxTeleHudAll = Mathf.Max(a.maxTeleHudAll, 100f * hA / tot); a.maxTeleHudBars = Mathf.Max(a.maxTeleHudBars, 100f * hB / tot);
+        }
+        int w = 0, wv = 0; for (float x = -19.5f; x <= 19.5f; x += 1f) foreach (var z in new[] { -19.5f, 19.5f }) { w += 2; Vector3 q = new Vector3(x, 0, z), q2 = new Vector3(z, 0, x); if (In(Px(q)) && !HudAll.Contains(Px(q))) wv++; if (In(Px(q2)) && !HudAll.Contains(Px(q2))) wv++; }
+        a.minWallVis = Mathf.Min(a.minWallVis, 100f * wv / w);
+        var pp = Px(pf); var ee = Px(new Vector3(enemyT.position.x, 0, enemyT.position.z)); float sp = Vector2.Distance(pp, ee);
+        if (Vector3.Distance(pf, enemyT.position) < 10f) { a.minSpacingPx = Mathf.Min(a.minSpacingPx, sp); a.maxSpacingPx = Mathf.Max(a.maxSpacingPx, sp); }
+        if (!(In(pp) && In(Px(pf + Vector3.up * 2f)))) a.outFrame++;
+        { float hp = pH.CurrentHealth; bool hit = hp < lastHp - 0.5f; float spd = frameIdx == 0 ? 0f : (pf - lastPos).magnitude / Mathf.Max(1e-4f, Time.deltaTime);
+          pfLog.AppendLine(string.Join(",", cfg, frameIdx, phase, minEdge.ToString("F0"), minSide, Vector2.Distance(pp, new Vector2(W / 2f, H / 2f)).ToString("F0"), Vector3.Distance(pf, new Vector3(enemyT.position.x, 0, enemyT.position.z)).ToString("F2", CultureInfo.InvariantCulture), spd.ToString("F1", CultureInfo.InvariantCulture), motor != null && motor.IsDashing ? 1 : 0, hit ? 1 : 0, enemy.IsTelegraphing ? 1 : 0, enemy.AttackCount)); lastHp = hp; lastPos = pf; frameIdx++; }
+    }
+
+    // ---------- captures
+    Texture2D Grab()
+    {
+        var rt = RenderTexture.GetTemporary(W, H, 24, RenderTextureFormat.ARGB32); var pr = cam.targetTexture; cam.targetTexture = rt; cam.Render(); cam.targetTexture = pr;
+        var old = RenderTexture.active; RenderTexture.active = rt; var t = new Texture2D(W, H, TextureFormat.RGB24, false); t.ReadPixels(new Rect(0, 0, W, H), 0, 0); t.Apply(); RenderTexture.active = old; RenderTexture.ReleaseTemporary(rt); return t;
+    }
+    IEnumerator Cap(string path)
+    {
+        yield return new WaitForEndOfFrame(); var t = ScreenCapture.CaptureScreenshotAsTexture();
+        capSize = t.width + "x" + t.height + " | " + ViewInfo(); File.WriteAllBytes(path, t.EncodeToPNG()); Destroy(t);
+    }
+    public string capSize = "";
+    static void Shadow(Renderer[] rs, bool only) { foreach (var r in rs) r.shadowCastingMode = only ? UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly : UnityEngine.Rendering.ShadowCastingMode.On; }
+    float SilHeight(Renderer[] rs, out Rect box)
+    {
+        Shadow(rs, true); var a = Grab(); Shadow(rs, false); var b = Grab(); var pa = a.GetPixels32(); var pb = b.GetPixels32(); int minY = H, maxY = -1, minX = W, maxX = -1;
+        for (int i = 0; i < pa.Length; i++) { int d = Mathf.Abs(pa[i].r - pb[i].r) + Mathf.Abs(pa[i].g - pb[i].g) + Mathf.Abs(pa[i].b - pb[i].b); if (d > 24) { int y = i / W, x = i % W; if (y < minY) minY = y; if (y > maxY) maxY = y; if (x < minX) minX = x; if (x > maxX) maxX = x; } }
+        Destroy(a); Destroy(b); box = new Rect(minX, minY, maxX - minX, maxY - minY); return maxY < 0 ? 0 : maxY - minY + 1;
+    }
+    string Sizes(out float ph, out float eh, out float sp)
+    {
+        ph = SilHeight(pR, out var pb); eh = SilHeight(eR, out var eb);
+        sp = Vector2.Distance(Px(new Vector3(player.position.x, 0, player.position.z)), Px(new Vector3(enemyT.position.x, 0, enemyT.position.z)));
+        return ph + "," + eh + "," + sp.ToString("F0") + "," + Vector3.Distance(player.position, enemyT.position).ToString("F2", CultureInfo.InvariantCulture);
+    }
+
+    // ---------- Part B: moving sequence per config (deterministic: Time.captureFramerate = 60)
+    public void RunConfigs(string[] names, float[] sizes, float[] offs) { done = false; StartCoroutine(RunCfgs(names, sizes, offs)); }
+    IEnumerator RunCfgs(string[] names, float[] sizes, float[] offs)
+    {
+        Time.captureFramerate = 60; Directory.CreateDirectory(outDir + "/" + stripDir); pfLog.Clear(); pfLog.AppendLine("config,frame,phase,min_margin_px,min_margin_edge,player_offset_px,player_enemy_m,player_speed_mps,dashing,hit_this_frame,enemy_telegraphing,enemy_attacks"); agg.Clear();
+        rows.Clear(); rows.AppendLine("config,label,player_px,enemy_px,spacing_px,spacing_m,capture_size | view info");
+        for (int c = 0; c < names.Length; c++) { cfg = names[c]; status = "cfg " + cfg; SetConfig(sizes[c], offs[c]); frameIdx = 0; lastHp = 1e6f; yield return Seq(); }
+        Time.captureFramerate = 0; File.WriteAllText(outDir + "/Reports/i2_cam_sizes.csv", rows.ToString()); File.WriteAllText(outDir + "/Reports/i2_cam_perframe.csv", pfLog.ToString());
+        var sb = new StringBuilder("config,frames,min_ring_visible_pct_excl_HUDall,min_ring_visible_pct_excl_HUDbars,min_margin_px,telegraph_frames,max_telegraph_pct_under_HUDall,max_telegraph_pct_under_HUDbars,min_wall_base_visible_pct_excl_HUD,min_spacing_px,max_spacing_px,frames_player_out_of_frame\n");
+        foreach (var kv in agg) { var g = kv.Value; sb.AppendLine(kv.Key + "," + g.n + "," + g.minRingVisAll.ToString("F1", CultureInfo.InvariantCulture) + "," + g.minRingVisBars.ToString("F1", CultureInfo.InvariantCulture) + "," + g.minMargin.ToString("F0") + "," + g.tele + "," + g.maxTeleHudAll.ToString("F1", CultureInfo.InvariantCulture) + "," + g.maxTeleHudBars.ToString("F1", CultureInfo.InvariantCulture) + "," + g.minWallVis.ToString("F1", CultureInfo.InvariantCulture) + "," + g.minSpacingPx.ToString("F0") + "," + g.maxSpacingPx.ToString("F0") + "," + g.outFrame); }
+        File.WriteAllText(outDir + "/Reports/i2_cam_hud.csv", sb.ToString()); status = "done cams"; done = true;
+    }
+    IEnumerator Shot(string label)
+    {
+        yield return null; yield return Cap(outDir + "/" + stripDir + "/" + cfg + "_" + label + ".png");
+        float ph, eh, sp; string s = Sizes(out ph, out eh, out sp); rows.AppendLine(cfg + "," + label + "," + s + "," + capSize);
+    }
+    IEnumerator Seq()
+    {
+        enemy.enabled = true; enc.Restart(); pH.Revive(); Keys(); Place(player, Vector3.zero); iso.Snap(); rec = true;
+        phase = "idle"; yield return Wait(0.5f); yield return Shot("1_idle");
+        // run toward enemy (enemy approaches from spawn)
+        phase = "run_toward_enemy"; float t0 = Time.time; bool shotRun = false;
+        while (Time.time - t0 < 2.5f) { Vector3 to = enemyT.position - player.position; to.y = 0; if (to.magnitude < 3.2f) break; Keys(Steer(to.normalized)); if (!shotRun && Time.time - t0 > 0.5f) { shotRun = true; Keys(Steer(to.normalized)); yield return Shot("2_run"); } yield return null; }
+        // dash sideways (screen right)
+        phase = "dash_sideways"; Keys(new[] { Key.D, Key.Space }); yield return null; yield return null; Keys(Key.D); yield return Wait(0.05f); yield return Shot("3_dash"); yield return Wait(0.3f); Keys();
+        // attack
+        phase = "attack"; t0 = Time.time; bool shotAtk = false;
+        while (Time.time - t0 < 1.4f) { Vector3 to = enemyT.position - player.position; to.y = 0; Keys(Steer(to.magnitude > 1.7f ? to.normalized : Vector3.zero, true)); if (!shotAtk && Time.time - t0 > 0.55f) { shotAtk = true; yield return Shot("4_attack"); } yield return null; }
+        Keys();
+        // wait for enemy windup then dodge through it
+        phase = "wait_for_windup"; t0 = Time.time; bool d = false;
+        while (Time.time - t0 < 6f)
+        {
+            if (enemy.IsTelegraphing && enemy.WindupProgress > 0.45f && !d)
+            {
+                d = true; phase = "dodge_dash"; yield return Shot("5_telegraph");
+                Vector3 to = enemyT.position - player.position; to.y = 0; var perp = Vector3.Cross(Vector3.up, to.normalized);
+                Keys(Steer(perp, false, true)); yield return null; yield return null; Keys(Steer(perp)); yield return Wait(0.06f); yield return Shot("6_dodge"); yield return Wait(0.3f); break;
+            }
+            Vector3 q = enemyT.position - player.position; q.y = 0; Keys(Steer(q.magnitude > 2.4f ? q.normalized : Vector3.zero)); yield return null;
+        }
+        Keys(); rec = false;
+    }
+
+
+    // ---------- iteration 2 single-variable character-separation tests (runtime only, nothing saved)
+    readonly List<GameObject> tmp = new List<GameObject>(); uint origP, origE; bool layersSet;
+    public void ClearTmp() { foreach (var g in tmp) if (g) Destroy(g); tmp.Clear(); if (layersSet) { foreach (var r in pR) r.renderingLayerMask = origP; foreach (var r in eR) r.renderingLayerMask = origE; layersSet = false; } }
+    // (a) rim/back light on the characters only: spot light behind (camera-away side) and above each character, restricted by rendering-layer mask
+    public string Rim(float intensity, Color col)
+    {
+        origP = pR[0].renderingLayerMask; origE = eR[0].renderingLayerMask; layersSet = true;
+        foreach (var r in pR) r.renderingLayerMask = origP | 2u; foreach (var r in eR) r.renderingLayerMask = origE | 2u;
+        Vector3 back = CamF();
+        foreach (var t in new[] { player, enemyT })
+        {
+            var g = new GameObject("VF_Rim_" + t.name); g.transform.position = t.position + back * 2.2f + Vector3.up * 2.6f;
+            g.transform.rotation = Quaternion.LookRotation((t.position + Vector3.up * 1.0f) - g.transform.position);
+            var l = g.AddComponent<Light>(); l.type = LightType.Spot; l.spotAngle = 62f; l.innerSpotAngle = 36f; l.range = 7f; l.color = col; l.intensity = intensity; l.shadows = LightShadows.None; l.renderingLayerMask = 2; tmp.Add(g);
+        }
+        return "rim on; char layer mask=" + pR[0].renderingLayerMask + " light mask=2";
+    }
+    // (b) lighter, warmer floor tone in the central combat area: radial low-alpha overlay (new runtime material)
+    public string FloorLift(float alpha, Color tint, float radius)
+    {
+        int n = 256; var tex = new Texture2D(n, n, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp }; var px = new Color[n * n];
+        for (int y = 0; y < n; y++) for (int x = 0; x < n; x++) { float u = (x + 0.5f) / n * 2f - 1f, v = (y + 0.5f) / n * 2f - 1f; float rr = Mathf.Sqrt(u * u + v * v); px[y * n + x] = new Color(tint.r, tint.g, tint.b, alpha * (1f - Mathf.SmoothStep(0.55f, 1f, rr))); }
+        tex.SetPixels(px); tex.Apply();
+        var q = GameObject.CreatePrimitive(PrimitiveType.Quad); q.name = "VF_FloorLift"; Destroy(q.GetComponent<Collider>()); q.transform.position = new Vector3(0, 0.016f, 0); q.transform.rotation = Quaternion.Euler(90, 0, 0); q.transform.localScale = new Vector3(radius * 2f, radius * 2f, 1f);
+        var m = new Material(Shader.Find("Universal Render Pipeline/Unlit")); m.SetFloat("_Surface", 1f); m.SetFloat("_Blend", 0f); m.SetFloat("_Cull", 0f); m.SetOverrideTag("RenderType", "Transparent");
+        m.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha); m.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha); m.SetInt("_ZWrite", 0); m.EnableKeyword("_SURFACE_TYPE_TRANSPARENT"); m.renderQueue = 2995; m.SetTexture("_BaseMap", tex); m.SetColor("_BaseColor", Color.white);
+        var mr = q.GetComponent<MeshRenderer>(); mr.sharedMaterial = m; mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; mr.receiveShadows = false; tmp.Add(q);
+        return "floor lift alpha " + alpha + " radius " + radius;
+    }
+
+    // ---------- Part C/D: held-pose lighting measurement
+    public void Measure(string label, float ramp) { done = false; StartCoroutine(MeasureRoutine(label, ramp)); }
+    float Lum(Color32 c) { return (0.2126f * c.r + 0.7152f * c.g + 0.0722f * c.b) / 255f; }
+    GameObject TeleRoot() { var t = typeof(ArtTestCyanTelegraphPreview).GetField("_root", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance); return ((Transform)t.GetValue(preview)).gameObject; }
+    public Vector3 holdCenter = Vector3.zero;
+    void Hold(float ramp)
+    {
+        Keys(); enemy.enabled = false; enc.Restart(); enemy.enabled = false; pH.Revive(); Place(player, holdCenter); Place(enemyT, holdCenter + new Vector3(0, 0, 2.2f), Quaternion.LookRotation(Vector3.back)); iso.Snap();
+        preview.startAlpha = ramp; preview.endAlpha = ramp;
+        var tt = typeof(TrainingDummy); var bf = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
+        tt.GetMethod("BeginTelegraph", bf).Invoke(enemy, new object[] { Vector3.back }); tt.GetField("_windupRemaining", bf).SetValue(enemy, enemy.AttackWindup * 0.5f);
+    }
+    IEnumerator MeasureRoutine(string label, float ramp)
+    {
+        Directory.CreateDirectory(outDir + "/" + lightDir); Directory.CreateDirectory(outDir + "/Reports");
+        Hold(ramp); for (int i = 0; i < 4; i++) yield return null;
+        yield return Cap(outDir + "/" + lightDir + "/" + label + ".png"); string capInfo = capSize.Replace(",", ";");
+        Hold(ramp); yield return null; yield return null; yield return null; preview.enabled = false;
+        var tr = TeleRoot(); tr.SetActive(false);
+        var A = Grab().GetPixels32();                         // actors on, telegraph off
+        foreach (var r in eR) r.enabled = false; var P = Grab().GetPixels32();   // player only
+        foreach (var r in pR) r.enabled = false; var F = Grab().GetPixels32();   // floor only
+        tr.SetActive(true); var FT = Grab().GetPixels32();     // floor + telegraph
+        foreach (var r in pR) r.enabled = true; foreach (var r in eR) r.enabled = true; preview.enabled = true;
+        // floor mask: ground points within 8 m of origin (combat area), stride 2
+        double fs = 0; int fn = 0; var floorMask = new bool[W * H]; var lifts = new List<float>();
+        for (int y = 0; y < H; y += 2) for (int x = 0; x < W; x += 2)
+        {
+            var ray = cam.ScreenPointToRay(new Vector3(x, H - 1 - y, 0)); if (Mathf.Abs(ray.direction.y) < 1e-4f) continue; float t = -ray.origin.y / ray.direction.y; if (t < 0) continue; var gp = ray.origin + ray.direction * t;
+            if (new Vector2(gp.x - holdCenter.x, gp.z - holdCenter.z).magnitude < 8f) { int i = (H - 1 - y) * W + x; floorMask[i] = true; }
+        }
+        // note: ScreenPointToRay y is bottom-up; pixel array from ReadPixels is bottom-up as well, so index (H-1-y)*W+x is consistent
+        var silP = new bool[W * H]; var silE = new bool[W * H];
+        for (int i = 0; i < W * H; i++)
+        {
+            if (floorMask[i]) { bool chr = Mathf.Abs(Lum(A[i]) - Lum(F[i])) > 0.012f; if (!chr) { fs += Lum(F[i]); fn++; } }
+            if (Mathf.Abs(Lum(P[i]) - Lum(F[i])) > 0.012f) silP[i] = true;
+            if (Mathf.Abs(Lum(A[i]) - Lum(P[i])) > 0.012f) silE[i] = true;
+            if (floorMask[i]) { float d = Lum(FT[i]) - Lum(F[i]); if (d > 0.004f) lifts.Add(d); }
+        }
+        float floorMean = (float)(fs / System.Math.Max(1, fn));
+        System.Func<bool[], float[]> sep = (sil) =>
+        {
+            double cs = 0, bs = 0; int cn = 0, bn = 0; var near = new bool[W * H];
+            for (int y = 10; y < H - 10; y += 2) for (int x = 10; x < W - 10; x += 2) { int i = y * W + x; if (!sil[i]) continue; for (int dy = -10; dy <= 10; dy += 5) for (int dx = -10; dx <= 10; dx += 5) near[(y + dy) * W + x + dx] = true; }
+            for (int i = 0; i < W * H; i += 2) { if (sil[i]) { cs += Lum(A[i]); cn++; } else if (near[i]) { bs += Lum(F[i]); bn++; } }
+            return new[] { cn > 0 ? (float)(cs / cn) : 0f, bn > 0 ? (float)(bs / bn) : 0f };
+        };
+        var sp = sep(silP); var se = sep(silE);
+        lifts.Sort(); float lm = 0; foreach (var l in lifts) lm += l; if (lifts.Count > 0) lm /= lifts.Count; float p10 = lifts.Count > 0 ? lifts[lifts.Count / 10] : 0;
+        var lt = GameObject.Find("Directional Light").transform; var tv = lt.forward; var v = cam.transform.forward; var th = new Vector3(tv.x, 0, tv.z); var vh = new Vector3(v.x, 0, v.z);
+        float elev = Mathf.Asin(-tv.y) * Mathf.Rad2Deg, ang3 = Vector3.Angle(tv, v), angH = Vector3.Angle(th, vh); float shLen = 2.0f / Mathf.Tan(elev * Mathf.Deg2Rad);
+        var shDir = th.normalized; var s0 = Px(Vector3.zero); var s1 = Px(shDir * shLen); float shAng = Mathf.Atan2(-(s1.y - s0.y), s1.x - s0.x) * Mathf.Rad2Deg; float shPx = Vector2.Distance(s0, s1);
+        var L = lt.GetComponent<Light>(); string ln = label;
+        string row = string.Join(",", ln, lt.eulerAngles.y.ToString("F0"), elev.ToString("F0"), ang3.ToString("F1", CultureInfo.InvariantCulture), angH.ToString("F1", CultureInfo.InvariantCulture), L.color.r.ToString("F2", CultureInfo.InvariantCulture) + "/" + L.color.g.ToString("F2", CultureInfo.InvariantCulture) + "/" + L.color.b.ToString("F2", CultureInfo.InvariantCulture), L.shadowStrength.ToString("F2", CultureInfo.InvariantCulture), floorMean.ToString("F3", CultureInfo.InvariantCulture),
+            sp[0].ToString("F3", CultureInfo.InvariantCulture), sp[1].ToString("F3", CultureInfo.InvariantCulture), (sp[0] - sp[1]).ToString("F3", CultureInfo.InvariantCulture), se[0].ToString("F3", CultureInfo.InvariantCulture), se[1].ToString("F3", CultureInfo.InvariantCulture), (se[0] - se[1]).ToString("F3", CultureInfo.InvariantCulture), shLen.ToString("F2", CultureInfo.InvariantCulture), shAng.ToString("F0"), shPx.ToString("F0"), lm.ToString("F3", CultureInfo.InvariantCulture), p10.ToString("F3", CultureInfo.InvariantCulture), capInfo);
+        string f = outDir + "/" + lightCsv; if (!File.Exists(f)) File.WriteAllText(f, "variant,key_yaw,key_elev,key_vs_cam_3D,key_vs_cam_horiz,key_rgb,shadow_strength,floor_mean_luma_8m,player_luma,floor_luma_at_player,player_sep,enemy_luma,floor_luma_at_enemy,enemy_sep,shadow_len_m_analytic,shadow_screen_angle_deg,shadow_len_px,telegraph_fill_mean_lift,telegraph_fill_p10_lift,capture_and_view_info\n");
+        File.AppendAllText(f, row + "\n"); status = "measured " + label; done = true;
+    }
+}

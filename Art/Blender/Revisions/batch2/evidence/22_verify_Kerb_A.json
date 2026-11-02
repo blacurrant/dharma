@@ -1,0 +1,190 @@
+{
+ "asset": "ENV_Temple_Kerb_A",
+ "started": "18:51:24",
+ "A_reopen": {
+  "zone_md5": "c74b732514ff097b2197204a26005426",
+  "faces": 5272,
+  "tris": 5272,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal"
+  ],
+  "material_index_hist": {
+   "0": 2816,
+   "1": 2456
+  },
+  "zone_counts": {
+   "StoneWarm": 2816,
+   "StoneCharcoal": 2456
+  }
+ },
+ "B_restored": {
+  "zone_md5": "c74b732514ff097b2197204a26005426",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal"
+  ],
+  "material_index_hist": {
+   "0": 2816,
+   "1": 2456
+  },
+  "zone_counts": {
+   "StoneWarm": 2816,
+   "StoneCharcoal": 2456
+  }
+ },
+ "C1_zone_raster": {
+  "res": 512,
+  "texels_by_zone": {
+   "StoneWarm": 35518,
+   "StoneCharcoal": 209051
+  },
+  "texels_empty_or_edge": 17575,
+  "covered_fraction": 0.933
+ },
+ "C2_bake": {
+  "res": 512,
+  "seconds": 50.2,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Kerb_A_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Kerb_A_Normal.png",
+   "Mask": "Textures/ENV_Temple_Kerb_A_Mask.png"
+  },
+  "zone_md5_after_bake": "c74b732514ff097b2197204a26005426",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 35518,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.098,
+   "smoothness_mean": 0.1884,
+   "basecolor_mean_srgb_hex": "#635847"
+  },
+  "StoneCharcoal": {
+   "texels": 209051,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.2108,
+   "smoothness_mean": 0.2306,
+   "basecolor_mean_srgb_hex": "#26221F"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 262144,
+   "sat_max": 0.4
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "c74b732514ff097b2197204a26005426",
+  "slots": [
+   "MI_Temple_Kerb_A"
+  ],
+  "material_index_hist": {
+   "0": 5272
+  },
+  "zone_counts": {
+   "StoneWarm": 2816,
+   "StoneCharcoal": 2456
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Kerb_A_verify.blend",
+  "zone_md5": "c74b732514ff097b2197204a26005426",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Kerb_A"
+  ],
+  "material_index_hist": {
+   "0": 5272
+  },
+  "zone_counts": {
+   "StoneWarm": 2816,
+   "StoneCharcoal": 2456
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Kerb_A.fbx",
+  "bytes": 513628,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Kerb_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Kerb_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Kerb_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Kerb_A"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -1.4926,
+   -0.063,
+   -0.213
+  ],
+  "vertex_max": [
+   1.4953,
+   0.0835,
+   0.2127
+  ],
+  "polys": 5272
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 5272,
+  "mesh_tris": 5272,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 4e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Kerb_A"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Kerb_A_BaseColor.png",
+   "ENV_Temple_Kerb_A_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -1.4926,
+    -0.2127,
+    -0.063
+   ],
+   "max": [
+    1.4953,
+    0.213,
+    0.0835
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "c74b732514ff097b2197204a26005426",
+  "material": "MI_Temple_Kerb_A"
+ },
+ "seconds_total": 54.2
+}

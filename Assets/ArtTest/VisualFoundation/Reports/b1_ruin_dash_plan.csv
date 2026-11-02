@@ -1,0 +1,10 @@
+ruin,target,direction_index,key_dir_x,key_dir_z,start_x,start_z
+VF_B1_B1_Ruin_1,capsule,1,0.00,-1.00,-14.7,2.0
+VF_B1_B1_Ruin_1,box,1,0.00,-1.00,-12.5,0.8
+VF_B1_B1_Ruin_1,box,8,0.00,1.00,-12.5,-13.3
+VF_B1_B1_Ruin_2,capsule,NONE
+VF_B1_B1_Ruin_2,box,1,0.00,-1.00,-8.8,-7.1
+VF_B1_B1_Ruin_2,box,2,-0.71,-0.71,-3.8,-9.1
+VF_B1_B1_Ruin_3,capsule,NONE
+VF_B1_B1_Ruin_3,box,2,-0.71,-0.71,-8.8,-7.6
+VF_B1_B1_Ruin_3,box,5,-0.71,0.71,-8.8,-17.5

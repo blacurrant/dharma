@@ -1,0 +1,173 @@
+{
+ "asset": "ENV_Temple_Banner_A",
+ "t0": "01:46:15",
+ "A_reopen": {
+  "zone_md5": "b71abc1f1a221d916f27bc04e87d9e6e",
+  "faces": 5774,
+  "slots": [
+   "MI_Temple_Banner_A"
+  ],
+  "material_index_hist": {
+   "0": 5774
+  },
+  "zone_counts": {
+   "Bronze": 916,
+   "Gold": 652,
+   "CrimsonCloth": 4206
+  }
+ },
+ "B_restored": {
+  "zone_md5": "b71abc1f1a221d916f27bc04e87d9e6e",
+  "slots": [
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold",
+   "SRC_Temple_CrimsonCloth"
+  ],
+  "material_index_hist": {
+   "0": 916,
+   "1": 652,
+   "2": 4206
+  },
+  "zone_counts": {
+   "Bronze": 916,
+   "Gold": 652,
+   "CrimsonCloth": 4206
+  }
+ },
+ "C1_zone_raster": {
+  "res": 1024,
+  "texels_by_zone": {
+   "Bronze": 54826,
+   "Gold": 43916,
+   "CrimsonCloth": 917715
+  },
+  "texels_empty_or_edge": 32119,
+  "covered_fraction": 0.9694
+ },
+ "C2_bake": {
+  "res": 1024,
+  "seconds": 24.0,
+  "files": {
+   "BaseColor": "bake_out_b/Textures/ENV_Temple_Banner_A_BaseColor.png",
+   "Normal": "bake_out_b/Textures/ENV_Temple_Banner_A_Normal.png",
+   "Mask": "bake_out_b/Textures/ENV_Temple_Banner_A_Mask.png"
+  },
+  "zone_md5_after_bake": "b71abc1f1a221d916f27bc04e87d9e6e",
+  "slots_during_bake": [
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold",
+   "SRC_Temple_CrimsonCloth"
+  ]
+ },
+ "D_after_swap": {
+  "zone_md5": "b71abc1f1a221d916f27bc04e87d9e6e",
+  "slots": [
+   "MI_Temple_Banner_A"
+  ],
+  "material_index_hist": {
+   "0": 5774
+  },
+  "zone_counts": {
+   "Bronze": 916,
+   "Gold": 652,
+   "CrimsonCloth": 4206
+  }
+ },
+ "E_reopen": {
+  "file": "verify_b/ENV_Temple_Banner_A_verify.blend",
+  "zone_md5": "b71abc1f1a221d916f27bc04e87d9e6e",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Banner_A"
+  ],
+  "material_index_hist": {
+   "0": 5774
+  },
+  "zone_counts": {
+   "Bronze": 916,
+   "Gold": 652,
+   "CrimsonCloth": 4206
+  }
+ },
+ "F_fbx_gate1": {
+  "bytes": 557676,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Banner_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Banner_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Banner_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Banner_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -0.7803,
+   0.0,
+   -0.0559
+  ],
+  "vertex_max": [
+   0.8403,
+   2.5152,
+   0.0639
+  ],
+  "polys": 5774
+ },
+ "F_fbx_shipped": {
+  "bytes": 557548,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Banner_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Banner_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Banner_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Banner_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -0.7803,
+   0.0,
+   -0.0559
+  ],
+  "vertex_max": [
+   0.8403,
+   2.5152,
+   0.0639
+  ],
+  "polys": 5774
+ },
+ "F_checks": {
+  "polys_equal": true,
+  "vertex_extents_equal": true,
+  "up_axis_equal": true,
+  "unit_scale_equal": true,
+  "materials_equal": true,
+  "textures_equal": true,
+  "identity_transform_gate1": true,
+  "zone_id_in_fbx_bytes": false
+ },
+ "seconds_total": 27.8
+}

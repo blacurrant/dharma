@@ -1,0 +1,82 @@
+# VF_FINAL_PACKAGE: BEFORE (original courtyard) vs AFTER (Visual Foundation)
+
+Editor-only numbers. Unity 6000.6.7f1, URP, Game view fixed 1920x1080 with HUD (every capture script aborts otherwise). No new art changes were made for this package.
+
+## 1. How BEFORE and AFTER were produced
+- **BEFORE** = `Assets/Scenes/ArtTest_TempleCourtyard.unity`, opened in the Editor and played without saving. Runtime-only normalisation (log: `Reports/fp_normalisation_before.txt`): focus helper OFF, key light (38,45,0) / 1.3 / soft shadows (as authored, nothing changed), camera B (offset 12,18,-12, ortho 9), fog as authored (OFF), original Paladin materials. Scene hash after the run: `b30065166bf45252...` = identical to before (verified by `shasum`; the scene was never dirty).
+- **AFTER** = `Assets/Scenes/ArtTest_VisualFoundation.unity` as saved: rim 0.8 characters, pylons 1.25, 15 bays, outer ground macro+gradient, dais fill lights, overlay stack, scene fog 26-70 m.
+- Both: same six poses, player only (enemy parked), no HIT in the HUD (the script waits for the damage cue to lapse), key (38,45,0).
+- **Matching caveat (honest):** the HUD of the BEFORE frames shows the original scene's `WARNING STRIKE` text in the enemy bar, the AFTER frames show `ENEMY APPROACHING`. The enemy is parked 60 m away and disabled in both, so this is HUD text state only (the original scene's encounter begins in a telegraph state); there is no hit or telegraph on screen in either set, but the HUD state is not identical.
+
+## 2. Files (all in `Captures/final_package/`)
+- Raw 1920x1080 frames: `{before,after}_{B,A2}_{centre,north,west,dais,arch,edge}.png` (24)
+- Composites (before left, after right): `composites/{B,A2}_{view}_before_after.png` (12); overview sheets `overview_B.png`, `overview_A2.png`
+- Frame strips (AFTER, B, 8 frames each): `strip_run.png`, `strip_dash.png`, `strip_attack.png`; single frames `seq/`; player screen positions `Reports/fp_sequence_player_px.csv`
+- Evidence for recomputing (masks, telegraph-off frames): `evidence/` (144 PNG); metrics `Reports/fp_metrics_{before,after}.csv`, `fp_table.csv`, `fp_stats_*.csv`, `fp_perf_*.csv`; builder `Reports/fp_build.py`
+
+## 3. Numbers
+Camera B: ortho 9, pitch 46.7, offset (12,18,-12). Camera A2: ortho 8.5, pitch 42, offset y 15.28. Key (38,45,0). Dim share = share of non-HUD pixels with gamma-encoded Rec.709 luma below 0.12 / 0.08.
+
+**Character screen height (silhouette masks, centre pose, px of 1080):** B: player 103 -> 104, enemy 97 -> 100. A2: player 116 -> 103, enemy 106 -> 107 (the A2 before-player figure is 13 px larger than after: the masks include the weapon/pose at the measured frame, so A2 player height varies with the pose; treat +-10 px as noise at A2; not isolated).
+
+**Per position, camera B (before -> after)**
+| pose | floor luma | player sep | enemy sep | telegraph lift | dim <0.12 | dim <0.08 |
+|---|---|---|---|---|---|---|
+| centre | 0.384 -> 0.381 | -0.092 -> -0.054 | -0.116 -> -0.076 | 0.139 -> 0.137 | 1.8 -> 1.6 | 0.7 -> 0.8 |
+| north | 0.297 -> 0.314 | -0.085 -> +0.025 | +0.010 -> -0.029 | 0.132 -> 0.132 | 28.7 -> 9.9 | 26.2 -> 4.2 |
+| west | 0.289 -> 0.253 | -0.068 -> +0.004 | -0.094 -> -0.004 | 0.159 -> 0.174 | 19.0 -> 14.6 | 15.1 -> 7.1 |
+| dais | 0.352 -> 0.365 | -0.073 -> -0.034 | -0.085 -> +0.013 | 0.162 -> 0.146 | 7.8 -> 6.2 | 5.7 -> 2.8 |
+| arch | 0.324 -> 0.311 | -0.083 -> -0.030 | -0.099 -> +0.011 | 0.131 -> 0.139 | 27.2 -> 14.8 | 24.8 -> 3.0 |
+| SE edge | 0.338 -> 0.332 | -0.096 -> -0.053 | -0.116 -> -0.070 | 0.136 -> 0.136 | 51.9 -> 11.8 | 49.4 -> 2.9 |
+
+**Camera A2 (before -> after):** floor luma centre 0.383 -> 0.381; player sep -0.095 -> -0.054, enemy sep -0.120 -> -0.085 (centre); telegraph lift 0.141 -> 0.139 (centre), range of lift across poses before 0.136-0.164, after 0.139-0.176; dim <0.12: centre 1.9 -> 1.5, north 26.6 -> 9.1, west 18.5 -> 15.5, dais 7.2 -> 5.6, arch 25.8 -> 14.6, edge 51.1 -> 12.6; dim <0.08 edge 48.2 -> 3.3. Full A2 rows in `fp_table.csv`.
+Notes: a "before" sample at the dais and north with enemy separation +0.010/-0.085 shows the metric noise per pose (enemy +-0.005..0.008); at A2 dais the enemy separation is -0.084 -> -0.028 (known open item below). The telegraph lift never drops: it is equal or higher at every pose (budget: not below -0.005).
+
+**Cost, centre pose, B (Editor Stats and frame timing, 4 reps; Editor-only, no GPU timing)**
+| | BEFORE | AFTER | delta |
+|---|---|---|---|
+| draw calls | 1342 | 1428 | +86 |
+| SetPass | 63 | 76 | +13 |
+| triangles | 5.10 M | 5.55 M | +0.45 M |
+| shadow casters (Stats) | 792 | 833 | +41 |
+| frame ms (avg of 4) | 4.79 (4.74-4.88) | 7.13 (7.06-7.22) | **+2.3 ms** |
+Draw-call/triangle deltas per pose: `fp_stats_*.csv`. The +2.3 ms is larger than the batch-only delta (+0.11 ms) reported earlier because AFTER includes the whole overlay stack (about 9 full-arena quads with alpha blend), the outer plane, the character rim shader, the pylon/fill lights and fog, none of which BEFORE has. Overdraw is the likely cost; not isolated. The whole scene is far over the provisional D5 targets either way; only a player build settles it.
+
+## 4. What changed (numbered) and where it shows
+1. Floor overlay stack (macro value/tint, cracks, chipped edges, wear, joint moss, salt, soot) - everywhere on the floor; best seen in the edge, west and arch frames (cracked, mottled floor vs. the flat tile before).
+2. Wall facades (15 tall bays, 5-6 m, A/B alternate) - north and west wall frames: ragged stepped roofline replaces the low parapet line.
+3. Lantern pylons (6, scale 1.25, warm lights) - dais and arch frames: glowing bowls flank the stairs and arch.
+4. Ruin clusters (3, hand-placed colliders) - west and dais frames: rubble and broken columns.
+5. Outer ground (x2.5 albedo, macro map + gradient to fog colour) - edge frames: dark ground in shadow instead of a black void.
+6. Scene fog (linear 26-70 m, warm; the original has fog OFF) - barely visible at gameplay scale.
+7. Lights: pylon bowl lights, two dais fill lights, altar accent light; approach-brazier lights replaced - dais frames.
+8. Character rim (warm fresnel 0.8 on art-test material copies) - centre frame and every pose: separation about -0.09 -> -0.05.
+9. Key light: (38,45,0) in both, so identical; the original scene already used it.
+(Backdrop masses are present at the table positions but discarded in this form: <1.3 % visible, reads as a slab.)
+
+## 5. Combat readability strips (AFTER, B; `strip_*.png`)
+- Run, dash: the player stays a small but distinct light figure against the floor in all 8 frames; the dash covers the expected distance; ruin rubble in the frame does not hide the player. Frames were inspected at strip scale; the player is small (about 100 px tall of 1080).
+- Attack: the sequence shows the exchange with the enemy staggered ("ENEMY STAGGERED", damage number 25); the telegraph was not visible in these frames because the attack was the player's, not the enemy's, so this strip does NOT show an enemy telegraph (telegraph readability is covered by the lift numbers: 0.136-0.176, never below BEFORE). Characters remain distinguishable from each other and from the floor, but both are small and low-contrast in the ruin-heavy west area.
+
+## 6. Remaining visual defects, ranked
+1. Characters are still darker than the floor at most poses (centre -0.054 / -0.076) and small (about 100 px of 1080); the rim helped but did not reach separation >= 0. Unproven cause on the enemy (see UNVERIFIED).
+2. South-east and east half of the arena is unchanged and bare: only the floor overlay stack and the outer ground act there; no structures, so the richness is one-sided (north/west).
+3. Cost: +2.3 ms Editor frame time, +86 draw calls (overlay quads overdraw); needs a player-build measurement and likely overlay merging.
+4. Backdrop masses are discarded (slab-like, barely visible); the far north/west edge still reads as an empty void behind the bays.
+5. The outer ground macro variation is almost invisible (+-12 %); the plain look remains at the SE edge beyond the fade.
+6. A2 dais enemy separation -0.028 (pre-batch -0.002): known open item, not tuned by decision.
+7. Ruin Cluster_A rubble and the bays are repeated instances (3 ruins, 2 bay types): repetition is noticeable in the west frame.
+8. Wall rain/moss overlays are invisible at gameplay camera (earlier finding); walls rely on the facade geometry only.
+
+## 7. Recommended next three changes
+1. Give the south-east a counterweight: 2-3 ruin clusters or fallen blocks at r 16-19 m on the east/south sides (existing parts, outside the 10 m circle) and a bay or two on the east wall; one variable at a time, measure lift and dim share.
+2. Cost pass: merge the 9 floor overlay quads into 2-3 (or bake the static ones into one texture) and re-measure draw calls and frame ms, then confirm on a player build.
+3. Character readability: a character-side albedo/texture lift (copy, art-test only) or a dedicated warm character fill light that follows the actors, and enlarge the camera slightly (e.g. ortho 8) if the Director accepts the framing change; test one at a time.
+
+## 8. UNVERIFIED / open items
+- Enemy-material findings (UNVERIFIED): albedo ×1.2/×1.4 does not change the enemy's measured luma; the specular term is only a candidate; my spec-off test was invalid (null spec map with the keyword on samples white); the ambient/probe contribution was not tested.
+- A2 player height difference (116 vs 103 px) not explained.
+- HUD text state differs between BEFORE and AFTER (section 1).
+- Frame ms/draw calls are Editor numbers; no GPU timing was available.
+- Dash and run strips measure no collision; collision results are in `VF_BATCH1_INTEGRATION.md`.
+- The Unity-generated files (two Paladin .mat, EditorPipelineConfig, ProjectSettings) are untouched by me.

@@ -1,0 +1,5 @@
+scene=Assets/Scenes/ArtTest_VisualFoundation.unity tag=after
+key light rot=(38.0, 45.0, 0.0) intensity=1.3 shadows=Soft
+fog=True 26-70
+focus helper enabled=False
+player material=VF3_Player_rimA enemy material=VF3_Enemy_rimA

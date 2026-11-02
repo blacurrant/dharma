@@ -1,0 +1,11 @@
+{
+ "gameplay": {
+  "n_fill": 135,
+  "floor_luma_under_fill": 0.3528,
+  "fill_luma": 0.423,
+  "fill_lift": 0.0702,
+  "floor_luma_under_edge": 0.3678,
+  "edge_luma": 0.6393,
+  "edge_lift": 0.2715
+ }
+}

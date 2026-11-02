@@ -1,0 +1,121 @@
+# VF_ITERATION_3: character separation (art-test copies of the Paladin materials)
+
+Scene: `Assets/Scenes/ArtTest_VisualFoundation.unity` only. Editor Play Mode figures; Unity 6000.6.7f1, URP (Forward+), Metal; 1920x1080 Game view (Full HD preset), HUD included, plain follow, focus helper OFF, key light L0 (38, 45, 0). Transport: `unity` CLI (MCP still not available). Nothing staged/committed/pushed.
+
+## Safety / integrity (checked by SHA-256 at the start and end of this iteration)
+- `Paladin_MAT.mat`, `Paladin_Enemy_MAT.mat`, `ProjectSettings.asset`, `EditorPipelineConfig.json` (the four Unity-generated files) and `ArtTest_TempleCourtyard.unity`: **byte-identical before and after my work** (no edit, no revert). `Assets/Scripts`, PrototypeArena and SampleScene: no diff. No rendering layers, no change to the shared URP renderer asset, no outline renderer feature.
+- New assets only under `Assets/ArtTest/VisualFoundation/`: `Shaders/VF_CharacterLitRim.shader`, `Materials/VF3_{Player,Enemy}_{lift12,lift14,rimA,rimB,rimC,combo12A,combo12C,combo14C}.mat`, `Editor/VF3Builder.cs`.
+- The actors exist in the scene (not runtime-spawned), so the copies are assigned to the SkinnedMeshRenderers of `Player` and `ArenaEnemy` in the VF scene itself (`VF3Builder.AssignScene`; `AssignScene("orig")` restores the original shared materials). No prefab and no script edited. `CharacterTintFeedback` caches the base colour at Awake, so for the runtime A/B swaps I refreshed its cache by reflection from my runner (test harness only); the saved scene uses a copy assigned at edit time.
+
+## How the variants were built
+- **Albedo lift:** copy of each material with `_BaseColor` x1.2 / x1.4 (Player 1,1,1 to 1.2 / 1.4; Enemy 0.58,0.52,0.52 to 0.70,0.62,0.62 / 0.81,0.73,0.73). Everything else identical (maps, smoothness, enemy emission).
+- **Rim:** `VF/CharacterLitRim`, a clone of URP Lit's forward pass (same properties, keywords and maps, so the copied materials keep their normal/metal/emission maps) that adds a warm fresnel term to emission: `emission += (1.0, 0.72, 0.45) * pow(1 - N.V, 3) * strength`. Shadow caster / depth passes are borrowed from URP Lit (characters still cast shadows: verified in frames). Strengths: rimC 0.4, rimA 0.8, rimB 1.6. No cyan/teal anywhere in the colour. No rendering-layer or renderer-feature dependency.
+- **Combined:** lift + rim copies (combo12C = x1.2 + 0.4, combo12A = x1.2 + 0.8, combo14C = x1.4 + 0.4).
+- One variable at a time at cameras B and A, same held pose (player at the arena centre, enemy 2.2 m away, telegraph at the 45 % test ramp), identical 1920x1080 frames; raw rows `Reports/i3_char_v2.csv`, raw frames `Captures/char_i3b/<variant>_{B,A}.png`.
+
+## Measurement artefact I caught and discarded
+My first run showed the rimA characters as solid cyan with a fake good score (sep -0.039). This was Unity's **asynchronous shader-compile placeholder** (cyan), not my shader: the first frames using a new shader variant render with it. It is kept only as `Reports/i3_char_run1_ASYNC_COMPILE_ARTIFACT.csv` / `Captures/char_i3_run1_ASYNC_COMPILE_ARTIFACT/`. The valid run waits for `ShaderUtil.anythingCompiling == false` plus 20 frames before each capture (rimA is really -0.052 at B). **Note for any future capture of a new material in the Editor: warm up first, or the placeholder shows.** It never appears in a build.
+
+## Results (separation = character mean luma minus the floor ring around the silhouette; closer to 0 / positive is better; floor luma 0.381 unchanged)
+| Variant | Player sep B | Enemy sep B | Player sep A | Enemy sep A | Telegraph lift mean / p10 (B; A is the same within 0.001) |
+|---|---|---|---|---|---|
+| orig | -0.090 | -0.114 | -0.096 | -0.123 | 0.137 / 0.048 |
+| albedo x1.2 | -0.086 | -0.110 | -0.093 | -0.123 | 0.137 / 0.048 |
+| albedo x1.4 | -0.082 | -0.115 | -0.087 | -0.122 | 0.137 / 0.048 |
+| rim 0.4 (rimC) | -0.066 | -0.093 | -0.071 | -0.098 | 0.137 / 0.048 |
+| **rim 0.8 (rimA)** | **-0.052** | **-0.079** | **-0.055** | **-0.084** | 0.137 / 0.048 |
+| rim 1.6 (rimB) | -0.037 | -0.063 | -0.038 | -0.068 | 0.137 / 0.048 |
+| x1.2 + rim 0.4 | -0.063 | -0.093 | -0.066 | -0.096 | 0.137 / 0.048 |
+| x1.2 + rim 0.8 | -0.050 | -0.080 | -0.052 | -0.084 | 0.137 / 0.048 |
+| x1.4 + rim 0.4 | -0.059 | -0.091 | -0.062 | -0.096 | 0.137 / 0.048 |
+**Findings**
+1. **Albedo lift barely helps** (player +0.004 to +0.009; enemy 0 to +0.004 even at x1.4). Not worth a texture-level change; it also risks washing out the albedo.
+2. **A warm rim helps measurably and scales with strength:** rim 0.8 improves player separation by 0.038 (B) / 0.041 (A) and enemy by 0.035 / 0.039; rim 1.6 by 0.053 / 0.058 and 0.051 / 0.055. Both cameras behave the same.
+3. **Combining adds nothing**: x1.2 + rim 0.8 (-0.050) is no better than rim 0.8 alone (-0.052); x1.4 + rim 0.4 (-0.059) is no better than rim 0.4 x2 would predict. So per your rule ("combined only if both help") the combination is **not recommended**.
+4. **Telegraph lift is unchanged (0.137 / 0.048)** in every variant: the character-only change does not touch the floor/telegraph read. (Telegraph colour on the enemy: the emission/tint feedback still works, see regression below.)
+5. Even rim 1.6 leaves the figures **darker than the floor** (-0.037 / -0.063); no variant reaches parity. A full fix needs more than a rim.
+
+## Eye judgement (my own, not a QA review; crops `Captures/char_i3b/`, zoomed comparison made from `orig/lift14/rimC/rimA/rimB/combo12A_B.png`)
+- Albedo x1.2 / x1.4: figures look essentially the same as the original; not "substantial".
+- Rim 0.4: subtle edge/plate lightening, small improvement.
+- **Rim 0.8: the armour plates and shield read lighter/silvery against the tan stone and the silhouette separates more clearly; looks like lit steel, not glowing.** This is the best balance of the tested values.
+- Rim 1.6: figures read pale/silvery overall (the fresnel covers a large share of a body this small on screen); still plausible metal, but less restrained and it flattens the dark armour accents.
+- At 8.7 % of frame height (camera B) the figures are still small; the rim improves legibility but I would not call them "substantial" yet: a clear improvement, not a solved problem.
+- No cyan/teal on the characters in the valid run (the telegraph fan is teal by design).
+
+## Saved scene state and regression check
+- Saved: **rimA copies assigned to Player and Enemy** (warm rim 0.8). This is a scene-only assignment and reversible (`VF3Builder.AssignScene("orig")`). It is my recommendation to evaluate, not a decision.
+- Regression check with the rimA materials in the moving sequence (`Reports/i3_rim_cam_{hud,sizes,perframe}.csv`, frames `Captures/strips_i3_rim/`): the camera margin minima are **identical** to iteration 2 (A 23 px, B 39 px; the harness is deterministic), 0 frames with the player out of frame; the frames show both characters with readable silhouettes, shadows present, no pink/cyan placeholder shading, no over-bright patches in dash / attack / telegraph / dodge. Whether the enemy's red telegraph tint (CharacterTintFeedback) still reads as strongly with the rim added is **UNVERIFIED** (not measured separately).
+
+## Textures / environment (item 3 of your message)
+The cleared textures were already integrated in iteration 2 Part 2 (macro value/tint, then cracks / chips / wear / joint moss, then wall layers, soot, then the Environment Artist's 8 props), one layer per capture pair; see `VF_ITERATION_2.md` Part 2. This iteration added only:
+- **Wall-layer placement fix:** the wall overlay quads were being placed at the median wall-face plane, which sits behind the protruding stone relief (x = +/-19.517); I moved them to the near-max protrusion (19.438, a 98.5th percentile of inward-facing vertices) and rebuilt. Layer on/off states restored exactly as before (L01, L02, L03c, L04c, L05, L06, L07, L08, L09, L10, L11 ON).
+- **Wall opacity test (default 0.65 / 0.80 vs boosted 0.90 / 1.00, within the note's ranges), three wall views:** raw frames `Captures/wall_i3/`. The rain streaks and wall-base moss are **still not visible at the gameplay camera** at either setting (mean luma difference 0.02 to 0.6 of 255, p99 = 0; the larger value is a damage number in one frame). I could not identify why the wall layers remain invisible; likely the lit wall face at this camera shows mostly the stone crown/relief, but I did not isolate it. I recommend dropping the wall layers from the gameplay look until the Environment Artist reviews them or someone checks the wall mapping closer than my close-ups. Wall layers remain ON in the saved scene (no visible effect, small cost).
+
+## Remaining defects / next
+1. Characters are still darker than the floor even with rim 1.6; the next lever is a character-side value change (e.g. a lighter armour albedo in the texture, or a stronger but shaped rim that follows the key light), which touches the character art and needs approval.
+2. The rim is view-based (fresnel) rather than light-based; it brightens the silhouette from every direction, so it is a stylistic choice to confirm.
+3. Wall layers: no visible effect (see above). Floor stack: see Part 2 (repetition, cost). Merging the floor passes and compression tests are still not done.
+4. Rim/lift were only tested at cameras A and B, one pose, one key light (L0). Not tested: other lighting variants, uncapped runs, build (non-Editor) rendering, SSAO, post-processing interactions.
+
+## UNVERIFIED
+Telegraph tint strength with the rim; rim on other actors/poses beyond the sequence frames; wall-layer visibility cause; any non-Editor result; QA validation of every number above.
+
+---
+# FOLLOW-UPS from the Game Director / QA (added to this report)
+
+## (1) The old camera minima (A -76, B +16): cause restated, and what is in the runner now
+**My iteration-2 explanation ("the runner never re-aimed the camera, so the run used the wrong pitch") was wrong as stated.** QA is right: the artifact run's minima sit at **frame 0, idle, with a 122-125 px player offset** (A -76 at offset 125, B +16 at offset 122), and every other phase is identical between the artifact run and the corrected run (A: idle min -76 vs 87 only because of frame 0; dodge 23 vs 23. B: dodge 39 vs 39. A2 and C idle are identical in both). `IsoCameraFollow.LateUpdate` re-aims from `offset` every frame, so the whole run was never at a wrong pitch.
+**What I can now show by experiment (`Reports/i3_frame0_experiment.txt`, harness `frame0.cs`):** a config change that alters the pitch, applied in the same frame as the first measurement, gives a stale-rotation sample before the first `LateUpdate` has re-aimed the camera: without the explicit re-aim the player offset reads **172 px in the same frame and 50 px from the next frame on**; with the explicit re-aim in `SetConfig` it reads 50 px from the very first frame. A control with the same pitch change (B to A2) shows the same effect (162 vs 45 px, and 47/47 with the re-aim). It also explains why only A (first config, pitch B to A) and B (pitch A2 to B) showed the transient while A2 (same pitch as A) and C (same as B) did not. So the cause is a **one-frame measurement transient (a sample taken before `LateUpdate` re-aimed)**, reproduced; I have not proven it was the *only* difference between the two runs, but all differing numbers are explained by it (frame 0) or by the run-to-run variation below.
+**In the runner now:** (a) `SetConfig` / `ApplyConfig` set the camera rotation explicitly (added at iteration 2); (b) **new:** a 2-frame settle (`yield return null` x2) after each config change in `VFRunner.RunCfgs` and at the start of `ArtTestSequenceRunner.RunAll`, so frame 0 is logged only after `LateUpdate` has run. Re-run with the settle (`Reports/i3_settle_cam_*.csv`): frame-0 offset is 1 px for all four configs; minima A 23, B 39, C 130 unchanged.
+**Run-to-run variation in the dodge phase (new finding):** the same run with the settle gave **A2 +53 (iteration-2 run: +72; iteration 1 also reported +53) and C +130 (iteration-2 run +130; the artifact run +147)**. Why C's dodge phase was 147 px in the artifact run but 130 px in the corrected one: the two runs diverge from the **attack phase** onward (C first differs at frame 139, 42 differing frames, all of them in attack and later; earlier phases are identical), so the player starts the dodge dash from a slightly different position/offset (65 px in the artifact run vs 53 px in the corrected run at the minimum frame, same speed 22 m/s, same frame). The same attack-phase divergence is visible in A2 and B between the iteration-2 run and today's re-run (first differing frame 117, phase attack, positions differ by 1-6 px). The cause of the nondeterminism in the attack phase (animation/lunge, physics or enemy AI timing under the Editor) is **not isolated**. Practical consequence: **the dodge-dash minimum is a range, not a single number: A +23, A2 +53 to +72, B +39, C +130 to +147** (A and B reproduced exactly in every run after the fix, A2 and C varied). The recommendation ordering (A2 over B) is unchanged, but treat A2 as "+53 to +72".
+
+## (2) F2's gain is a darker floor, not a brighter character
+From `Reports/i2_light.csv` (camera B): player luma **0.334 (L0) vs 0.332 (F2)**, enemy luma 0.307 vs 0.307, while the floor at the player went **0.422 to 0.406** and at the enemy 0.421 to 0.405. So F2's improved separation (-0.087 to -0.074 player) comes from the floor being 0.016 darker, not from the characters getting brighter, and the iteration-2 sentence "the only variant that improves player separation" should be read that way (correction applied in `VF_ITERATION_2.md`).
+
+## (3) Recompute evidence stored
+`Captures/evidence_i3/` (34 MB) holds, for each variant at cameras B and A (`orig`, `rimA`, `rimB`, `lightrim14`, `lightrim6`): three full-frame mask PNGs (`floorMask`, `silPlayer`, `silEnemy`, tiny) and three frames cropped to the mask bounding box (`A_actors_telegraphOff` = actors with the telegraph hidden, `F_floorOnly`, `FT_floorPlusTelegraph`) plus `_crop.json`. `Reports/i3_recompute.py` (PIL only) recomputes floor luma, player/enemy separation and telegraph lift from these files with the same strides/thresholds as the Unity code; **verified: it reproduces the logged values exactly for orig_B, rimA_B, rimB_B, rimB_A and lightrim14_A** (floor 0.381, seps and lift to 3 decimals). The Unity side is `VFRunner.saveEvidence` (new). **Not stored:** the iteration-2 lighting variants and the iteration-3 lift/combo variants (they were not recorded with this option; they can be regenerated by re-running them with `saveEvidence`). Note on run-to-run noise: the enemy separation for rimA at B was -0.079 in the first run and -0.067 in this one (player -0.052 / -0.053); I did not isolate the reason, so treat the enemy numbers as about +/-0.012.
+
+## (4) Why the rim light failed (read-only investigation, no shared asset changed)
+**Cause found: I set the wrong property.** `PC_RPAsset.asset` has `m_SupportsLightLayers: 1` (confirmed) and the project has 8 rendering layers. URP's forward lights take their layer mask from **`UniversalAdditionalLightData.renderingLayers`** (`ForwardLights.cs:699`), not from `Light.renderingLayerMask`; the core property is only the shadow-culling mask that URP writes itself (`SyncLightAndShadowLayers`). My iteration-2 test wrote only `Light.renderingLayerMask = 2`, so the URP data stayed at its default (Default layer = bit 0), and the floor (renderer mask 1, bit 0) was lit. All floor, wall and character renderers have `renderingLayerMask = 1`; the key light's URP layers = 1.
+Direct test (`lightlayers.cs`, runtime-created spot light, nothing saved, brightness = mean luma of a patch, torso and floor patch next to the player):
+| Case | floor patch next to player | player torso |
+|---|---|---|
+| no light | 0.422 | 0.434 |
+| URP layers = Default | 0.565 (lit) | 0.526 |
+| **iteration-2 method (only Light.renderingLayerMask = 2)** | **0.565 (floor lit: the failure)** | 0.527 |
+| **URP layers = 2, characters bit0 + bit1, floor bit0** | **0.422 (floor unlit)** | **0.526 (lit)** |
+| URP layers = 2, characters bit0 only (negative control) | 0.422 | 0.430 |
+| URP layers = 8 (nobody has it) | 0.422 | 0.428 |
+**So per-light rendering layers work with the existing shared URP asset and renderer; no renderer change is needed.** What blocked it was my test, not the pipeline. I had labelled the (a) test a failure caused by the renderer; that claim is **withdrawn**.
+Retest of test (a) with the correct API (spot lights behind/above each character, URP layers 2, character renderers bit0 + bit1, intensity 14 and 6, warm white, orig materials): floor luma at the player unchanged (0.409 / floor mean 0.381), telegraph lift unchanged (0.137 / 0.048); player separation -0.090 to **-0.081 (14) / -0.087 (6)** at B and -0.097 to -0.088 / -0.091 at A; enemy -0.114 to -0.111 / -0.113 (B). The layer-masked light rim works as designed but gives **much less than the material fresnel rim** (rim 0.8: -0.053 player, -0.067 enemy at B) at these simple settings; spot placement/cone were not tuned. Both are art-test-only and reversible; the choice is a stylistic one for the CD (a light-based rim follows the key/placement and can be restricted to the actors; the material rim is view-based). Raw rows: `Reports/i3_evidence_rows.csv`, frames `Captures/char_i3_evidence_frames/`.
+
+## (5) Script history
+Dated copies of every art-test script now exist in `Assets/ArtTest/VisualFoundation/Scripts/_history/` (`<name>_<yyyymmdd_hhmm>_<note>.cs.txt`, saved before each edit from now on). **They start from the state before this follow-up edit (24 files, all art-test scripts as of today).** Earlier versions (e.g. the 14:17 and 14:42 edits of `ArtTestSequenceRunner.cs` QA mentions) were not copied at the time, so they are not recoverable except from my notes: those edits were (14:17) the first version of the sequence runner with the 8-direction/dash/edge/far-chase sequences and perf sampling, and (14:42) the iteration-2 fixes: per-frame log (`..._perframe.csv`), `noShots`, explicit camera re-aim in `ApplyConfig`, and `ForceInput` (Input System background-behaviour override). Edits made in this follow-up: `VFRunner.cs` (evidence saving, rim light now sets `UniversalAdditionalLightData.renderingLayers`, 2-frame settle after a config change) and `ArtTestSequenceRunner.cs` (2-frame settle at the start of `RunAll`); both copied first.
+
+## State and safety
+Editor not in Play Mode; VF scene saved (rimA copies on both actors, 11 environment layers, key (38, 45, 0), camera B, focus helper OFF). SHA-256 of the four Unity-generated files and `ArtTest_TempleCourtyard.unity`: **identical to the start of iteration 3** (checked again after all follow-up runs). `Assets/Scripts`: no diff. No shared asset, renderer feature or ProjectSettings changed (the investigation used runtime-created lights and read-only queries). No stage/commit/push.
+
+
+---
+# Addendum (after Batch 1): iteration 3 resumed, regression check
+
+No character-material run was in progress; iteration 3 had finished (rim 0.8 best, albedo lift rejected, further gains need a character-side albedo texture change, which needs approval). I resumed it by re-checking the saved decision against the Batch 1 scene: the rim 0.8 copies (`VF3_Player_rimA`, `VF3_Enemy_rimA`) are still assigned to the actors in `ArtTest_VisualFoundation.unity`, and character separation at camera B with the real Batch 1 models (all facade/pylon/ruin lights and shadows on) is player -0.052, enemy -0.073..-0.080, against iteration 3's rim 0.8 values -0.052 / -0.079 (original materials: -0.090 / -0.114). Within the +-0.012 run-to-run noise: no regression from the batch. Telegraph lift 0.137, floor luma 0.381 unchanged. The pylon flame lights (warm, range 6) do not change separation at the arena centre; near the dais the characters stand in warm light, not measured separately. Details of the Batch 1 integration, fog, collisions and near-black measurement are in `VF_BATCH1_INTEGRATION.md` Parts 2-4.
+Open: character albedo texture lift (approval needed); enemy-separation run-to-run variance (about 0.012) still not isolated.
+
+
+---
+# Final re-run with the saved Batch 1 configuration (Director item 3)
+
+Saved configuration: 15 bays (the two arch-side bays B1_WallTall_B_N-06 and B1_WallTall_B_N+14 removed, about 8 m clear at the arch), north bays cast OFF, west bays + 6 pylons (scale 1.25) + 3 ruins cast ON (19 casting renderers), hand-placed ruin colliders, backdrop at table positions, scene fog 26-70 unchanged, rim 0.8 character copies. Camera B and A2, 1920x1080, six positions, raw frames in `Captures/batch1/final/{before,final}_{B,A2}_{centre,north,west,dais,arch,edge}.png`, sheets `sheets/final_B_*.png`; metrics `b1_metrics_final.csv`, `b1_stats_final.csv` (Editor-only).
+| | before | final |
+|---|---|---|
+| floor luma B / A2 | 0.381 / 0.381 | 0.381 / 0.381 |
+| telegraph lift B | 0.137 | 0.137 |
+| telegraph lift A2 | 0.139 | 0.139 |
+| player separation B / A2 | -0.052 / -0.054 | -0.053 / -0.055 |
+| enemy separation B / A2 | -0.059* / -0.085 | -0.080 / -0.086 |
+*The B "before" enemy reading is -0.059 here but -0.073/-0.076 in earlier before-runs: the known enemy run-to-run variance (about 0.012-0.017, not isolated). Against the usual -0.073/-0.076 the final reading is about 0.005-0.007 worse, inside that noise; against this run's -0.059 it is 0.021 worse, which is NOT inside it, so I cannot clear "separation must not worsen" for the enemy at B on this evidence. Player separation and both A2 values do not worsen. Telegraph lift: no change (limit 0.005): PASS.
+Stats per position at B (before -> final): draw calls centre 1388->1428, north 931->996, west 953->1032, dais 1161->1238, arch 1142->1186, edge 884->895; casters 803->833, 508->547, 490->539, 630->677, 673->705, 511->518; SetPass 66-76 -> 70-77 (+0..+6); triangles +0.1..+0.64 M. Largest draw-call delta +79 (west).
+The earlier -0.019/-0.040 lift/separation figures at the west poses (WEST mode = north off) are unchanged by this run; they were taken with the same shadow plan.
+Visual check (dais, arch, edge, B): arch reads cleanly with the 8 m gap; pylons flank the stairs and arch; no shadow artifacts seen; the edge pose is unchanged (the dark outer ground, see Batch 1 Part 4). Removal is reversible: `VF5Builder.RemoveArchBays = false` then `VF5Builder.BuildReal(0,0,0,1.25f,true)`; the Environment Artist's placement table and files were not edited.

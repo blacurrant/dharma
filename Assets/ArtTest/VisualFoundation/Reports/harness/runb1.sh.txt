@@ -1,0 +1,8 @@
+#!/bin/bash
+# usage: runb1.sh <script.cs>
+source /Users/landerstudio/.hermes/profiles/unity-engineer/cache/scratch/ue.sh
+S=/Users/landerstudio/.hermes/profiles/unity-engineer/cache/scratch
+unity command editor focus --result-only >/dev/null 2>&1; play start >/dev/null; sleep 12
+ue "$(cat $S/$1)" 120 | head -c 300
+for i in $(seq 1 100); do sleep 5; st=$(ue 'return VFRunner.I.status+" done="+VFRunner.I.done;' 2>&1 | head -c 100); case "$st" in *"stack done"*) break;; esac; done
+echo "RUN $1: $st"; play stop >/dev/null

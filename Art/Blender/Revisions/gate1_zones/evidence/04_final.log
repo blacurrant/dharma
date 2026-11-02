@@ -1,0 +1,12 @@
+00:00.672  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/bake_out/TempleEnvironmentKit_gate1_bake_test.blend"
+00:00.819  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+T {"BaseColor": {"shape": [1024, 1024, 4], "mean_abs_diff": 6e-05, "p99_abs_diff": 0.0039, "max_abs_diff": 0.3098, "prod_mean": [0.3038, 0.2265, 0.1333], "gate1_mean": [0.3038, 0.2265, 0.1333]}, "Normal": {"shape": [1024, 1024, 4], "mean_abs_diff": 0.00025, "p99_abs_diff": 0.0039, "max_abs_diff": 0.0235, "prod_mean": [0.5003, 0.5003, 0.9996], "gate1_mean": [0.5003, 0.5003, 0.9996]}, "Mask": {"shape": [1024, 1024, 4], "mean_abs_diff": 0.00015, "p99_abs_diff": 0.0, "max_abs_diff": 0.2471, "prod_mean": [0.3627, 0.4249, 0.0], "gate1_mean": [0.3627, 0.4249, 0.0], "alpha_mean_abs_diff": 6e-05}, "Emission": {"shape": [1024, 1024, 4], "mean_abs_diff": 0.0, "p99_abs_diff": 0.0, "max_abs_diff": 0.0039, "prod_mean": [0.0819, 0.0324, 0.0051], "gate1_mean": [0.0819, 0.0324, 0.0051]}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/bake_out/Models/ENV_Temple_Brazier_A.fbx'
+export finished in 0.0201 sec.
+X {"X_fbx_gate1": {"bytes": 606348, "fbx_version": 7400, "textures": [["ENV_Temple_Brazier_A_BaseColor.png", true], ["ENV_Temple_Brazier_A_Emission.png", true], ["ENV_Temple_Brazier_A_Normal.png", true]], "materials": ["MI_Temple_Brazier_A"], "UpAxis": 1, "UnitScaleFactor": 100.0, "vertex_min": [-0.525, 0.0, -0.521], "vertex_max": [0.527, 1.339, 0.527], "polys": 6082, "model_transform": {"Lcl Translation": null, "Lcl Rotation": null, "Lcl Scaling": null}}, "X_fbx_production": {"bytes": 606188, "fbx_version": 7400, "textures": [["ENV_Temple_Brazier_A_BaseColor.png", true], ["ENV_Temple_Brazier_A_Emission.png", true], ["ENV_Temple_Brazier_A_Normal.png", true]], "materials": ["MI_Temple_Brazier_A"], "UpAxis": 1, "UnitScaleFactor": 100.0, "vertex_min": [-0.525, 0.0, -0.521], "vertex_max": [0.527, 1.339, 0.527], "polys": 6082, "model_transform": {"Lcl Translation": null, "Lcl Rotation": null, "Lcl Scaling": null}}, "X_identical_geometry_extents": true, "X_zone_in_fbx_bytes": false}
+R all_have_zone_id True parts 23
+FINAL_DONE
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

@@ -1,0 +1,80 @@
+00:00.252  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_Floor_A_verify.blend"
+COMPARE ENV_Temple_Floor_A POSTHOC(1.4) agreement 1.0 {'stone': 1.0} confusion {"stone": {"stone": 1632}}
+COMPARE ENV_Temple_Floor_A sanity True | a-priori shipped-class agreement 1.0 {'stone': 1.0} | assessed 1632 excluded 192
+COMPARE ENV_Temple_Floor_A TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_Floor_A face-disagreement breakdown {"disagreeing_faces": 0, "median_uv_area_px2_disagreeing": null, "median_uv_area_px2_all_assessed": 49.3, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0, "centroid_texel_raster_empty_or_edge": 0, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0}
+   ZONE StoneWarm {'texels': 597619, 'faces': 1824, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 3e-05, 'Normal': 0.00072, 'Mask': 0.00036}
+   GLOBAL BaseColor {'mean_abs_diff': 2.8e-05, 'p99': 0.0, 'max': 0.0314, 'texels_gt_0_1': 0} {}
+   GLOBAL Normal {'mean_abs_diff': 0.000458, 'p99': 0.0039, 'max': 0.0078, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.000257, 'p99': 0.0078, 'max': 0.1882, 'texels_gt_0_1': 8} {'outside_or_edge': 3, 'StoneWarm': 5}
+00:00.580  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_Floor_B_verify.blend"
+COMPARE ENV_Temple_Floor_B POSTHOC(1.4) agreement 1.0 {'stone': 1.0} confusion {"stone": {"stone": 1224}}
+COMPARE ENV_Temple_Floor_B sanity True | a-priori shipped-class agreement 1.0 {'stone': 1.0} | assessed 1224 excluded 48
+COMPARE ENV_Temple_Floor_B TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_Floor_B face-disagreement breakdown {"disagreeing_faces": 0, "median_uv_area_px2_disagreeing": null, "median_uv_area_px2_all_assessed": 25.56, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0, "centroid_texel_raster_empty_or_edge": 0, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0}
+   ZONE StoneWarm {'texels': 424503, 'faces': 1272, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 3e-05, 'Normal': 0.0007, 'Mask': 0.00023}
+   GLOBAL BaseColor {'mean_abs_diff': 2.1e-05, 'p99': 0.0, 'max': 0.0588, 'texels_gt_0_1': 0} {}
+   GLOBAL Normal {'mean_abs_diff': 0.00031, 'p99': 0.0039, 'max': 0.0078, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.000132, 'p99': 0.0, 'max': 0.4667, 'texels_gt_0_1': 17} {'outside_or_edge': 16, 'StoneWarm': 1}
+00:00.858  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_Floor_C_verify.blend"
+COMPARE ENV_Temple_Floor_C POSTHOC(1.4) agreement 1.0 {'stone': 1.0} confusion {"stone": {"stone": 1664}}
+COMPARE ENV_Temple_Floor_C sanity True | a-priori shipped-class agreement 1.0 {'stone': 1.0} | assessed 1664 excluded 96
+COMPARE ENV_Temple_Floor_C TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_Floor_C face-disagreement breakdown {"disagreeing_faces": 0, "median_uv_area_px2_disagreeing": null, "median_uv_area_px2_all_assessed": 49.24, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0, "centroid_texel_raster_empty_or_edge": 0, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0}
+   ZONE StoneWarm {'texels': 520126, 'faces': 1760, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 3e-05, 'Normal': 0.00075, 'Mask': 0.0003}
+   GLOBAL BaseColor {'mean_abs_diff': 3.5e-05, 'p99': 0.0, 'max': 0.051, 'texels_gt_0_1': 0} {}
+   GLOBAL Normal {'mean_abs_diff': 0.000417, 'p99': 0.0039, 'max': 0.0078, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.000198, 'p99': 0.0039, 'max': 0.0627, 'texels_gt_0_1': 0} {}
+00:01.143  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_Floor_D_verify.blend"
+COMPARE ENV_Temple_Floor_D POSTHOC(1.4) agreement 1.0 {'stone': 1.0} confusion {"stone": {"stone": 1440}}
+COMPARE ENV_Temple_Floor_D sanity True | a-priori shipped-class agreement 1.0 {'stone': 1.0} | assessed 1440 excluded 192
+COMPARE ENV_Temple_Floor_D TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_Floor_D face-disagreement breakdown {"disagreeing_faces": 0, "median_uv_area_px2_disagreeing": null, "median_uv_area_px2_all_assessed": 75.04, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0, "centroid_texel_raster_empty_or_edge": 0, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0}
+   ZONE StoneWarm {'texels': 645534, 'faces': 1632, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 3e-05, 'Normal': 0.00086, 'Mask': 0.0004}
+   GLOBAL BaseColor {'mean_abs_diff': 2.4e-05, 'p99': 0.0, 'max': 0.0353, 'texels_gt_0_1': 0} {}
+   GLOBAL Normal {'mean_abs_diff': 0.00059, 'p99': 0.0039, 'max': 0.0078, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.000303, 'p99': 0.0078, 'max': 0.1255, 'texels_gt_0_1': 3} {'StoneWarm': 3}
+00:01.446  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_FloorBorder_Corner_A_verify.blend"
+COMPARE ENV_Temple_FloorBorder_Corner_A POSTHOC(1.4) agreement 0.9921 {'stone': 1.0, 'metal': 0.9357} confusion {"stone": {"stone": 7392}, "metal": {"metal": 975, "stone": 67}}
+COMPARE ENV_Temple_FloorBorder_Corner_A sanity True | a-priori shipped-class agreement 0.9921 {'stone': 1.0, 'metal': 0.9357} | assessed 8434 excluded 88
+COMPARE ENV_Temple_FloorBorder_Corner_A TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0, 'Bronze': 1.0, 'Gold': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_FloorBorder_Corner_A face-disagreement breakdown {"disagreeing_faces": 67, "median_uv_area_px2_disagreeing": 10.63, "median_uv_area_px2_all_assessed": 51.9, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 67, "centroid_texel_raster_empty_or_edge": 27, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 40}
+   ZONE StoneWarm {'texels': 1928702, 'faces': 7392, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 7e-05, 'Normal': 0.00107, 'Mask': 0.00063}
+   ZONE Bronze {'texels': 19307, 'faces': 1024, 'shipped_metallic_mean': 0.7844, 'rebake_metallic_mean': 0.7844} {'BaseColor': 0.00061, 'Normal': 0.00057, 'Mask': 0.00178}
+   ZONE Gold {'texels': 29624, 'faces': 106, 'shipped_metallic_mean': 1.0, 'rebake_metallic_mean': 1.0} {'BaseColor': 0.00012, 'Normal': 0.00035, 'Mask': 1e-05}
+   GLOBAL BaseColor {'mean_abs_diff': 5.7e-05, 'p99': 0.0039, 'max': 0.2471, 'texels_gt_0_1': 5} {'outside_or_edge': 4, 'Bronze': 1}
+   GLOBAL Normal {'mean_abs_diff': 0.000574, 'p99': 0.0039, 'max': 0.0118, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.000417, 'p99': 0.0157, 'max': 0.5294, 'texels_gt_0_1': 119} {'outside_or_edge': 68, 'StoneWarm': 16, 'Bronze': 35}
+00:02.639  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_FloorBorder_Straight_A_verify.blend"
+COMPARE ENV_Temple_FloorBorder_Straight_A POSTHOC(1.4) agreement 1.0 {'stone': 1.0, 'metal': 1.0} confusion {"stone": {"stone": 4392}, "metal": {"metal": 387}}
+COMPARE ENV_Temple_FloorBorder_Straight_A sanity True | a-priori shipped-class agreement 1.0 {'stone': 1.0, 'metal': 1.0} | assessed 4779 excluded 2765
+COMPARE ENV_Temple_FloorBorder_Straight_A TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0, 'Bronze': 1.0, 'Gold': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_FloorBorder_Straight_A face-disagreement breakdown {"disagreeing_faces": 0, "median_uv_area_px2_disagreeing": null, "median_uv_area_px2_all_assessed": 26.05, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0, "centroid_texel_raster_empty_or_edge": 0, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0}
+   ZONE StoneWarm {'texels': 573909, 'faces': 6816, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 0.0001, 'Normal': 0.00071, 'Mask': 0.0004}
+   ZONE Bronze {'texels': 12041, 'faces': 652, 'shipped_metallic_mean': 0.8002, 'rebake_metallic_mean': 0.8002} {'BaseColor': 0.00226, 'Normal': 0.00029, 'Mask': 0.00223}
+   ZONE Gold {'texels': 2738, 'faces': 76, 'shipped_metallic_mean': 1.0, 'rebake_metallic_mean': 1.0} {'BaseColor': 0.00339, 'Normal': 0.00021, 'Mask': 1e-05}
+   GLOBAL BaseColor {'mean_abs_diff': 0.000139, 'p99': 0.0039, 'max': 0.1294, 'texels_gt_0_1': 7} {'outside_or_edge': 1, 'StoneWarm': 3, 'Bronze': 3}
+   GLOBAL Normal {'mean_abs_diff': 0.000453, 'p99': 0.0039, 'max': 0.0078, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.00034, 'p99': 0.0078, 'max': 0.3725, 'texels_gt_0_1': 6} {'Bronze': 6}
+00:03.038  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_Platform_A_verify.blend"
+COMPARE ENV_Temple_Platform_A POSTHOC(1.4) agreement 1.0 {'stone': 1.0} confusion {"stone": {"stone": 15664}}
+COMPARE ENV_Temple_Platform_A sanity True | a-priori shipped-class agreement 1.0 {'stone': 1.0} | assessed 15664 excluded 10244
+COMPARE ENV_Temple_Platform_A TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_Platform_A face-disagreement breakdown {"disagreeing_faces": 0, "median_uv_area_px2_disagreeing": null, "median_uv_area_px2_all_assessed": 51.53, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0, "centroid_texel_raster_empty_or_edge": 0, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0}
+   ZONE StoneWarm {'texels': 2857291, 'faces': 25908, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 0.00021, 'Normal': 0.00079, 'Mask': 0.00041}
+   GLOBAL BaseColor {'mean_abs_diff': 0.000193, 'p99': 0.0039, 'max': 0.2314, 'texels_gt_0_1': 11} {'outside_or_edge': 2, 'StoneWarm': 9}
+   GLOBAL Normal {'mean_abs_diff': 0.000575, 'p99': 0.0039, 'max': 0.0118, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.000325, 'p99': 0.0078, 'max': 0.2196, 'texels_gt_0_1': 3} {'StoneWarm': 3}
+00:04.126  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_Stairs_A_verify.blend"
+COMPARE ENV_Temple_Stairs_A POSTHOC(1.4) agreement 1.0 {'stone': 1.0} confusion {"stone": {"stone": 9888}}
+COMPARE ENV_Temple_Stairs_A sanity True | a-priori shipped-class agreement 1.0 {'stone': 1.0} | assessed 9888 excluded 1600
+COMPARE ENV_Temple_Stairs_A TEXEL-level agreement (shipped, posthoc 1.4) 1.0 {'StoneWarm': 1.0} | a-priori 2.5: 1.0 | rebake: 1.0
+COMPARE ENV_Temple_Stairs_A face-disagreement breakdown {"disagreeing_faces": 0, "median_uv_area_px2_disagreeing": null, "median_uv_area_px2_all_assessed": 49.33, "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0, "centroid_texel_raster_empty_or_edge": 0, "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0, "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0}
+   ZONE StoneWarm {'texels': 3008427, 'faces': 11488, 'shipped_metallic_mean': 0.0, 'rebake_metallic_mean': 0.0} {'BaseColor': 0.00013, 'Normal': 0.00137, 'Mask': 0.00105}
+   GLOBAL BaseColor {'mean_abs_diff': 0.000168, 'p99': 0.0039, 'max': 0.2314, 'texels_gt_0_1': 22} {'outside_or_edge': 20, 'StoneWarm': 2}
+   GLOBAL Normal {'mean_abs_diff': 0.0011, 'p99': 0.0039, 'max': 0.0157, 'texels_gt_0_1': 0} {}
+   GLOBAL Mask {'mean_abs_diff': 0.000912, 'p99': 0.0314, 'max': 0.6235, 'texels_gt_0_1': 117} {'outside_or_edge': 95, 'StoneWarm': 22}
+COMPARE_DONE
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

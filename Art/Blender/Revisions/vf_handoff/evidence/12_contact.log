@@ -1,0 +1,18 @@
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/12_contact_sheets.py:30: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/12_contact_sheets.py:47: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+00:13.890  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_floor.png'
+SHEET /Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_floor.png 2280 5000
+00:25.919  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_weather.png'
+SHEET /Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_weather.png 2280 5000
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/12_contact_sheets.py:152: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new('im'); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/12_contact_sheets.py:164: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bb = bpy.data.materials.new('bd'); bb.use_nodes = True; bb.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (0.0, 0.0, 0.0, 1)
+00:34.979  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_courtyard.png'
+SHEET /Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_courtyard.png 2223 4818
+SHEETS_DONE
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

@@ -1,0 +1,853 @@
+{
+ "asset": "ENV_Temple_Banner_A",
+ "sanity_mask_nonColor_mean_ge_sRGB_mean": true,
+ "res": 1024,
+ "faces": 5774,
+ "maps": [
+  "BaseColor",
+  "Normal",
+  "Mask"
+ ],
+ "per_zone_regions": {
+  "Bronze": {
+   "texels": 54826,
+   "faces": 916,
+   "BaseColor": {
+    "mean_abs_diff": 0.0005,
+    "frac_texels_gt_0_1": 4e-05
+   },
+   "Normal": {
+    "mean_abs_diff": 0.001,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Mask": {
+    "mean_abs_diff": 0.00139,
+    "frac_texels_gt_0_1": 0.00139
+   },
+   "shipped_albedo_R_over_GplusB_p5_p50_p95": [
+    0.834,
+    0.914,
+    0.934
+   ],
+   "shipped_metallic_mean": 0.9042,
+   "rebake_metallic_mean": 0.9043,
+   "shipped_roughness_mean": 0.4559,
+   "rebake_roughness_mean": 0.4559
+  },
+  "Gold": {
+   "texels": 43916,
+   "faces": 652,
+   "BaseColor": {
+    "mean_abs_diff": 0.00035,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Normal": {
+    "mean_abs_diff": 0.00071,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Mask": {
+    "mean_abs_diff": 0.00023,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "shipped_albedo_R_over_GplusB_p5_p50_p95": [
+    0.751,
+    0.858,
+    0.909
+   ],
+   "shipped_metallic_mean": 1.0,
+   "rebake_metallic_mean": 1.0,
+   "shipped_roughness_mean": 0.4041,
+   "rebake_roughness_mean": 0.4041
+  },
+  "CrimsonCloth": {
+   "texels": 917715,
+   "faces": 4206,
+   "BaseColor": {
+    "mean_abs_diff": 6e-05,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Normal": {
+    "mean_abs_diff": 0.00063,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "Mask": {
+    "mean_abs_diff": 0.00023,
+    "frac_texels_gt_0_1": 0.0
+   },
+   "shipped_albedo_R_over_GplusB_p5_p50_p95": [
+    1.958,
+    1.999,
+    2.022
+   ],
+   "shipped_metallic_mean": 0.0,
+   "rebake_metallic_mean": 0.0,
+   "shipped_roughness_mean": 0.82,
+   "rebake_roughness_mean": 0.82
+  }
+ },
+ "raster_unclassified_texels": 32119,
+ "global_diff": {
+  "BaseColor": {
+   "mean_abs_diff": 0.000121,
+   "p99": 0.0039,
+   "max": 0.2471,
+   "texels_gt_0_1": 139,
+   "frac_gt_0_1": 0.000133,
+   "outliers_by_zone_region": {
+    "outside_or_edge": 137,
+    "Bronze": 2
+   },
+   "top_outliers": [
+    {
+     "x": 1016,
+     "y": 233,
+     "diff": 0.2471,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.4235,
+      0.2431,
+      0.1451,
+      1.0
+     ],
+     "rebake": [
+      0.6431,
+      0.4902,
+      0.2745,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 3
+    },
+    {
+     "x": 1016,
+     "y": 128,
+     "diff": 0.2392,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.4235,
+      0.2431,
+      0.1451,
+      1.0
+     ],
+     "rebake": [
+      0.6392,
+      0.4824,
+      0.2706,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 1000,
+     "y": 286,
+     "diff": 0.2392,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.4784,
+      0.2588,
+      0.1569,
+      1.0
+     ],
+     "rebake": [
+      0.6667,
+      0.498,
+      0.2824,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 3
+    },
+    {
+     "x": 1000,
+     "y": 360,
+     "diff": 0.2392,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.4706,
+      0.2549,
+      0.1569,
+      1.0
+     ],
+     "rebake": [
+      0.6627,
+      0.4941,
+      0.2824,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 1016,
+     "y": 142,
+     "diff": 0.2392,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.6353,
+      0.4824,
+      0.2706,
+      1.0
+     ],
+     "rebake": [
+      0.4235,
+      0.2431,
+      0.1451,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 1000,
+     "y": 44,
+     "diff": 0.2392,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.4784,
+      0.2588,
+      0.1569,
+      1.0
+     ],
+     "rebake": [
+      0.6667,
+      0.498,
+      0.2863,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 1016,
+     "y": 127,
+     "diff": 0.2392,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.4235,
+      0.2431,
+      0.1412,
+      1.0
+     ],
+     "rebake": [
+      0.6392,
+      0.4824,
+      0.2706,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 1000,
+     "y": 361,
+     "diff": 0.2353,
+     "raster_zone": "outside_or_edge",
+     "shipped": [
+      0.4706,
+      0.2549,
+      0.1569,
+      1.0
+     ],
+     "rebake": [
+      0.6588,
+      0.4902,
+      0.2824,
+      1.0
+     ],
+     "faces_containing_texel": [],
+     "faces_bbox_covering_texel": 2
+    }
+   ]
+  },
+  "Normal": {
+   "mean_abs_diff": 0.000656,
+   "p99": 0.0039,
+   "max": 0.0078,
+   "texels_gt_0_1": 0,
+   "frac_gt_0_1": 0.0,
+   "outliers_by_zone_region": {},
+   "top_outliers": [
+    {
+     "x": 382,
+     "y": 658,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.502,
+      0.5804,
+      0.9922,
+      1.0
+     ],
+     "rebake": [
+      0.4941,
+      0.5765,
+      0.9922,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 5479,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 60,
+     "y": 253,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.4549,
+      0.4941,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.4549,
+      0.502,
+      0.9961,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 3448,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 358,
+     "y": 452,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.4941,
+      0.4314,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.502,
+      0.4314,
+      0.9961,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 3507,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 393,
+     "y": 851,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.502,
+      0.5059,
+      1.0,
+      1.0
+     ],
+     "rebake": [
+      0.4941,
+      0.5059,
+      1.0,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 4400,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 698,
+     "y": 877,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.4784,
+      0.502,
+      1.0,
+      1.0
+     ],
+     "rebake": [
+      0.4745,
+      0.4941,
+      1.0,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 4840,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 407,
+     "y": 946,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.502,
+      0.4588,
+      1.0,
+      1.0
+     ],
+     "rebake": [
+      0.4941,
+      0.4588,
+      1.0,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 3231,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 542,
+     "y": 29,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.4745,
+      0.502,
+      1.0,
+      1.0
+     ],
+     "rebake": [
+      0.4745,
+      0.4941,
+      1.0,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 5013,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 535,
+     "y": 786,
+     "diff": 0.0078,
+     "raster_zone": "CrimsonCloth",
+     "shipped": [
+      0.4941,
+      0.5647,
+      0.9961,
+      1.0
+     ],
+     "rebake": [
+      0.502,
+      0.5647,
+      0.9961,
+      1.0
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 3637,
+       "zone": "CrimsonCloth"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    }
+   ]
+  },
+  "Mask": {
+   "mean_abs_diff": 0.000305,
+   "p99": 0.0078,
+   "max": 0.4549,
+   "texels_gt_0_1": 76,
+   "frac_gt_0_1": 7.2e-05,
+   "outliers_by_zone_region": {
+    "Bronze": 76
+   },
+   "top_outliers": [
+    {
+     "x": 932,
+     "y": 457,
+     "diff": 0.4549,
+     "raster_zone": "Bronze",
+     "shipped": [
+      1.0,
+      1.0,
+      0.0,
+      0.5882
+     ],
+     "rebake": [
+      0.5451,
+      1.0,
+      0.0,
+      0.3843
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 101,
+       "zone": "Bronze"
+      },
+      {
+       "face": 278,
+       "zone": "Bronze"
+      },
+      {
+       "face": 463,
+       "zone": "Bronze"
+      },
+      {
+       "face": 596,
+       "zone": "Bronze"
+      },
+      {
+       "face": 809,
+       "zone": "Bronze"
+      },
+      {
+       "face": 885,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 6
+    },
+    {
+     "x": 933,
+     "y": 690,
+     "diff": 0.3686,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.4549,
+      0.1255,
+      0.0,
+      0.3294
+     ],
+     "rebake": [
+      0.8235,
+      0.4078,
+      0.0,
+      0.3804
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 157,
+       "zone": "Bronze"
+      },
+      {
+       "face": 370,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 935,
+     "y": 689,
+     "diff": 0.251,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.4745,
+      0.251,
+      0.0,
+      0.349
+     ],
+     "rebake": [
+      0.7255,
+      0.4078,
+      0.0,
+      0.3647
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 157,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 933,
+     "y": 691,
+     "diff": 0.2196,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.451,
+      0.0627,
+      0.0,
+      0.2745
+     ],
+     "rebake": [
+      0.5725,
+      0.2824,
+      0.0,
+      0.3255
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 157,
+       "zone": "Bronze"
+      },
+      {
+       "face": 370,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 950,
+     "y": 790,
+     "diff": 0.2196,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.451,
+      0.3451,
+      0.0,
+      0.3451
+     ],
+     "rebake": [
+      0.451,
+      0.1255,
+      0.0,
+      0.2784
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 139,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 948,
+     "y": 789,
+     "diff": 0.1882,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.6,
+      0.251,
+      0.0,
+      0.4314
+     ],
+     "rebake": [
+      0.4745,
+      0.0627,
+      0.0,
+      0.3294
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 139,
+       "zone": "Bronze"
+      },
+      {
+       "face": 328,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 933,
+     "y": 692,
+     "diff": 0.1569,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.451,
+      0.0627,
+      0.0,
+      0.298
+     ],
+     "rebake": [
+      0.5725,
+      0.2196,
+      0.0,
+      0.3294
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 370,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    },
+    {
+     "x": 943,
+     "y": 786,
+     "diff": 0.1569,
+     "raster_zone": "Bronze",
+     "shipped": [
+      0.949,
+      0.7176,
+      0.0,
+      0.498
+     ],
+     "rebake": [
+      0.8235,
+      0.5608,
+      0.0,
+      0.498
+     ],
+     "faces_containing_texel": [
+      {
+       "face": 328,
+       "zone": "Bronze"
+      }
+     ],
+     "faces_bbox_covering_texel": 2
+    }
+   ]
+  }
+ },
+ "classification_from_shipped_textures": {
+  "crimson_threshold": 2.5,
+  "faces_assessed": 5282,
+  "faces_excluded_lt_9px2": 492,
+  "agreement": 0.2946,
+  "agreement_by_expected_class": {
+   "crimson": 0.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "crimson": {
+    "stone": 3726
+   },
+   "metal": {
+    "metal": 1556
+   }
+  }
+ },
+ "classification_from_rebake_textures": {
+  "crimson_threshold": 2.5,
+  "faces_assessed": 5282,
+  "faces_excluded_lt_9px2": 492,
+  "agreement": 0.2946,
+  "agreement_by_expected_class": {
+   "crimson": 0.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "crimson": {
+    "stone": 3726
+   },
+   "metal": {
+    "metal": 1556
+   }
+  }
+ },
+ "POSTHOC_classification_from_shipped_textures_crimson_1_4": {
+  "crimson_threshold": 1.4,
+  "faces_assessed": 5282,
+  "faces_excluded_lt_9px2": 492,
+  "agreement": 1.0,
+  "agreement_by_expected_class": {
+   "crimson": 1.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "crimson": {
+    "crimson": 3726
+   },
+   "metal": {
+    "metal": 1556
+   }
+  }
+ },
+ "POSTHOC_classification_from_rebake_textures_crimson_1_4": {
+  "crimson_threshold": 1.4,
+  "faces_assessed": 5282,
+  "faces_excluded_lt_9px2": 492,
+  "agreement": 1.0,
+  "agreement_by_expected_class": {
+   "crimson": 1.0,
+   "metal": 1.0
+  },
+  "confusion": {
+   "crimson": {
+    "crimson": 3726
+   },
+   "metal": {
+    "metal": 1556
+   }
+  }
+ },
+ "texel_level_classification_shipped_apriori_2_5": {
+  "texels_assessed": 1016457,
+  "agreement": 0.09714,
+  "by_zone": {
+   "Bronze": {
+    "texels": 54826,
+    "agree": 1.0
+   },
+   "Gold": {
+    "texels": 43916,
+    "agree": 1.0
+   },
+   "CrimsonCloth": {
+    "texels": 917715,
+    "agree": 0.0
+   }
+  }
+ },
+ "POSTHOC_texel_level_classification_shipped_crimson_1_4": {
+  "texels_assessed": 1016457,
+  "agreement": 1.0,
+  "by_zone": {
+   "Bronze": {
+    "texels": 54826,
+    "agree": 1.0
+   },
+   "Gold": {
+    "texels": 43916,
+    "agree": 1.0
+   },
+   "CrimsonCloth": {
+    "texels": 917715,
+    "agree": 1.0
+   }
+  }
+ },
+ "POSTHOC_texel_level_classification_rebake_crimson_1_4": {
+  "texels_assessed": 1016457,
+  "agreement": 1.0,
+  "by_zone": {
+   "Bronze": {
+    "texels": 54826,
+    "agree": 1.0
+   },
+   "Gold": {
+    "texels": 43916,
+    "agree": 1.0
+   },
+   "CrimsonCloth": {
+    "texels": 917715,
+    "agree": 1.0
+   }
+  }
+ },
+ "face_disagreement_breakdown_POSTHOC": {
+  "disagreeing_faces": 0,
+  "median_uv_area_px2_disagreeing": null,
+  "median_uv_area_px2_all_assessed": 219.81,
+  "centroid_texel_raster_zone_is_a_different_zone_than_the_face": 0,
+  "centroid_texel_raster_empty_or_edge": 0,
+  "centroid_texel_raster_equals_own_zone_but_shipped_class_disagrees": 0,
+  "disagreeing_faces_whose_shipped_class_equals_class_of_the_zone_that_owns_the_centroid_texel": 0
+ }
+}

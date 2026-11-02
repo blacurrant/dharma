@@ -1,0 +1,190 @@
+{
+ "asset": "ENV_Temple_Backdrop_Mass_C",
+ "started": "16:11:41",
+ "A_reopen": {
+  "zone_md5": "f2cb31eec2a64f0829f0d8e3acbfbb76",
+  "faces": 2064,
+  "tris": 2064,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal"
+  ],
+  "material_index_hist": {
+   "0": 1872,
+   "1": 192
+  },
+  "zone_counts": {
+   "StoneWarm": 1872,
+   "StoneCharcoal": 192
+  }
+ },
+ "B_restored": {
+  "zone_md5": "f2cb31eec2a64f0829f0d8e3acbfbb76",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal"
+  ],
+  "material_index_hist": {
+   "0": 1872,
+   "1": 192
+  },
+  "zone_counts": {
+   "StoneWarm": 1872,
+   "StoneCharcoal": 192
+  }
+ },
+ "C1_zone_raster": {
+  "res": 1024,
+  "texels_by_zone": {
+   "StoneWarm": 803494,
+   "StoneCharcoal": 74263
+  },
+  "texels_empty_or_edge": 170819,
+  "covered_fraction": 0.8371
+ },
+ "C2_bake": {
+  "res": 1024,
+  "seconds": 32.1,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Backdrop_Mass_C_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Backdrop_Mass_C_Normal.png",
+   "Mask": "Textures/ENV_Temple_Backdrop_Mass_C_Mask.png"
+  },
+  "zone_md5_after_bake": "f2cb31eec2a64f0829f0d8e3acbfbb76",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 803494,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.7323,
+   "smoothness_mean": 0.2164,
+   "basecolor_mean_srgb_hex": "#4A4133"
+  },
+  "StoneCharcoal": {
+   "texels": 74263,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.576,
+   "smoothness_mean": 0.2311,
+   "basecolor_mean_srgb_hex": "#211E1B"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 1048576,
+   "sat_max": 0.5
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "f2cb31eec2a64f0829f0d8e3acbfbb76",
+  "slots": [
+   "MI_Temple_Backdrop_Mass_C"
+  ],
+  "material_index_hist": {
+   "0": 2064
+  },
+  "zone_counts": {
+   "StoneWarm": 1872,
+   "StoneCharcoal": 192
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Backdrop_Mass_C_verify.blend",
+  "zone_md5": "f2cb31eec2a64f0829f0d8e3acbfbb76",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Backdrop_Mass_C"
+  ],
+  "material_index_hist": {
+   "0": 2064
+  },
+  "zone_counts": {
+   "StoneWarm": 1872,
+   "StoneCharcoal": 192
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Backdrop_Mass_C.fbx",
+  "bytes": 194188,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Backdrop_Mass_C_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Backdrop_Mass_C_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Backdrop_Mass_C"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Backdrop_Mass_C"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -12.5387,
+   0.0,
+   -6.2962
+  ],
+  "vertex_max": [
+   19.4618,
+   25.0609,
+   7.0237
+  ],
+  "polys": 2064
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 2064,
+  "mesh_tris": 2064,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 7e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Backdrop_Mass_C"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Backdrop_Mass_C_BaseColor.png",
+   "ENV_Temple_Backdrop_Mass_C_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -12.5387,
+    -7.0237,
+    0.0
+   ],
+   "max": [
+    19.4618,
+    6.2962,
+    25.0609
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "f2cb31eec2a64f0829f0d8e3acbfbb76",
+  "material": "MI_Temple_Backdrop_Mass_C"
+ },
+ "seconds_total": 35.6
+}

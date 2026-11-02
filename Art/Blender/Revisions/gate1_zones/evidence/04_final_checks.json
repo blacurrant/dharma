@@ -1,0 +1,445 @@
+{
+ "T_texture_compare_vs_shipped": {
+  "BaseColor": {
+   "shape": [
+    1024,
+    1024,
+    4
+   ],
+   "mean_abs_diff": 6e-05,
+   "p99_abs_diff": 0.0039,
+   "max_abs_diff": 0.3098,
+   "prod_mean": [
+    0.3038,
+    0.2265,
+    0.1333
+   ],
+   "gate1_mean": [
+    0.3038,
+    0.2265,
+    0.1333
+   ]
+  },
+  "Normal": {
+   "shape": [
+    1024,
+    1024,
+    4
+   ],
+   "mean_abs_diff": 0.00025,
+   "p99_abs_diff": 0.0039,
+   "max_abs_diff": 0.0235,
+   "prod_mean": [
+    0.5003,
+    0.5003,
+    0.9996
+   ],
+   "gate1_mean": [
+    0.5003,
+    0.5003,
+    0.9996
+   ]
+  },
+  "Mask": {
+   "shape": [
+    1024,
+    1024,
+    4
+   ],
+   "mean_abs_diff": 0.00015,
+   "p99_abs_diff": 0.0,
+   "max_abs_diff": 0.2471,
+   "prod_mean": [
+    0.3627,
+    0.4249,
+    0.0
+   ],
+   "gate1_mean": [
+    0.3627,
+    0.4249,
+    0.0
+   ],
+   "alpha_mean_abs_diff": 6e-05
+  },
+  "Emission": {
+   "shape": [
+    1024,
+    1024,
+    4
+   ],
+   "mean_abs_diff": 0.0,
+   "p99_abs_diff": 0.0,
+   "max_abs_diff": 0.0039,
+   "prod_mean": [
+    0.0819,
+    0.0324,
+    0.0051
+   ],
+   "gate1_mean": [
+    0.0819,
+    0.0324,
+    0.0051
+   ]
+  }
+ },
+ "X_fbx_gate1": {
+  "bytes": 606348,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Brazier_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Brazier_A_Emission.png",
+    true
+   ],
+   [
+    "ENV_Temple_Brazier_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Brazier_A"
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -0.525,
+   0.0,
+   -0.521
+  ],
+  "vertex_max": [
+   0.527,
+   1.339,
+   0.527
+  ],
+  "polys": 6082,
+  "model_transform": {
+   "Lcl Translation": null,
+   "Lcl Rotation": null,
+   "Lcl Scaling": null
+  }
+ },
+ "X_fbx_production": {
+  "bytes": 606188,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Brazier_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Brazier_A_Emission.png",
+    true
+   ],
+   [
+    "ENV_Temple_Brazier_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Brazier_A"
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -0.525,
+   0.0,
+   -0.521
+  ],
+  "vertex_max": [
+   0.527,
+   1.339,
+   0.527
+  ],
+  "polys": 6082,
+  "model_transform": {
+   "Lcl Translation": null,
+   "Lcl Rotation": null,
+   "Lcl Scaling": null
+  }
+ },
+ "X_identical_geometry_extents": true,
+ "X_zone_in_fbx_bytes": false,
+ "R_fullkit_reopen": {
+  "Altar_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 60208,
+    "Bronze": 5024,
+    "Gold": 2032,
+    "CrimsonCloth": 11860,
+    "EmberAmber": 418
+   },
+   "faces": 79542,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Altar_A"
+   ]
+  },
+  "Arch_A_PierL": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 25760,
+    "StoneCharcoal": 512,
+    "Bronze": 324,
+    "Gold": 60
+   },
+   "faces": 26656,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Arch_A_PierL"
+   ]
+  },
+  "Arch_A_PierR": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 25920,
+    "Bronze": 324,
+    "Gold": 60
+   },
+   "faces": 26304,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Arch_A_PierR"
+   ]
+  },
+  "Arch_A_Span": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 120224,
+    "Gold": 2192
+   },
+   "faces": 122416,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Arch_A_Span"
+   ]
+  },
+  "Banner_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "Bronze": 916,
+    "Gold": 652,
+    "CrimsonCloth": 4206
+   },
+   "faces": 5774,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Banner_A"
+   ]
+  },
+  "Brazier_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 1296,
+    "Bronze": 3488,
+    "EmberAmber": 1298
+   },
+   "faces": 6082,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Brazier_A"
+   ]
+  },
+  "ColumnDrum_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 5328
+   },
+   "faces": 5328,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_ColumnDrum_A"
+   ]
+  },
+  "FloorBorder_Corner_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 7392,
+    "Bronze": 1024,
+    "Gold": 106
+   },
+   "faces": 8522,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_FloorBorder_Corner_A"
+   ]
+  },
+  "FloorBorder_Straight_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 6816,
+    "Bronze": 652,
+    "Gold": 76
+   },
+   "faces": 7544,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_FloorBorder_Straight_A"
+   ]
+  },
+  "Floor_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 1824
+   },
+   "faces": 1824,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Floor_A"
+   ]
+  },
+  "Floor_B": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 1272
+   },
+   "faces": 1272,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Floor_B"
+   ]
+  },
+  "Floor_C": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 1760
+   },
+   "faces": 1760,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Floor_C"
+   ]
+  },
+  "Floor_D": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 1632
+   },
+   "faces": 1632,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Floor_D"
+   ]
+  },
+  "Pillar_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 37282,
+    "Gold": 768
+   },
+   "faces": 38050,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Pillar_A"
+   ]
+  },
+  "Pillar_B": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 40198,
+    "Bronze": 968
+   },
+   "faces": 41166,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Pillar_B"
+   ]
+  },
+  "Pillar_C": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 24276,
+    "Bronze": 2252
+   },
+   "faces": 26528,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Pillar_C"
+   ]
+  },
+  "Pillar_D": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 19910
+   },
+   "faces": 19910,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Pillar_D"
+   ]
+  },
+  "Platform_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 25908
+   },
+   "faces": 25908,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Platform_A"
+   ]
+  },
+  "Rubble_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 2535
+   },
+   "faces": 2535,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Rubble_A"
+   ]
+  },
+  "Rubble_B": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 2815
+   },
+   "faces": 2815,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Rubble_B"
+   ]
+  },
+  "Stairs_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 11488
+   },
+   "faces": 11488,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Stairs_A"
+   ]
+  },
+  "Wall_A": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 22880
+   },
+   "faces": 22880,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Wall_A"
+   ]
+  },
+  "Wall_B": {
+   "has_zone_id": true,
+   "zone_counts": {
+    "StoneWarm": 29060,
+    "Bronze": 440,
+    "Gold": 92
+   },
+   "faces": 29592,
+   "zone_faces_sum_ok": true,
+   "slots": [
+    "MI_Temple_Wall_B"
+   ]
+  }
+ },
+ "R_all_have_zone_id": true,
+ "R_scene_legend": "{\"0\": \"StoneWarm\", \"1\": \"StoneCharcoal\", \"2\": \"Bronze\", \"3\": \"Gold\", \"4\": \"CrimsonCloth\", \"5\": \"EmberAmber\"}"
+}

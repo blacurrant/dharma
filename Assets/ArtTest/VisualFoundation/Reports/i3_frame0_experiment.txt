@@ -1,0 +1,5 @@
+Harness: scratch/frame0.cs (eval in Play Mode, Game view 1920x1080, Time.captureFramerate 60). Player offset = distance of the player's screen position from screen centre, px.
+WITHOUT re-aim (iteration-2 first run): player offset px same-frame 172 | frame+1 50 | frame+2 50 | frame+3 50
+   control (B to A2, same pitch change) same-frame 162 | frame+1 45
+WITH explicit re-aim (corrected runner): player offset px same-frame 50 | frame+1 50 | frame+2 50 | frame+3 50
+   control (B to A2, same pitch change) same-frame 47 | frame+1 47

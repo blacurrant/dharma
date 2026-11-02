@@ -1,0 +1,29 @@
+{
+  "name": "ENV_Temple_Central_Medallion",
+  "tris": 5952,
+  "verts": 2978,
+  "bbox_min": [
+    -3.8772,
+    -3.8726,
+    -0.1
+  ],
+  "bbox_max": [
+    3.8688,
+    3.8759,
+    0.084
+  ],
+  "dims_m": [
+    7.746,
+    7.7485,
+    0.184
+  ],
+  "diameter_m": 7.746,
+  "thickness_m": 0.184,
+  "lip_z": 0.015,
+  "altar_crest_z": 0.082,
+  "materials": [
+    "M_Temple_Central_Medallion"
+  ],
+  "fbx_src": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/medallion/models/ENV_Temple_Central_Medallion.fbx",
+  "fbx_staging": "/Users/landerstudio/MythicRoguelite/Art/Exports/Environment/Staging/Medallion/Models/ENV_Temple_Central_Medallion.fbx"
+}

@@ -1,0 +1,279 @@
+{
+ "asset": "ENV_Temple_Brazier_A",
+ "A_reopen": {
+  "file": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend",
+  "zone_md5": "d6c2592607adcdb8d375a53199b842d4",
+  "slots": [
+   "MI_Temple_Brazier_A"
+  ],
+  "material_index_hist": {
+   "0": 6082
+  },
+  "attributes": [
+   "UVMap",
+   "blocktone",
+   "pas",
+   "position",
+   "sharp_edge",
+   "sharp_face",
+   "zone_id"
+  ],
+  "zone_counts": {
+   "0": 1296,
+   "2": 3488,
+   "5": 1298
+  }
+ },
+ "B_restored": {
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_EmberAmber"
+  ],
+  "material_index_hist": {
+   "0": 1296,
+   "1": 3488,
+   "2": 1298
+  },
+  "attributes": [
+   "UVMap",
+   "blocktone",
+   "material_index",
+   "pas",
+   "position",
+   "sharp_edge",
+   "sharp_face",
+   "zone_id"
+  ],
+  "zone_counts": {
+   "0": 1296,
+   "2": 3488,
+   "5": 1298
+  }
+ },
+ "B_independent_check": {
+  "faces": 6082,
+  "faces_agree_with_fresh_builder_rebuild": 6082
+ },
+ "C_bake": {
+  "res": 1024,
+  "maps": [
+   "AO",
+   "BaseColor",
+   "Emission",
+   "Metal",
+   "Normal",
+   "Rough"
+  ],
+  "per_zone_from_baked_maps": {
+   "StoneWarm": {
+    "faces": 1296,
+    "albedo_srgb_mean": [
+     0.669,
+     0.634,
+     0.568
+    ],
+    "metallic_mean": 0.0,
+    "roughness_mean": 0.732,
+    "ao_mean": 0.823
+   },
+   "Bronze": {
+    "faces": 3488,
+    "albedo_srgb_mean": [
+     0.773,
+     0.671,
+     0.508
+    ],
+    "metallic_mean": 0.795,
+    "roughness_mean": 0.499,
+    "ao_mean": 0.616
+   },
+   "EmberAmber": {
+    "faces": 1298,
+    "albedo_srgb_mean": [
+     0.26,
+     0.166,
+     0.111
+    ],
+    "metallic_mean": 0.0,
+    "roughness_mean": 0.698,
+    "ao_mean": 0.314
+   }
+  }
+ },
+ "C_zone_attribute_baked_through_shader": {
+  "max_abs_err": 0.0,
+  "faces_within_0_02": 6082,
+  "faces": 6082
+ },
+ "D_after_material_swap": {
+  "slots": [
+   "MI_gate1_verify_Brazier_A"
+  ],
+  "material_index_hist": {
+   "0": 6082
+  },
+  "attributes": [
+   "UVMap",
+   "blocktone",
+   "pas",
+   "position",
+   "sharp_edge",
+   "sharp_face",
+   "zone_id"
+  ],
+  "zone_counts": {
+   "0": 1296,
+   "2": 3488,
+   "5": 1298
+  },
+  "zone_md5": "d6c2592607adcdb8d375a53199b842d4"
+ },
+ "E_reopen_after_bake_swap": {
+  "file": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Brazier_A/ENV_Temple_Brazier_A_verify.blend",
+  "zone_md5": "d6c2592607adcdb8d375a53199b842d4",
+  "same_as_original": true,
+  "slots": [
+   "MI_gate1_verify_Brazier_A"
+  ],
+  "material_index_hist": {
+   "0": 6082
+  },
+  "attributes": [
+   "UVMap",
+   "blocktone",
+   "pas",
+   "position",
+   "sharp_edge",
+   "sharp_face",
+   "zone_id"
+  ],
+  "zone_counts": {
+   "0": 1296,
+   "2": 3488,
+   "5": 1298
+  }
+ },
+ "F_fbx_intended": {
+  "bytes": 605196,
+  "has_LayerElementColor": false,
+  "geometries": [
+   {
+    "polys": 6082,
+    "layer_elements": [
+     "LayerElementBinormal",
+     "LayerElementMaterial",
+     "LayerElementNormal",
+     "LayerElementTangent",
+     "LayerElementUV"
+    ]
+   }
+  ],
+  "materials": [
+   "MI_gate1_verify_Brazier_A"
+  ],
+  "user_properties": [],
+  "zone_attribute_in_fbx": false
+ },
+ "G_fbx_optin_zone_colour": {
+  "bytes": 606444,
+  "has_LayerElementColor": true,
+  "geometries": [
+   {
+    "polys": 6082,
+    "layer_elements": [
+     "LayerElementBinormal",
+     "LayerElementColor",
+     "LayerElementMaterial",
+     "LayerElementNormal",
+     "LayerElementTangent",
+     "LayerElementUV"
+    ]
+   }
+  ],
+  "materials": [
+   "MI_gate1_verify_Brazier_A"
+  ],
+  "user_properties": []
+ },
+ "H_roundtrip_intended": [
+  {
+   "name": "ENV_Temple_Brazier_A",
+   "tris": 6082,
+   "world_dims": [
+    1.052,
+    1.047,
+    1.339
+   ],
+   "zmin": -0.0,
+   "materials": [
+    "MI_gate1_verify_Brazier_A"
+   ],
+   "attributes": [
+    "UVMap",
+    "custom_normal",
+    "material_index",
+    "position",
+    "sharp_edge"
+   ]
+  }
+ ],
+ "H_roundtrip_optin_colour": {
+  "colour_attr": "zone_rgb",
+  "zone_hist_source": {
+   "0": 1296,
+   "2": 3488,
+   "5": 1298
+  },
+  "zone_hist_roundtrip": {
+   "0": 1296,
+   "1": 3488,
+   "5": 1298
+  },
+  "histograms_equal": false,
+  "faces": 6082
+ },
+ "H_vs_production_fbx": {
+  "production_file": "/Users/landerstudio/MythicRoguelite/Art/Exports/Environment/Staging/Models/ENV_Temple_Brazier_A.fbx",
+  "production_part": {
+   "name": "ENV_Temple_Brazier_A",
+   "tris": 6082,
+   "world_dims": [
+    1.052,
+    1.047,
+    1.339
+   ],
+   "zmin": -0.0,
+   "materials": [
+    "MI_Temple_Brazier_A"
+   ],
+   "attributes": [
+    "UVMap",
+    "custom_normal",
+    "material_index",
+    "position",
+    "sharp_edge"
+   ]
+  },
+  "gate1": {
+   "name": "ENV_Temple_Brazier_A",
+   "tris": 6082,
+   "world_dims": [
+    1.052,
+    1.047,
+    1.339
+   ],
+   "zmin": -0.0,
+   "materials": [
+    "MI_gate1_verify_Brazier_A"
+   ],
+   "attributes": [
+    "UVMap",
+    "custom_normal",
+    "material_index",
+    "position",
+    "sharp_edge"
+   ]
+  }
+ }
+}

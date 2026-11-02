@@ -1,0 +1,20 @@
+{
+ "plan_R3_cellFlipCracksWear.png": {
+  "tileCV_in": 0.0756,
+  "tileCV_out": 0.0532,
+  "corr_lag2m": 0.222,
+  "corr_lag4m": 0.251,
+  "corr_lag6m": 0.186,
+  "corr_lag8m": 0.284,
+  "corr_lag10m": 0.19
+ },
+ "plan_R3b_cellFlipCracksOnly.png": {
+  "tileCV_in": 0.0194,
+  "tileCV_out": 0.0531,
+  "corr_lag2m": 0.257,
+  "corr_lag4m": 0.417,
+  "corr_lag6m": 0.24,
+  "corr_lag8m": 0.412,
+  "corr_lag10m": 0.201
+ }
+}

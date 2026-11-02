@@ -1,0 +1,2225 @@
+{
+ "ENV_Temple_Altar_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Altar_A.fbx",
+  "bytes": 8177500,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Altar_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 37330,
+    "min": [
+     -2.214,
+     -0.004,
+     -1.604
+    ],
+    "max": [
+     2.207,
+     5.11,
+     1.704
+    ],
+    "polys": 79542
+   }
+  ],
+  "materials": [
+   "MI_Temple_Altar_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Altar_A_BaseColor.png",
+   "../Textures/ENV_Temple_Altar_A_Emission.png",
+   "../Textures/ENV_Temple_Altar_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Altar_A": {
+    "dims": [
+     4.421,
+     3.309,
+     5.114
+    ],
+    "zmin": -0.004,
+    "cx": -0.003,
+    "cy": -0.05,
+    "tris": 73019,
+    "materials": [
+     "MI_Temple_Altar_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Altar_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 79542,
+    "tris_exported": 73019
+   }
+  }
+ },
+ "ENV_Temple_Arch_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Arch_A.fbx",
+  "bytes": 20793820,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Arch_A_PierL",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   },
+   {
+    "name": "ENV_Temple_Arch_A_PierR",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   },
+   {
+    "name": "ENV_Temple_Arch_A_Span",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 13443,
+    "min": [
+     -4.145,
+     -0.0,
+     -1.152
+    ],
+    "max": [
+     -2.095,
+     4.702,
+     1.153
+    ],
+    "polys": 26656
+   },
+   {
+    "verts": 13265,
+    "min": [
+     2.1,
+     -0.003,
+     -1.149
+    ],
+    "max": [
+     4.144,
+     4.701,
+     1.148
+    ],
+    "polys": 26304
+   },
+   {
+    "verts": 61332,
+    "min": [
+     -4.255,
+     4.702,
+     -1.155
+    ],
+    "max": [
+     4.253,
+     8.827,
+     1.158
+    ],
+    "polys": 122416
+   }
+  ],
+  "materials": [
+   "MI_Temple_Arch_A_PierL",
+   "MI_Temple_Arch_A_PierR",
+   "MI_Temple_Arch_A_Span"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Arch_A_PierL_BaseColor.png",
+   "../Textures/ENV_Temple_Arch_A_PierL_Normal.png",
+   "../Textures/ENV_Temple_Arch_A_PierR_BaseColor.png",
+   "../Textures/ENV_Temple_Arch_A_PierR_Normal.png",
+   "../Textures/ENV_Temple_Arch_A_Span_BaseColor.png",
+   "../Textures/ENV_Temple_Arch_A_Span_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Arch_A_PierL": {
+    "dims": [
+     2.049,
+     2.304,
+     4.702
+    ],
+    "zmin": -0.0,
+    "cx": -3.12,
+    "cy": -0.0,
+    "tris": 26656,
+    "materials": [
+     "MI_Temple_Arch_A_PierL"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "ENV_Temple_Arch_A_PierR": {
+    "dims": [
+     2.045,
+     2.297,
+     4.704
+    ],
+    "zmin": -0.003,
+    "cx": 3.122,
+    "cy": 0.0,
+    "tris": 26304,
+    "materials": [
+     "MI_Temple_Arch_A_PierR"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "ENV_Temple_Arch_A_Span": {
+    "dims": [
+     8.508,
+     2.313,
+     4.126
+    ],
+    "zmin": 4.702,
+    "cx": -0.001,
+    "cy": -0.002,
+    "tris": 122416,
+    "materials": [
+     "MI_Temple_Arch_A_Span"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Arch_A_PierL": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 26656,
+    "tris_exported": 26656
+   },
+   "ENV_Temple_Arch_A_PierR": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 26304,
+    "tris_exported": 26304
+   },
+   "ENV_Temple_Arch_A_Span": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 122416,
+    "tris_exported": 122416
+   }
+  }
+ },
+ "ENV_Temple_Banner_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Banner_A.fbx",
+  "bytes": 557548,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Banner_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 2913,
+    "min": [
+     -0.78,
+     0.0,
+     -0.056
+    ],
+    "max": [
+     0.84,
+     2.515,
+     0.064
+    ],
+    "polys": 5774
+   }
+  ],
+  "materials": [
+   "MI_Temple_Banner_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Banner_A_BaseColor.png",
+   "../Textures/ENV_Temple_Banner_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Banner_A": {
+    "dims": [
+     1.621,
+     0.12,
+     2.515
+    ],
+    "zmin": -0.0,
+    "cx": 0.03,
+    "cy": -0.004,
+    "tris": 5774,
+    "materials": [
+     "MI_Temple_Banner_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Banner_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 5774,
+    "tris_exported": 5774
+   }
+  }
+ },
+ "ENV_Temple_Brazier_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Brazier_A.fbx",
+  "bytes": 606188,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Brazier_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 3064,
+    "min": [
+     -0.525,
+     0.0,
+     -0.521
+    ],
+    "max": [
+     0.527,
+     1.339,
+     0.527
+    ],
+    "polys": 6082
+   }
+  ],
+  "materials": [
+   "MI_Temple_Brazier_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Brazier_A_BaseColor.png",
+   "../Textures/ENV_Temple_Brazier_A_Emission.png",
+   "../Textures/ENV_Temple_Brazier_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Brazier_A": {
+    "dims": [
+     1.052,
+     1.047,
+     1.339
+    ],
+    "zmin": -0.0,
+    "cx": 0.001,
+    "cy": -0.003,
+    "tris": 6082,
+    "materials": [
+     "MI_Temple_Brazier_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Brazier_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 6082,
+    "tris_exported": 6082
+   }
+  }
+ },
+ "ENV_Temple_ColumnDrum_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_ColumnDrum_A.fbx",
+  "bytes": 587452,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_ColumnDrum_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 2666,
+    "min": [
+     -0.747,
+     -0.004,
+     -0.674
+    ],
+    "max": [
+     0.738,
+     1.097,
+     0.701
+    ],
+    "polys": 5328
+   }
+  ],
+  "materials": [
+   "MI_Temple_ColumnDrum_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_ColumnDrum_A_BaseColor.png",
+   "../Textures/ENV_Temple_ColumnDrum_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_ColumnDrum_A": {
+    "dims": [
+     1.485,
+     1.375,
+     1.101
+    ],
+    "zmin": -0.004,
+    "cx": -0.004,
+    "cy": -0.013,
+    "tris": 5328,
+    "materials": [
+     "MI_Temple_ColumnDrum_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_ColumnDrum_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 5328,
+    "tris_exported": 5328
+   }
+  }
+ },
+ "ENV_Temple_FloorBorder_Corner_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_FloorBorder_Corner_A.fbx",
+  "bytes": 920108,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_FloorBorder_Corner_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 4331,
+    "min": [
+     -0.991,
+     0.0,
+     -0.991
+    ],
+    "max": [
+     0.99,
+     0.348,
+     0.992
+    ],
+    "polys": 8522
+   }
+  ],
+  "materials": [
+   "MI_Temple_FloorBorder_Corner_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_FloorBorder_Corner_A_BaseColor.png",
+   "../Textures/ENV_Temple_FloorBorder_Corner_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_FloorBorder_Corner_A": {
+    "dims": [
+     1.981,
+     1.983,
+     0.348
+    ],
+    "zmin": -0.0,
+    "cx": -0.0,
+    "cy": -0.0,
+    "tris": 8522,
+    "materials": [
+     "MI_Temple_FloorBorder_Corner_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_FloorBorder_Corner_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 8522,
+    "tris_exported": 8522
+   }
+  }
+ },
+ "ENV_Temple_FloorBorder_Straight_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_FloorBorder_Straight_A.fbx",
+  "bytes": 822956,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_FloorBorder_Straight_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 3859,
+    "min": [
+     -0.99,
+     0.0,
+     -0.989
+    ],
+    "max": [
+     0.992,
+     0.33,
+     0.991
+    ],
+    "polys": 7544
+   }
+  ],
+  "materials": [
+   "MI_Temple_FloorBorder_Straight_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_FloorBorder_Straight_A_BaseColor.png",
+   "../Textures/ENV_Temple_FloorBorder_Straight_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_FloorBorder_Straight_A": {
+    "dims": [
+     1.983,
+     1.98,
+     0.33
+    ],
+    "zmin": -0.0,
+    "cx": 0.001,
+    "cy": -0.001,
+    "tris": 7544,
+    "materials": [
+     "MI_Temple_FloorBorder_Straight_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_FloorBorder_Straight_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 7544,
+    "tris_exported": 7544
+   }
+  }
+ },
+ "ENV_Temple_Floor_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_A.fbx",
+  "bytes": 175596,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Floor_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 948,
+    "min": [
+     -0.989,
+     0.0,
+     -0.987
+    ],
+    "max": [
+     0.991,
+     0.302,
+     0.989
+    ],
+    "polys": 1824
+   }
+  ],
+  "materials": [
+   "MI_Temple_Floor_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Floor_A_BaseColor.png",
+   "../Textures/ENV_Temple_Floor_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Floor_A": {
+    "dims": [
+     1.98,
+     1.976,
+     0.302
+    ],
+    "zmin": -0.0,
+    "cx": 0.001,
+    "cy": -0.001,
+    "tris": 1824,
+    "materials": [
+     "MI_Temple_Floor_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Floor_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 1824,
+    "tris_exported": 1824
+   }
+  }
+ },
+ "ENV_Temple_Floor_B": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_B.fbx",
+  "bytes": 127740,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Floor_B",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 653,
+    "min": [
+     -0.992,
+     -0.0,
+     -0.993
+    ],
+    "max": [
+     0.99,
+     0.301,
+     0.992
+    ],
+    "polys": 1272
+   }
+  ],
+  "materials": [
+   "MI_Temple_Floor_B"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Floor_B_BaseColor.png",
+   "../Textures/ENV_Temple_Floor_B_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Floor_B": {
+    "dims": [
+     1.981,
+     1.985,
+     0.302
+    ],
+    "zmin": -0.0,
+    "cx": -0.001,
+    "cy": 0.0,
+    "tris": 1272,
+    "materials": [
+     "MI_Temple_Floor_B"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Floor_B": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 1272,
+    "tris_exported": 1272
+   }
+  }
+ },
+ "ENV_Temple_Floor_C": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_C.fbx",
+  "bytes": 173004,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Floor_C",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 906,
+    "min": [
+     -0.989,
+     0.0,
+     -0.991
+    ],
+    "max": [
+     0.991,
+     0.305,
+     0.99
+    ],
+    "polys": 1760
+   }
+  ],
+  "materials": [
+   "MI_Temple_Floor_C"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Floor_C_BaseColor.png",
+   "../Textures/ENV_Temple_Floor_C_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Floor_C": {
+    "dims": [
+     1.98,
+     1.981,
+     0.305
+    ],
+    "zmin": -0.0,
+    "cx": 0.001,
+    "cy": 0.001,
+    "tris": 1760,
+    "materials": [
+     "MI_Temple_Floor_C"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Floor_C": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 1760,
+    "tris_exported": 1760
+   }
+  }
+ },
+ "ENV_Temple_Floor_D": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Floor_D.fbx",
+  "bytes": 152300,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Floor_D",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 848,
+    "min": [
+     -0.99,
+     0.0,
+     -0.991
+    ],
+    "max": [
+     0.988,
+     0.304,
+     0.988
+    ],
+    "polys": 1632
+   }
+  ],
+  "materials": [
+   "MI_Temple_Floor_D"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Floor_D_BaseColor.png",
+   "../Textures/ENV_Temple_Floor_D_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Floor_D": {
+    "dims": [
+     1.978,
+     1.979,
+     0.304
+    ],
+    "zmin": -0.0,
+    "cx": -0.001,
+    "cy": 0.002,
+    "tris": 1632,
+    "materials": [
+     "MI_Temple_Floor_D"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Floor_D": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 1632,
+    "tris_exported": 1632
+   }
+  }
+ },
+ "ENV_Temple_Pillar_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_A.fbx",
+  "bytes": 4257900,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Pillar_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 19074,
+    "min": [
+     -0.98,
+     -0.001,
+     -0.978
+    ],
+    "max": [
+     0.977,
+     6.386,
+     0.978
+    ],
+    "polys": 38050
+   }
+  ],
+  "materials": [
+   "MI_Temple_Pillar_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Pillar_A_BaseColor.png",
+   "../Textures/ENV_Temple_Pillar_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Pillar_A": {
+    "dims": [
+     1.956,
+     1.956,
+     6.387
+    ],
+    "zmin": -0.001,
+    "cx": -0.001,
+    "cy": 0.0,
+    "tris": 38050,
+    "materials": [
+     "MI_Temple_Pillar_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Pillar_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 38050,
+    "tris_exported": 38050
+   }
+  }
+ },
+ "ENV_Temple_Pillar_B": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_B.fbx",
+  "bytes": 4776028,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Pillar_B",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 20746,
+    "min": [
+     -0.979,
+     0.0,
+     -0.978
+    ],
+    "max": [
+     0.974,
+     6.335,
+     0.977
+    ],
+    "polys": 41166
+   }
+  ],
+  "materials": [
+   "MI_Temple_Pillar_B"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Pillar_B_BaseColor.png",
+   "../Textures/ENV_Temple_Pillar_B_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Pillar_B": {
+    "dims": [
+     1.952,
+     1.955,
+     6.335
+    ],
+    "zmin": -0.0,
+    "cx": -0.002,
+    "cy": 0.0,
+    "tris": 41166,
+    "materials": [
+     "MI_Temple_Pillar_B"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Pillar_B": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 41166,
+    "tris_exported": 41166
+   }
+  }
+ },
+ "ENV_Temple_Pillar_C": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_C.fbx",
+  "bytes": 2836876,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Pillar_C",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 13295,
+    "min": [
+     -1.221,
+     0.0,
+     -1.226
+    ],
+    "max": [
+     1.22,
+     6.34,
+     1.221
+    ],
+    "polys": 26528
+   }
+  ],
+  "materials": [
+   "MI_Temple_Pillar_C"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Pillar_C_BaseColor.png",
+   "../Textures/ENV_Temple_Pillar_C_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Pillar_C": {
+    "dims": [
+     2.441,
+     2.447,
+     6.34
+    ],
+    "zmin": -0.0,
+    "cx": -0.0,
+    "cy": 0.002,
+    "tris": 26528,
+    "materials": [
+     "MI_Temple_Pillar_C"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Pillar_C": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 26528,
+    "tris_exported": 26528
+   }
+  }
+ },
+ "ENV_Temple_Pillar_D": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Pillar_D.fbx",
+  "bytes": 2251500,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Pillar_D",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 9996,
+    "min": [
+     -0.953,
+     0.0,
+     -0.952
+    ],
+    "max": [
+     0.953,
+     3.73,
+     0.951
+    ],
+    "polys": 19910
+   }
+  ],
+  "materials": [
+   "MI_Temple_Pillar_D"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Pillar_D_BaseColor.png",
+   "../Textures/ENV_Temple_Pillar_D_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Pillar_D": {
+    "dims": [
+     1.905,
+     1.903,
+     3.73
+    ],
+    "zmin": -0.0,
+    "cx": 0.0,
+    "cy": 0.001,
+    "tris": 19910,
+    "materials": [
+     "MI_Temple_Pillar_D"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Pillar_D": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 19910,
+    "tris_exported": 19910
+   }
+  }
+ },
+ "ENV_Temple_Platform_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Platform_A.fbx",
+  "bytes": 2937020,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Platform_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 13034,
+    "min": [
+     -1.993,
+     -0.0,
+     -2.995
+    ],
+    "max": [
+     1.997,
+     0.807,
+     2.996
+    ],
+    "polys": 25908
+   }
+  ],
+  "materials": [
+   "MI_Temple_Platform_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Platform_A_BaseColor.png",
+   "../Textures/ENV_Temple_Platform_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Platform_A": {
+    "dims": [
+     3.99,
+     5.991,
+     0.807
+    ],
+    "zmin": -0.0,
+    "cx": 0.002,
+    "cy": -0.001,
+    "tris": 25908,
+    "materials": [
+     "MI_Temple_Platform_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Platform_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 25908,
+    "tris_exported": 25908
+   }
+  }
+ },
+ "ENV_Temple_Rubble_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Rubble_A.fbx",
+  "bytes": 267132,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Rubble_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 1291,
+    "min": [
+     -0.667,
+     -0.005,
+     -1.002
+    ],
+    "max": [
+     1.015,
+     0.437,
+     0.351
+    ],
+    "polys": 2535
+   }
+  ],
+  "materials": [
+   "MI_Temple_Rubble_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Rubble_A_BaseColor.png",
+   "../Textures/ENV_Temple_Rubble_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Rubble_A": {
+    "dims": [
+     1.682,
+     1.354,
+     0.442
+    ],
+    "zmin": -0.005,
+    "cx": 0.174,
+    "cy": 0.325,
+    "tris": 2535,
+    "materials": [
+     "MI_Temple_Rubble_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Rubble_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 2535,
+    "tris_exported": 2535
+   }
+  }
+ },
+ "ENV_Temple_Rubble_B": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Rubble_B.fbx",
+  "bytes": 295532,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Rubble_B",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 1429,
+    "min": [
+     -0.898,
+     -0.0,
+     -0.786
+    ],
+    "max": [
+     0.858,
+     0.302,
+     0.842
+    ],
+    "polys": 2815
+   }
+  ],
+  "materials": [
+   "MI_Temple_Rubble_B"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Rubble_B_BaseColor.png",
+   "../Textures/ENV_Temple_Rubble_B_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Rubble_B": {
+    "dims": [
+     1.756,
+     1.628,
+     0.302
+    ],
+    "zmin": -0.0,
+    "cx": -0.02,
+    "cy": -0.028,
+    "tris": 2815,
+    "materials": [
+     "MI_Temple_Rubble_B"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Rubble_B": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 2815,
+    "tris_exported": 2815
+   }
+  }
+ },
+ "ENV_Temple_Stairs_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Stairs_A.fbx",
+  "bytes": 1282060,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Stairs_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 5860,
+    "min": [
+     -1.992,
+     -0.0,
+     -0.993
+    ],
+    "max": [
+     1.992,
+     0.957,
+     0.993
+    ],
+    "polys": 11488
+   }
+  ],
+  "materials": [
+   "MI_Temple_Stairs_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Stairs_A_BaseColor.png",
+   "../Textures/ENV_Temple_Stairs_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Stairs_A": {
+    "dims": [
+     3.984,
+     1.987,
+     0.957
+    ],
+    "zmin": -0.0,
+    "cx": 0.0,
+    "cy": 0.0,
+    "tris": 11488,
+    "materials": [
+     "MI_Temple_Stairs_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Stairs_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 11488,
+    "tris_exported": 11488
+   }
+  }
+ },
+ "ENV_Temple_Wall_A": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Wall_A.fbx",
+  "bytes": 2789180,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Wall_A",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 11482,
+    "min": [
+     -2.0,
+     0.002,
+     -0.566
+    ],
+    "max": [
+     2.002,
+     3.003,
+     0.573
+    ],
+    "polys": 22880
+   }
+  ],
+  "materials": [
+   "MI_Temple_Wall_A"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Wall_A_BaseColor.png",
+   "../Textures/ENV_Temple_Wall_A_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Wall_A": {
+    "dims": [
+     4.002,
+     1.139,
+     3.001
+    ],
+    "zmin": 0.002,
+    "cx": 0.001,
+    "cy": -0.003,
+    "tris": 22880,
+    "materials": [
+     "MI_Temple_Wall_A"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Wall_A": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 22880,
+    "tris_exported": 22880
+   }
+  }
+ },
+ "ENV_Temple_Wall_B": {
+  "file": "Art/Exports/Environment/Staging/Models/ENV_Temple_Wall_B.fbx",
+  "bytes": 3582748,
+  "fbx_version": 7400,
+  "global": {
+   "UpAxis": 1,
+   "UpAxisSign": 1,
+   "FrontAxis": 2,
+   "FrontAxisSign": 1,
+   "CoordAxis": 0,
+   "CoordAxisSign": 1,
+   "UnitScaleFactor": 100.0,
+   "OriginalUnitScaleFactor": 100.0
+  },
+  "models": [
+   {
+    "name": "ENV_Temple_Wall_B",
+    "type": "Mesh",
+    "loc": [
+     0,
+     0,
+     0
+    ],
+    "rot": [
+     0,
+     0,
+     0
+    ],
+    "scl": [
+     1,
+     1,
+     1
+    ]
+   }
+  ],
+  "geometries": [
+   {
+    "verts": 14874,
+    "min": [
+     -2.001,
+     -0.0,
+     -0.571
+    ],
+    "max": [
+     2.0,
+     3.0,
+     0.693
+    ],
+    "polys": 29592
+   }
+  ],
+  "materials": [
+   "MI_Temple_Wall_B"
+  ],
+  "textures": [
+   "../Textures/ENV_Temple_Wall_B_BaseColor.png",
+   "../Textures/ENV_Temple_Wall_B_Normal.png"
+  ],
+  "textures_exist": [
+   true,
+   true
+  ],
+  "roundtrip": {
+   "ENV_Temple_Wall_B": {
+    "dims": [
+     4.001,
+     1.264,
+     3.0
+    ],
+    "zmin": -0.0,
+    "cx": -0.001,
+    "cy": -0.061,
+    "tris": 29592,
+    "materials": [
+     "MI_Temple_Wall_B"
+    ],
+    "has_uv": true,
+    "importer_rot_deg": [
+     90.0,
+     -0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "compare": {
+   "ENV_Temple_Wall_B": {
+    "dims_match": true,
+    "zmin_match": true,
+    "pivot_xy_match": true,
+    "tris_src": 29592,
+    "tris_exported": 29592
+   }
+  }
+ }
+}

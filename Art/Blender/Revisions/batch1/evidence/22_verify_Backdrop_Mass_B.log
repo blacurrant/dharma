@@ -1,0 +1,31 @@
+00:00.673  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+A {'zone_md5': 'a067511b126f2ff0c618a8478f06aae3', 'faces': 2918, 'tris': 2918, 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_StoneCharcoal'], 'material_index_hist': {0: 2562, 1: 356}, 'zone_counts': {'StoneWarm': 2562, 'StoneCharcoal': 356}}
+B {'zone_md5': 'a067511b126f2ff0c618a8478f06aae3', 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_StoneCharcoal'], 'material_index_hist': {0: 2562, 1: 356}, 'zone_counts': {'StoneWarm': 2562, 'StoneCharcoal': 356}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:106: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:113: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_zone_probe_b'); pm.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+C1 {'res': 1024, 'texels_by_zone': {'StoneWarm': 693154, 'StoneCharcoal': 78122}, 'texels_empty_or_edge': 277300, 'covered_fraction': 0.7355}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C2 {"res": 1024, "seconds": 33.5, "files": {"BaseColor": "Textures/ENV_Temple_Backdrop_Mass_B_BaseColor.png", "Normal": "Textures/ENV_Temple_Backdrop_Mass_B_Normal.png", "Mask": "Textures/ENV_Temple_Back {"StoneWarm": {"texels": 693154, "metallic_mean": 0.0, "occlusion_mean": 0.6099, "smoothness_mean": 0.2233, "basecolor_mean_srgb_hex": "#544B3B"}, "StoneCharcoal": {"texels": 78122, "metallic_mean": 0.0, "occlusion_mean": 0.6029, "smoothness_mean": 0.2311, "basecolor_mean_srgb_hex": "#211E1B"}} {'BaseColor': {'cyan_teal_texels_145_215_sat_gt_0_06': 0, 'texels': 1048576, 'sat_max': 0.5}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:57: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+D {'zone_md5': 'a067511b126f2ff0c618a8478f06aae3', 'slots': ['MI_Temple_Backdrop_Mass_B'], 'material_index_hist': {0: 2918}, 'zone_counts': {'StoneWarm': 2562, 'StoneCharcoal': 356}}
+00:37.410  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/verify/ENV_Temple_Backdrop_Mass_B_verify.blend"
+Info: Saved as "ENV_Temple_Backdrop_Mass_B_verify.blend"
+E {'file': 'verify/ENV_Temple_Backdrop_Mass_B_verify.blend', 'zone_md5': 'a067511b126f2ff0c618a8478f06aae3', 'same_as_original': True, 'slots': ['MI_Temple_Backdrop_Mass_B'], 'material_index_hist': {0: 2918}, 'zone_counts': {'StoneWarm': 2562, 'StoneCharcoal': 356}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/Models/ENV_Temple_Backdrop_Mass_B.fbx'
+export finished in 0.0230 sec.
+F {'polys_equal_saved_mesh_tris': True, 'fbx_polys': 2918, 'mesh_tris': 2918, 'axis_map_Blender_xyz_to_FBX_x_z_negy': True, 'unit_scale_ratio_fbx_over_blender': 1.0, 'max_extent_error_fbx_units': 2e-05, 'extents_equal_saved_mesh': True, 'up_axis_equal_shipped': True, 'unit_scale_equal_shipped': True, 'shipped_ref': {'UpAxis': 1, 'UnitScaleFactor': 100.0}, 'materials': ['MI_Temple_Backdrop_Mass_B'], 'textures_resolve': True, 'texture_files': ['ENV_Temple_Backdrop_Mass_B_BaseColor.png', 'ENV_Temple_Backdrop_Mass_B_Normal.png'], 'identity_transform': True, 'zone_id_in_fbx_bytes': False, 'mesh_bounds_blender': {'min': [-27.9897, -9.0573, -0.0012], 'max': [26.2751, 6.2949, 15.5865]}}
+00:37.697  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+Info: Saved as "TempleEnvironmentKit_batch1.blend"
+VERIFY_DONE ENV_Temple_Backdrop_Mass_B
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

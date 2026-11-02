@@ -1,0 +1,207 @@
+{
+ "asset": "ENV_Temple_Wall_Tall_A",
+ "started": "16:03:54",
+ "A_reopen": {
+  "zone_md5": "d0c4a70676757131fc6d27b39a181755",
+  "faces": 4880,
+  "tris": 4880,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 4592,
+   "1": 232,
+   "2": 56
+  },
+  "zone_counts": {
+   "StoneWarm": 4592,
+   "StoneCharcoal": 232,
+   "Bronze": 56
+  }
+ },
+ "B_restored": {
+  "zone_md5": "d0c4a70676757131fc6d27b39a181755",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 4592,
+   "1": 232,
+   "2": 56
+  },
+  "zone_counts": {
+   "StoneWarm": 4592,
+   "StoneCharcoal": 232,
+   "Bronze": 56
+  }
+ },
+ "C1_zone_raster": {
+  "res": 2048,
+  "texels_by_zone": {
+   "StoneWarm": 2983039,
+   "StoneCharcoal": 256738,
+   "Bronze": 45640
+  },
+  "texels_empty_or_edge": 908887,
+  "covered_fraction": 0.7833
+ },
+ "C2_bake": {
+  "res": 2048,
+  "seconds": 88.8,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Wall_Tall_A_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Wall_Tall_A_Normal.png",
+   "Mask": "Textures/ENV_Temple_Wall_Tall_A_Mask.png"
+  },
+  "zone_md5_after_bake": "d0c4a70676757131fc6d27b39a181755",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 2983039,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.3821,
+   "smoothness_mean": 0.2191,
+   "basecolor_mean_srgb_hex": "#524939"
+  },
+  "StoneCharcoal": {
+   "texels": 256738,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.6281,
+   "smoothness_mean": 0.3151,
+   "basecolor_mean_srgb_hex": "#231F1C"
+  },
+  "Bronze": {
+   "texels": 45640,
+   "metallic_mean": 0.5786,
+   "occlusion_mean": 0.0675,
+   "smoothness_mean": 0.356,
+   "basecolor_mean_srgb_hex": "#6A4E2A"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 4194304,
+   "sat_max": 0.645
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "d0c4a70676757131fc6d27b39a181755",
+  "slots": [
+   "MI_Temple_Wall_Tall_A"
+  ],
+  "material_index_hist": {
+   "0": 4880
+  },
+  "zone_counts": {
+   "StoneWarm": 4592,
+   "StoneCharcoal": 232,
+   "Bronze": 56
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Wall_Tall_A_verify.blend",
+  "zone_md5": "d0c4a70676757131fc6d27b39a181755",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Wall_Tall_A"
+  ],
+  "material_index_hist": {
+   "0": 4880
+  },
+  "zone_counts": {
+   "StoneWarm": 4592,
+   "StoneCharcoal": 232,
+   "Bronze": 56
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Wall_Tall_A.fbx",
+  "bytes": 531548,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Wall_Tall_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Wall_Tall_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Wall_Tall_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Wall_Tall_A"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -2.0,
+   -0.4,
+   -0.6357
+  ],
+  "vertex_max": [
+   2.0,
+   4.9935,
+   0.6317
+  ],
+  "polys": 4880
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 4880,
+  "mesh_tris": 4880,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 5e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Wall_Tall_A"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Wall_Tall_A_BaseColor.png",
+   "ENV_Temple_Wall_Tall_A_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -2.0,
+    -0.6317,
+    -0.4
+   ],
+   "max": [
+    2.0,
+    0.6357,
+    4.9935
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "d0c4a70676757131fc6d27b39a181755",
+  "material": "MI_Temple_Wall_Tall_A"
+ },
+ "seconds_total": 92.9
+}

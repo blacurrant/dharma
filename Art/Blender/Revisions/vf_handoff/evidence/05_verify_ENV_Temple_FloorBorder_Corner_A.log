@@ -1,0 +1,29 @@
+00:00.552  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/TempleEnvironmentKit_vf_working.blend"
+A {'zone_md5': '9d18ea159a9a29e03c7e41270f232faa', 'faces': 8522, 'slots': ['MI_Temple_FloorBorder_Corner_A'], 'material_index_hist': {0: 8522}, 'zone_counts': {'StoneWarm': 7392, 'Bronze': 1024, 'Gold': 106}}
+B {'zone_md5': '9d18ea159a9a29e03c7e41270f232faa', 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_Gold'], 'material_index_hist': {0: 7392, 1: 1024, 2: 106}, 'zone_counts': {'StoneWarm': 7392, 'Bronze': 1024, 'Gold': 106}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/04_verify_assets.py:68: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/04_verify_assets.py:75: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_zone_probe_b'); pm.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+C1 {'res': 2048, 'texels_by_zone': {'StoneWarm': 1928702, 'Bronze': 19307, 'Gold': 29624}, 'texels_empty_or_edge': 2216671, 'covered_fraction': 0.4715}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C2 {'res': 2048, 'seconds': 73.0, 'files': {'BaseColor': 'bake_out_b/Textures/ENV_Temple_FloorBorder_Corner_A_BaseColor.png', 'Normal': 'bake_out_b/Textures/ENV_Temple_FloorBorder_Corner_A_Normal.png', 'Mask': 'bake_out_b/Textures/ENV_Temple_FloorBorder_Corner_A_Mask.png'}, 'zone_md5_after_bake': '9d18ea159a9a29e03c7e41270f232faa', 'slots_during_bake': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_Gold']}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/04_verify_assets.py:137: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+D {'zone_md5': '9d18ea159a9a29e03c7e41270f232faa', 'slots': ['MI_Temple_FloorBorder_Corner_A'], 'material_index_hist': {0: 8522}, 'zone_counts': {'StoneWarm': 7392, 'Bronze': 1024, 'Gold': 106}}
+01:17.675  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/verify_b/ENV_Temple_FloorBorder_Corner_A_verify.blend"
+Info: Saved as "ENV_Temple_FloorBorder_Corner_A_verify.blend"
+E {'file': 'verify_b/ENV_Temple_FloorBorder_Corner_A_verify.blend', 'zone_md5': '9d18ea159a9a29e03c7e41270f232faa', 'same_as_original': True, 'slots': ['MI_Temple_FloorBorder_Corner_A'], 'material_index_hist': {0: 8522}, 'zone_counts': {'StoneWarm': 7392, 'Bronze': 1024, 'Gold': 106}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/bake_out_b/Models/ENV_Temple_FloorBorder_Corner_A.fbx'
+export finished in 0.0463 sec.
+F {'polys_equal': True, 'vertex_extents_equal': True, 'up_axis_equal': True, 'unit_scale_equal': True, 'materials_equal': True, 'textures_equal': True, 'identity_transform_gate1': True, 'zone_id_in_fbx_bytes': False}
+VERIFY_B_DONE ENV_Temple_FloorBorder_Corner_A
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

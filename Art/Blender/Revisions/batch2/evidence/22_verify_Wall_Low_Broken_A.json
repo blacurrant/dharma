@@ -1,0 +1,207 @@
+{
+ "asset": "ENV_Temple_Wall_Low_Broken_A",
+ "started": "19:15:13",
+ "A_reopen": {
+  "zone_md5": "9a5d5d6727fa3da22f6348e9273112a9",
+  "faces": 2216,
+  "tris": 2216,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 1956,
+   "1": 232,
+   "2": 28
+  },
+  "zone_counts": {
+   "StoneWarm": 1956,
+   "StoneCharcoal": 232,
+   "Bronze": 28
+  }
+ },
+ "B_restored": {
+  "zone_md5": "9a5d5d6727fa3da22f6348e9273112a9",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 1956,
+   "1": 232,
+   "2": 28
+  },
+  "zone_counts": {
+   "StoneWarm": 1956,
+   "StoneCharcoal": 232,
+   "Bronze": 28
+  }
+ },
+ "C1_zone_raster": {
+  "res": 1024,
+  "texels_by_zone": {
+   "StoneWarm": 679639,
+   "StoneCharcoal": 183961,
+   "Bronze": 19677
+  },
+  "texels_empty_or_edge": 165299,
+  "covered_fraction": 0.8424
+ },
+ "C2_bake": {
+  "res": 1024,
+  "seconds": 39.9,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Wall_Low_Broken_A_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Wall_Low_Broken_A_Normal.png",
+   "Mask": "Textures/ENV_Temple_Wall_Low_Broken_A_Mask.png"
+  },
+  "zone_md5_after_bake": "9a5d5d6727fa3da22f6348e9273112a9",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_StoneCharcoal",
+   "SRC_Temple_Bronze"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 679639,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.1494,
+   "smoothness_mean": 0.2693,
+   "basecolor_mean_srgb_hex": "#554B3C"
+  },
+  "StoneCharcoal": {
+   "texels": 183961,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.3294,
+   "smoothness_mean": 0.3202,
+   "basecolor_mean_srgb_hex": "#24211E"
+  },
+  "Bronze": {
+   "texels": 19677,
+   "metallic_mean": 0.5814,
+   "occlusion_mean": 0.0522,
+   "smoothness_mean": 0.3585,
+   "basecolor_mean_srgb_hex": "#6A4E2A"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 1048576,
+   "sat_max": 0.641
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "9a5d5d6727fa3da22f6348e9273112a9",
+  "slots": [
+   "MI_Temple_Wall_Low_Broken_A"
+  ],
+  "material_index_hist": {
+   "0": 2216
+  },
+  "zone_counts": {
+   "StoneWarm": 1956,
+   "StoneCharcoal": 232,
+   "Bronze": 28
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Wall_Low_Broken_A_verify.blend",
+  "zone_md5": "9a5d5d6727fa3da22f6348e9273112a9",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Wall_Low_Broken_A"
+  ],
+  "material_index_hist": {
+   "0": 2216
+  },
+  "zone_counts": {
+   "StoneWarm": 1956,
+   "StoneCharcoal": 232,
+   "Bronze": 28
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Wall_Low_Broken_A.fbx",
+  "bytes": 223612,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Wall_Low_Broken_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Wall_Low_Broken_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Wall_Low_Broken_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Wall_Low_Broken_A"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -2.0,
+   -0.4,
+   -0.6028
+  ],
+  "vertex_max": [
+   2.0,
+   1.8938,
+   1.3781
+  ],
+  "polys": 2216
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 2216,
+  "mesh_tris": 2216,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 4e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Wall_Low_Broken_A"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Wall_Low_Broken_A_BaseColor.png",
+   "ENV_Temple_Wall_Low_Broken_A_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -2.0,
+    -1.3781,
+    -0.4
+   ],
+   "max": [
+    2.0,
+    0.6028,
+    1.8938
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "9a5d5d6727fa3da22f6348e9273112a9",
+  "material": "MI_Temple_Wall_Low_Broken_A"
+ },
+ "seconds_total": 46.4
+}

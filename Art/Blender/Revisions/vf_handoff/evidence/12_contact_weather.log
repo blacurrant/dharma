@@ -1,0 +1,10 @@
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/12_contact_sheets.py:30: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('W'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/12_contact_sheets.py:47: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+00:07.846  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_weather.png'
+SHEET /Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/contact/VF_contact_weather.png 2280 5000
+SHEETS_DONE
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

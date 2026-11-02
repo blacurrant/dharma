@@ -1,0 +1,99 @@
+import os
+import sys
+import subprocess
+import json
+
+script_cs = """
+var log = new System.Text.StringBuilder();
+
+// 1. DEACTIVATE TELEGRAPHDEMO QUADS
+foreach(var r in UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()) {
+    if (r.name.Contains("Telegraph")) {
+        r.SetActive(false);
+        for (int i = 0; i < r.transform.childCount; i++) {
+            r.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        log.AppendLine("Deactivated TelegraphDemo root and children.");
+    }
+}
+
+// 2. FLOOR SUBSTRATE TILING
+var ancientGroundMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/FoliageKit/M_UE_Ancient_Ground.mat");
+var stoneBaseTex = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>("Assets/TerrainDemoScene_URP/Prefabs/Rocks/Textures/Stone_A/Stone_A_BaseColor.tif");
+var stoneNormTex = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>("Assets/TerrainDemoScene_URP/Prefabs/Rocks/Textures/Stone_A/Stone_A_Normal.tif");
+var stoneMaskTex = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>("Assets/TerrainDemoScene_URP/Prefabs/Rocks/Textures/Stone_A/Stone_A_MaskMap.tif");
+
+if (ancientGroundMat != null) {
+    if (stoneBaseTex != null) ancientGroundMat.SetTexture("_BaseMap", stoneBaseTex);
+    if (stoneNormTex != null) {
+        ancientGroundMat.SetTexture("_BumpMap", stoneNormTex);
+        ancientGroundMat.EnableKeyword("_NORMALMAP");
+    }
+    if (stoneMaskTex != null) {
+        ancientGroundMat.SetTexture("_MetallicGlossMap", stoneMaskTex);
+        ancientGroundMat.EnableKeyword("_METALLICSPECGLOSSMAP");
+    }
+    // Seamless tiling at 7x7 with warm sandy ancient bedrock tint
+    ancientGroundMat.SetTextureScale("_BaseMap", new UnityEngine.Vector2(7.0f, 7.0f));
+    ancientGroundMat.SetTextureOffset("_BaseMap", UnityEngine.Vector2.zero);
+    ancientGroundMat.SetColor("_BaseColor", new UnityEngine.Color(1.12f, 1.10f, 1.06f, 1.0f));
+    ancientGroundMat.SetFloat("_Smoothness", 0.35f);
+    ancientGroundMat.SetFloat("_Metallic", 0.0f);
+    log.AppendLine("M_UE_Ancient_Ground updated to seamless Stone_A texture tiling 7x7.");
+}
+
+// 3. MEDALLION CONTRAST
+var medallionMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/Medallion/M_Temple_Central_Medallion.mat");
+if (medallionMat != null) {
+    // Lift base color for warm carved sandstone contrast (luma ~0.44-0.48)
+    medallionMat.SetColor("_BaseColor", new UnityEngine.Color(1.48f, 1.42f, 1.32f, 1.0f));
+    medallionMat.SetFloat("_BumpScale", 1.85f);
+    medallionMat.SetFloat("_Smoothness", 0.40f);
+    log.AppendLine("M_Temple_Central_Medallion contrast lifted: _BaseColor=(1.48, 1.42, 1.32), _BumpScale=1.85.");
+}
+
+// 4. HORIZON & SKYBOX DEPTH
+var horizonMat = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/FoliageKit/M_UE_Horizon_Haze.mat");
+if (horizonMat != null) {
+    // Soft atmospheric haze tone matching warm fog
+    horizonMat.SetColor("_BaseColor", new UnityEngine.Color(0.50f, 0.46f, 0.42f, 1.0f));
+    horizonMat.SetFloat("_Smoothness", 0.0f);
+}
+
+foreach(var r in UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()) {
+    if (r.name.Contains("Mountain")) {
+        r.transform.position = UnityEngine.Vector3.zero;
+        // Scale to 0.024 so radius is ~125m, receding deep into the atmospheric fog
+        r.transform.localScale = new UnityEngine.Vector3(0.024f, 0.024f, 0.024f);
+        r.SetActive(true);
+        log.AppendLine("Skybox mountains scaled to 0.024 (R~125m) and activated with warm horizon haze.");
+    }
+}
+
+// Fog settings for natural horizon recession
+UnityEngine.RenderSettings.fog = true;
+UnityEngine.RenderSettings.fogMode = UnityEngine.FogMode.ExponentialSquared;
+UnityEngine.RenderSettings.fogColor = new UnityEngine.Color(0.50f, 0.46f, 0.42f, 1.0f);
+UnityEngine.RenderSettings.fogDensity = 0.0035f;
+
+// Save active scene
+UnityEditor.SceneManagement.EditorSceneManager.SaveScene(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+log.AppendLine("Scene saved.");
+
+return log.ToString();
+"""
+
+cmd = [
+    "/Users/landerstudio/.unity/bin/unity",
+    "command", "script", "eval",
+    script_cs,
+    "--project-path", "/Users/landerstudio/MythicRoguelite",
+    "--timeout", "120",
+    "--result-only"
+]
+print("Applying 4 fixes in Unity...")
+res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+print("Returncode:", res.returncode)
+print("Output:", res.stdout)
+if res.stderr:
+    print("Stderr:", res.stderr)

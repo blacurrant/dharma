@@ -1,0 +1,746 @@
+{
+ "generated": "2026-10-26T14:44:39+05:30",
+ "generator": "scripts/15_manifest.py",
+ "milestone": "VISUAL FOUNDATION iteration 1",
+ "notes": [
+  "Unity world (x,z) = Blender (x,y); macro maps U=(x+20)/40, V=(z+20)/40, file row 0 = z +20",
+  "verify_b/ and bake_out_b/ (floor-part verification intermediates) are intentionally not hashed here",
+  "all hashes are SHA-256 of the file bytes"
+ ],
+ "file_count": 92,
+ "files": [
+  {
+   "path": "textures/VF_Floor_ChippedEdges_1024.png",
+   "sha256": "1aad8e5657b7fb7f91cda6afba3f2b2161f8bee10801c47fa51eac4d8a8d9746",
+   "bytes": 497221,
+   "role": "chipped / worn tile perimeter (applies on every floor variant; internal joints not covered)",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "ONE 2 x 2 m floor tile per repeat; borders of the image = tile borders (world 2 m grid, edges at even metres)",
+   "tile_size_m": [
+    2,
+    2
+   ],
+   "projection": "world-space planar, u = frac(x/2), v = frac(z/2)",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "floor",
+    "tile_m": 2.0,
+    "opacity_default": 0.85,
+    "opacity_range": [
+     0.5,
+     1.0
+    ],
+    "weight_inside_combat_circle_r10": 0.5
+   }
+  },
+  {
+   "path": "textures/VF_Floor_Cracks_2048.png",
+   "sha256": "54e56b6da7f115469a9f4b177d601d2c8f4c77276d3a986aa8b231f5a8cf952f",
+   "bytes": 2440153,
+   "role": "floor cracks + hairlines + faint stain, lit lip",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "seamless, tile = 8 x 8 m (256 px/m)",
+   "tile_size_m": [
+    8,
+    8
+   ],
+   "projection": "world-space planar (top-down XZ) or decal; NOT mesh UV0 (kit UVs are per-part atlases)",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 2048,
+   "height": 2048,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "floor",
+    "tile_m": 8.0,
+    "opacity_default": 0.75,
+    "opacity_range": [
+     0.4,
+     0.9
+    ],
+    "weight_inside_combat_circle_r10": 0.35
+   }
+  },
+  {
+   "path": "textures/VF_Floor_MacroTint_1024.png",
+   "sha256": "2a8b0006131e88a2b1bfd5a7bfcff776e252c9bf9a8fe98a01321efc5f004396",
+   "bytes": 643118,
+   "role": "floor macro warm/cool tint (hue stays at ~36 deg warm / ~232 deg cool, never cyan)",
+   "color_space": "LINEAR data (sRGB OFF)",
+   "tiling": "none: 40x40 m",
+   "blend": "albedo *= lerp(1, tint*2, k)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 3,
+   "recommended": {
+    "kind": "macro_tint",
+    "mapping": "macro",
+    "tile_m": 40.0,
+    "opacity_default": 0.6,
+    "opacity_range": [
+     0.3,
+     1.0
+    ],
+    "weight_inside_combat_circle_r10": 1.0
+   }
+  },
+  {
+   "path": "textures/VF_Floor_MacroValue_2048.png",
+   "sha256": "c0274ee3f672812ed8ffafa6674e614c9ee3346f33cebe0425212a6ef8169eb1",
+   "bytes": 1300214,
+   "role": "floor macro value variation (combat-circle damped, wall grounding baked in)",
+   "color_space": "LINEAR data (sRGB OFF)",
+   "tiling": "none: one sheet = 40x40 m floor",
+   "blend": "albedo *= 1 + (m-0.5)*2*k",
+   "width": 2048,
+   "height": 2048,
+   "channels": 1,
+   "recommended": {
+    "kind": "macro_value",
+    "mapping": "macro",
+    "tile_m": 40.0,
+    "opacity_default": 0.75,
+    "opacity_range": [
+     0.5,
+     1.0
+    ],
+    "weight_inside_combat_circle_r10": 1.0
+   }
+  },
+  {
+   "path": "textures/VF_Floor_MacroValue_NoDamp_2048.png",
+   "sha256": "62a6f41fd5c826156e70f28fdff6cd3d6043209a8247efe4f1e196fe3f15f206",
+   "bytes": 1391178,
+   "role": "same pattern WITHOUT combat-circle damping / grounding (for shader-side radial control)",
+   "color_space": "LINEAR data (sRGB OFF)",
+   "tiling": "none: 40x40 m",
+   "blend": "albedo *= 1 + (m-0.5)*2*k * radialWeight(r)",
+   "width": 2048,
+   "height": 2048,
+   "channels": 1
+  },
+  {
+   "path": "textures/VF_Floor_Wear_1024.png",
+   "sha256": "a60c5e6b63ddae865f2907f839d8c2be7b376307821ff45d9d25bb1a0d34ada7",
+   "bytes": 832660,
+   "role": "floor traffic wear: polished smears + pits",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "seamless, tile = 4 x 4 m (256 px/m)",
+   "tile_size_m": [
+    4,
+    4
+   ],
+   "projection": "world-space planar or decal; NOT mesh UV0",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "floor",
+    "tile_m": 4.0,
+    "opacity_default": 0.5,
+    "opacity_range": [
+     0.25,
+     0.7
+    ],
+    "weight_inside_combat_circle_r10": 0.4
+   }
+  },
+  {
+   "path": "textures/VF_Wall_RainStreaks_1024.png",
+   "sha256": "2df3b96922db9badd3a7607a3a620f94c1076f2b126d27a498eac3bd54a2be4f",
+   "bytes": 236494,
+   "role": "rain-wash vertical streaks for wall faces (stain below ledges)",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "seamless, tile = 3 x 3 m (341 px/m); streaks run along V (image vertical)",
+   "tile_size_m": [
+    3,
+    3
+   ],
+   "projection": "world-space planar on the wall plane (u along the wall, v = world Y), or wall UVs of a tiling shader; NOT kit UV0",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "wall",
+    "tile_m": 3.0,
+    "opacity_default": 0.65,
+    "opacity_range": [
+     0.3,
+     0.9
+    ],
+    "weight_inside_combat_circle_r10": 1.0
+   }
+  },
+  {
+   "path": "textures/VF_Weather_MossFloorJoints_1024.png",
+   "sha256": "8efcf5dad049bdca234fe958f8560ef45a6689d4bd295795670577993a4baa23",
+   "bytes": 422890,
+   "role": "sparse moss in floor joints (tile perimeter), outer ring only",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "ONE 2 x 2 m floor tile per repeat, aligned to the 2 m grid",
+   "tile_size_m": [
+    2,
+    2
+   ],
+   "projection": "world-space planar, u = frac(x/2), v = frac(z/2)",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "floor",
+    "tile_m": 2.0,
+    "opacity_default": 0.8,
+    "opacity_range": [
+     0.5,
+     1.0
+    ],
+    "weight_inside_combat_circle_r10": 0.0
+   }
+  },
+  {
+   "path": "textures/VF_Weather_MossWallBase_1024.png",
+   "sha256": "db2f5d3cc706582e4dcc14803af2c19b10bee7e9d503b696f3dcdcceac1c1041",
+   "bytes": 472031,
+   "role": "moss pre-gated for wall bases: dense under ~0.3 m, scattered up to ~1 m, a few runners (restrained)",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "seamless in U; V is NOT tiling: image bottom = wall base, 1024 px = 3 m wall height",
+   "tile_size_m": [
+    3,
+    3
+   ],
+   "projection": "wall-local UV (u along wall, v = height/3 m), or world planar with v = clamp(y/3); bottom edge on the floor line",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "wallbase",
+    "tile_m": 3.0,
+    "opacity_default": 0.8,
+    "opacity_range": [
+     0.5,
+     1.0
+    ],
+    "weight_inside_combat_circle_r10": 1.0
+   }
+  },
+  {
+   "path": "textures/VF_Weather_Moss_1024.png",
+   "sha256": "a8d7d268a48848bb6b3fd2a57a8e21d349d345c37d916d5799a2eba6f4d3207b",
+   "bytes": 689182,
+   "role": "restrained moss clumps (generic; MUST be gated by height / drain / joint mask in the shader)",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "seamless, tile = 2 x 2 m",
+   "tile_size_m": [
+    2,
+    2
+   ],
+   "projection": "world-space planar or triplanar",
+   "blend": "lerp(base, rgb, a * opacity * gate)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "any",
+    "tile_m": 2.0,
+    "opacity_default": 0.7,
+    "opacity_range": [
+     0.4,
+     0.9
+    ],
+    "weight_inside_combat_circle_r10": 0.0
+   }
+  },
+  {
+   "path": "textures/VF_Weather_Salt_1024.png",
+   "sha256": "7e54e3b8a6446083cc3491137327cd364c593d1366ef1acd69f5bc8eb55a5e4a",
+   "bytes": 650584,
+   "role": "mineral / salt efflorescence (clusters + crystalline speckle + faint damp stain)",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "seamless, tile = 2 x 2 m (512 px/m)",
+   "tile_size_m": [
+    2,
+    2
+   ],
+   "projection": "world-space planar or triplanar; gate by height (low on walls) and by crevice/occlusion if available",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "overlay",
+    "mapping": "any",
+    "tile_m": 2.0,
+    "opacity_default": 0.55,
+    "opacity_range": [
+     0.3,
+     0.8
+    ],
+    "weight_inside_combat_circle_r10": 0.3
+   }
+  },
+  {
+   "path": "textures/VF_Weather_SootFloorRing_1024.png",
+   "sha256": "8ef890f1d538b3115b7696b926ea6530f6f5fdf9bd7a9d5a2c2bcf50db176e86",
+   "bytes": 496560,
+   "role": "soot / scorch smudge on the floor beside a brazier (asymmetric, elongated ~28 deg; NOT a ring; rotate per instance, mirror freely)",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "none: single decal, 3.2 x 3.2 m (320 px/m)",
+   "tile_size_m": [
+    3.2,
+    3.2
+   ],
+   "projection": "top-down decal, centre near the brazier; rotate randomly per instance; keep it AWAY from the combat circle",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 1024,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "decal",
+    "mapping": "decal",
+    "tile_m": 3.2,
+    "opacity_default": 0.85,
+    "opacity_range": [
+     0.5,
+     1.0
+    ],
+    "weight_inside_combat_circle_r10": 0.0
+   }
+  },
+  {
+   "path": "textures/VF_Weather_SootWallPlume_512x1024.png",
+   "sha256": "31e4c462abaae177ddbe54f2ebc48c7ed13c187fa684422e1fb7192e2834a25d",
+   "bytes": 159073,
+   "role": "soot plume rising on a wall behind a brazier (bottom of image = just above the brazier bowl, ~1.4 m)",
+   "color_space": "sRGB colour + straight alpha",
+   "tiling": "none: single decal, 1.5 m wide x 3.0 m tall",
+   "tile_size_m": [
+    1.5,
+    3.0
+   ],
+   "projection": "wall-plane decal, bottom edge at ~1.3-1.5 m above the floor, centred on the brazier",
+   "blend": "lerp(base, rgb, a * opacity)",
+   "width": 512,
+   "height": 1024,
+   "channels": 4,
+   "recommended": {
+    "kind": "decal",
+    "mapping": "decal",
+    "tile_m": 3.0,
+    "opacity_default": 0.8,
+    "opacity_range": [
+     0.5,
+     1.0
+    ],
+    "weight_inside_combat_circle_r10": 1.0
+   }
+  },
+  {
+   "path": "contact/VF_contact_courtyard.png",
+   "sha256": "d503d77d5ebbf6aad8e37eac8f66cd5dbeff650eb870ec948f8e339031636306",
+   "bytes": 14046493
+  },
+  {
+   "path": "contact/VF_contact_floor.png",
+   "sha256": "d9b5163517a92c701998c17a04bacbb68c0208c3f39ce1e79403b37e0d3b186f",
+   "bytes": 8989180
+  },
+  {
+   "path": "contact/VF_contact_weather.png",
+   "sha256": "5ef4df53ec8cd60bb24aa2ce128f2cec628a99cbc727b563a8020fd123c79897",
+   "bytes": 8145331
+  },
+  {
+   "path": "renders/VF_closeup_dais_brazier_after.png",
+   "sha256": "ef52fe72578248bc4a3abec9179c218b6da2a11b2218e90be1b2b54c7fc609b3",
+   "bytes": 2128281
+  },
+  {
+   "path": "renders/VF_closeup_dais_brazier_before.png",
+   "sha256": "4338b3c63d0860962403cb5532eaaa43076acc981de51732cc38165663a62dfe",
+   "bytes": 2065616
+  },
+  {
+   "path": "renders/VF_closeup_wall_left_after.png",
+   "sha256": "46df53ffbc185389ff5a0e4ab4ef1c85c73176ff7ede22f19b79fed422c2e8f9",
+   "bytes": 2026224
+  },
+  {
+   "path": "renders/VF_closeup_wall_left_before.png",
+   "sha256": "e605402d5b39f2a8efcdac312d347bec50f9b8481837e18f27510d029535ffce",
+   "bytes": 1945002
+  },
+  {
+   "path": "renders/VF_closeup_wallbrazier_after.png",
+   "sha256": "8d6c6b1cf5c7d3d13282d039d0c9a527ca521c1600325dbdbc98fa1625714344",
+   "bytes": 2174382
+  },
+  {
+   "path": "renders/VF_closeup_wallbrazier_before.png",
+   "sha256": "65291416fbc69c4940246721fe2d2f5688c0b97b3e0bbcebcb2648a74f82305b",
+   "bytes": 2108083
+  },
+  {
+   "path": "renders/VF_courtyard_dais_after.png",
+   "sha256": "438a0d2d2d7eec47f6c9c57adcc88cbd259df2481aee2ffadb24d5ea0a4e651f",
+   "bytes": 3175683
+  },
+  {
+   "path": "renders/VF_courtyard_gameplay_after.png",
+   "sha256": "72e5cbf2b1e234151fce563a145aab13a1fbfa5ddc88bb46ac354399de10a859",
+   "bytes": 3275465
+  },
+  {
+   "path": "renders/VF_courtyard_gameplay_after_strongmacro.png",
+   "sha256": "4ce77116843bee0f3cd48f7081e5ad19d3cd202e293b232583f5551bef2a02ca",
+   "bytes": 3285487
+  },
+  {
+   "path": "renders/VF_courtyard_gameplay_after_telegraph.png",
+   "sha256": "1e656f6f81c601a21d4bf0592be52b70766f37c68e2c6bb5908b2003410ab27b",
+   "bytes": 3284950
+  },
+  {
+   "path": "renders/VF_courtyard_gameplay_before.png",
+   "sha256": "462f75a1572f80cc16a67e9b36a287697491ec1636cf6b78480c407432e3a48d",
+   "bytes": 2909417
+  },
+  {
+   "path": "renders/VF_courtyard_gameplay_before_telegraph.png",
+   "sha256": "510edcc0b1a2fc1ee20a411edb21c30104791a885506aea1fa370e4e1ef2c5ba",
+   "bytes": 2920868
+  },
+  {
+   "path": "renders/VF_courtyard_plan_after.png",
+   "sha256": "54529c69745abe9c78cff427d091128aebb1236e495f8dd9c6c143a2990a96ab",
+   "bytes": 3686720
+  },
+  {
+   "path": "renders/VF_courtyard_plan_after_strongmacro.png",
+   "sha256": "9404fe8d29582423fa86d20adaef291bef3e40232f17e118b721a023f26d7577",
+   "bytes": 3692621
+  },
+  {
+   "path": "renders/VF_courtyard_plan_before.png",
+   "sha256": "b794e3925a0fa9e0629c805d18bfa44c8e0a855a8a891be741c3ac87ccbe6260",
+   "bytes": 3248847
+  },
+  {
+   "path": "VF_HANDOFF_REPORT.md",
+   "sha256": "189adeb91ad53616d0bacf249b181db093813e4b297cabebf0c1e258fb41acaa",
+   "bytes": 11724
+  },
+  {
+   "path": "VF_PALETTE_USAGE_NOTE.md",
+   "sha256": "da0594444e39faf9c463c2c562e6c089b721fdc95ae3b440c72a3d6c286b0519",
+   "bytes": 7076
+  },
+  {
+   "path": "VF_PIPELINE_ANSWER.md",
+   "sha256": "f1ffd08782dc1520a205631a1b52623f96131518fb383d491bf15b032ec7a4b6",
+   "bytes": 5013
+  },
+  {
+   "path": "VF_PROP_PLACEMENTS.md",
+   "sha256": "bddff681bc96ce11a0ea2628e7ac875ef1b6d3c9ed481a1b164c7394a7f3fc7f",
+   "bytes": 2865
+  },
+  {
+   "path": "VF_PROP_PLACEMENTS.json",
+   "sha256": "8a74773c5b0586851532b560c2cccd626c399dc2ec594dc65f699dcc30e938e9",
+   "bytes": 5701
+  },
+  {
+   "path": "scripts/04_verify_assets.py",
+   "sha256": "00c8a8c8c2b361025d07a2ff804c0b3080eead8140193d39a47fe8014cb3ec52",
+   "bytes": 12803
+  },
+  {
+   "path": "scripts/05_compare_assets.py",
+   "sha256": "34288927ad22381cdefda158f9544f3e75669cf569b1a208f544e324259f2487",
+   "bytes": 13050
+  },
+  {
+   "path": "scripts/10_generate_textures.py",
+   "sha256": "cc1674fcdb291e3572805d33e94c0727fee995f4699bc77893c56bc4d79da85d",
+   "bytes": 23395
+  },
+  {
+   "path": "scripts/11_texture_qa.py",
+   "sha256": "c550a08780788ac14e781083aeba67e119fce5a4df0962a2e5e5b0a6c252caf4",
+   "bytes": 8267
+  },
+  {
+   "path": "scripts/12_contact_sheets.py",
+   "sha256": "70b1c24edac2660a38814a4054f386beac4ff26e4c9482ecff68de0e988e26c8",
+   "bytes": 13252
+  },
+  {
+   "path": "scripts/13_courtyard_before_after.py",
+   "sha256": "9b7753aaa963d27405da13819f93e4d923511fda2ef30c130a735713b96e969d",
+   "bytes": 13700
+  },
+  {
+   "path": "scripts/14_prop_placements.py",
+   "sha256": "6ca69a44982ede3df0197ffe2f0f826165e3a5f063fc76a594eeaaecd26d72b2",
+   "bytes": 4370
+  },
+  {
+   "path": "scripts/15_manifest.py",
+   "sha256": "3bc51b8c23106c19bfdeb83cfe2f0e31037ae30dfcad5fde0ac6bb5e82a8ea87",
+   "bytes": 2339
+  },
+  {
+   "path": "scripts/16_color_audit.py",
+   "sha256": "95aea5d34f0a44a0fbef95ce9ff610e6a99c1d9a18e8bcccd60f9abdb4553a43",
+   "bytes": 6681
+  },
+  {
+   "path": "scripts/assets.py",
+   "sha256": "c2cc1f9e7ce6216d72da41576f2f39477cbd4958d00f3e9b9115f8766578d251",
+   "bytes": 23550
+  },
+  {
+   "path": "scripts/kitlib.py",
+   "sha256": "b007949693aa36e39d2b3b5299fc9c77d3a6b5381f72174a104b32d3850cf79f",
+   "bytes": 40148
+  },
+  {
+   "path": "scripts/vf_nodes.py",
+   "sha256": "8f4febc388e8d6af6177278f6b8dbb778244da0438735693be697cdf073eed0d",
+   "bytes": 7864
+  },
+  {
+   "path": "evidence/05_verify_FloorBorder_Corner_A.json",
+   "sha256": "35d9d49fc0307979389817ff637311e983f3c3ef81605704af726071307fc17b",
+   "bytes": 3228
+  },
+  {
+   "path": "evidence/05_verify_FloorBorder_Straight_A.json",
+   "sha256": "94aba4eef775689dbb4f30e7c2656e240fd130489c2a406a694a3894dff3c93f",
+   "bytes": 3247
+  },
+  {
+   "path": "evidence/05_verify_Floor_A.json",
+   "sha256": "5d33dd3d9e93740ba64ee310c2a1044a5b8c0db56b98925d2acd0b8fbe68cd14",
+   "bytes": 2717
+  },
+  {
+   "path": "evidence/05_verify_Floor_B.json",
+   "sha256": "e844025b2d3823518e72aec94a70642cf03fbe2390e58a4ccff08b768aa777b9",
+   "bytes": 2729
+  },
+  {
+   "path": "evidence/05_verify_Floor_C.json",
+   "sha256": "aa0b1fd39e03d4e812db4406d6efa1bf477eef71e3e2735ca9da74d46beb7bde",
+   "bytes": 2720
+  },
+  {
+   "path": "evidence/05_verify_Floor_D.json",
+   "sha256": "3540019164a28b06e295076eceb7dba759ac8d78c9acbcf1ac0ffcaedca06971",
+   "bytes": 2717
+  },
+  {
+   "path": "evidence/05_verify_Platform_A.json",
+   "sha256": "aa339ebe937c887ad6d9e080985db11c014d2d45ff87496d529f3d9931e126dd",
+   "bytes": 2792
+  },
+  {
+   "path": "evidence/05_verify_Stairs_A.json",
+   "sha256": "135f1c9d1e6bd99cc12613eb32d8d53cd889693db57c638c14c7d0306e0538f6",
+   "bytes": 2754
+  },
+  {
+   "path": "evidence/06_compare_FloorBorder_Corner_A.json",
+   "sha256": "17f511222d1d6361392d55c61228946acb9699cd8ef1f33c100bfea359d62be0",
+   "bytes": 15250
+  },
+  {
+   "path": "evidence/06_compare_FloorBorder_Straight_A.json",
+   "sha256": "42b99c886b0fe5c5d20fcd05e0a35eeabf9e9412624b6fd5fda938d9d949e248",
+   "bytes": 15313
+  },
+  {
+   "path": "evidence/06_compare_Floor_A.json",
+   "sha256": "edb8ba4a846834b03f1ee6de01c3124f47d1866941fb64a901705cf54f21151a",
+   "bytes": 12930
+  },
+  {
+   "path": "evidence/06_compare_Floor_B.json",
+   "sha256": "8f9ea7e9a4de68cf3fd34dc0363d6c27c536dd2be548b4f04dd174b5a3e8e8c4",
+   "bytes": 12347
+  },
+  {
+   "path": "evidence/06_compare_Floor_C.json",
+   "sha256": "973eabf8cd4c0a946a0650692787d79a109878947cd89f542fc2339737c0dbaa",
+   "bytes": 12989
+  },
+  {
+   "path": "evidence/06_compare_Floor_D.json",
+   "sha256": "da006e522ee178374bc92f72d2de359a246d9baa7b5ca4bde9d11da8409355f9",
+   "bytes": 13142
+  },
+  {
+   "path": "evidence/06_compare_Platform_A.json",
+   "sha256": "71e3b8039ad39f1e7d8d1037e5bd095fe9903149eafd87807cffdd36c6bea988",
+   "bytes": 13365
+  },
+  {
+   "path": "evidence/06_compare_Stairs_A.json",
+   "sha256": "c18eb4b2bf75cab16c4b441af770b02b8e00861870556f2bbd56c36202ffb66a",
+   "bytes": 12862
+  },
+  {
+   "path": "evidence/10_generation.json",
+   "sha256": "988e7e360b46272a033c03d092df05e61eeda1dd0a35b797799a918baca6e4a0",
+   "bytes": 9305
+  },
+  {
+   "path": "evidence/11_texture_qa.json",
+   "sha256": "f2a663c6cd58ecad5d1020b31530bbabd776a4e7af2ff02c0135c52b65f2b556",
+   "bytes": 15789
+  },
+  {
+   "path": "evidence/13_courtyard.json",
+   "sha256": "9a790318b22dee9419d06eef32f44d46523ee566a94c4efcfbea971bb6816757",
+   "bytes": 2472
+  },
+  {
+   "path": "evidence/13_courtyard_strongmacro.json",
+   "sha256": "1cef0229cd892417b75bac3f5d27ee6453893af93dfd38633a411dbde02f390f",
+   "bytes": 2478
+  },
+  {
+   "path": "evidence/15_sha_before_regen.json",
+   "sha256": "6765052ed0418d35cb14f09f56435dcc3f4261470d581faa04fb4397f3d9ef46",
+   "bytes": 1330
+  },
+  {
+   "path": "evidence/16_color_audit.json",
+   "sha256": "99e917ce68f21500d3cd4ef48372d2cdaef5e96748ae3591867da62c297d42ef",
+   "bytes": 9637
+  },
+  {
+   "path": "evidence/checksums_after.txt",
+   "sha256": "40cf11180c59ed1e945b0960a0379f4004501f18343999a55be24772620ad1af",
+   "bytes": 612
+  },
+  {
+   "path": "evidence/checksums_after_corrections.txt",
+   "sha256": "40cf11180c59ed1e945b0960a0379f4004501f18343999a55be24772620ad1af",
+   "bytes": 612
+  },
+  {
+   "path": "evidence/checksums_before.txt",
+   "sha256": "844580af5816719d2ab4561068b93251bb84468785cfa18d8381c863b8b7fd52",
+   "bytes": 612
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_FloorBorder_Corner_A.log",
+   "sha256": "e7a6b80a59acbc91595a544cea839dfa3b4fa5eae4ac8c0b9ddd27e0ec698d9a",
+   "bytes": 3574
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_FloorBorder_Straight_A.log",
+   "sha256": "9d2e8a48392899d1f2ed1ddb06187895f39b84a0687b7b423a91b1aa5f74f966",
+   "bytes": 3583
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_Floor_A.log",
+   "sha256": "f2674728b268c0324118940fac95e0bd4d19d1193625f27bcefa01ce41697585",
+   "bytes": 3184
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_Floor_B.log",
+   "sha256": "863c761f626a8e67f04110dbd9f8b602da70388aced4fe0f82cd03edb307bec9",
+   "bytes": 3184
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_Floor_C.log",
+   "sha256": "ba00a9fc4f24718e2e2f010242eb9f886f75a87a904f173e0045eb4762d009a6",
+   "bytes": 3183
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_Floor_D.log",
+   "sha256": "69f03bd20df0a889c4c69df87882dd49a4f25a68b6ec5bbd3b25b2e9c5ea18ae",
+   "bytes": 3184
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_Platform_A.log",
+   "sha256": "3c92a7f3cb03690665eb1ea099d90151b71e87dd5e9a769dab77f78541e9894d",
+   "bytes": 3228
+  },
+  {
+   "path": "evidence/05_verify_ENV_Temple_Stairs_A.log",
+   "sha256": "ba674c352184f6c5e58fab526f8446157b45e7ea271e2fd34591eac3d0dc5c4a",
+   "bytes": 3206
+  },
+  {
+   "path": "evidence/06_compare_floorparts.log",
+   "sha256": "fc5efd2c3c167e269b76a643e2feaa869c353a51507fa69a50fbe5175c96915c",
+   "bytes": 12771
+  },
+  {
+   "path": "evidence/10_generate.log",
+   "sha256": "3c0f6c008046ad41eb93b6e658b782bfb556ec141bbc2ec19a391f233eab34a8",
+   "bytes": 1007
+  },
+  {
+   "path": "evidence/10_generate_rerun.log",
+   "sha256": "614875f0490cb7939cb8edadc9341d8e1628b36036280d6e5089b6d5bb694410",
+   "bytes": 1007
+  },
+  {
+   "path": "evidence/11_qa.log",
+   "sha256": "bd6d4cd237a1a6d2edbc8090590728a935abb17a731914c2a16b33d40129e0e4",
+   "bytes": 9571
+  },
+  {
+   "path": "evidence/12_contact.log",
+   "sha256": "fec8a11c128e7535fa4dd0ebbe3ca1cef19ee4cc5c0ea2c6728d8328d781e7f0",
+   "bytes": 1939
+  },
+  {
+   "path": "evidence/12_contact_floor.log",
+   "sha256": "06384dede10afaaee142f3930b111477028ff810e3320d6d99df3c5002a280f1",
+   "bytes": 812
+  },
+  {
+   "path": "evidence/12_contact_weather.log",
+   "sha256": "0255932ba2848b754fd3f58b50ba6dda82c2bef77534ea18459b3656750ac7e2",
+   "bytes": 816
+  },
+  {
+   "path": "evidence/13_courtyard.log",
+   "sha256": "90f2d286c7d83d53f91ae5b2a815cf34664639bcb7d06f02d0317327434e900c",
+   "bytes": 6090
+  },
+  {
+   "path": "evidence/13_courtyard_strong.log",
+   "sha256": "66b9c7c2cc4013b901ebaf2aa50beea5f7244f5d4b2262cabba52966440de0a9",
+   "bytes": 5922
+  },
+  {
+   "path": "evidence/16_color_audit.log",
+   "sha256": "4e0f6d850dac626da70ac3ae8864ce2d1807658d3875f2efebc25b2dacd1beee",
+   "bytes": 7441
+  },
+  {
+   "path": "TempleEnvironmentKit_vf_working.blend",
+   "sha256": "2bde02c0c3ea7d9d4b72d203c5b89662cd2d4d5a8d1c7e8653d2e79604159773",
+   "bytes": 18411502
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+00:02.012  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+A {'zone_md5': 'c782a1c6873c3d6f35160566ba22402e', 'faces': 10462, 'tris': 10462, 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_EmberAmber'], 'material_index_hist': {0: 7872, 1: 1800, 2: 790}, 'zone_counts': {'StoneWarm': 7872, 'Bronze': 1800, 'EmberAmber': 790}}
+B {'zone_md5': 'c782a1c6873c3d6f35160566ba22402e', 'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_EmberAmber'], 'material_index_hist': {0: 7872, 1: 1800, 2: 790}, 'zone_counts': {'StoneWarm': 7872, 'Bronze': 1800, 'EmberAmber': 790}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:106: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('TempleBakeWorld'); w.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:113: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  pm = bpy.data.materials.new('_zone_probe_b'); pm.use_nodes = True
+Info: Baking map saved to internal image, save it externally or pack it
+C1 {'res': 1024, 'texels_by_zone': {'StoneWarm': 605637, 'Bronze': 118831, 'EmberAmber': 60967}, 'texels_empty_or_edge': 263141, 'covered_fraction': 0.749}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C2 {"res": 1024, "seconds": 40.9, "files": {"BaseColor": "Textures/ENV_Temple_Lantern_Pylon_A_BaseColor.png", "Normal": "Textures/ENV_Temple_Lantern_Pylon_A_Normal.png", "Mask": "Textures/ENV_Temple_Lant {"StoneWarm": {"texels": 605637, "metallic_mean": 0.0, "occlusion_mean": 0.349, "smoothness_mean": 0.2331, "basecolor_mean_srgb_hex": "#625846", "emission_max_channel_mean": 0.0, "emission_max_channel_max": 0.0}, "Bronze": {"texels": 118831, "metallic_mean": 0.6513, "occlusion_mean": 0.3651, "smoothness_mean": 0.4075, "basecolor_mean_srgb_hex": "#75562F", "emission_max_channel_mean": 0.0, "emission_max_channel_max": 0.0}, "EmberAmber": {"texels": 60967, "metallic_mean": 0.0, "occlusion_mean": 0.3553, "smoothness_mean": 0.302, "basecolor_mean_srgb_hex": "#0E0603", "emission_max_channel_mean": 0 {'BaseColor': {'cyan_teal_texels_145_215_sat_gt_0_06': 0, 'texels': 1048576, 'sat_max': 1.0}, 'Emission': {'cyan_teal_texels_145_215_sat_gt_0_06': 0, 'texels': 1048576, 'sat_max': 1.0}}
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/scripts/22_verify_bake.py:57: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+D {'zone_md5': 'c782a1c6873c3d6f35160566ba22402e', 'slots': ['MI_Temple_Lantern_Pylon_A'], 'material_index_hist': {0: 10462}, 'zone_counts': {'StoneWarm': 7872, 'Bronze': 1800, 'EmberAmber': 790}}
+00:45.297  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/verify/ENV_Temple_Lantern_Pylon_A_verify.blend"
+Info: Saved as "ENV_Temple_Lantern_Pylon_A_verify.blend"
+E {'file': 'verify/ENV_Temple_Lantern_Pylon_A_verify.blend', 'zone_md5': 'c782a1c6873c3d6f35160566ba22402e', 'same_as_original': True, 'slots': ['MI_Temple_Lantern_Pylon_A'], 'material_index_hist': {0: 10462}, 'zone_counts': {'StoneWarm': 7872, 'Bronze': 1800, 'EmberAmber': 790}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/Models/ENV_Temple_Lantern_Pylon_A.fbx'
+export finished in 0.0725 sec.
+F {'polys_equal_saved_mesh_tris': True, 'fbx_polys': 10462, 'mesh_tris': 10462, 'axis_map_Blender_xyz_to_FBX_x_z_negy': True, 'unit_scale_ratio_fbx_over_blender': 1.0, 'max_extent_error_fbx_units': 0.00014, 'extents_equal_saved_mesh': True, 'up_axis_equal_shipped': True, 'unit_scale_equal_shipped': True, 'shipped_ref': {'UpAxis': 1, 'UnitScaleFactor': 100.0}, 'materials': ['MI_Temple_Lantern_Pylon_A'], 'textures_resolve': True, 'texture_files': ['ENV_Temple_Lantern_Pylon_A_BaseColor.png', 'ENV_Temple_Lantern_Pylon_A_Emission.png', 'ENV_Temple_Lantern_Pylon_A_Normal.png'], 'identity_transform': True, 'zone_id_in_fbx_bytes': False, 'mesh_bounds_blender': {'min': [-0.5223, -0.523, 0.0], 'max': [0.5264, 0.5244, 2.9701]}}
+00:45.643  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+Info: Saved as "TempleEnvironmentKit_batch1.blend"
+VERIFY_DONE ENV_Temple_Lantern_Pylon_A
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

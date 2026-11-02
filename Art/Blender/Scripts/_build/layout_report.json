@@ -1,0 +1,74 @@
+{
+ "clear_radius_m": 10.0,
+ "min_distance_m": 11.46,
+ "nearest": [
+  [
+   "LAY_Pillar_D_001",
+   11.46,
+   3.73
+  ],
+  [
+   "LAY_ColumnDrum_A_001",
+   13.75,
+   1.1
+  ],
+  [
+   "LAY_Pillar_B_001",
+   13.89,
+   6.34
+  ],
+  [
+   "LAY_Pillar_A_001",
+   14.5,
+   6.39
+  ],
+  [
+   "LAY_Stairs_A_001",
+   14.52,
+   0.96
+  ],
+  [
+   "LAY_Pillar_C_001",
+   15.08,
+   6.34
+  ],
+  [
+   "LAY_Rubble_B_001",
+   16.44,
+   0.3
+  ],
+  [
+   "LAY_Platform_A_001",
+   16.53,
+   0.81
+  ]
+ ],
+ "objects_checked": 62,
+ "objects_inside_zone": [],
+ "floor_tiles": 324,
+ "instance_counts": {
+  "Floor_B": 71,
+  "Floor_A": 102,
+  "Floor_D": 79,
+  "Floor_C": 72,
+  "FloorBorder_Straight_A": 72,
+  "FloorBorder_Corner_A": 4,
+  "Wall_A": 26,
+  "Wall_B": 12,
+  "Arch_A_PierL": 1,
+  "Arch_A_PierR": 1,
+  "Arch_A_Span": 1,
+  "Pillar_A": 1,
+  "Pillar_B": 1,
+  "Pillar_C": 1,
+  "Pillar_D": 1,
+  "Platform_A": 2,
+  "Stairs_A": 1,
+  "Altar_A": 1,
+  "Brazier_A": 4,
+  "Rubble_A": 2,
+  "Rubble_B": 2,
+  "ColumnDrum_A": 1,
+  "Banner_A": 4
+ }
+}

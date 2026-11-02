@@ -1,0 +1,13 @@
+tag,camera,view,draw_calls,set_pass,triangles,shadow_casters
+after,B,centre,1428,76,5554183,833
+after,B,north,994,70,6555961,545
+after,B,west,1032,70,5096682,539
+after,B,dais,1237,77,6440322,676
+after,B,arch,1185,74,6377447,704
+after,B,edge,895,72,4020849,518
+after,A2,centre,1407,77,5535767,823
+after,A2,north,979,70,6468844,544
+after,A2,west,979,70,4898283,508
+after,A2,dais,1205,73,6400221,663
+after,A2,arch,1179,74,6522492,698
+after,A2,edge,933,72,4026767,542

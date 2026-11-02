@@ -1,0 +1,80 @@
+{
+  "kit": "Temple_Central_Medallion",
+  "asset": "ENV_Temple_Central_Medallion.fbx",
+  "source_blend": "Art/Blender/Revisions/medallion/TempleEnvironmentKit_medallion.blend",
+  "concept": "Screenshot 2026-10-29 at 12.32.44-PM (Ref 1) & 12.33.59-PM (Ref 2) + courtyard_balanced.jpg",
+  "units": "metres, Blender +Z up, FBX baked Y-up -Z forward",
+  "q18": {
+    "q18_pct": 0.0,
+    "mean_rgb": [
+      78.1,
+      70.1,
+      52.3
+    ],
+    "mean_sat": 0.3353850245475769
+  },
+  "geometry": {
+    "name": "ENV_Temple_Central_Medallion",
+    "tris": 5952,
+    "verts": 2978,
+    "bbox_min": [
+      -3.8772,
+      -3.8726,
+      -0.1
+    ],
+    "bbox_max": [
+      3.8688,
+      3.8759,
+      0.084
+    ],
+    "dims_m": [
+      7.746,
+      7.7485,
+      0.184
+    ],
+    "diameter_m": 7.746,
+    "thickness_m": 0.184,
+    "lip_z": 0.015,
+    "altar_crest_z": 0.082,
+    "materials": [
+      "M_Temple_Central_Medallion"
+    ],
+    "fbx_src": "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/medallion/models/ENV_Temple_Central_Medallion.fbx",
+    "fbx_staging": "/Users/landerstudio/MythicRoguelite/Art/Exports/Environment/Staging/Medallion/Models/ENV_Temple_Central_Medallion.fbx"
+  },
+  "fbx": {
+    "size_bytes": 400636,
+    "sha256": "44ee548fa8fd24695666f9c21f71ae6c2bb6e5492478d0d0abe0793e4d4da5c5",
+    "materials": [
+      "M_Temple_Central_Medallion"
+    ]
+  },
+  "textures": {
+    "ENV_Temple_Central_Medallion_BaseColor.png": {
+      "size_bytes": 3537844,
+      "sha256": "39617ab913536ab7ddf103dcb4996156c7590527a488fcce44195ba87231cecd",
+      "w": 2048,
+      "h": 2048
+    },
+    "ENV_Temple_Central_Medallion_Normal.png": {
+      "size_bytes": 6266198,
+      "sha256": "bb905424fffd0d0995450e4a9f299ad1c2546ea4d7d948d3f8e304cfa5a5a536",
+      "w": 2048,
+      "h": 2048
+    },
+    "ENV_Temple_Central_Medallion_Mask.png": {
+      "size_bytes": 2021243,
+      "sha256": "21fa0bb8837ce6fb06a63b99f9a5962cac59059c97bda8a320325220bed76ffc",
+      "w": 2048,
+      "h": 2048
+    }
+  },
+  "previews": [
+    "medallion_close.png",
+    "medallion_game42.png",
+    "medallion_rim.png",
+    "medallion_top.png"
+  ],
+  "unity_scenes_edited": false,
+  "master_blend_touched": false
+}

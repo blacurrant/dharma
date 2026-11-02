@@ -1,0 +1,17 @@
+EMIT VF_Floor_MacroValue_2048 2048 2048 1 1300214 bytes c0274ee3f672
+EMIT VF_Floor_MacroValue_NoDamp_2048 2048 2048 1 1391178 bytes 62a6f41fd5c8
+EMIT VF_Floor_MacroTint_1024 1024 1024 3 643118 bytes 2a8b0006131e
+EMIT VF_Floor_Cracks_2048 2048 2048 4 2440153 bytes 54e56b6da7f1
+EMIT VF_Floor_Wear_1024 1024 1024 4 832660 bytes a60c5e6b63dd
+EMIT VF_Floor_ChippedEdges_1024 1024 1024 4 497221 bytes 1aad8e5657b7
+EMIT VF_Wall_RainStreaks_1024 1024 1024 4 236494 bytes 2df3b96922db
+EMIT VF_Weather_Salt_1024 1024 1024 4 650584 bytes 7e54e3b8a644
+EMIT VF_Weather_Moss_1024 1024 1024 4 689182 bytes a8d7d268a488
+EMIT VF_Weather_MossWallBase_1024 1024 1024 4 472031 bytes db2f5d3cc706
+EMIT VF_Weather_MossFloorJoints_1024 1024 1024 4 422890 bytes 8efcf5dad049
+EMIT VF_Weather_SootFloorRing_1024 1024 1024 4 496560 bytes 8ef890f1d538
+EMIT VF_Weather_SootWallPlume_512x1024 512 1024 4 159073 bytes 31e4c462abaa
+GEN_DONE 13 textures 21.1 s
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

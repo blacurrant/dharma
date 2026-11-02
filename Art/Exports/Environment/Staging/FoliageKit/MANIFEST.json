@@ -1,0 +1,75 @@
+{
+  "models": {
+    "ENV_Temple_Foliage_Clump_A.fbx": {
+      "size_bytes": 73436,
+      "sha256": "14c38e383174a42162ca6712e4bd9c2a7e282edc949cef597cdc878ad7d75eef"
+    },
+    "ENV_Temple_Foliage_Clump_B.fbx": {
+      "size_bytes": 63948,
+      "sha256": "f5f175495fda822b659521fcce9fca3dff7f2bd18aa4073e838efaa36b49f88d"
+    },
+    "ENV_Temple_Foliage_Creeper_Wall.fbx": {
+      "size_bytes": 54956,
+      "sha256": "7d176da1ee44568c9dcd73c5d2b7f15eb98138f1979bf7ed864a823b813c38b1"
+    },
+    "ENV_Temple_Foliage_Creeper_Column.fbx": {
+      "size_bytes": 56012,
+      "sha256": "f771ca00ae5cb855065105564e00c706ef07d0c9da50cd43a6357f3ba5e97559"
+    },
+    "ENV_Temple_Ground_DirtPatch_A.fbx": {
+      "size_bytes": 29116,
+      "sha256": "d9eca370f2246a631d90e1a8cfc18e57288173c038073afd92c1cd3dedf63518"
+    },
+    "ENV_Temple_Ground_DirtPatch_B.fbx": {
+      "size_bytes": 23932,
+      "sha256": "a0380a72c01517f4bdcdcd9a2bbfaa6ae22fcbe60ce747ecf199536d2f825a7e"
+    },
+    "ENV_Temple_Ground_CrackedMortar_C.fbx": {
+      "size_bytes": 21100,
+      "sha256": "41dde31e2aaf9f0a8a99e295891f4e01996b96c3d67be1ca20ce4d9727c092ed"
+    }
+  },
+  "textures": {
+    "ENV_Temple_Foliage_BaseColor.png": {
+      "size_bytes": 3841006,
+      "sha256": "b9ef68788a457b3466a07136919b4eea8977237f8ad503e240dea83bae5d593f"
+    },
+    "ENV_Temple_Foliage_Normal.png": {
+      "size_bytes": 4782078,
+      "sha256": "719ed714c1aeda56bfa7b20298a5c328bf3c56bb3ab0764dbee19ace8a17dab5"
+    },
+    "ENV_Temple_Foliage_Mask.png": {
+      "size_bytes": 349901,
+      "sha256": "72ee80951cd57162bb97fa520b5b647c14ac07bc04f4a187f5ca0e09d6e4cdac"
+    },
+    "ENV_Temple_GroundTransition_BaseColor.png": {
+      "size_bytes": 2843089,
+      "sha256": "2d02cd0ff4b4cd01b4ab2fcaebfe2c36107029efa0f1ba435ba99ce78110f3b4"
+    },
+    "ENV_Temple_GroundTransition_Normal.png": {
+      "size_bytes": 8277895,
+      "sha256": "3abfc8b53b19dc27bade9dc7f973fdfa55d019e2dfd07a87b14bd58bf89e6288"
+    },
+    "ENV_Temple_GroundTransition_Mask.png": {
+      "size_bytes": 2188107,
+      "sha256": "288e3c9dfc8d43b9c6aa2460fc12bb0f4ac9eddd774a24b97040769fbebab760"
+    }
+  },
+  "previews": {
+    "kit_overview_game42.png": {
+      "size_bytes": 1965975
+    },
+    "clump_A_close.png": {
+      "size_bytes": 2398323
+    },
+    "clump_B_close.png": {
+      "size_bytes": 2379350
+    },
+    "creepers_close.png": {
+      "size_bytes": 1913564
+    },
+    "ground_patches_close.png": {
+      "size_bytes": 2104000
+    }
+  }
+}

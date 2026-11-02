@@ -1,0 +1,20 @@
+var r=VFRunner.Create(); r.outDir="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation"; r.lightDir="Captures/batch1/graybox"; r.lightCsv="Reports/b1_metrics_graybox.csv"; string od=r.outDir; string TAG="graybox";
+var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy"); var iso=UnityEngine.Camera.main.GetComponent<IsoCameraFollow>();
+void FacadeShadows(bool on){ foreach(var t in UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsInactive.Include)) if(t.name.StartsWith("VF_Proxy_Bay_")||t.transform.parent!=null&&t.transform.parent.name.StartsWith("VF_Batch1_Wall")) t.shadowCastingMode= on?UnityEngine.Rendering.ShadowCastingMode.On:UnityEngine.Rendering.ShadowCastingMode.Off; }
+System.Collections.IEnumerator Routine(){
+  yield return null; yield return null; if(UnityEngine.Camera.main.pixelWidth!=1920||UnityEngine.Camera.main.pixelHeight!=1080){ r.status="stack done ABORT: Game view is "+UnityEngine.Camera.main.pixelWidth+"x"+UnityEngine.Camera.main.pixelHeight+" not 1920x1080"; r.done=true; yield break; }
+  UnityEngine.Time.captureFramerate=60; System.IO.Directory.CreateDirectory(od+"/Captures/batch1/"+TAG); System.IO.File.Delete(od+"/"+r.lightCsv); var stats=new System.Text.StringBuilder("tag,camera,view,draw_calls,set_pass,triangles,shadow_casters\n");
+  var states=new[]{"gb_shadowON","gb_shadowOFF"};
+  foreach(var cfg in new[]{("B",9f,18f),("A2",8.5f,15.28f)}){
+    foreach(var st in states){ VF4Builder.SetBatch(true); FacadeShadows(st=="gb_shadowON");
+      r.SetConfig(cfg.Item2,cfg.Item3); r.holdCenter=UnityEngine.Vector3.zero; for(int i=0;i<12;i++) yield return null;
+      string lab=st+"_"+cfg.Item1; r.Measure(lab+"_combat",0.45f); while(!r.done) yield return null; for(int i=0;i<3;i++) yield return null;
+      stats.AppendLine(st+","+cfg.Item1+",combat,"+UnityEditor.UnityStats.drawCalls+","+UnityEditor.UnityStats.setPassCalls+","+UnityEditor.UnityStats.triangles+","+UnityEditor.UnityStats.shadowCasters);
+      en.GetComponent<TrainingDummy>().enabled=false;
+      foreach(var v in new[]{("centre",0f,0f),("north",-8f,16f),("west",-16f,-2f),("dais",-8f,8f),("arch",4f,15f),("edge",13f,-13f)}){
+        var cc=pl.GetComponent<UnityEngine.CharacterController>(); cc.enabled=false; pl.transform.position=new UnityEngine.Vector3(v.Item2,0.02f,v.Item3); cc.enabled=true; var ec=en.GetComponent<UnityEngine.CharacterController>(); ec.enabled=false; en.transform.position=new UnityEngine.Vector3(0,0,-60); ec.enabled=true; iso.Snap(); for(int i=0;i<14;i++) yield return null; yield return new UnityEngine.WaitForEndOfFrame();
+        var t=UnityEngine.ScreenCapture.CaptureScreenshotAsTexture(); System.IO.File.WriteAllBytes(od+"/Captures/batch1/"+TAG+"/"+lab+"_"+v.Item1+".png",t.EncodeToPNG()); UnityEngine.Object.Destroy(t);
+        stats.AppendLine(st+","+cfg.Item1+","+v.Item1+","+UnityEditor.UnityStats.drawCalls+","+UnityEditor.UnityStats.setPassCalls+","+UnityEditor.UnityStats.triangles+","+UnityEditor.UnityStats.shadowCasters); }
+    } }
+  System.IO.File.WriteAllText(od+"/Reports/b1_stats_"+TAG+".csv",stats.ToString()); UnityEngine.Time.captureFramerate=0; r.status="stack done"; r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

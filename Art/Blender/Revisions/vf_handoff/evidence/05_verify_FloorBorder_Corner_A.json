@@ -1,0 +1,173 @@
+{
+ "asset": "ENV_Temple_FloorBorder_Corner_A",
+ "t0": "14:01:20",
+ "A_reopen": {
+  "zone_md5": "9d18ea159a9a29e03c7e41270f232faa",
+  "faces": 8522,
+  "slots": [
+   "MI_Temple_FloorBorder_Corner_A"
+  ],
+  "material_index_hist": {
+   "0": 8522
+  },
+  "zone_counts": {
+   "StoneWarm": 7392,
+   "Bronze": 1024,
+   "Gold": 106
+  }
+ },
+ "B_restored": {
+  "zone_md5": "9d18ea159a9a29e03c7e41270f232faa",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold"
+  ],
+  "material_index_hist": {
+   "0": 7392,
+   "1": 1024,
+   "2": 106
+  },
+  "zone_counts": {
+   "StoneWarm": 7392,
+   "Bronze": 1024,
+   "Gold": 106
+  }
+ },
+ "C1_zone_raster": {
+  "res": 2048,
+  "texels_by_zone": {
+   "StoneWarm": 1928702,
+   "Bronze": 19307,
+   "Gold": 29624
+  },
+  "texels_empty_or_edge": 2216671,
+  "covered_fraction": 0.4715
+ },
+ "C2_bake": {
+  "res": 2048,
+  "seconds": 73.0,
+  "files": {
+   "BaseColor": "bake_out_b/Textures/ENV_Temple_FloorBorder_Corner_A_BaseColor.png",
+   "Normal": "bake_out_b/Textures/ENV_Temple_FloorBorder_Corner_A_Normal.png",
+   "Mask": "bake_out_b/Textures/ENV_Temple_FloorBorder_Corner_A_Mask.png"
+  },
+  "zone_md5_after_bake": "9d18ea159a9a29e03c7e41270f232faa",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze",
+   "SRC_Temple_Gold"
+  ]
+ },
+ "D_after_swap": {
+  "zone_md5": "9d18ea159a9a29e03c7e41270f232faa",
+  "slots": [
+   "MI_Temple_FloorBorder_Corner_A"
+  ],
+  "material_index_hist": {
+   "0": 8522
+  },
+  "zone_counts": {
+   "StoneWarm": 7392,
+   "Bronze": 1024,
+   "Gold": 106
+  }
+ },
+ "E_reopen": {
+  "file": "verify_b/ENV_Temple_FloorBorder_Corner_A_verify.blend",
+  "zone_md5": "9d18ea159a9a29e03c7e41270f232faa",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_FloorBorder_Corner_A"
+  ],
+  "material_index_hist": {
+   "0": 8522
+  },
+  "zone_counts": {
+   "StoneWarm": 7392,
+   "Bronze": 1024,
+   "Gold": 106
+  }
+ },
+ "F_fbx_gate1": {
+  "bytes": 920236,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_FloorBorder_Corner_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_FloorBorder_Corner_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_FloorBorder_Corner_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_FloorBorder_Corner_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -0.9905,
+   0.0,
+   -0.9913
+  ],
+  "vertex_max": [
+   0.9901,
+   0.3484,
+   0.9916
+  ],
+  "polys": 8522
+ },
+ "F_fbx_shipped": {
+  "bytes": 920108,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_FloorBorder_Corner_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_FloorBorder_Corner_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_FloorBorder_Corner_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_FloorBorder_Corner_A"
+   }
+  ],
+  "UpAxis": 1,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -0.9905,
+   0.0,
+   -0.9913
+  ],
+  "vertex_max": [
+   0.9901,
+   0.3484,
+   0.9916
+  ],
+  "polys": 8522
+ },
+ "F_checks": {
+  "polys_equal": true,
+  "vertex_extents_equal": true,
+  "up_axis_equal": true,
+  "unit_scale_equal": true,
+  "materials_equal": true,
+  "textures_equal": true,
+  "identity_transform_gate1": true,
+  "zone_id_in_fbx_bytes": false
+ },
+ "seconds_total": 77.3
+}

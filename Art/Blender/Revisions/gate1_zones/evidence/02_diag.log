@@ -1,0 +1,31 @@
+00:00.489  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Arch_A_PierL/ENV_Temple_Arch_A_PierL_verify.blend"
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/02_diag_anomalies.py:29: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new('_p'); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+00:03.350  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Brazier_A/ENV_Temple_Brazier_A_verify.blend"
+00:03.608  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Arch_A_PierL/ENV_Temple_Arch_A_PierL_verify.blend"
+Info: Baking map saved to internal image, save it externally or pack it
+DIAG1 {'faces': 26656, 'mismatched': 120, 'mismatched_uv_area_px_max': 23.403, 'mismatched_uv_area_px_median': 1.44, 'all_faces_uv_area_px_median': 18.346, 'mismatched_faces_whose_baked_value_is_a_zone_of_another_face_covering_that_texel': 99, 'mismatched_zones': [0, 2, 3]}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/diag/ENV_Temple_Brazier_A_LINEAR.fbx'
+export finished in 0.0220 sec.
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/diag/ENV_Temple_Brazier_A_SRGB.fbx'
+export finished in 0.0139 sec.
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/diag/ENV_Temple_Arch_A_PierL_LINEAR.fbx'
+export finished in 0.0612 sec.
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/diag/ENV_Temple_Arch_A_PierL_SRGB.fbx'
+export finished in 0.0555 sec.
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+DIAG2 ENV_Temple_Brazier_A_LINEAR distinct [(0.0, 1296), (0.13300000131130219, 3488), (1.0, 1298)] | direct False {0: 4784, 5: 1298} | srgb->lin True {0: 1296, 2: 3488, 5: 1298}
+DIAG2 ENV_Temple_Brazier_A_SRGB distinct [(0.0, 1296), (0.4020000100135803, 3488), (1.0, 1298)] | direct True {0: 1296, 2: 3488, 5: 1298} | srgb->lin True {0: 1296, 2: 3488, 5: 1298}
+DIAG2 ENV_Temple_Arch_A_PierL_LINEAR distinct [(0.0, 25760), (0.032999999821186066, 512), (0.13300000131130219, 324), (0.3190000057220459, 60)] | direct False {0: 26272, 1: 324, 2: 60} | srgb->lin True {0: 25760, 1: 512, 2: 324, 3: 60}
+DIAG2 ENV_Temple_Arch_A_PierL_SRGB distinct [(0.0, 25760), (0.20200000703334808, 512), (0.4020000100135803, 324), (0.597000002861023, 60)] | direct True {0: 25760, 1: 512, 2: 324, 3: 60} | srgb->lin False {0: 25760, 2: 512, 3: 384}
+DIAG_DONE
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

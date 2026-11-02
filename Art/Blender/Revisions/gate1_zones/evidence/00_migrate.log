@@ -1,0 +1,30 @@
+00:00.357  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+MIGRATE parts 23 all_transferred True
+MIGRATE Altar_A faces 79542 matched 79542 index_order_identical False uv_identical_to_rebuild False ambiguous 0 zones {0: 60208, 2: 5024, 3: 2032, 4: 11860, 5: 418}
+MIGRATE Arch_A_PierL faces 26656 matched 26656 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 25760, 1: 512, 2: 324, 3: 60}
+MIGRATE Arch_A_PierR faces 26304 matched 26304 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 25920, 2: 324, 3: 60}
+MIGRATE Arch_A_Span faces 122416 matched 122416 index_order_identical False uv_identical_to_rebuild False ambiguous 0 zones {0: 120224, 3: 2192}
+MIGRATE Banner_A faces 5774 matched 5774 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {2: 916, 3: 652, 4: 4206}
+MIGRATE Brazier_A faces 6082 matched 6082 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 1296, 2: 3488, 5: 1298}
+MIGRATE ColumnDrum_A faces 5328 matched 5328 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 5328}
+MIGRATE FloorBorder_Corner_A faces 8522 matched 8522 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 7392, 2: 1024, 3: 106}
+MIGRATE FloorBorder_Straight_A faces 7544 matched 7544 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 6816, 2: 652, 3: 76}
+MIGRATE Floor_A faces 1824 matched 1824 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 1824}
+MIGRATE Floor_B faces 1272 matched 1272 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 1272}
+MIGRATE Floor_C faces 1760 matched 1760 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 1760}
+MIGRATE Floor_D faces 1632 matched 1632 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 1632}
+MIGRATE Pillar_A faces 38050 matched 38050 index_order_identical False uv_identical_to_rebuild False ambiguous 0 zones {0: 37282, 3: 768}
+MIGRATE Pillar_B faces 41166 matched 41166 index_order_identical False uv_identical_to_rebuild False ambiguous 0 zones {0: 40198, 2: 968}
+MIGRATE Pillar_C faces 26528 matched 26528 index_order_identical False uv_identical_to_rebuild False ambiguous 0 zones {0: 24276, 2: 2252}
+MIGRATE Pillar_D faces 19910 matched 19910 index_order_identical False uv_identical_to_rebuild True ambiguous 0 zones {0: 19910}
+MIGRATE Platform_A faces 25908 matched 25908 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 25908}
+MIGRATE Rubble_A faces 2535 matched 2535 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 2535}
+MIGRATE Rubble_B faces 2815 matched 2815 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 2815}
+MIGRATE Stairs_A faces 11488 matched 11488 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 11488}
+MIGRATE Wall_A faces 22880 matched 22880 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 22880}
+MIGRATE Wall_B faces 29592 matched 29592 index_order_identical True uv_identical_to_rebuild True ambiguous 0 zones {0: 29060, 2: 440, 3: 92}
+Info: Saved as "TempleEnvironmentKit_gate1_zones.blend"
+MIGRATE_SAVED /Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

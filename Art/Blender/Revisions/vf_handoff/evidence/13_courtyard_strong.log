@@ -1,0 +1,42 @@
+00:00.408  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/TempleEnvironmentKit_vf_working.blend"
+00:04.061  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_courtyard_plan_before.png'
+PLANCAM (0.0, 0.0, 60.0) ORTHO 46.0 {'res': <bpy id property array [2]>}
+RENDERED VF_courtyard_plan_before 1600 1600
+00:06.717  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_courtyard_gameplay_before.png'
+RENDERED VF_courtyard_gameplay_before 1920 1080
+00:09.907  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_courtyard_gameplay_before_telegraph.png'
+RENDERED VF_courtyard_gameplay_before_telegraph 1920 1080
+00:12.547  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong__tmp_gameplay_before_notele.png'
+RENDERED _tmp_gameplay_before_notele 1920 1080
+00:14.119  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_closeup_wallbrazier_before.png'
+RENDERED VF_closeup_wallbrazier_before 1600 900
+00:16.054  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_closeup_dais_brazier_before.png'
+RENDERED VF_closeup_dais_brazier_before 1600 900
+00:17.499  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_closeup_wall_left_before.png'
+RENDERED VF_closeup_wall_left_before 1600 900
+PATCHED dais mats ['MI_Temple_Platform_A', 'MI_Temple_Stairs_A']
+PATCHED floor mats ['MI_Temple_FloorBorder_Corner_A', 'MI_Temple_FloorBorder_Straight_A', 'MI_Temple_Floor_A', 'MI_Temple_Floor_B', 'MI_Temple_Floor_C', 'MI_Temple_Floor_D'] wall mats ['MI_Temple_Wall_A', 'MI_Temple_Wall_B']
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/scripts/13_courtyard_before_after.py:85: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new('mat_' + kind + str(k)); m.use_nodes = True; nt = m.node_tree
+DECALS ['VF_decal_ring_0', 'VF_decal_ring_1', 'VF_decal_ring_2', 'VF_decal_plume_2', 'VF_decal_ring_3', 'VF_decal_plume_3']
+00:24.279  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/renders/VF_courtyard_plan_after_strongmacro.png'
+RENDERED VF_courtyard_plan_after 1600 1600
+00:32.458  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/vf_handoff/renders/VF_courtyard_gameplay_after_strongmacro.png'
+RENDERED VF_courtyard_gameplay_after 1920 1080
+00:42.237  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_courtyard_gameplay_after_telegraph.png'
+RENDERED VF_courtyard_gameplay_after_telegraph 1920 1080
+00:51.192  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong__tmp_gameplay_after_notele.png'
+RENDERED _tmp_gameplay_after_notele 1920 1080
+01:01.458  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_courtyard_dais_after.png'
+RENDERED VF_courtyard_dais_after 1920 1080
+01:06.039  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_closeup_wallbrazier_after.png'
+RENDERED VF_closeup_wallbrazier_after 1600 900
+01:14.978  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_closeup_dais_brazier_after.png'
+RENDERED VF_closeup_dais_brazier_after 1600 900
+01:17.082  render           | Saved: '/var/folders/f8/zygz3rs96y11lcyvpqxy7p7h0000gn/T/vf_strong_VF_closeup_wall_left_after.png'
+RENDERED VF_closeup_wall_left_after 1600 900
+RES {"plan_px_per_m": 34.78260040283203, "plan_floor_luminance": {"before": {"inside_r_lt_9_5": {"px": 343021, "mean": 0.45722106099128723, "std": 0.050054315477609634, "p5": 0.33348628878593445, "p95": 0.4970078766345978, "cv": 0.10947508364915848, "p5_p95_ratio": 1.490339756011963}, "outside_12_5_to_17": {"px": 484261, "mean": 0.45155274868011475, "std": 0.06308361142873764, "p5": 0.27441099286079407, "p95": 0.4970078766345978, "cv": 0.13970375061035156, "p5_p95_ratio": 1.811180591583252}, "tile_mean_spread": {"n_tiles": 308, "cv_all": 0.06582649208509464, "cv_inside_r10": 0.019996951008946315, "cv_outside_r12": 0.07681285570628534, "p5_p95_ratio_all": 1.2559274130401226}}, "after": {"inside_r_lt_9_5": {"px": 343021, "mean": 0.46071964502334595, "std": 0.05313964933156967, "p5": 0.33041414618492126, "p95": 0.5076714158058167, "cv": 0.11534053087234497, "p5_p95_ratio": 1.5364699363708496}, "outside_12_5_to_17": {"px": 484261, "mean": 0.44129249453544617, "std": 0.07739575207233429, "p5": 0.26181256771087646, "p95": 0.5367741584777832, "cv": 0.1753842532634735, "p5_p95_ratio": 2.0502231121063232}, "tile_mean_spread": {"n_tiles": 308, "cv_all": 0.09072334723556602, "cv_inside_r10": 0.026641546151350847, "cv_outside_r12": 0.10656523457381852, "p5_p95_ratio_all": 1.3433483446338472}}}, "gameplay_telegraph": {"before": {"telegraph_px": 5431, "mean_lift_abs": 0.15706758201122284, "mean_Y_without": 0.44450271129608154, "lift_rel": 0.35335573554039, "floor_Y_std_under_footprint_without_telegraph": 0.057991400361061096, "floor_Y_p5_p95_under_footprint": [0.29820001125335693, 0.48524317145347595]}, "after": {"telegraph_px": 5440, "mean_lift_abs": 0.16050541400909424, "mean_Y_without": 0.43688467144966125, "lift_rel": 0.36738622188568115, "floor_Y_std_under_footprint_without_telegraph": 0.05778985470533371, "floor_Y_p5_p95_under_footprint": [0.2911984324455261, 0.4804878830909729]}, "same_mask_after": {"telegraph_px": 5431, "floor_Y_std_under_before_footprint_after": 0.05779564753174782, "floor_Y_std_under_before_footprint_before": 0.057991400361061096, "lift_after_abs": 0.1607566922903061, "mean_Y_without_after": 0.43691524863243103}}}
+COURTYARD_DONE
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

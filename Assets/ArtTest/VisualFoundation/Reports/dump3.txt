@@ -1,0 +1,4 @@
+before first measure (restart not yet run): Paladin_J_Nordstrom -> VF3_Enemy_rimA (matInstance=False) emisCol=RGBA(1.50, 0.80, 0.55, 1.00)
+before first measure (restart not yet run): Paladin_J_Nordstrom_Helmet -> VF3_Enemy_rimA (matInstance=False) emisCol=RGBA(1.50, 0.80, 0.55, 1.00)
+before first measure (restart not yet run): Paladin_J_Nordstrom_Shield -> VF3_Enemy_rimA (matInstance=False) emisCol=RGBA(1.50, 0.80, 0.55, 1.00)
+before first measure (restart not yet run): Paladin_J_Nordstrom_Sword -> VF3_Enemy_rimA (matInstance=False) emisCol=RGBA(1.50, 0.80, 0.55, 1.00)

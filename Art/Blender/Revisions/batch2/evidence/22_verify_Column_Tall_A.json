@@ -1,0 +1,190 @@
+{
+ "asset": "ENV_Temple_Column_Tall_A",
+ "started": "18:48:32",
+ "A_reopen": {
+  "zone_md5": "33b0cf93776acc421269d810969416cc",
+  "faces": 8200,
+  "tris": 8200,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 6684,
+   "1": 1516
+  },
+  "zone_counts": {
+   "StoneWarm": 6684,
+   "Bronze": 1516
+  }
+ },
+ "B_restored": {
+  "zone_md5": "33b0cf93776acc421269d810969416cc",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 6684,
+   "1": 1516
+  },
+  "zone_counts": {
+   "StoneWarm": 6684,
+   "Bronze": 1516
+  }
+ },
+ "C1_zone_raster": {
+  "res": 1024,
+  "texels_by_zone": {
+   "StoneWarm": 705467,
+   "Bronze": 53160
+  },
+  "texels_empty_or_edge": 289949,
+  "covered_fraction": 0.7235
+ },
+ "C2_bake": {
+  "res": 1024,
+  "seconds": 37.5,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Column_Tall_A_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Column_Tall_A_Normal.png",
+   "Mask": "Textures/ENV_Temple_Column_Tall_A_Mask.png"
+  },
+  "zone_md5_after_bake": "33b0cf93776acc421269d810969416cc",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 705467,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.4275,
+   "smoothness_mean": 0.2454,
+   "basecolor_mean_srgb_hex": "#5E5342"
+  },
+  "Bronze": {
+   "texels": 53160,
+   "metallic_mean": 0.75,
+   "occlusion_mean": 0.2877,
+   "smoothness_mean": 0.4547,
+   "basecolor_mean_srgb_hex": "#7F5B31"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 1048576,
+   "sat_max": 0.656
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "33b0cf93776acc421269d810969416cc",
+  "slots": [
+   "MI_Temple_Column_Tall_A"
+  ],
+  "material_index_hist": {
+   "0": 8200
+  },
+  "zone_counts": {
+   "StoneWarm": 6684,
+   "Bronze": 1516
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Column_Tall_A_verify.blend",
+  "zone_md5": "33b0cf93776acc421269d810969416cc",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Column_Tall_A"
+  ],
+  "material_index_hist": {
+   "0": 8200
+  },
+  "zone_counts": {
+   "StoneWarm": 6684,
+   "Bronze": 1516
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Column_Tall_A.fbx",
+  "bytes": 688636,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Column_Tall_A_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Column_Tall_A_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Column_Tall_A"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Column_Tall_A"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -0.7996,
+   0.0,
+   -0.7998
+  ],
+  "vertex_max": [
+   0.7984,
+   6.7837,
+   0.7967
+  ],
+  "polys": 8200
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 8200,
+  "mesh_tris": 8200,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 3e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Column_Tall_A"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Column_Tall_A_BaseColor.png",
+   "ENV_Temple_Column_Tall_A_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -0.7996,
+    -0.7967,
+    0.0
+   ],
+   "max": [
+    0.7984,
+    0.7998,
+    6.7837
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "33b0cf93776acc421269d810969416cc",
+  "material": "MI_Temple_Column_Tall_A"
+ },
+ "seconds_total": 40.8
+}

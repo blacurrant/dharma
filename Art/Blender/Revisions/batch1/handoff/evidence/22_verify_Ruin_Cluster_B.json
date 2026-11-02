@@ -1,0 +1,190 @@
+{
+ "asset": "ENV_Temple_Ruin_Cluster_B",
+ "started": "16:09:19",
+ "A_reopen": {
+  "zone_md5": "2569672113502ed71e7e468fee36b6a9",
+  "faces": 10579,
+  "tris": 10579,
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 10221,
+   "1": 358
+  },
+  "zone_counts": {
+   "StoneWarm": 10221,
+   "Bronze": 358
+  }
+ },
+ "B_restored": {
+  "zone_md5": "2569672113502ed71e7e468fee36b6a9",
+  "slots": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ],
+  "material_index_hist": {
+   "0": 10221,
+   "1": 358
+  },
+  "zone_counts": {
+   "StoneWarm": 10221,
+   "Bronze": 358
+  }
+ },
+ "C1_zone_raster": {
+  "res": 1024,
+  "texels_by_zone": {
+   "StoneWarm": 712127,
+   "Bronze": 40199
+  },
+  "texels_empty_or_edge": 296250,
+  "covered_fraction": 0.7175
+ },
+ "C2_bake": {
+  "res": 1024,
+  "seconds": 52.8,
+  "files": {
+   "BaseColor": "Textures/ENV_Temple_Ruin_Cluster_B_BaseColor.png",
+   "Normal": "Textures/ENV_Temple_Ruin_Cluster_B_Normal.png",
+   "Mask": "Textures/ENV_Temple_Ruin_Cluster_B_Mask.png"
+  },
+  "zone_md5_after_bake": "2569672113502ed71e7e468fee36b6a9",
+  "slots_during_bake": [
+   "SRC_Temple_StoneWarm",
+   "SRC_Temple_Bronze"
+  ]
+ },
+ "C2_per_zone_baked": {
+  "StoneWarm": {
+   "texels": 712127,
+   "metallic_mean": 0.0,
+   "occlusion_mean": 0.6936,
+   "smoothness_mean": 0.269,
+   "basecolor_mean_srgb_hex": "#594F3E"
+  },
+  "Bronze": {
+   "texels": 40199,
+   "metallic_mean": 0.6619,
+   "occlusion_mean": 0.1801,
+   "smoothness_mean": 0.4386,
+   "basecolor_mean_srgb_hex": "#7F5E34"
+  }
+ },
+ "C2_cyan_scan": {
+  "BaseColor": {
+   "cyan_teal_texels_145_215_sat_gt_0_06": 0,
+   "texels": 1048576,
+   "sat_max": 0.648
+  }
+ },
+ "D_after_swap": {
+  "zone_md5": "2569672113502ed71e7e468fee36b6a9",
+  "slots": [
+   "MI_Temple_Ruin_Cluster_B"
+  ],
+  "material_index_hist": {
+   "0": 10579
+  },
+  "zone_counts": {
+   "StoneWarm": 10221,
+   "Bronze": 358
+  }
+ },
+ "E_reopen": {
+  "file": "verify/ENV_Temple_Ruin_Cluster_B_verify.blend",
+  "zone_md5": "2569672113502ed71e7e468fee36b6a9",
+  "same_as_original": true,
+  "slots": [
+   "MI_Temple_Ruin_Cluster_B"
+  ],
+  "material_index_hist": {
+   "0": 10579
+  },
+  "zone_counts": {
+   "StoneWarm": 10221,
+   "Bronze": 358
+  }
+ },
+ "F_fbx": {
+  "path": "Models/ENV_Temple_Ruin_Cluster_B.fbx",
+  "bytes": 1163484,
+  "fbx_version": 7400,
+  "textures": [
+   [
+    "ENV_Temple_Ruin_Cluster_B_BaseColor.png",
+    true
+   ],
+   [
+    "ENV_Temple_Ruin_Cluster_B_Normal.png",
+    true
+   ]
+  ],
+  "materials": [
+   "MI_Temple_Ruin_Cluster_B"
+  ],
+  "models": [
+   {
+    "name": "ENV_Temple_Ruin_Cluster_B"
+   }
+  ],
+  "UpAxis": 1,
+  "FrontAxis": 2,
+  "CoordAxis": 0,
+  "UnitScaleFactor": 100.0,
+  "vertex_min": [
+   -1.89,
+   -0.0399,
+   -1.9229
+  ],
+  "vertex_max": [
+   2.7279,
+   2.8687,
+   1.7246
+  ],
+  "polys": 10579
+ },
+ "F_checks": {
+  "polys_equal_saved_mesh_tris": true,
+  "fbx_polys": 10579,
+  "mesh_tris": 10579,
+  "axis_map_Blender_xyz_to_FBX_x_z_negy": true,
+  "unit_scale_ratio_fbx_over_blender": 1.0,
+  "max_extent_error_fbx_units": 5e-05,
+  "extents_equal_saved_mesh": true,
+  "up_axis_equal_shipped": true,
+  "unit_scale_equal_shipped": true,
+  "shipped_ref": {
+   "UpAxis": 1,
+   "UnitScaleFactor": 100.0
+  },
+  "materials": [
+   "MI_Temple_Ruin_Cluster_B"
+  ],
+  "textures_resolve": true,
+  "texture_files": [
+   "ENV_Temple_Ruin_Cluster_B_BaseColor.png",
+   "ENV_Temple_Ruin_Cluster_B_Normal.png"
+  ],
+  "identity_transform": true,
+  "zone_id_in_fbx_bytes": false,
+  "mesh_bounds_blender": {
+   "min": [
+    -1.89,
+    -1.7246,
+    -0.0399
+   ],
+   "max": [
+    2.7279,
+    1.9229,
+    2.8687
+   ]
+  }
+ },
+ "G_working_copy_updated": {
+  "zone_md5": "2569672113502ed71e7e468fee36b6a9",
+  "material": "MI_Temple_Ruin_Cluster_B"
+ },
+ "seconds_total": 57.4
+}

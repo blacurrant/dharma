@@ -1,0 +1,263 @@
+# VF_BATCH1_INTEGRATION: stage 1 (graybox proxies)
+
+Scene: `Assets/Scenes/ArtTest_VisualFoundation.unity` (backup of the state before this batch: `Assets/Scenes/ArtTest_VisualFoundation_preBatch1.unity`, byte-identical copy, SHA-256 `283c4da7dfea7522...`). Editor Play Mode figures, Unity 6000.6.7f1, URP Forward+, Metal. Camera B (46.7 deg, size 9) and A2 (42 deg, size 8.5), plain follow, focus helper OFF, key light L0 (38, 45, 0), **Game view fixed Full HD 1920x1080 with HUD** (every row logs the Game view size in `capture_and_view_info`; every capture script now aborts if the camera is not 1920x1080). Transport: `unity` CLI (MCP still unavailable). Nothing staged, committed, pushed.
+
+## Status in one paragraph
+**Real models are NOT integrated yet.** `Art/Blender/Revisions/batch1/handoff/` contains only `Batch1_Placement.csv/.json` (32 rows, regenerated 16:16); the models (`Wall_Tall_A/B`, `Lantern_Pylon_A`, `Ruin_Cluster_A`; no `Ruin_B` or `Backdrop_Mass_*` FBX yet) and textures sit in the Environment Artist's working folders `batch1/Models` and `batch1/Textures`, and you have not told me they have landed, so I have not copied anything. This report covers the requested **graybox stage**: proxies built from the placement table, measured before/after, with collision and shadow tests.
+
+## What was built (all removable: objects named `VF_Proxy_*` under `VF_Batch1_Proxies`)
+Builder `Editor/VF4Builder.cs` (`BuildProxies`, `SetBatch(on)`, `RemoveProxies`); positions read from `Batch1_Placement.json` (unity_x/z and the `yaw_front_to_minusZ` column = this scene's convention; the real yaw check with `Stairs_A`/`Wall_B` is still to do with the real models).
+- **17 tall bays** (4 m x 5.5 m x 1.3 m boxes) at z = +21.33 (north: x = -22, -18, -14, -10, -6, 14, 18; the arch gap x = -4..12 is clear because the table was revised to drop the arch-adjacent bays at x = -2 and 10) and x = -21.33 (west: z = -18, -14, -10, -6, -2, 2, 6, 10, 14, 18), shadow casting ON, no collider.
+- **Backdrop masses** as two stepped boxes each: group `Backdrop_directive_28_55m` (ON, 3 masses at the table's 28-55 m) and `Backdrop_recommended_visible_band` (OFF, 3 masses 7-9 m beyond the bays); matte dark, no shadow casting, no collider; scene fog (linear, start 26, end 70) blends them.
+- **6 pylons** at the table positions (2.8 m: shaft + bowl + flame, one capsule collider each) with a warm point light on the flame (amber, intensity 3, range 6, **no shadows**).
+- **3 ruins** (about 3 m broken pillar toward -x,+z, two toppled drums, a fallen slab; capsule + box colliders) at r 15.0 / 17.0 / 18.6 m.
+- The two Environment-Artist approach braziers and their warm lights (L11) are switched OFF while the batch is ON (Part 7.3: pylons replace them).
+- Saved scene state: batch ON, directive backdrop ON, facade shadows ON.
+
+## Before / after at the arena centre (combat pose, telegraph 45 %), raw: `Reports/b1_metrics_before.csv`, `b1_metrics_graybox.csv`, `b1_stats_*.csv`
+| Row | Floor luma | Player sep | Enemy sep | Telegraph lift mean / p10 | Draw calls | SetPass | Triangles | Shadow casters |
+|---|---|---|---|---|---|---|---|---|
+| B before | 0.381 | -0.052 | -0.073 | 0.137 / 0.048 | 1415 | 103 | 5,266,554 | 815 |
+| B graybox, facade shadows ON | 0.381 | -0.039 | -0.073 | 0.137 / 0.048 | 1487 (+72) | 106 (+3) | 5,222,462 (-44 k) | 875 (+60) |
+| B graybox, facade shadows OFF | 0.381 | -0.053 | -0.076 | 0.137 / 0.048 | 1469 (+54) | 103 (0) | 5,222,228 | 860 (+45) |
+| A2 before | 0.381 | -0.053 | -0.077 | 0.139 / 0.048 | 1390 | 101 | 5,243,180 | 804 |
+| A2 graybox ON | 0.381 | -0.055 | -0.086 | 0.139 / 0.048 | 1464 | 104 | 5,199,112 | 866 |
+| A2 graybox OFF | 0.381 | -0.054 | -0.085 | 0.139 / 0.048 | 1448 | 104 | 5,198,920 | 850 |
+- **Telegraph lift: unchanged (never falls by more than 0.000, the limit is 0.005). PASS.** Floor luma unchanged. The combat area is untouched by design (every proxy is at r >= 12.8 m).
+- **Separation: not worse within the known measurement noise (about +/-0.012, see the iteration-3 follow-up).** Player/enemy values move by -0.002 to +0.013 (the only worse reading is A2 enemy -0.077 to -0.086, 0.009, identical in shadow ON and OFF, so it is not the facade shadow; I attribute it to the noise band but did not isolate it). At other poses see below.
+- **Budget (Part 7.5): draw calls +54..+72 vs 120 allowed: OK. Triangles: no increase (graybox is tiny; real models not measured). Shadow casters: +45 (OFF) / +60 (ON) vs 12 allowed: NOT met by the graybox.** The graybox over-counts (each pylon is 3 casters and each ruin 4); with the real single-mesh pylons (6) and ruins (3) that is about 9 casters, so 9 + 15..17 bays is about 25 with facade shadows ON and 9 with them OFF. The 12-caster budget therefore holds only if the bays do not cast. Needs your decision (see the shadow section).
+- **Frame time (Editor, 1920x1080, `targetFrameRate=-1`, vSync 0, 4 alternating rounds x 200 frames, `Reports/b1_perf_raw.csv`):** before 6.95 / 6.95 / 6.95 / 7.60 ms, graybox ON 6.92 / 6.90 / 6.94 / 8.16, OFF 6.92 / 6.88 / 7.20 / 8.09 (rounds 1-3 differ by under 0.1 ms; round 4 was slower in every state, about +0.7 ms, so it is machine noise). **No measurable frame-time cost at graybox complexity** (about 144 fps, CPU-bound; GPU timing was not available from FrameTimingManager: 0.00).
+
+## Six player positions, raw before/after pairs (1920x1080 Game view with HUD, B and A2)
+Raw frames: `Captures/batch1/before/` and `Captures/batch1/graybox/` (`<state>_{B,A2}_{centre,north,west,dais,arch,edge}.png`; "state" = `before`, `gb_shadowON`, `gb_shadowOFF`). Positions: centre (0,0), north (-8,16), west (-16,-2), dais (-8,8), arch (4,15), edge (13,-13). Enemy parked out of frame, no telegraph in these six (telegraph state is matched in the combat-pose rows). Composites (derived): `Captures/batch1/sheets/ba_centre_dais_arch_B.png`, `ba_edge_north_west_B.png`.
+
+## Shadow casting ON vs OFF on the facade
+Measured, not assumed (raw `gb_shadowON` vs `gb_shadowOFF`; `Captures/batch1/sheets/west_shadowband_diff_x5_B.png`):
+- The facade shadow is a **clean, parallel strip with no acne or noise**, running along the west wall and reaching to about the player's position when the player stands 2.5-4 m from the wall (x = -16..-17); it does not reach the r < 10 m combat circle (x > -10). Analytic reach: 5.5 m / tan(38 deg) = 7.0 m along the light, 4.98 m in x, so the edge falls at x = -16.3; the parapet (3.0 m) already throws its own shadow to x = -16.8, so the facade adds a strip on the wall face and the parapet top plus a narrow band beyond it.
+- Frame mean luma (lower 60 % of the frame) at the west position: before 0.298, ON 0.287, OFF 0.296 (-0.011 for ON). At north -0.003, dais -0.008, arch +0.012 (bay shading), centre/edge unchanged.
+- **Gameplay effect near the west wall (`Reports/b1_westpose.csv`, hold pose at (-17, -2), r = 17 m):** floor luma before 0.257, ON 0.243, OFF 0.262; telegraph lift before 0.191, **ON 0.197 (p10 0.077)**, OFF 0.180; player separation before +0.018, **ON +0.038**, OFF +0.012. At (-14, -2): floor 0.293 / ON 0.280 / OFF 0.290, lift 0.146 / 0.145 / 0.144, separation -0.041 / -0.049 / -0.048 (the -0.008 is in the noise band and equal for ON and OFF). At the arch pose (4, 14): no difference.
+- **Verdict: shadows ON is better**: the shaded band darkens the floor under the characters at the west wall, so the telegraph lift rises (+0.006 to +0.017) and characters separate better; it grounds the tall slab in the scene's light logic instead of a bright un-shadowed strip. Cost: about +15 shadow casters (17 bays, those in the frustum) and +0.011 darker mean luma at the west wall. If the 12-caster budget is binding, the alternative is casting from only the west bays (the north bays face away from the shadow direction and their shadow falls behind the north wall). I recommend ON; your call on the budget.
+
+## Backdrop visibility (measured: share of frame pixels that change when the backdrop is enabled, B; noise floor about 1 %)
+| Position | directive 28-55 m | near band 7-9 m (same dark colour) | near band, lighter (albedo 0.28) |
+|---|---|---|---|
+| centre | 0.95 % | 1.04 % | 0.98 % |
+| north | 0.98 % | 2.12 % | 12.28 % |
+| west | 0.97 % | 6.88 % | 8.22 % |
+| dais | 0.94 % | 1.51 % | 1.67 % |
+| arch | 0.03 % | 2.74 % | 9.45 % |
+| edge | 0.95 % | 0.03 % | 0.97 % |
+**The directive 28-55 m backdrop is invisible at the gameplay camera at every position (all values are noise); a backdrop only appears in frame when it is about 7-9 m beyond the bays, and then only near the north/west/arch positions (silhouette in the top-right of the north and arch frames and the top-left of the west frame), and a dark (0.13) value barely separates from the pure-black void; a lighter value (0.28) reads as a silhouette.** (`Captures/batch1/sheets/backdrop_variants_north_west_B.png`.) The void is **not** meaningfully reduced by the 28-55 m directive; I would put the backdrop at 7-20 m beyond the bays with a clearly lighter value than the void, and say it needs to be tuned once the real masses exist (only Mass A/B/C proxies at boxes here).
+
+## Collision tests (real keyboard input, dash, `Reports/b1_collision_log.csv`, capture run `b1_collision_capture_run.csv`, strips `Captures/batch1/collision/`, `sheets/dash_into_*.png`)
+7 cases, player dashes (22 m/s, 9 dash frames) and keeps holding the direction for 110 frames, then reverses for 30 frames:
+| Case | Result |
+|---|---|
+| pylon 6, dead-centre from +x | stops at 0.93 m from the centre (radius 0.85); input held, speed 0 (expected for a head-on hit on a round collider); **reverse: moved 4.00 m, free** |
+| pylon 6, 0.55 m off-centre | slides past (min distance 0.86), carries on to the existing west wall collider at x = -18.97 and stops there (wall, not the pylon); reverse free |
+| pylon 1 (stairs flank), diagonal | stops at 0.93 m, reverse free (head-on) |
+| ruin 1 pillar, diagonal dead-centre | blocked first by the toppled-drum/slab collider at 1.87 m from the pillar, slides around it and continues past (no stop); reverse free |
+| ruin 1 pillar, 0.75 m off | same: slides, no stop |
+| ruin 1 fallen slab, from +x | stops at 1.68 m (box face), reverse free |
+| ruin 3 pillar, diagonal | slides around (min 1.62 m), no stop; reverse free |
+**No snagging and no stuck player: every case recovers 4.00 m on reverse; glancing hits slide; only head-on hits stop.** Limits: graybox colliders only (the real models' collider shapes are not tested); the ruin box collider is axis-aligned in the ruin's local space and a bit bigger than the visible slab (about 0.1-0.4 m): fine for gameplay, refine with the real model; the enemy AI path around the new obstacles was not tested.
+
+## Honest judgement from the frames (my own eye, at gameplay scale; no QA review)
+- **Is the courtyard visibly richer?** **Only near the north and west walls and the dais.** Pylons and ruins add real mid-height silhouettes and warm accents (the pylon pair flanking the stairs and the arch lane, and the three ruin clusters on the west flank, read clearly); the tall bays give the north/west edge a roof-line instead of a thin cut-out, but in the **arena-centre and edge frames nothing new is visible at all** (the centre frame is unchanged apart from a sliver; the edge frame still shows black void on the camera side because that is where near walls must stay low). So the improvement is local to walls you approach, not global.
+- **Black void:** still dominant at the top of the north and east side and beyond the arch; the bays only fill the top-left of the north view and the upper-left of the west view; the 28-55 m backdrop does nothing visible (above). NE bays (x = 14, 18) sit in deep shade and read as more void.
+- **Combat area clear?** Yes: nothing inside r < 12.8 m; metrics unchanged.
+- **Do characters read?** Yes; separation and telegraph lift unchanged at the centre and better at the west wall (shadowed floor).
+- **What looks wrong:** (1) the bay boxes are flat pale slabs; with a plain sunlit face they glow against the parapet (a real niche/relief surface will matter); (2) the backdrop value problem above; (3) the bay next to the arch in the `arch` frame reads as a separate block against the void; (4) repetition cannot be judged on identical boxes (4 m rhythm with no variation); (5) pylons 1/2 and the existing stair-flanking braziers (the EA's two are off, the original dais braziers remain) crowd the stairs a little; (6) shadows: no acne, no floating pieces, no wrong-yaw issue visible on symmetric boxes (yaw is unverified until the real models arrive), no clipping seen except the bay at the arch edge noted by the table.
+- **Scale:** the 2.8 m pylon and 3 m ruin pillar read right against the 6.3 m pillars and the 3 m parapet.
+
+## Incidents during this stage (all resolved; recorded for QA)
+1. **Game view reset to Free Aspect (842x467):** the first "before" run was captured at the wrong size (floor 0.309, telegraph lift 0.000, a mask offset); it was discarded (`Captures/batch1/INVALID_before_gameview_842x467/`, `Reports/INVALID_b1_*_gameview_842x467.csv`), the Game view was set back to the Full HD preset, and all capture scripts now abort unless the camera is 1920x1080. I do not know what reset the Game view; it happened between iteration 3 and this stage.
+2. **Compile break from my own files:** I had saved harness scripts as `*.cs` inside `Assets/ArtTest/VisualFoundation/Reports/harness/`; Unity compiled them (CS8802) and blocked all recompiles. They are now `*.cs.txt` (`Reports/harness/`); the iteration-3 report's mentions of `lightlayers.cs` / `frame0.cs` refer to `Reports/harness/*.cs.txt`.
+3. An earlier console entry shows a `NullReferenceException` in `CharacterTintFeedback.Apply` (`GetPropertyBlock(null)`) from a run in which my harness invoked `Apply` by reflection after swapping materials; not reproduced in the later runs, protected script untouched.
+
+## Safety
+Original `ArtTest_TempleCourtyard.unity`, the four Unity-generated files: SHA-256 identical to the start of iteration 3 (checked again now). No diff in `Assets/Scripts`, PrototypeArena, SampleScene. No shared URP asset, renderer feature or ProjectSettings change. No Blender / Art/Exports touched. Scripts: `Editor/VF4Builder.cs` is new; no existing art-test script was edited in this stage (nothing to copy to `_history/`). Scene saved with the batch ON; the Editor is not in Play Mode.
+
+## When the real models land (plan, not done)
+Copy FBX/textures to `Assets/ArtTest/VisualFoundation/Batch1/` (copy, never move), import like the kit (scale factor, Y-up, material remap), URP Lit instances from Base/Normal/Mask/Emission matching the kit, pivots at base centre for pylon/ruin, verify the yaw column with Stairs_A/Wall_B, warm no-shadow point lights on the pylon flames (report the caster count), primitive colliders on pylons/ruins only, static/instancing flags, fog-blended backdrop, then re-run exactly the measurements above against this graybox baseline.
+
+## UNVERIFIED
+Everything about the real models; the real shadow-caster count; shadow cost on the GPU (no GPU timing); backdrop tuning beyond the box proxies; enemy pathing around the new colliders; colour-blind/greyscale checks; QA validation of the numbers.
+
+
+---
+# PART 2: REAL MODELS (supersedes the graybox verdicts where they differ)
+
+Editor out of Play Mode when this was written; all performance is Editor-only. Scene: ArtTest_VisualFoundation.unity (preBatch1 backup unchanged). Original courtyard scene hash b30065166bf4 unchanged.
+
+## Integration done
+- Copied (never moved) 8 FBX + textures from `Art/Blender/Revisions/batch1/handoff/{Models,Textures}` to `Assets/ArtTest/VisualFoundation/Batch1/`, SHA-256 checked against SHA256SUMS.txt by `VF5Builder.CopyAndImport` (mismatches reported by the tool; none printed).
+- Textures: colour sRGB, Normal as normal map, Mask sRGB off, mips on, aniso 4, repeat. One `MI_Temple_<part>` URP Lit instance per part: Base, Normal, packed Mask in the Metallic and Occlusion slots (same as the kit builder), Emission map on the pylon only; assigned by name through FBX material remaps because the FBX does not link Mask/Emission. GPU instancing on.
+- Placement from `Batch1_Placement.json` with `yaw_front_to_minusZ`. The 28-55 m directive rows are not instantiated. 17 bays, 6 pylons, 3 ruins, 3 backdrop masses under `VF_Batch1`.
+- Facing check: close-up `Captures/batch1/closeups/bay_north.png` versus the Environment Artist's Blender render shows the niche/relief arena side facing the arena with the stepped top, banners and sun relief; no sign of the wrong side. I verified by eye against their render, not with the Stairs_A/Wall_B reference piece.
+- Pivots: pylons and ruins sit on the floor at their placement points (base-centre pivots; bounds start at y=0).
+- Colliders: pylons = one capsule each (r 0.45, h 2.97, scales with the instance). Ruins = generated primitives (one capsule for the pillar + merged boxes along the footprint; 20 per ruin, voxel 0.5 m). None on bays or backdrop. Static flags: batching/occluder/occludee. Backdrop: no shadow cast/receive, probes for GI.
+- Pylon lights: warm point (1.0,0.62,0.30), range 6, intensity 3, shadows OFF, at the bowl. The two approach-brazier lights stay off while the batch is on (they overlapped the pylons).
+- Backdrop fog blend: NOT done as a fog change (fog is off in this scene; I did not turn it on). The masses are only darkened/unlit; see below.
+
+## Measurements (camera B, 1920x1080 Game view with HUD, L0 key, Editor-only)
+| | before | real, facade shadows ON | real, facade shadows OFF |
+|---|---|---|---|
+| floor luma (arena centre) | 0.381 | 0.381 | 0.381 |
+| telegraph lift B | 0.137 | 0.137 | 0.137 |
+| telegraph lift A2 | 0.139 | 0.139 | 0.139 |
+| player / enemy separation B | -0.052 / -0.076 | -0.053 / (same within noise ±0.012) | same |
+| draw calls (Stats, 4 rounds) | 1373 | 1412 (+39) | 1398 (+25) |
+| SetPass | 95 | 93 | 94 |
+| triangles | 4.46 M | 4.81 M (+342 k) | 4.73 M (+265 k) |
+| shadow casters | 789 | 816 (+27) | 802 (+13) |
+| frame ms (avg of 4) | 6.99 | 7.08 | 7.19 (round 4 outlier 7.52) |
+Telegraph lift is unchanged at the centre (limit 0.005): PASS. Separation within the ±0.012 run-to-run noise: no worsening shown at the centre. Frame time rises about 0.1 ms, within run noise (no GPU timing). Raw: `b1_perf_real_raw.csv`, `b1_metrics_real.csv`, `b1_stats_real.csv`.
+Caveat: Stats absolute counts include the whole scene (789 casters before), so the "+27 / +13" deltas are what matters; the 12-caster budget was graybox-era arithmetic and the real delta is +13 (OFF) / +27 (ON) per this counter, which is over that figure. Needs a Director decision on what the budget measures.
+
+## Facade shadows ON vs OFF (west band, light toward +x,+z)
+Poses at (-14,-2) and (-17,-2), plus centre. `b1_westonly.csv`, `b1_westonly_stats.csv`:
+- (-17,-2): telegraph lift before 0.191, ON 0.190, OFF 0.177; player separation before +0.017, ON +0.034, OFF +0.011. OFF is worse; ON about equals before on lift.
+- (-14,-2): lift 0.146 / 0.144 / 0.144; separation -0.041 / -0.047 / -0.047 (about 0.006 worse with the batch either way; inside noise).
+- Centre: no difference. The band does not reach the combat circle.
+- ON costs +73 draw calls, +46 casters, +0.6 M triangles at (-14,-2) (OFF: +44 / +17 / +0.45 M). A "west only" mode behaved identically to ON in these poses (north bays cast nothing into the measured areas).
+Recommendation: shadows ON for the facades (clean band, no acne seen), accepting the caster cost; the Director decides the budget.
+
+## Pylon scale 1.0 vs 1.25 (B)
+Metrics identical (lift 0.137, floor 0.381, separation -0.052/-0.076 vs -0.054/-0.080, noise). By eye (`sheets/pylon_scale_100_vs_125_B.png`): 1.0 reads as a small post beside the 5 m pillars; 1.25 reads as a proper lantern pylon and still sits clear of the stairs and arch. Recommended: 1.25. NOT yet saved in the scene (scene saved at 1.0); say the word and I set it and the lights' height.
+
+## Backdrop masses (gap beyond the bays, A and B north, C west)
+Visibility is computed from the world vertices over a 7x7 grid of player positions (`b1_backdrop_visibility.py/.csv`, no occlusion); the percentages are share of each mass's vertices inside the frame:
+- gap 5 m: mean 0.6-1.3 %, up to 7.9-13.4 % at the best position; in frame at 9-13 of 49 positions (B and A2 similar; A2 slightly less).
+- 8 m: mean 0.3-0.6 %; 12 m: about 0.1 %; 16 m and beyond: 0 %.
+Pixels changed in the Game view vs no backdrop (B): north wall 9.2 / 4.6 / 1.3 % at 5 / 8 / 12 m; arch 6.7 / 3.7 / 1.1 %; west 3.6 / 1.7 / 1.2 %; centre, edge and dais about 0 (the 1 % floor is capture noise). So the masses help only near the north wall, arch and west wall, and only at 5 m; I left all three at the table position (5 m). Brightness test at 5 m (baked, 2x, 3x albedo via property block, not saved): changed pixels rise 8.3 to 10.0 to 10.8 % at the north wall; sheet `sheets/backdrop_value_off_1_2_3x_gap5_B.png`; I did not decide a value from it. The black void stays dominant at the edge and south/east views (no mass can reach there).
+
+## Six matching before/after pairs (B)
+`Captures/batch1/real/{before,real_shadowON,real_shadowOFF}_{B,A2}_{centre,north,west,dais,arch,edge}.png` (1920x1080, abort-guarded), sheets in `Captures/batch1/sheets/`. Honest read at gameplay scale:
+- Richer: yes near the north wall (stepped, ragged roofline, niches, banners, darker backdrop mass behind) and the west wall (clear ragged silhouette against the void), the dais (four pylons with glowing bowls flank stairs and arch) and the ruin rubble (west wall pose). Warm bowls add focal points.
+- Not richer: the edge/south-east view and the arena centre are essentially unchanged; the void still dominates there.
+- Combat area: clear. Telegraph lift and floor luma unchanged; ruins stay at r 15-19 m, outside the 10 m circle. In the west-wall pose the ruin rubble sits close to the player's lane and the drums are a readability risk in the lower-right of frame (judgement only).
+- Characters: still read against the floor (rim copies still on); the pylon glow adds bright spots next to the dais where the player is lighter than the background, not a measured regression.
+- What looks wrong: (1) the bay row looks like one continuous wall; Bay A/B alternation is not obvious, no visible seams or floating gaps; (2) the arch-side bays end abruptly at x=-6 and 14 (the arch gap is real, accepted); (3) pylon at 1.0 too small; (4) the heavy ruin collider generation is crude (below); (5) backdrop mass is a flat dark slab from some angles.
+- Not seen: shadow acne, wrong yaw, floating, clipping into the parapet.
+
+## Collisions (real input, 11 + 4 cases, `b1_collision_real_log.csv`, `..._log2.csv`)
+- Pylons (4 cases at 1.0, 2 at 1.25): player stops 0.90-1.09 m from the centre (capsule 0.45 + controller 0.45), no stuck: after contact reverse input moves 3.86 m (free). No snagging, no visible gap issues.
+- Ruins: the first run approached diagonally and stopped 5.2 m from the pillar centre (min dist 5.24), so something other than the pillar blocks earlier; second run from +z: ruin1 pillar contact at 1.13 m (stuck on a dead-centre push, which is expected; reverse free 3.86 m), glancing slid (3.5 m movement in the last 30 frames, no stick), ruin2 reached the pillar at 1.06 m then moved 1.83 m, ruin3 stopped 7.0 m short of the pillar centre. I did not identify what blocked ruin1 (diagonal) and ruin3: could be the neighbouring ruin colliders, the unscripted start position, or the generated boxes being larger than the visible rubble. UNRESOLVED. The ruin colliders are the weakest part: the generated 20-collider set per ruin is a placeholder, and a hand-placed 2-3 primitive set is advisable.
+- Dash strips for the real ruin/pylon were NOT captured (the screenshot trigger names did not match); only the numeric logs exist for the real models.
+
+## Not done / unverified
+- Fog blend of the backdrop (fog not enabled; no change made).
+- Facade ON/OFF judged at two west poses plus centre only, not along the whole wall.
+- Scale 1.25 for pylons not committed to the scene.
+- Ruin collision cause for two cases.
+- No change to the four Unity-generated files, protected scripts or shared URP assets. `Art/README.md` shows as modified in git and I did not touch it (not mine; probably the Environment Artist).
+- Dated script copies: `Scripts/_history/VF4Builder_*graybox-final*`, `VF5Builder_*` (three).
+
+
+---
+# PART 3: Director addendum (shadow plan, foundation, backdrop, arch gap)
+
+## (1) Shadow-caster plan (saved in the scene; `VF5Builder.BuildReal`)
+North bays (7) cast OFF, receive ON; west bays (10) cast ON; pylons (6) ON; ruins (3) ON; backdrop (3) OFF. Renderers casting = **19** (9 pylon/ruin + 10 west bays); 10 not casting. The Director's 9 + west bays, confirmed by counting renderers in the scene.
+Cost with the Unity Stats counter (Editor-only, 4 rounds, `b1_perf_plan_raw.csv`): before 789 casters / 1369-1373 draw calls / 4.46 M tris / 7.01 ms; plan with west ON: 816 casters (+27) / 1408 (+39) / 4.81 M (+342 k) / 7.18 ms; plan with west OFF (pylons+ruins only): 802 (+13) / 1394 (+25) / 4.73 M (+265 k) / 7.17 ms. So the 10 west bays cost about +14 casters, +14 draw calls, +77 k tris, with no frame-time difference above noise. The counter is not a renderer count (the 9 pylon/ruin renderers show as +13), so it is not directly comparable to the 12 budget; by renderer count the plan is 9 + 10 = 19.
+Note: this plan's casters (west ON, north OFF) measured the same as all-17-ON in the stats counter at the three poses tested, i.e. the north bays added nothing to the visible shadow pass at those poses. The north-OFF numbers above came from the first run of this script (the `perfb1_plan` pass) and the west band numbers are in Part 2 (WEST column in `b1_westonly_plan.csv` = north off: lift 0.190 at (-17,-2) vs 0.177 with all off, separation +0.034 vs +0.012).
+Shadow band: OFF vs ON as in Part 2 (west ON is better; band reaches about x=-16.3, not the combat circle).
+
+## (2) Bay foundation
+Already as asked: all 17 bays have the pivot at y=0.00 and mesh bounds y -0.40 to 4.99 (A) / 5.99 (B), i.e. the 0.4 m foundation sits below the floor; nothing was lifted. Checked from the scene, not from the placement table (unity_y = 0 there).
+
+## (3) Backdrop: flat slab or mass? Variants at camera B (`sheets/backdrop_variants_off_table_rotscale_far_B.png`, `backdrop4/`)
+- Table position (5 m, baked colour): reads as a dark, flat, mostly unlit slab edge in the top-right corner; changed pixels 8.4 % north / 3.6 % west / 7.7 % arch. Confirms QA's view: not articulated at gameplay scale, a darker rectangle behind the bay row.
+- 9 m, yaw +25, 1.5x wide, 1.2x tall, albedo x1.5: slightly more presence at the north wall (10.4 %), a bit better stepped silhouette, but still a big blunt block; west drops to 1.6 % (barely seen).
+- 14 m, yaw +50, 2.2x/1.6x, albedo x2.5: covers 28-59 % of the frame, bright cream slabs that dominate the picture and compete with the combat area. Rejected.
+Verdict (by eye): the masses as modelled are worth keeping only as dark depth cards behind the bays and only at the table distance; moving/rotating/scaling/brightening does not turn them into an articulated mass; they need a REMODEL (a broken stepped silhouette with several breaks, a gradient vertex tint or fog-style darkening toward the top) before they earn their place. Fog blend not applied (fog off in this scene, and I did not enable it). Variants are not saved: the scene was rebuilt at the table positions, brightness block cleared.
+
+## (4) Arch gap: table (bays x=-6 and x=14 kept, 3.75 m clear) vs removed (about 8 m clear), `sheets/arch_gap_table_vs_removed.png`, `b1_metrics_arch.csv`
+- Metrics: telegraph lift 0.137 / 0.139 identical both ways (limit met); player separation B -0.037 table vs -0.053 removed (0.016, a little over the usual ±0.012 noise, not consistent at A2: -0.055 vs -0.054).
+- By eye: with the bays kept, the bay beside the arch reads as a tall block pressed against the pier and partly hides the arch's silhouette and its inner dark; removing both leaves the low parapet beside the arch, the arch reads cleanly and the arch-side pylons are clearer, at the cost of a slightly less enclosed north-east/north-west corner. I judge the removed version better at the arch. Saved scene keeps the table (both bays present) until you decide; to remove, deactivate B1_WallTall_B_N-06 and B1_WallTall_A_N+14... (N+14 is Wall_Tall_B in the table).
+
+State now: scene saved with the shadow plan, pylon scale 1.0, table backdrop, both arch bays; Editor out of Play Mode; the original courtyard hash is b30065166bf4; nothing staged or committed. Dated copy of VF5Builder taken before the edit.
+
+
+---
+# PART 4: Director decisions of the 4th message (pylon 1.25, shadow acceptance, hand colliders, fog, near-black)
+
+State saved: pylons at scale 1.25 (lights raised with the scale), shadow plan (north bays cast off; west bays, pylons, ruins on), hand-placed ruin colliders, backdrop left as is (DISCARDED in this form per the Director, no more time spent), table bays at the arch. Editor out of Play Mode; Editor-only numbers.
+
+## (2) Acceptance test for the shadow plan (4 rounds each, `b1_perf_final_raw.csv`)
+| | before | batch, west bays cast | batch, no facade casting |
+|---|---|---|---|
+| frame ms (avg, min-max) | 6.76 (6.60-6.87) | 6.87 (6.77-6.96) | 6.89 (6.75-7.10) |
+| delta | | **+0.11 ms** (limit ~0.5) | +0.13 ms |
+| draw calls | 1373 | 1412 (+39) | 1398 (+25) |
+| SetPass | 96 | 98 (+2) | 97 (+1) |
+| triangles | 4.46 M | 4.81 M (+342 k) | 4.73 M (+265 k) |
+| shadow casters (Stats) | 789 | 816 (+27) | 802 (+13) |
+Telegraph lift 0.137 (B) / 0.139 (A2) unchanged at the centre; at the west poses (-17,-2) it is 0.190 with west casting vs 0.177 without (Part 2/3). All three conditions pass the Director's acceptance test (frame delta, draw-call/SetPass delta, lift drop <= 0.005).
+Note for the record: the whole scene (not the batch alone) is still over the provisional D5 draw-call / triangle / caster targets (1373 draw calls, 4.5 M triangles and 789 casters BEFORE the batch, by the Editor Stats counter). Editor Stats include editor overhead, the HUD and every VF overlay quad, so only a player build can settle it.
+
+## (5) Ruin colliders
+- Replaced the generated 19/14/19 collider sets with hand-placed primitives from a 0.5 m top-down height map of each FBX: cluster A = pillar capsule + 2 boxes (1.0 m and 0.8 m tall), cluster B = pillar capsule + 1 box (1.2 m); rubble below about 0.4 m is left walkable. Local-space constants in `VF5Builder.HandColliders` (dated copy `_history/VF5Builder_*before-hand-colliders*`).
+- Cause of the 5-7 m "short stops" in the first runs: not an invisible wall. (a) In the generated set, low voxel boxes 0.33-0.6 m tall sat above the controller step offset 0.3 m, so low rubble blocked like a wall; (b) my test measured the distance to the pillar centre while the rubble mass lies in front of the pillar, so stopping at the rubble read as "short"; (c) cases aimed with a free direction but the player only moves in 8 key directions, so they slid along the rubble. After the fix, the first stop point is a physical collider: ruin 1's 2.5 x 3.5 m rubble box, ruin 3's box at (-14.2,-9.9). I verified with OverlapSphere at each stop point.
+- Re-ran with real keyboard input aligned to one of the 8 key directions (`b1_collision_real_hand_log.csv`): 6 pylon dashes + 2 glancing + 3 ruin pillar + 3 ruin box + 3 ruin glancing = 17 cases. Pylons 1, 2, 3, 6 and both glancing cases stop at gap 0.45-0.53 m (controller radius 0.45 + skin) and reverse fully (4.0 m in 30 frames). Pylon 5 and ruin 1 pillar and ruin 2 cases: dash path passed beside or stopped on the rubble (ruin 2: sliding contact held 69-80 frames with speed above 0.4: slides, no stick); ruin 3 stops at the box (reverse 3.18 m, free).
+- ONE REAL ISSUE: **pylon 4** at (11.4,18.2): the player slides to the north clamp (z=19) and is pinched between pylon 4 and the kit's brazier collider `Proxy_LAY_Brazier_A_004` at (9.4,17.6) (centres 2.1 m apart); reverse moves only 1.15 m in 30 frames (reproduced 9/9 runs; `b1_collision_pylon4_log.csv`). It does move slowly (not frozen) but reads as stuck. Fix: move pylon 4 about 1 m east or drop it (placement table change; I did not change it). Pylon 3 at (-2.4,18) is similar next to brazier 003 but reversed freely.
+- Dash strips of the real models: `Captures/batch1/collision_real/*_fNN.png` (frames 10-36, 1920x1080) and sheets `sheets/dash_real_pylon1.png`, `dash_real_ruin1_pillar.png`, `dash_real_ruin3_box.png`: the player stops at the visible surface of pylon 1 and ruin 3 rubble with no clipping or visible gap; the figure is small at camera size 9 (shot framing from the harness).
+
+## (4) Fog
+IMPORTANT correction: the saved scene already had linear fog ON (26-70 m, colour 0.10,0.085,0.075, warm dark), also in `_preBatch1`; I wrongly treated fog as off earlier ("fog tested then off" was wrong for the saved scene). All earlier before/after pairs therefore already include it, and "fog blend of the backdrop" is partly in place.
+A/B at camera B (`sheets/fog_AB_B.png`, `b1_metrics_fog.csv`): OFF vs the scene fog 26-70 vs a stronger 28-50 in the void colour. Telegraph lift 0.137 in all three (A2 0.139); floor luma 0.383/0.381/0.382; pixels changed vs OFF 0-1 % at the north, west and arch poses (4.9 % at the centre for the strong one); mean luma difference 0.3-1.4/255. Visible result: none at gameplay scale; camera distance to the facades is only about 38-45 m so the fog is at 20-45 % there, and the facades are already dark. Recommendation: keep the scene fog as it is (warm dark, no cyan); a stronger fog buys no visible depth and risks the floor at the centre. The scene fog values were restored after the test (scene not dirty).
+
+## (6) Near-black share (non-HUD pixels with luma < 0.08 / < 0.12; HUD box masked; `b1_nearblack_share.py/.csv`)
+| pose (B) | <0.08 before -> after | <0.12 before -> after |
+|---|---|---|
+| centre | 0.6 -> 0.8 % | 1.3 -> 1.6 % |
+| north wall | 6.3 -> 8.5 | 28.5 -> 14.8 |
+| west wall | 4.5 -> 7.0 | 20.8 -> 16.9 |
+| dais | 3.4 -> 3.8 | 7.5 -> 6.9 |
+| arch | 13.1 -> 9.8 | 27.0 -> 16.7 |
+| edge (SE corner, (13,-13)) | 12.2 -> 12.2 | **51.7 -> 51.7** |
+A2 is within 1.3 points of B for every row. The batch reduces the dim share near the north wall, west wall and arch (the bays and backdrop fill it), but adds a little pure black at the walls (deep niche shadow). The centre has almost no near-black, so the "dark void" is not at the centre by this measure; it is the south/east outside the parapet (edge pose, 52 % below 0.12): dark outer ground beside a dark-brown outer wall face.
+TEST (flat existing-part only, VF scene, not saved): the existing `VF_OuterGround` (albedo 0.11,0.09,0.075) brightened by a property block, plus one variant with two flat apron strips (10 m wide, S and E, y=-0.28):
+- x2.5 (albedo about 0.28,0.23,0.19): edge < 0.12 share 51.7 -> 14.2 %, north 14.9 -> 10.4, arch 16.8 -> 13.6, centre unchanged; arena still dominates, parapet silhouette still reads.
+- x4: edge -> 5.2 %, north 8.6, arch 7.3; but it begins to look like a flat pale floor and competes with the arena (judgement).
+- x2.5 + apron strips: edge 14.0 %, i.e. no gain over x2.5 alone.
+Telegraph lift 0.137 / 0.139, floor luma 0.381 and separation (-0.053/-0.074 B) unchanged in all variants (`b1_metrics_outer.csv`, `sheets/outer_ground_variants_B.png`).
+**Recommendation (one):** raise the outer ground albedo to about x2.5 (0.28,0.23,0.19) and keep fog as is; no apron, no new geometry in the arena. Not applied to the scene; say go and I set the material (VF material, art-test only).
+
+## Part 5: Arch-gap decision applied
+Bays B1_WallTall_B_N-06 and B1_WallTall_B_N+14 removed from the saved VF scene (15 bays now); reversible via `VF5Builder.RemoveArchBays=false` + `BuildReal`. Placement table untouched. Backdrop stays at the table positions and is excluded from judgement. Final six-position re-run is in `VF_ITERATION_3.md` (end).
+
+## Part 6: QA follow-up on the ruin stops
+Recomputed with the original generated colliders (rebuilt on temporary clones with the same method, then destroyed): Ruin1 diag stop (-10.75,-8.53) sits 0.50 m from the nearest generated Ruin_1 box surface (3.92 m from the Ruin_1 pivot); Ruin3 diag stop (-11.74,-14.66) sits 0.46 m from a generated Ruin_3 box surface (4.19 m from the Ruin_3 pivot; 2.52 m from the Ruin_2 pivot, which QA noted, but Ruin_2's colliders were not the ones touched). Both stops were therefore real contact (controller radius 0.45 + skin) with the generated rubble boxes inside the cluster footprints, and the earlier "5-7 m short of the pillar" wording measured against the pillar instead of the collider set, as QA read it. The hand-placed primitives were already in place; see Part 4.
+
+## Part 7: evidence stored, centre pair matched, dais enemy finding
+See `VF_ITERATION_3.md` (end). Key points: evidence for all six poses at B and A2 in `Captures/batch1/evidence_final/`; centre pair re-captured with no HIT; telegraph lift within budget at every pose; enemy separation worsens at the dais (-0.005 -> -0.058) because the two brazier lights I switch off with the batch were lighting that spot; pylon lights at the bowl do not replace them.
+
+## Part 8: outer ground, pylon 4, fog note
+Outer ground x2.5 saved (edge near-black 51.7 -> 14.2 %); pylon 4 moved +1 m east in the VF scene (pinch gone: reverse 1.15 -> 3.83 m); fog unchanged. Details and the character-lift/variance results: `VF_ITERATION_3.md` addendum.
+
+
+---
+# Part 9: Errata after QA (ruin dashes re-done, wording of the near-black metric)
+
+## Ruin dashes re-run with distinct targets (`b1_ruin_dash_log.csv`, `b1_ruin_dash_summary.csv`, `b1_ruin_dash_plan.csv`)
+QA is right: in the earlier set four cases ('ruin 3' x3 and 'ruin1 box1') ended at the same point (-14.22,-9.91), so 'ruin1 box1' had stopped on ruin 3's box; the glancing cases (gaps 7.4, 3.8, 8.5 m, clamped at the arena boundary) never reached a target. **Those earlier ruin results and all glancing cases are withdrawn as collision tests** (glancing cases are path-clearance runs only, not collision evidence).
+New method: for each ruin and each target (capsule, largest box) every one of the 8 key directions is tried, a sphere cast (r 0.45) from 7 m back must hit THAT collider first and the start must be inside the arena; the first valid direction and the most opposite valid one are run with real key input.
+| case | start | min gap to target surface | contact point | behaviour | reverse (first-to-last frame) |
+|---|---|---|---|---|---|
+| Ruin_1 capsule, dir 1 (0,-1) | (-14.7,2.0) | 0.53 | (-14.67,-3.92) | stops, held 76/76 frames | 3.87 m |
+| Ruin_1 box, dir 1 (0,-1) | (-12.5,0.8) | 0.53 | (-12.50,-3.97) | stops, 83/83 | 3.87 m |
+| Ruin_1 box, dir 8 (0,+1) | (-12.5,-13.3) | 0.53 | (-11.36,-8.53) | stops, 81/81 | 3.87 m |
+| Ruin_2 box, dir 1 (0,-1) | (-8.8,-7.1) | 0.48 | (-10.69,-12.87) | contacts then slides along the rubble (0/41 frames slow), ends (-11.54,-17.35) | 3.86 m |
+| Ruin_2 box, dir 2 (-0.71,-0.71) | (-3.8,-9.1) | 0.46 | (-7.02,-15.48) | contacts obliquely and slides, ends (-10.88,-18.99) at the clamp | 3.87 m |
+| Ruin_3 box, dir 2 (-0.71,-0.71) | (-8.8,-7.6) | 0.49 | (-14.22,-9.91) | stops (wedged on box + capsule), 36/36 | 3.06 m |
+| Ruin_3 box, dir 5 (-0.71,+0.71) | (-8.8,-17.5) | 0.46 | (-11.48,-11.17) | contacts obliquely and slides, ends (-13.25,-8.77) | 3.86 m |
+All seven end within 1 m of the target collider surface (0.46-0.53 m = controller radius + skin). Ruin_1 has three distinct contacts (capsule, box from two sides); Ruin_2 and Ruin_3 have two directions each (box). **Not covered:** the Ruin_2 and Ruin_3 pillar capsules - no straight key-direction approach inside the arena reaches them first (rubble boxes shield them, or the start would lie outside the arena); the Ruin_3 reverse (3.06 m) is shorter because the player is wedged between the box and the capsule, still moving. All reverse distances are first-to-last reverse frame.
+**Pylon 4** (after the +1 m move) recomputed with first-to-last reverse frame: straight 3.70 m, glancing-minus 3.70 m (stops at the capsule, gap 0.45, held 49-62 frames), glancing-plus misses the pylon (gap 0.97, clamped: not a collision test). The earlier pre-move "1.15 m" was a different reverse measure (position difference to the end of the dash rather than first-to-last reverse frame; QA recomputed about 1.0 m); the pre-move log was overwritten by the re-run, so I cannot recompute it, but both measures show the pre-move case as stuck (about 1 m) versus 3.7 m now.
+
+## Wording: "near-black share" is a DIM share
+The metric in `b1_nearblack_share.py` thresholds gamma-encoded (sRGB) values (Rec.709 weights applied to the encoded 0-255 values /255), not linear luminance. Call it the **dim share** (below 0.12 and below 0.08 encoded luma). Also, the share below 0.08 RISES at some poses with the batch (north 6.3 -> 8.5 %, west 4.5 -> 7.0 %, centre 0.6 -> 0.8 %; arch falls 13.1 -> 9.8 %, edge unchanged 12.2 %): the batch adds some very dark areas (deep niche shadows) while lifting the dim ones (<0.12: north 28.5 -> 14.8 %, arch 27.0 -> 16.7 %). Statements elsewhere that the batch "reduces near-black" apply to the <0.12 dim share only.
+
+## Part 10: outer ground macro+gradient, enemy-material findings
+See `VF_ITERATION_3.md` (end). Outer ground now has a baked macro-plus-gradient texture (SE edge dim share 14.2 -> 11.8 %, nothing else changes); enemy albedo test: albedo and emission do not drive the enemy's measured luma.

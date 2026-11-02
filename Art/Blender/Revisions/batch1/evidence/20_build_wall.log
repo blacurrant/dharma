@@ -1,0 +1,8 @@
+00:00.691  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+BUILT ENV_Temple_Wall_Tall_A {"tris": 4880, "area3d_m2": 147.39, "uv_fill": 0.783, "tex_res": 2048, "texel_density_px_per_m": 149.3, "target": 120, "bbox_min": [-2.0, -0.632, -0.4], "bbox_max": [2.0, 0.636, 4.994], "dims_m": [4.0, 1.267, 5.394], "faces": 4880, "zones": {"StoneWarm": 4592, "StoneCharcoal": 232, "Bronze": 56}, "seconds": 0.0}
+BUILT ENV_Temple_Wall_Tall_B {"tris": 6320, "area3d_m2": 177.68, "uv_fill": 0.758, "tex_res": 2048, "texel_density_px_per_m": 133.7, "target": 120, "bbox_min": [-2.0, -0.631, -0.4], "bbox_max": [2.0, 0.631, 5.992], "dims_m": [4.0, 1.263, 6.392], "faces": 6320, "zones": {"StoneWarm": 5980, "StoneCharcoal": 284, "Bronze": 56}, "seconds": 0.0}
+Info: Saved as "TempleEnvironmentKit_batch1.blend"
+BUILD_DONE ['Wall_Tall_A', 'Wall_Tall_B']
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

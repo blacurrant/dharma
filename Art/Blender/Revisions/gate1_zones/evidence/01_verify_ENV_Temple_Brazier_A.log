@@ -1,0 +1,34 @@
+00:00.395  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend"
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/01_verify_zones.py:125: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  ztmp = bpy.data.materials.new('_zone_probe'); ztmp.use_nodes = True
+/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/scripts/01_verify_zones.py:157: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = bpy.data.materials.new(mname); fm.use_nodes = True
+00:16.772  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Brazier_A/ENV_Temple_Brazier_A_verify.blend"
+A reopen {'file': '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/TempleEnvironmentKit_gate1_zones.blend', 'zone_md5': 'd6c2592607adcdb8d375a53199b842d4', 'slots': ['MI_Temple_Brazier_A'], 'material_index_hist': {0: 6082}, 'attributes': ['UVMap', 'blocktone', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 1296, 2: 3488, 5: 1298}}
+B restored {'slots': ['SRC_Temple_StoneWarm', 'SRC_Temple_Bronze', 'SRC_Temple_EmberAmber'], 'material_index_hist': {0: 1296, 1: 3488, 2: 1298}, 'attributes': ['UVMap', 'blocktone', 'material_index', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 1296, 2: 3488, 5: 1298}}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+C per-zone {"StoneWarm": {"faces": 1296, "albedo_srgb_mean": [0.669, 0.634, 0.568], "metallic_mean": 0.0, "roughness_mean": 0.732, "ao_mean": 0.823}, "Bronze": {"faces": 3488, "albedo_srgb_mean": [0.773, 0.671, 0.508], "metallic_mean": 0.795, "roughness_mean": 0.499, "ao_mean": 0.616}, "EmberAmber": {"faces": 1298, "albedo_srgb_mean": [0.26, 0.166, 0.111], "metallic_mean": 0.0, "roughness_mean": 0.698, "ao_mean": 0.314}}
+Info: Baking map saved to internal image, save it externally or pack it
+C zone-through-shader {'max_abs_err': 0.0, 'faces_within_0_02': 6082, 'faces': 6082}
+D after swap {'slots': ['MI_gate1_verify_Brazier_A'], 'material_index_hist': {0: 6082}, 'attributes': ['UVMap', 'blocktone', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 1296, 2: 3488, 5: 1298}, 'zone_md5': 'd6c2592607adcdb8d375a53199b842d4'}
+Info: Saved as "ENV_Temple_Brazier_A_verify.blend"
+E reopen {'file': '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Brazier_A/ENV_Temple_Brazier_A_verify.blend', 'zone_md5': 'd6c2592607adcdb8d375a53199b842d4', 'same_as_original': True, 'slots': ['MI_gate1_verify_Brazier_A'], 'material_index_hist': {0: 6082}, 'attributes': ['UVMap', 'blocktone', 'pas', 'position', 'sharp_edge', 'sharp_face', 'zone_id'], 'zone_counts': {0: 1296, 2: 3488, 5: 1298}}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Brazier_A/ENV_Temple_Brazier_A_intended.fbx'
+export finished in 0.0244 sec.
+F fbx intended {'bytes': 605196, 'has_LayerElementColor': False, 'geometries': [{'polys': 6082, 'layer_elements': ['LayerElementBinormal', 'LayerElementMaterial', 'LayerElementNormal', 'LayerElementTangent', 'LayerElementUV']}], 'materials': ['MI_gate1_verify_Brazier_A'], 'user_properties': [], 'zone_attribute_in_fbx': False}
+
+FBX export starting... '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/gate1_zones/verify/ENV_Temple_Brazier_A/ENV_Temple_Brazier_A_optin_zonecolor.fbx'
+export finished in 0.0163 sec.
+FBX version: 7400
+FBX version: 7400
+FBX version: 7400
+VERIFY_DONE ENV_Temple_Brazier_A
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

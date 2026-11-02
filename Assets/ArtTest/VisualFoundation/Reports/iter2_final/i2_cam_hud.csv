@@ -1,0 +1,5 @@
+config,frames,min_ring_visible_pct_excl_HUDall,min_ring_visible_pct_excl_HUDbars,min_margin_px,telegraph_frames,max_telegraph_pct_under_HUDall,max_telegraph_pct_under_HUDbars,min_wall_base_visible_pct_excl_HUD,min_spacing_px,max_spacing_px,frames_player_out_of_frame
+A,262,80.6,88.3,23,94,0.0,0.0,0.0,89,456,0
+A2,263,82.2,91.1,72,94,0.0,0.0,0.0,84,432,0
+B,263,80.6,90.0,39,94,0.0,0.0,2.5,86,420,0
+C,263,82.8,94.4,130,94,0.0,0.0,18.8,71,343,0

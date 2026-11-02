@@ -1,0 +1,15 @@
+case,stop_x,stop_z,frame,ruin,collider,surface_gap_m,status
+ruin1_pillar_dash_from_centre,-10.72,-5.05,21,Ruin_1,box0,0.53,"VALID_CONTACT (stops at Ruin_1 box0; target was the pillar, which sits behind the rubble box)"
+ruin1_box1_dash_from_centre,-14.23,-9.91,107,Ruin_1,box1,0.91,"NOT_A_COLLISION_TEST (stopped on Ruin_3 colliders, not its own target)"
+ruin1_box1_dash_from_centre,-14.23,-9.91,107,Ruin_3,capsule,0.52,"NOT_A_COLLISION_TEST (stopped on Ruin_3 colliders, not its own target)"
+ruin1_box1_dash_from_centre,-14.23,-9.91,107,Ruin_3,box0,0.49,"NOT_A_COLLISION_TEST (stopped on Ruin_3 colliders, not its own target)"
+ruin3_pillar_dash_from_centre,-14.22,-9.91,63,Ruin_1,box1,0.91,NOT_DISTINCT (same stop point as other ruin 3 cases; wedged on Ruin_3 box+capsule)
+ruin3_pillar_dash_from_centre,-14.22,-9.91,63,Ruin_3,capsule,0.53,NOT_DISTINCT (same stop point as other ruin 3 cases; wedged on Ruin_3 box+capsule)
+ruin3_pillar_dash_from_centre,-14.22,-9.91,63,Ruin_3,box0,0.49,NOT_DISTINCT (same stop point as other ruin 3 cases; wedged on Ruin_3 box+capsule)
+ruin3_box1_dash_from_centre,-14.22,-9.91,69,Ruin_1,box1,0.91,NOT_DISTINCT (same stop point as other ruin 3 cases; wedged on Ruin_3 box+capsule)
+ruin3_box1_dash_from_centre,-14.22,-9.91,69,Ruin_3,capsule,0.53,NOT_DISTINCT (same stop point as other ruin 3 cases; wedged on Ruin_3 box+capsule)
+ruin3_box1_dash_from_centre,-14.22,-9.91,69,Ruin_3,box0,0.49,NOT_DISTINCT (same stop point as other ruin 3 cases; wedged on Ruin_3 box+capsule)
+ruin3_pillar_glancing_0.75,-14.22,-9.91,68,Ruin_1,box1,0.91,NOT_A_COLLISION_TEST (glancing / path-clearance run; did not reach target or ended at arena clamp)
+ruin3_pillar_glancing_0.75,-14.22,-9.91,68,Ruin_3,capsule,0.53,NOT_A_COLLISION_TEST (glancing / path-clearance run; did not reach target or ended at arena clamp)
+ruin3_pillar_glancing_0.75,-14.22,-9.91,68,Ruin_3,box0,0.49,NOT_A_COLLISION_TEST (glancing / path-clearance run; did not reach target or ended at arena clamp)
+# Clean tests (one per ruin, distinct targets, ends within 1 m of the target collider): see b1_ruin_dash_summary.csv - Ruin_1 capsule dir1 (gap 0.53, stops), Ruin_2 box dir1 (gap 0.48, contact then slide), Ruin_3 box dir2 (gap 0.49, stops wedged).

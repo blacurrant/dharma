@@ -1,0 +1,8 @@
+var r=VFRunner.Create(); r.outDir="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation"; r.lightDir="Captures/batch1/westpose"; r.lightCsv="Reports/b1_westpose.csv";
+void FacadeShadows(bool on){ foreach(var t in UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsInactive.Include)) if(t.name.StartsWith("VF_Proxy_Bay_")) t.shadowCastingMode= on?UnityEngine.Rendering.ShadowCastingMode.On:UnityEngine.Rendering.ShadowCastingMode.Off; }
+System.Collections.IEnumerator Routine(){ yield return null; yield return null; if(UnityEngine.Camera.main.pixelWidth!=1920){ r.status="stack done ABORT size"; r.done=true; yield break; }
+  UnityEngine.Time.captureFramerate=60; System.IO.File.Delete(r.outDir+"/"+r.lightCsv); r.SetConfig(9f,18f);
+  foreach(var c in new[]{("w14",-14f,-2f),("w17",-17f,-2f),("n_arch",4f,14f)}){ r.holdCenter=new UnityEngine.Vector3(c.Item2,0,c.Item3);
+    foreach(var st in new[]{"before","gbON","gbOFF"}){ VF4Builder.SetBatch(st!="before"); FacadeShadows(st=="gbON"); for(int i=0;i<12;i++) yield return null; r.Measure(c.Item1+"_"+st,0.45f); while(!r.done) yield return null; } }
+  r.holdCenter=UnityEngine.Vector3.zero; VF4Builder.SetBatch(true); FacadeShadows(true); UnityEngine.Time.captureFramerate=0; r.status="stack done"; r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

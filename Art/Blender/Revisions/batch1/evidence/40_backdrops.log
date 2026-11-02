@@ -1,0 +1,23 @@
+00:00.279  blend            | Read blend: "/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/TempleEnvironmentKit_batch1.blend"
+00:03.529  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_A_north_BEFORE.png'
+RENDERED Backdrop_A_north_BEFORE
+00:05.886  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_A_north_AFTER_recommended.png'
+RENDERED Backdrop_A_north_AFTER_recommended
+00:08.257  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_A_north_AFTER_directive28-55m.png'
+RENDERED Backdrop_A_north_AFTER_directive28-55m
+00:10.189  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_B_north_BEFORE.png'
+RENDERED Backdrop_B_north_BEFORE
+00:13.416  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_B_north_AFTER_recommended.png'
+RENDERED Backdrop_B_north_AFTER_recommended
+00:16.440  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_B_north_AFTER_directive28-55m.png'
+RENDERED Backdrop_B_north_AFTER_directive28-55m
+00:19.658  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_C_west_BEFORE.png'
+RENDERED Backdrop_C_west_BEFORE
+00:23.545  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_C_west_AFTER_recommended.png'
+RENDERED Backdrop_C_west_AFTER_recommended
+00:27.406  render           | Saved: '/Users/landerstudio/MythicRoguelite/Art/Blender/Revisions/batch1/renders/Backdrop_C_west_AFTER_directive28-55m.png'
+RENDERED Backdrop_C_west_AFTER_directive28-55m
+BA_DONE backdrops
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:31:22)
+
+Blender quit

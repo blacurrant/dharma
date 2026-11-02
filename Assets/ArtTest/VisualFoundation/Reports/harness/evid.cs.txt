@@ -1,0 +1,17 @@
+var r=VFRunner.Create(); r.outDir="/Users/landerstudio/MythicRoguelite/Assets/ArtTest/VisualFoundation"; r.lightDir="Captures/char_i3_evidence_frames"; r.lightCsv="Reports/i3_evidence_rows.csv"; r.saveEvidence=true; r.evidenceDir="Captures/evidence_i3";
+var pl=UnityEngine.GameObject.Find("Player"); var en=UnityEngine.GameObject.Find("ArenaEnemy");
+UnityEngine.Material LM(string n){ return UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/ArtTest/VisualFoundation/Materials/"+n+".mat"); }
+void Assign(UnityEngine.GameObject g, UnityEngine.Material m){ var tf=g.GetComponent<CharacterTintFeedback>(); foreach(var sr in g.GetComponentsInChildren<UnityEngine.SkinnedMeshRenderer>(true)) sr.sharedMaterial=m;
+  var t=typeof(CharacterTintFeedback); var bf=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance; var rs=(System.Array)t.GetField("renderers",System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.Instance|bf).GetValue(tf); var bc=new UnityEngine.Color[rs.Length]; for(int i=0;i<rs.Length;i++) bc[i]=((UnityEngine.Renderer)rs.GetValue(i)).sharedMaterial.GetColor("_BaseColor"); t.GetField("_baseColors",bf).SetValue(tf,bc); t.GetMethod("Apply",bf).Invoke(tf,new object[]{UnityEngine.Color.white,true}); }
+var saved=new System.Collections.Generic.Dictionary<string,UnityEngine.Material>(); foreach(var g in new[]{pl,en}) saved[g.name]=g.GetComponentInChildren<UnityEngine.SkinnedMeshRenderer>(true).sharedMaterial;
+var origP=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/Characters/Player/Materials/Paladin_MAT.mat"); var origE=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/Characters/Enemy/Materials/Paladin_Enemy_MAT.mat");
+void Mats(string v){ if(v=="orig"||v.StartsWith("lightrim")){ Assign(pl,origP); Assign(en,origE);} else { Assign(pl,LM("VF3_Player_"+v)); Assign(en,LM("VF3_Enemy_"+v)); } }
+System.Collections.IEnumerator Routine(){
+  UnityEngine.Time.captureFramerate=60; System.IO.File.Delete(r.outDir+"/"+r.lightCsv);
+  var vars=new[]{"orig","rimA","rimB","lightrim14","lightrim6"};
+  foreach(var cfg in new[]{("B",9f,18f),("A",8f,15.28f)}){ r.SetConfig(cfg.Item2,cfg.Item3); for(int i=0;i<10;i++) yield return null;
+    foreach(var v in vars){ Mats(v); for(int i=0;i<10;i++) yield return null; while(UnityEditor.ShaderUtil.anythingCompiling) yield return null; for(int i=0;i<20;i++) yield return null;
+      if(v.StartsWith("lightrim")){ r.Rim(v=="lightrim14"?14f:6f,new UnityEngine.Color(1f,0.94f,0.85f)); for(int i=0;i<8;i++) yield return null; }
+      r.Measure(v+"_"+cfg.Item1,0.45f); while(!r.done) yield return null; if(v.StartsWith("lightrim")) r.ClearTmp(); } }
+  Assign(pl,saved["Player"]); Assign(en,saved["ArenaEnemy"]); UnityEngine.Time.captureFramerate=0; r.status="stack done"; r.done=true; }
+r.done=false; r.StartCoroutine(Routine()); return "started";

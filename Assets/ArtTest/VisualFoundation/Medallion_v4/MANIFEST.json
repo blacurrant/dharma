@@ -1,0 +1,64 @@
+{
+ "asset": "ENV_Temple_Central_Medallion.fbx",
+ "version": "v4 (masonry blocks + high-poly relief bake)",
+ "source_blend": "Art/Blender/Revisions/medallion_v4/ENV_Temple_Central_Medallion_v4.blend",
+ "scripts": "Art/Blender/Revisions/medallion_v4/scripts/v4_maps.py, v4_build.py",
+ "units": "metres; Blender +Z up; FBX Y-up, -Z forward, bake_space_transform",
+ "geometry": {
+  "low_tris_blender": 5594,
+  "reimport": {
+   "tris": 5594,
+   "verts": 3326,
+   "uv_layers": [
+    "UVMap"
+   ],
+   "materials": [
+    "M_Temple_Central_Medallion_v4"
+   ],
+   "bbox_min": [
+    -3.8977,
+    -3.8967,
+    -0.0
+   ],
+   "bbox_max": [
+    3.8999,
+    3.8974,
+    0.1088
+   ],
+   "diameter_m": 7.7977,
+   "height_m": 0.1088
+  },
+  "blocks": 35,
+  "joint_gap_m": 0.02,
+  "top_z_m": 0.09,
+  "lip_z_m": 0.015
+ },
+ "high_poly": {
+  "grid_step_m": 0.007,
+  "tris": 2549282,
+  "source": "4096 planar heightfield (1.93 mm/px)"
+ },
+ "textures": {
+  "res": 2048,
+  "uv": "planar top-down for tops/bed; wall faces use a corner patch",
+  "mask": "URP Mask Map: R metallic 0, G AO (heightfield cavity AO), B 0, A smoothness"
+ },
+ "q18": {
+  "pct_cyan_teal": 0.0,
+  "mean_rgb_srgb": [
+   97.9,
+   84.4,
+   64.3
+  ]
+ },
+ "sha256": {
+  "Textures/ENV_Temple_Central_Medallion_BaseColor.png": "00670706ba4e7838be9ba41e44059415743bd9082ff3eea50a4d8d2e7ae3e17e",
+  "Textures/ENV_Temple_Central_Medallion_Normal.png": "98d7fa7438205c5f894494e4d51dcaa3438cc94790256ec9b1e0d641f6f3b2d0",
+  "Textures/ENV_Temple_Central_Medallion_Mask.png": "71028867c9397a73a90e066250179a9ad1383eda05d5c7ac8669e7b438d1bfd8",
+  "Models/ENV_Temple_Central_Medallion.fbx": "62a8d4f84f1c5c13a09082003f5da3dbacab650fa3fdc9a5f269825aae0a19a9"
+ },
+ "notes": [
+  "FBX links BaseColor + Normal only; assign Mask in Unity material.",
+  "Previous v3 staging folder untouched (Staging/Medallion/)."
+ ]
+}
